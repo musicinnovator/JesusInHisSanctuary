@@ -18,11 +18,11 @@ const TimelinePage = () => {
     // Step 0
     {
       step: 0,
-      aaron: "Aaron comes through the gate to work in the morning",
+      aaron: "Aaron comes through the gate veil in the morning service",
       jesus: "Jesus is born into this world of sinful human flesh",
-      aaronRef: "",
+      aaronRef: "Leviticus 16:3",
       jesusRef: "Matthew 1:21; Luke 1:35; John 1:14",
-      description: "Entrance into the work: Aaron begins daily service; Christ enters humanity (incarnation)."
+      description: "Entrance into the work: Aaron begins daily service; Christ enters this world through humanity (incarnation)."
     },
     // Step 1
     {
