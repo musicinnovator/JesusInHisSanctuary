@@ -31,7 +31,7 @@ const TimelinePage = () => {
       jesus: "Baptism (by John at the river Jordan)",
       aaronRef: "Leviticus 16:4; Exodus 30:18-21",
       jesusRef: "Matthew 3:13-17; Mark 1:9-11; Luke 3:21-22",
-      description: "Consecration and preparation for ministry."
+      description: "Consecration, cleansing and annointing for ministry."
     },
     // Step 2
     {
@@ -40,7 +40,7 @@ const TimelinePage = () => {
       jesus: "Crucifixion as a bull for Himself & co-laborers",
       aaronRef: "Leviticus 16:6, 11",
       jesusRef: "Hebrews 7:27; 2 Corinthians 5:21",
-      description: "Atonement provision: Aaron needs covering; Christ provides the ultimate sacrifice."
+      description: "Atonement provision: Aaron offers bull for himself and his household. Jesus became sin for us and offered Himself as the Sacrifice for sin."
     },
     // Step 3
     {
