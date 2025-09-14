@@ -84,8 +84,8 @@ const TimelinePage = () => {
       aaron: "Washes hands & feet",
       jesus: "Divine stature restored to 16ft.",
       aaronRef: "Exodus 30:18-21",
-      jesusRef: "",
-      description: "Renewed purity in type; assertion of restored divine stature in antitype (theological tradition)."
+      jesusRef: "Hebrews 2:9; I Corinthians 15:35-53",
+      description: "Renewed purity in type; assertion of restored divine stature as He had in Heaven."
     },
     // Step 8
     {
