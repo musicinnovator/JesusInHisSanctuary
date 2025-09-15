@@ -22,7 +22,7 @@ export default function DonationLinks() {
 
       {/* Stripe Payment Link Button */}
       <a
-        href="https://buy.stripe.com/test_28o7sQ4Qm5Hy6Ck144"
+        href="https://buy.stripe.com/eVq9AUaZD7aoeUE3MU4Vy00"
         target="_blank"
         rel="noopener noreferrer"
         className="px-6 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-medium shadow transition"
