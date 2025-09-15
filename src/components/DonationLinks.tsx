@@ -12,7 +12,7 @@ export default function DonationLinks() {
 
       {/* PayPal Donation Button */}
       <a
-        href="https://www.paypal.com/donate?hosted_button_id=YOUR_BUTTON_ID"
+        href="https://www.paypal.com/donate?hosted_button_id=https://www.paypal.com/donate/?hosted_button_id=Z2T57WZMGV9UQ"
         target="_blank"
         rel="noopener noreferrer"
         className="px-6 py-2 rounded-xl bg-yellow-400 hover:bg-yellow-500 text-black font-medium shadow transition"
