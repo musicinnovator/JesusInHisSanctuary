@@ -1,11 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { capturePayPalOrder } from '@/lib/paypal'
-import { prisma } from '@/lib/prisma'
 import { sendReceiptEmail } from '@/lib/email'
 
 export async function POST(request: NextRequest) {
   try {
-    const { orderId } = await request.json()
+    const { orderId, donationData } = await request.json()
 
     if (!orderId) {
       return NextResponse.json(
@@ -17,32 +16,14 @@ export async function POST(request: NextRequest) {
     // Capture the PayPal order
     const captureData = await capturePayPalOrder(orderId)
 
-    // Find the donation record
-    const donation = await prisma.donation.findFirst({
-      where: { externalId: orderId },
-    })
-
-    if (!donation) {
-      return NextResponse.json(
-        { error: 'Donation not found' },
-        { status: 404 }
-      )
-    }
-
-    // Update donation status
-    await prisma.donation.update({
-      where: { id: donation.id },
-      data: { status: 'SUCCEEDED' },
-    })
-
     // Send receipt email if email provided
-    if (donation.donorEmail) {
+    if (donationData?.donorEmail && !donationData.isAnonymous) {
       try {
         await sendReceiptEmail({
-          to: donation.donorEmail,
-          donorName: donation.donorName,
-          amount: donation.amount,
-          currency: donation.currency,
+          to: donationData.donorEmail,
+          donorName: donationData.donorName,
+          amount: donationData.amount,
+          currency: 'usd',
           transactionId: orderId,
           method: 'PayPal',
           date: new Date(),

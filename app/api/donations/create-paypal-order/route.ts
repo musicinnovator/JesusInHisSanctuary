@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createPayPalOrder } from '@/lib/paypal'
-import { prisma } from '@/lib/prisma'
 import { donationSchema } from '@/lib/validations'
 import { rateLimit, getClientIP } from '@/lib/rate-limit'
 
@@ -20,27 +19,19 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const validatedData = donationSchema.parse(body)
 
+    if (validatedData.method !== 'PAYPAL') {
+      return NextResponse.json(
+        { error: 'Invalid payment method for this endpoint' },
+        { status: 400 }
+      )
+    }
+
     // Create PayPal order
     const order = await createPayPalOrder(validatedData.amount)
 
-    // Create donation record
-    const donation = await prisma.donation.create({
-      data: {
-        amount: validatedData.amount,
-        frequency: validatedData.frequency,
-        method: validatedData.method,
-        isAnonymous: validatedData.isAnonymous,
-        donorName: validatedData.donorName,
-        donorEmail: validatedData.donorEmail,
-        message: validatedData.message,
-        externalId: order.id,
-        status: 'PENDING',
-      },
-    })
-
     return NextResponse.json({
       orderId: order.id,
-      donationId: donation.id,
+      donationData: validatedData,
     })
   } catch (error) {
     console.error('Error creating PayPal order:', error)

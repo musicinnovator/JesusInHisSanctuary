@@ -1,13 +1,12 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { Providers } from './providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Sanctuary Studies - Donations',
-  description: 'Support our mission to provide comprehensive sanctuary doctrine resources',
+  title: 'Donations - Support Our Mission',
+  description: 'Make a secure donation to support our cause',
 }
 
 export default function RootLayout({
@@ -18,9 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>
-          {children}
-        </Providers>
+        {children}
       </body>
     </html>
   )

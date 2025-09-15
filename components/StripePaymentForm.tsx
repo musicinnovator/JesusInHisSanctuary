@@ -30,7 +30,7 @@ export function StripePaymentForm({
   const elements = useElements()
   const router = useRouter()
   const [clientSecret, setClientSecret] = useState<string>('')
-  const [donationId, setDonationId] = useState<string>('')
+  const [paymentIntentId, setPaymentIntentId] = useState<string>('')
   const [error, setError] = useState<string>('')
 
   const createPaymentIntent = async () => {
@@ -57,7 +57,7 @@ export function StripePaymentForm({
 
       const data = await response.json()
       setClientSecret(data.clientSecret)
-      setDonationId(data.donationId)
+      setPaymentIntentId(data.paymentIntentId)
     } catch (error) {
       console.error('Error creating payment intent:', error)
       setError('Failed to initialize payment. Please try again.')
@@ -90,7 +90,7 @@ export function StripePaymentForm({
         elements,
         clientSecret,
         confirmParams: {
-          return_url: `${window.location.origin}/donate/success?donation_id=${donationId}`,
+          return_url: `${window.location.origin}/donate/success?payment_intent=${paymentIntentId}&amount=${amount}`,
         },
       })
 

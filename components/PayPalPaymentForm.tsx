@@ -72,6 +72,15 @@ export function PayPalPaymentForm({
         },
         body: JSON.stringify({
           orderId: data.orderID,
+          donationData: {
+            amount,
+            frequency,
+            method: 'PAYPAL',
+            isAnonymous,
+            donorName: isAnonymous ? undefined : donorName,
+            donorEmail: isAnonymous ? undefined : donorEmail,
+            message,
+          },
         }),
       })
 
@@ -82,7 +91,7 @@ export function PayPalPaymentForm({
       const result = await response.json()
       
       if (result.success) {
-        router.push(`/donate/success?order_id=${data.orderID}`)
+        router.push(`/donate/success?order_id=${data.orderID}&amount=${amount}`)
       } else {
         throw new Error('Payment capture failed')
       }

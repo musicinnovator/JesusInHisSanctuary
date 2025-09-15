@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { stripe } from '@/lib/stripe'
-import { prisma } from '@/lib/prisma'
 import { sendReceiptEmail } from '@/lib/email'
 import Stripe from 'stripe'
 
@@ -32,44 +31,25 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    // Log webhook event
-    await prisma.webhookEvent.create({
-      data: {
-        provider: 'STRIPE',
-        eventType: event.type,
-        payload: JSON.stringify(event),
-      },
-    })
-
     switch (event.type) {
       case 'payment_intent.succeeded': {
         const paymentIntent = event.data.object as Stripe.PaymentIntent
-        const donationId = paymentIntent.metadata.donationId
+        const metadata = paymentIntent.metadata
 
-        if (donationId) {
-          const donation = await prisma.donation.update({
-            where: { id: donationId },
-            data: { 
-              status: 'SUCCEEDED',
-              receiptUrl: paymentIntent.charges.data[0]?.receipt_url,
-            },
-          })
-
-          // Send receipt email
-          if (donation.donorEmail) {
-            try {
-              await sendReceiptEmail({
-                to: donation.donorEmail,
-                donorName: donation.donorName,
-                amount: donation.amount,
-                currency: donation.currency,
-                transactionId: paymentIntent.id,
-                method: 'Stripe',
-                date: new Date(),
-              })
-            } catch (emailError) {
-              console.error('Failed to send receipt email:', emailError)
-            }
+        // Send receipt email if email provided and not anonymous
+        if (metadata.donorEmail && metadata.isAnonymous !== 'true') {
+          try {
+            await sendReceiptEmail({
+              to: metadata.donorEmail,
+              donorName: metadata.donorName,
+              amount: paymentIntent.amount,
+              currency: paymentIntent.currency,
+              transactionId: paymentIntent.id,
+              method: 'Stripe',
+              date: new Date(),
+            })
+          } catch (emailError) {
+            console.error('Failed to send receipt email:', emailError)
           }
         }
         break
@@ -77,46 +57,13 @@ export async function POST(request: NextRequest) {
 
       case 'payment_intent.payment_failed': {
         const paymentIntent = event.data.object as Stripe.PaymentIntent
-        const donationId = paymentIntent.metadata.donationId
-
-        if (donationId) {
-          await prisma.donation.update({
-            where: { id: donationId },
-            data: { status: 'FAILED' },
-          })
-        }
-        break
-      }
-
-      case 'charge.dispute.created':
-      case 'payment_intent.canceled': {
-        const paymentIntent = event.data.object as Stripe.PaymentIntent
-        const donationId = paymentIntent.metadata?.donationId
-
-        if (donationId) {
-          await prisma.donation.update({
-            where: { id: donationId },
-            data: { status: 'REFUNDED' },
-          })
-        }
+        console.log('Payment failed:', paymentIntent.id)
         break
       }
 
       default:
         console.log(`Unhandled event type: ${event.type}`)
     }
-
-    // Mark webhook as processed
-    await prisma.webhookEvent.updateMany({
-      where: {
-        provider: 'STRIPE',
-        eventType: event.type,
-        processedAt: null,
-      },
-      data: {
-        processedAt: new Date(),
-      },
-    })
 
     return NextResponse.json({ received: true })
   } catch (error) {

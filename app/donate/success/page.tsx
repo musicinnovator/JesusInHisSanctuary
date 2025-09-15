@@ -7,29 +7,21 @@ import { CheckCircle, Mail, ArrowRight, Home } from 'lucide-react'
 
 export default function DonateSuccessPage() {
   const searchParams = useSearchParams()
-  const donationId = searchParams.get('donation_id')
+  const paymentIntentId = searchParams.get('payment_intent')
   const orderId = searchParams.get('order_id')
-  const [donation, setDonation] = useState<any>(null)
+  const amount = searchParams.get('amount')
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // In a real app, you'd fetch the donation details
-    // For now, we'll simulate the data
+    // Simulate loading time
     setTimeout(() => {
-      setDonation({
-        id: donationId || orderId,
-        amount: 2500, // $25.00
-        frequency: 'ONE_TIME',
-        method: donationId ? 'Stripe' : 'PayPal',
-        donorEmail: 'donor@example.com',
-      })
       setLoading(false)
     }, 1000)
-  }, [donationId, orderId])
+  }, [])
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-sanctuary-linen flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
           <p className="text-gray-600">Confirming your donation...</p>
@@ -38,15 +30,19 @@ export default function DonateSuccessPage() {
     )
   }
 
-  const formatCurrency = (cents: number) => {
+  const formatCurrency = (cents: string | null) => {
+    if (!cents) return '$25.00'
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
-    }).format(cents / 100)
+    }).format(parseInt(cents) / 100)
   }
 
+  const transactionId = paymentIntentId || orderId || 'N/A'
+  const paymentMethod = paymentIntentId ? 'Stripe' : 'PayPal'
+
   return (
-    <div className="min-h-screen bg-sanctuary-linen">
+    <div className="min-h-screen bg-gray-50">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
           {/* Success Header */}
@@ -64,17 +60,16 @@ export default function DonateSuccessPage() {
                 <div className="flex justify-between">
                   <span className="text-gray-600">Amount:</span>
                   <span className="font-semibold text-gray-900">
-                    {formatCurrency(donation.amount)}
-                    {donation.frequency === 'MONTHLY' && '/month'}
+                    {formatCurrency(amount)}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Payment Method:</span>
-                  <span className="font-semibold text-gray-900">{donation.method}</span>
+                  <span className="font-semibold text-gray-900">{paymentMethod}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Transaction ID:</span>
-                  <span className="font-mono text-sm text-gray-700">{donation.id}</span>
+                  <span className="font-mono text-sm text-gray-700">{transactionId}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Date:</span>
@@ -103,9 +98,8 @@ export default function DonateSuccessPage() {
             <div className="text-center mb-8">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Your Impact</h3>
               <p className="text-gray-600 leading-relaxed">
-                Your generous donation helps us provide comprehensive sanctuary doctrine resources 
-                and educational materials to students and scholars worldwide. Thank you for 
-                supporting our mission!
+                Your generous donation helps us continue our mission and make a positive impact. 
+                Thank you for your support!
               </p>
             </div>
 
@@ -119,10 +113,10 @@ export default function DonateSuccessPage() {
                 <span>Return to Home</span>
               </Link>
               <Link
-                href="/account/donations"
+                href="/donate"
                 className="flex-1 bg-gray-100 text-gray-700 text-center py-3 px-4 rounded-lg font-medium hover:bg-gray-200 transition-colors flex items-center justify-center space-x-2"
               >
-                <span>View Donations</span>
+                <span>Make Another Donation</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -133,8 +127,8 @@ export default function DonateSuccessPage() {
         <div className="mt-8 text-center text-sm text-gray-500">
           <p>
             Questions about your donation? Contact us at{' '}
-            <a href="mailto:donations@sanctuarystudies.org" className="text-blue-600 hover:underline">
-              donations@sanctuarystudies.org
+            <a href="mailto:donations@yourorg.com" className="text-blue-600 hover:underline">
+              donations@yourorg.com
             </a>
           </p>
         </div>

@@ -1,27 +1,23 @@
-# Sanctuary Studies - Donations System
+# Simple Donations System
 
-A secure, production-ready donations platform built with Next.js, supporting both Stripe and PayPal payments with comprehensive webhook handling and admin features.
+A secure, lightweight donations platform built with Next.js, supporting both Stripe and PayPal payments without database dependencies.
 
 ## Features
 
 - **Payment Methods**: Stripe (Cards, Apple Pay, Google Pay) and PayPal
-- **Donation Types**: One-time and monthly recurring donations
-- **Security**: Server-side validation, webhook verification, rate limiting, CSRF protection
+- **Donation Types**: One-time donations (monthly recurring can be added)
+- **Security**: Server-side validation, webhook verification, rate limiting
 - **Email Receipts**: Automatic tax receipt emails for successful donations
-- **Admin Dashboard**: Donation management and CSV export
-- **User Dashboard**: Personal donation history for authenticated users
 - **Responsive Design**: Mobile-first UI with accessibility features
+- **No Database**: Simplified architecture without database dependencies
 
 ## Tech Stack
 
 - **Framework**: Next.js 14 (App Router)
-- **Database**: Prisma with SQLite (dev) / PostgreSQL (prod)
-- **Authentication**: NextAuth.js
 - **Payments**: Stripe & PayPal APIs
 - **Validation**: Zod
 - **Styling**: Tailwind CSS
 - **Email**: Nodemailer
-- **Testing**: Playwright
 
 ## Setup Instructions
 
@@ -33,20 +29,10 @@ Copy `.env.example` to `.env` and fill in your credentials:
 cp .env.example .env
 ```
 
-### 2. Database Setup
+### 2. Install Dependencies
 
 ```bash
-# Install dependencies
 npm install
-
-# Generate Prisma client
-npx prisma generate
-
-# Run database migrations
-npx prisma db push
-
-# Seed admin user (optional)
-npx prisma db seed
 ```
 
 ### 3. Stripe Setup
@@ -99,22 +85,6 @@ Visit `http://localhost:3000/donate` to test the donation form.
 
 ## Testing
 
-### Unit Tests
-
-```bash
-npm run test
-```
-
-### E2E Tests
-
-```bash
-# Install Playwright
-npx playwright install
-
-# Run tests
-npm run test:e2e
-```
-
 ### Test Cards
 
 Use these test cards for Stripe:
@@ -123,17 +93,22 @@ Use these test cards for Stripe:
 - **Decline**: 4000 0000 0000 0002
 - **3D Secure**: 4000 0025 0000 3155
 
+### PayPal Testing
+
+Use PayPal sandbox accounts for testing PayPal payments.
+
 ## Deployment
 
 ### Environment Variables for Production
 
 ```env
-DATABASE_URL="postgresql://user:password@host:port/database"
-NEXTAUTH_URL="https://yourdomain.com"
 APP_URL="https://yourdomain.com"
 STRIPE_SECRET_KEY="sk_live_..."
 STRIPE_WEBHOOK_SECRET="whsec_..."
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY="pk_live_..."
+PAYPAL_CLIENT_ID="your_live_client_id"
+PAYPAL_CLIENT_SECRET="your_live_client_secret"
+PAYPAL_ENVIRONMENT="live"
 ```
 
 ### Webhook Endpoints
@@ -142,13 +117,6 @@ Set up these webhook endpoints in your payment providers:
 
 - **Stripe**: `https://yourdomain.com/api/webhooks/stripe`
 - **PayPal**: `https://yourdomain.com/api/webhooks/paypal`
-
-### Database Migration
-
-```bash
-# Generate and apply migrations
-npx prisma migrate deploy
-```
 
 ## API Routes
 
@@ -163,41 +131,27 @@ npx prisma migrate deploy
 - Server-side validation with Zod
 - Rate limiting (10 requests/minute per IP)
 - Webhook signature verification
-- CSRF protection on forms
 - Input sanitization
 - Secure payment processing (no client-side secrets)
 
-## Admin Features
+## Pages
 
-- View all donations with filters
-- Export donations to CSV
-- Manage recurring subscriptions
-- View webhook event logs
-
-## User Features
-
-- Anonymous or named donations
-- Custom donation amounts
-- Monthly recurring donations
-- Donation history (authenticated users)
-- Email receipts
-- Multiple payment methods
+- `/donate` - Main donation form
+- `/donate/success` - Success page with receipt confirmation
+- `/donate/cancel` - Cancellation/failure page
 
 ## Compliance
 
 - PCI DSS compliant (payments handled by Stripe/PayPal)
 - Tax receipt generation
-- Audit trail for all transactions
-- GDPR considerations for data handling
+- Audit trail through webhook logs
 
 ## Support
 
 For questions or issues:
 
-- Email: support@sanctuarystudies.org
-- Documentation: [Link to docs]
-- Issues: [GitHub Issues]
+- Email: support@yourorg.com
 
 ## License
 
-[Your License Here]
+MIT License
