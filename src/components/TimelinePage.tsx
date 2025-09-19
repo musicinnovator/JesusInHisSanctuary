@@ -21,7 +21,7 @@ const TimelinePage = () => {
       aaron: "Aaron comes through the gate to work in the morning",
       jesus: "Jesus is born into this world of sinful human flesh",
       aaronRef: "Leviticus 16:3 - Thus shall Aaron come into the holy place: with a young bullock for a sin offering, and a ram for a burnt offering.",
-      jesusRef: "Matthew 1:21; Luke 1:35; John 1:14",
+      jesusRef: "Matthew 1:21 - And she shall bring forth a son, and thou shalt call his name JESUS: for he shall save his people from their sins.; Luke 1:35 - And the angel answered and said unto her, The Holy Ghost shall come upon thee, and the power of the Highest shall overshadow thee: therefore also that holy thing which shall be born of thee shall be called the Son of God. ; John 1:14 - And the Word was made flesh, and dwelt among us, (and we beheld his glory, the glory as of the only begotten of the Father,) full of grace and truth.",
       description: "Entrance into the work: Aaron begins daily service; Christ enters humanity (incarnation)."
     },
     // Step 1
