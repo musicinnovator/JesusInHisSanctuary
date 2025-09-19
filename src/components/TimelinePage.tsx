@@ -29,7 +29,7 @@ const TimelinePage = () => {
       step: 1,
       aaron: "Washes body & puts on common priest’s clothes",
       jesus: "Baptism (by John at the river Jordan)",
-      aaronRef: "Leviticus 16:4; Exodus 30:18-21",
+      aaronRef: "Leviticus 16:4 - He shall put on the holy linen coat, and he shall have the linen breeches upon his flesh, and shall be girded with a linen girdle, and with the linen mitre shall he be attired: these are holy garments; therefore shall he wash his flesh in water, and so put them on.; Exodus 30:18-21 - Ex:30:18: Thou shalt also make a laver of brass, and his foot also of brass, to wash withal: and thou shalt put it between the tabernacle of the congregation and the altar, and thou shalt put water therein. For Aaron and his sons shall wash their hands and their feet thereat: When they go into the tabernacle of the congregation, they shall wash with water, that they die not; or when they come near to the altar to minister, to burn offering made by fire unto the LORD: So they shall wash their hands and their feet, that they die not: and it shall be a statute for ever to them, even to him and to his seed throughout their generations.",
       jesusRef: "Matthew 3:13-17; Mark 1:9-11; Luke 3:21-22",
       description: "Consecration and preparation for ministry."
     },
