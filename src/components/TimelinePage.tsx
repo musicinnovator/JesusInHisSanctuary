@@ -298,7 +298,7 @@ const TimelinePage = () => {
     // Step 21
     {
       step: 21,
-      aaron: "Washes body – \"baptism"",
+      aaron: "Washes body – \"baptism\"",
       jesus: "Jacob's Time of Trouble; Plagues; the cup of baptism",
       aaronRef: "Leviticus 16:24, 26, 28",
       jesusRef: "Jeremiah 30:7; Daniel 12:1",
