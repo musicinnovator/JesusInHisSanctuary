@@ -65,8 +65,8 @@ const TimelinePage = () => {
       step: 5,
       aaron: "Aaron as common priest puts blood of bullock on ark: acceptance by God; puts censer on Mercy Seat",
       jesus: "Jesus presents His blood; acceptance by God",
-      aaronRef: "Leviticus 16:14",
-      jesusRef: "Hebrews 9:12; Hebrews 10:12-14",
+      aaronRef: "{Leviticus 16:14} And he shall take of the blood of the bullock, and sprinkle it with his finger upon the mercy seat eastward; and before the mercy seat shall he sprinkle of the blood with his finger seven times. ",
+      jesusRef: "{Hebrews 9:12}  Neither by the blood of goats and calves, but by his own blood he entered in once into the holy place, having obtained eternal redemption for us. ; {Hebrews 10:12-14} But this man, after he had offered one sacrifice for sins for ever, sat down on the right hand of God; (13) From henceforth expecting till his enemies be made his footstool. (14) For by one offering he hath perfected for ever them that are sanctified.",
       description: "Acceptance before God on the basis of blood."
     },
     // Step 6
