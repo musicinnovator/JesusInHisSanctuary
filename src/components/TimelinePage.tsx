@@ -28,7 +28,7 @@ const TimelinePage = () => {
       aaronRef: "{Leviticus 16:3} - Thus shall Aaron come into the holy place: with a young bullock for a sin offering, and a ram for a burnt offering.",
       jesusRef: "Matthew 1:21 - And she shall bring forth a son, and thou shalt call his name JESUS: for he shall save his people from their sins.; Luke 1:35 - And the angel answered and said unto her, The Holy Ghost shall come upon thee, and the power of the Highest shall overshadow thee: therefore also that holy thing which shall be born of thee shall be called the Son of God. ; {John 1:14} - And the Word was made flesh, and dwelt among us, (and we beheld his glory, the glory as of the only begotten of the Father,) full of grace and truth.",
       description: "Entrance into the work of Salvation: Aaron begins daily service in the Tabernacle; Christ enters humanity through Mary and the Holy Spirit.",
-      aaronGif: "https://zxvbmmdkhpqiaqdjxepr.supabase.co/storage/v1/object/sign/Pictures/text-to-video-3f451405.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80ZTAxYzgwNi1hZWVlLTRiZjItODhiMS03M2MzZDYwNWVkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaWN0dXJlcy90ZXh0LXRvLXZpZGVvLTNmNDUxNDA1Lm1wNCIsImlhdCI6MTc1ODgxOTc0NSwiZXhwIjoyMDc0MTc5NzQ1fQ.Wap7YC7YqzpCg7pXwbP3tZFtcQsv0VcuJITCRLA979M",
+      aaronGif: "https://zxvbmmdkhpqiaqdjxepr.supabase.co/storage/v1/object/sign/Pictures/db9dc867-8af2-44c4-9af0-cbeda5ff6b1b_0.jpegauto=compress&cs=tinysrgb&w=400",
       jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
       aaronGifAlt: "Aaron entering the sanctuary gate in the morning",
       jesusGifAlt: "Christ's incarnation - entering humanity"
