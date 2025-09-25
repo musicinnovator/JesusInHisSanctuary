@@ -234,7 +234,7 @@ const TimelinePage = () => {
     {
       step: 16,
       aaron: "High Priest stands before God and the Law; sprinkles blood on the Mercy Seat and before the Law",
-      jesus: "Pleads His blood; second death removed & God's people sealed; blots out sins from "the book"",
+      jesus: "Pleads His blood; second death removed & God's people sealed; blots out sins from \"the book"",
       aaronRef: "Leviticus 16:14-15",
       jesusRef: "Hebrews 10:17; Revelation 3:5; Acts 3:19",
       description: "Atonement finalized for the faithful; sins removed from the record (interpretive).",
@@ -298,7 +298,7 @@ const TimelinePage = () => {
     // Step 21
     {
       step: 21,
-      aaron: "Washes body – "baptism"",
+      aaron: "Washes body – \"baptism"",
       jesus: "Jacob's Time of Trouble; Plagues; the cup of baptism",
       aaronRef: "Leviticus 16:24, 26, 28",
       jesusRef: "Jeremiah 30:7; Daniel 12:1",
