@@ -225,4 +225,6 @@ For questions, suggestions, or support:
 
 *"And let them make me a sanctuary; that I may dwell among them."* - Exodus 25:8
 
+
 Built with ❤️ for the advancement of biblical education and sanctuary doctrine understanding.
+

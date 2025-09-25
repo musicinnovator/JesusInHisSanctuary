@@ -1,5 +1,6 @@
 import React from 'react';
 import { Book, Mail, Globe, Users } from 'lucide-react';
+import DonationLinks from './DonationLinks';
 
 const Footer = () => {
   return (
@@ -54,6 +55,13 @@ const Footer = () => {
               <li><a href="#" className="text-sanctuary-linen hover:text-white transition-colors">Comparative Charts</a></li>
               <li><a href="#" className="text-sanctuary-linen hover:text-white transition-colors">Study Notes</a></li>
             </ul>
+          </div>
+        </div>
+
+        {/* Donation Links Section */}
+        <div className="border-t border-sanctuary-brass pt-8 mt-12">
+          <div className="flex justify-center">
+            <DonationLinks />
           </div>
         </div>
 

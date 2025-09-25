@@ -20,17 +20,17 @@ const TimelinePage = () => {
       step: 0,
       aaron: "Aaron comes through the gate to work in the morning",
       jesus: "Jesus is born into this world of sinful human flesh",
-      aaronRef: "",
-      jesusRef: "Matthew 1:21; Luke 1:35; John 1:14",
-      description: "Entrance into the work: Aaron begins daily service; Christ enters humanity (incarnation)."
+      aaronRef: "Leviticus 16:3 - Thus shall Aaron come into the holy place: with a young bullock for a sin offering, and a ram for a burnt offering.",
+      jesusRef: "Matthew 1:21 - And she shall bring forth a son, and thou shalt call his name JESUS: for he shall save his people from their sins.; Luke 1:35 - And the angel answered and said unto her, The Holy Ghost shall come upon thee, and the power of the Highest shall overshadow thee: therefore also that holy thing which shall be born of thee shall be called the Son of God. ; John 1:14 - And the Word was made flesh, and dwelt among us, (and we beheld his glory, the glory as of the only begotten of the Father,) full of grace and truth.",
+      description: "Entrance into the work of Salvation: Aaron begins daily service in the Tabernacle; Christ enters humanity through Mary and the Holy Spirit."
     },
     // Step 1
     {
       step: 1,
       aaron: "Washes body & puts on common priest’s clothes",
       jesus: "Baptism (by John at the river Jordan)",
-      aaronRef: "Leviticus 16:4; Exodus 30:18-21",
-      jesusRef: "Matthew 3:13-17; Mark 1:9-11; Luke 3:21-22",
+      aaronRef: "Leviticus 16:4 - He shall put on the holy linen coat, and he shall have the linen breeches upon his flesh, and shall be girded with a linen girdle, and with the linen mitre shall he be attired: these are holy garments; therefore shall he wash his flesh in water, and so put them on.\nExodus 30:18-21 - Thou shalt also make a laver of brass, and his foot also of brass, to wash withal: and thou shalt put it between the tabernacle of the congregation and the altar, and thou shalt put water therein. For Aaron and his sons shall wash their hands and their feet thereat: When they go into the tabernacle of the congregation, they shall wash with water, that they die not; or when they come near to the altar to minister, to burn offering made by fire unto the LORD: So they shall wash their hands and their feet, that they die not: and it shall be a statute for ever to them, even to him and to his seed throughout their generations.",
+      jesusRef: "Matthew 3:13-17 - Then cometh Jesus from Galilee to Jordan unto John, to be baptized of him. But John forbad him, saying, I have need to be baptized of thee, and comest thou to me? And Jesus answering said unto him, Suffer it to be so now: for thus it becometh us to fulfil all righteousness. Then he suffered him. And Jesus, when he was baptized, went up straightway out of the water: and, lo, the heavens were opened unto him, and he saw the Spirit of God descending like a dove, and lighting upon him: And lo a voice from heaven, saying, This is my beloved Son, in whom I am well pleased.; Mark 1:9-11; Luke 3:21-22",
       description: "Consecration and preparation for ministry."
     },
     // Step 2
@@ -72,20 +72,20 @@ const TimelinePage = () => {
     // Step 6
     {
       step: 6,
-      aaron: "Meets with co-laborers; kills lamb for the people",
+      aaron: "Meets with co-laborers (fellow priests) and returns to altar of sacrifice (the Outer Court = World); kills lamb for the people",
       jesus: "Meets with co-laborers; 40 days spent on Earth as a Lamb for the people",
       aaronRef: "",
       jesusRef: "Acts 1:3; Luke 24",
-      description: "Ministry among the people and disciples before ascension."
+      description: "Ministry with disciples before His Ascension."
     },
     // Step 7
     {
       step: 7,
       aaron: "Washes hands & feet",
-      jesus: "Divine stature restored to 16ft.",
+      jesus: "He possesed the same body that He had before taking on humanity. Divine stature restored to 16ft.",
       aaronRef: "Exodus 30:18-21",
-      jesusRef: "",
-      description: "Renewed purity in type; assertion of restored divine stature in antitype (theological tradition)."
+      jesusRef: "Hebrews 2:5-19; I Corinthians 15:35-53",
+      description: "Renewed purity in type; assertion of restored divine stature as He had in Heaven."
     },
     // Step 8
     {
