@@ -38,7 +38,7 @@ const TimelinePage = () => {
       step: 2,
       aaron: "Kills bull for himself & his household",
       jesus: "Crucifixion as a bull for Himself & co-laborers",
-      aaronRef: "Leviticus 16:6, 11",
+      aaronRef: "Leviticus 16:6, 11 - v.6 And Aaron shall offer his bullock of the sin offering, which is for himself, and make an atonement for himself, and for his house. v.11 Le:16:11: And Aaron shall bring the bullock of the sin offering, which is for himself, and shall make an atonement for himself, and for his house, and shall kill the bullock of the sin offering which is for himself: ",
       jesusRef: "Hebrews 7:27; 2 Corinthians 5:21",
       description: "Atonement provision: Aaron needs covering; Christ provides the ultimate sacrifice."
     },
