@@ -56,8 +56,8 @@ const TimelinePage = () => {
       step: 4,
       aaron: "Picks up incense & censer",
       jesus: "Passed through with His own merits",
-      aaronRef: "Leviticus 16:12-13",
-      jesusRef: "Hebrews 9:11-12; Hebrews 4:14-16",
+      aaronRef: "{Leviticus 16:12-13}  And he shall take a censer full of burning coals of fire from off the altar before the LORD, and his hands full of sweet incense beaten small, and bring it within the vail:(13) And he shall put the incense upon the fire before the LORD, that the cloud of the incense may cover the mercy seat that is upon the testimony, that he die not: ",
+      jesusRef: "{Hebrews 9:11-12}  ; {Hebrews 4:14-16}",
       description: "Intercession initiates: Aaron’s incense typifies Christ’s merits."
     },
     // Step 5
