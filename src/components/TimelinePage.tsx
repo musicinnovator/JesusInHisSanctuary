@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowLeft, Clock, Play, Pause, SkipForward, SkipBack, Book } from 'lucide-react';
+import { ArrowLeft, Clock, Play, Pause, SkipForward, SkipBack, Book, Image } from 'lucide-react';
 
 type TimelineStep = {
   step: number;
@@ -8,11 +8,16 @@ type TimelineStep = {
   aaronRef?: string;
   jesusRef?: string;
   description?: string;
+  aaronGif?: string;
+  jesusGif?: string;
+  aaronGifAlt?: string;
+  jesusGifAlt?: string;
 };
 
 const TimelinePage = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [showGifs, setShowGifs] = useState(true);
 
   const timelineSteps: TimelineStep[] = [
     // Step 0
@@ -22,16 +27,24 @@ const TimelinePage = () => {
       jesus: "Jesus is born into this world of sinful human flesh",
       aaronRef: "{Leviticus 16:3} - Thus shall Aaron come into the holy place: with a young bullock for a sin offering, and a ram for a burnt offering.",
       jesusRef: "Matthew 1:21 - And she shall bring forth a son, and thou shalt call his name JESUS: for he shall save his people from their sins.; Luke 1:35 - And the angel answered and said unto her, The Holy Ghost shall come upon thee, and the power of the Highest shall overshadow thee: therefore also that holy thing which shall be born of thee shall be called the Son of God. ; {John 1:14} - And the Word was made flesh, and dwelt among us, (and we beheld his glory, the glory as of the only begotten of the Father,) full of grace and truth.",
-      description: "Entrance into the work of Salvation: Aaron begins daily service in the Tabernacle; Christ enters humanity through Mary and the Holy Spirit."
+      description: "Entrance into the work of Salvation: Aaron begins daily service in the Tabernacle; Christ enters humanity through Mary and the Holy Spirit.",
+      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron entering the sanctuary gate in the morning",
+      jesusGifAlt: "Christ's incarnation - entering humanity"
     },
     // Step 1
     {
       step: 1,
-      aaron: "Washes body & puts on common priest’s clothes",
+      aaron: "Washes body & puts on common priest's clothes",
       jesus: "Baptism (by John at the river Jordan)",
       aaronRef: "{Leviticus 16:4} - He shall put on the holy linen coat, and he shall have the linen breeches upon his flesh, and shall be girded with a linen girdle, and with the linen mitre shall he be attired: these are holy garments; therefore shall he wash his flesh in water, and so put them on.\n{Exodus 30:18-21} - Thou shalt also make a laver of brass, and his foot also of brass, to wash withal: and thou shalt put it between the tabernacle of the congregation and the altar, and thou shalt put water therein. For Aaron and his sons shall wash their hands and their feet thereat: When they go into the tabernacle of the congregation, they shall wash with water, that they die not; or when they come near to the altar to minister, to burn offering made by fire unto the LORD: So they shall wash their hands and their feet, that they die not: and it shall be a statute for ever to them, even to him and to his seed throughout their generations.",
       jesusRef: "{Matthew 3:13-17} - Then cometh Jesus from Galilee to Jordan unto John, to be baptized of him. But John forbad him, saying, I have need to be baptized of thee, and comest thou to me? And Jesus answering said unto him, Suffer it to be so now: for thus it becometh us to fulfil all righteousness. Then he suffered him. And Jesus, when he was baptized, went up straightway out of the water: and, lo, the heavens were opened unto him, and he saw the Spirit of God descending like a dove, and lighting upon him: And lo a voice from heaven, saying, This is my beloved Son, in whom I am well pleased.; Mark 1:9-11; Luke 3:21-22",
-      description: "Consecration and preparation for ministry."
+      description: "Consecration and preparation for ministry.",
+      aaronGif: "https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron washing at the bronze laver and putting on priestly garments",
+      jesusGifAlt: "Jesus being baptized by John in the Jordan River"
     },
     // Step 2
     {
@@ -40,7 +53,11 @@ const TimelinePage = () => {
       jesus: "Crucifixion as a bull for Himself & co-laborers",
       aaronRef: "{Leviticus 16:6, 11} (6) And Aaron shall offer his bullock of the sin offering, which is for himself, and make an atonement for himself, and for his house. (11) And Aaron shall bring the bullock of the sin offering, which is for himself, and shall make an atonement for himself, and for his house, and shall kill the bullock of the sin offering which is for himself: ",
       jesusRef: "{Hebrews 7:27} Who needeth not daily, as those high priests, to offer up sacrifice, first for his own sins, and then for the people's: for this he did once, when he offered up himself.; {2 Corinthians 5:21}  - For he hath made him to be sin for us, who knew no sin; that we might be made the righteousness of God in him.",
-      description: "Atonement provision: Aaron needs covering; Christ provides the ultimate sacrifice."
+      description: "Atonement provision: Aaron needs covering; Christ provides the ultimate sacrifice.",
+      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron sacrificing the bull at the bronze altar",
+      jesusGifAlt: "Christ's crucifixion - the ultimate sacrifice"
     },
     // Step 3
     {
@@ -49,7 +66,11 @@ const TimelinePage = () => {
       jesus: "Resurrection (removes traces of sin)",
       aaronRef: "{Exodus 30:18-21} Thou shalt also make a laver of brass, and his foot also of brass, to wash withal: and thou shalt put it between the tabernacle of the congregation and the altar, and thou shalt put water therein.(19) For Aaron and his sons shall wash their hands and their feet thereat: (20) When they go into the tabernacle of the congregation, they shall wash with water, that they die not; or when they come near to the altar to minister, to burn offering made by fire unto the LORD: (21) So they shall wash their hands and their feet, that they die not: and it shall be a statute for ever to them, even to him and to his seed throughout their generations.",
       jesusRef: "{Matthew 28} (see entire chapter); {Romans 6:9-10} Knowing that Christ being raised from the dead dieth no more; death hath no more dominion over him (10) For in that he died, he died unto sin once: but in that he liveth, he liveth unto God.;  {1 Corinthians 15} (see entire chapter)",
-      description: "Purity emphasized; Christ’s resurrection demonstrates victory over sin and death."
+      description: "Purity emphasized; Christ's resurrection demonstrates victory over sin and death.",
+      aaronGif: "https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron washing hands and feet at the laver for purification",
+      jesusGifAlt: "Christ's resurrection - victory over sin and death"
     },
     // Step 4
     {
@@ -58,7 +79,11 @@ const TimelinePage = () => {
       jesus: "Passed through with His own merits",
       aaronRef: "{Leviticus 16:12-13}  And he shall take a censer full of burning coals of fire from off the altar before the LORD, and his hands full of sweet incense beaten small, and bring it within the vail:(13) And he shall put the incense upon the fire before the LORD, that the cloud of the incense may cover the mercy seat that is upon the testimony, that he die not: ",
       jesusRef: "{Hebrews 9:11-12} But Christ being come an high priest of good things to come, by a greater and more perfect tabernacle, not made with hands, that is to say, not of this building; (12) Neither by the blood of goats and calves, but by his own blood he entered in once into the holy place, having obtained eternal redemption for us. ; {Hebrews 4:14-16}  Seeing then that we have a great high priest, that is passed into the heavens, Jesus the Son of God, let us hold fast our profession. (15) For we have not an high priest which cannot be touched with the feeling of our infirmities; but was in all points tempted like as we are, yet without sin. (16) Let us therefore come boldly unto the throne of grace, that we may obtain mercy, and find grace to help in time of need.",
-      description: "Intercession initiates: Aaron’s incense typifies Christ’s merits."
+      description: "Intercession initiates: Aaron's incense typifies Christ's merits.",
+      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron taking incense and censer from the altar",
+      jesusGifAlt: "Christ ascending to heaven with His own merits"
     },
     // Step 5
     {
@@ -67,7 +92,11 @@ const TimelinePage = () => {
       jesus: "Jesus presents His blood; acceptance by God",
       aaronRef: "{Leviticus 16:14} And he shall take of the blood of the bullock, and sprinkle it with his finger upon the mercy seat eastward; and before the mercy seat shall he sprinkle of the blood with his finger seven times. ",
       jesusRef: "{Hebrews 9:12}  Neither by the blood of goats and calves, but by his own blood he entered in once into the holy place, having obtained eternal redemption for us. ; {Hebrews 10:12-14} But this man, after he had offered one sacrifice for sins for ever, sat down on the right hand of God; (13) From henceforth expecting till his enemies be made his footstool. (14) For by one offering he hath perfected for ever them that are sanctified.",
-      description: "Acceptance before God on the basis of blood."
+      description: "Acceptance before God on the basis of blood.",
+      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron sprinkling blood on the mercy seat seven times",
+      jesusGifAlt: "Christ presenting His blood before the Father's throne"
     },
     // Step 6
     {
@@ -76,7 +105,11 @@ const TimelinePage = () => {
       jesus: "Meets with co-laborers; 40 days spent on Earth as a Lamb for the people",
       aaronRef: "{Leviticus 1:3} If his offering be a burnt sacrifice of the herd, let him offer a male without blemish: he shall offer it of his own voluntary will at the door of the tabernacle of the congregation before the LORD.",
       jesusRef: "{Acts 1:3} To whom also he shewed himself alive after his passion by many infallible proofs, being seen of them forty days, and speaking of the things pertaining to the kingdom of God:; {Luke 24}(see entire chapter)",
-      description: "Ministry with disciples before His Ascension."
+      description: "Ministry with disciples before His Ascension.",
+      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron meeting with fellow priests and inspecting the sacrificial lamb",
+      jesusGifAlt: "Jesus appearing to His disciples for 40 days after resurrection"
     },
     // Step 7
     {
@@ -85,7 +118,11 @@ const TimelinePage = () => {
       jesus: "He possesed the same body that He had before taking on humanity. Divine stature restored to 16ft.",
       aaronRef: "{Exodus 30:18-21}  Thou shalt also make a laver of brass, and his foot also of brass, to wash withal: and thou shalt put it between the tabernacle of the congregation and the altar, and thou shalt put water therein. (19)For Aaron and his sons shall wash their hands and their feet thereat: (20) When they go into the tabernacle of the congregation, they shall wash with water, that they die not; or when they come near to the altar to minister, to burn offering made by fire unto the LORD: (21) So they shall wash their hands and their feet, that they die not: and it shall be a statute for ever to them, even to him and to his seed throughout their generations.",
       jesusRef: "{Hebrews 2:5-19} But we see Jesus, who was made a little lower than the angels for the suffering of death, crowned with glory and honour; that he by the grace of God should taste death for every man...; {I Corinthians 15:35-53} So also is the resurrection of the dead. It is sown in corruption; it is raised in incorruption: (43) It is sown in dishonour; it is raised in glory: it is sown in weakness; it is raised in power:...",
-      description: "Renewed purity in type; assertion of restored divine stature as He had in Heaven."
+      description: "Renewed purity in type; assertion of restored divine stature as He had in Heaven.",
+      aaronGif: "https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron washing hands and feet again for renewed purity",
+      jesusGifAlt: "Christ's divine stature restored - glorified body"
     },
     // Step 8
     {
@@ -94,7 +131,11 @@ const TimelinePage = () => {
       jesus: "Inauguration as High Priest",
       aaronRef: "{Leviticus 16:4, 23-24} (4)) He shall put on the holy linen coat, and he shall have the linen breeches upon his flesh, and shall be girded with a linen girdle, and with the linen mitre shall he be attired: these are holy garments; therefore shall he wash his flesh in water, and so put them on. (23-24) And Aaron shall come into the tabernacle of the congregation, and shall put off the linen garments, which he put on when he went into the holy place, and shall leave them there:(24) And he shall wash his flesh with water in the holy place, and put on his garments, and come forth, and offer his burnt offering, and the burnt offering of the people, and make an atonement for himself, and for the people.",
       jesusRef: "{Hebrews 4:14} Seeing then that we have a great high priest, that is passed into the heavens, Jesus the Son of God, let us hold fast our profession.; {Hebrews 8:1-2} Now of the things which we have spoken this is the sum: We have such an high priest, who is set on the right hand of the throne of the Majesty in the heavens; (2) A minister of the sanctuary, and of the true tabernacle, which the Lord pitched, and not man.",
-      description: "High-priestly investiture and inauguration."
+      description: "High-priestly investiture and inauguration.",
+      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron putting on the elaborate high priestly garments",
+      jesusGifAlt: "Christ's inauguration as High Priest in heaven"
     },
     // Step 9
     {
@@ -103,7 +144,11 @@ const TimelinePage = () => {
       jesus: "Pentecost",
       aaronRef: "{Exodus 27:20-21}  And thou shalt command the children of Israel, that they bring thee pure oil olive beaten for the light, to cause the lamp to burn always. (21) In the tabernacle of the congregation without the vail, which is before the testimony, Aaron and his sons shall order it from evening to morning before the LORD: it shall be a statute for ever unto their generations on the behalf of the children of Israel.",
       jesusRef: "{Acts 2} (see entire chapter); {John 16:7} Nevertheless I tell you the truth; It is expedient for you that I go away: for if I go not away, the Comforter will not come unto you; but if I depart, I will send him unto you. ",
-      description: "Light and Spirit poured out upon the people."
+      description: "Light and Spirit poured out upon the people.",
+      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron pouring oil into the golden lampstand",
+      jesusGifAlt: "The Holy Spirit descending at Pentecost"
     },
     // Step 10
     {
@@ -112,7 +157,11 @@ const TimelinePage = () => {
       jesus: "Christ on first throne; pleads His merits for the people",
       aaronRef: "{Exodus 30:7-10}  And Aaron shall burn thereon sweet incense every morning: when he dresseth the lamps, he shall burn incense upon it. (8)  And when Aaron lighteth the lamps at even, he shall burn incense upon it, a perpetual incense before the LORD throughout your generations. (9) Ye shall offer no strange incense thereon, nor burnt sacrifice, nor meat offering; neither shall ye pour drink offering thereon. (10) And Aaron shall make an atonement upon the horns of it once in a year with the blood of the sin offering of atonements: once in the year shall he make atonement upon it throughout your generations: it is most holy unto the LORD.",
       jesusRef: "{Hebrews 7:25} Wherefore he is able also to save them to the uttermost that come unto God by him, seeing he ever liveth to make intercession for them.; {Revelation 8:3-4}  And another angel came and stood at the altar, having a golden censer; and there was given unto him much incense, that he should offer it with the prayers of all saints upon the golden altar which was before the throne. (4) And the smoke of the incense, which came with the prayers of the saints, ascended up before God out of the angel's hand. ",
-      description: "Active intercession on behalf of the people."
+      description: "Active intercession on behalf of the people.",
+      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron burning incense on the golden altar",
+      jesusGifAlt: "Christ interceding at the heavenly altar with golden censer"
     },
 
     // Yearly Service section
@@ -120,19 +169,27 @@ const TimelinePage = () => {
     {
       step: 11,
       aaron: "Blowing of the trumpet (~10 days before Day of Atonement)",
-      jesus: "First Angel’s Message preached (1833)",
+      jesus: "First Angel's Message preached (1833)",
       aaronRef: "Leviticus 23:24-27",
       jesusRef: "Revelation 14:6-7 (historic application 1830s)",
-      description: "Announcement and warning preceding the atonement."
+      description: "Announcement and warning preceding the atonement.",
+      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Trumpet being blown to announce the Day of Atonement",
+      jesusGifAlt: "Angel flying with the everlasting gospel message"
     },
     // Step 12
     {
       step: 12,
-      aaron: "Common priests leave the court; Aaron casts lots & kills the Lord’s goat for the people",
+      aaron: "Common priests leave the court; Aaron casts lots & kills the Lord's goat for the people",
       jesus: "Ends work of 24 elders & 4 beasts; Jesus shows He died as a goat for the people",
       aaronRef: "Leviticus 16:7-10, 15",
       jesusRef: "Hebrews 9:26-28",
-      description: "Selection and offering for the people; antitype emphasizes Christ’s substitution."
+      description: "Selection and offering for the people; antitype emphasizes Christ's substitution.",
+      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron casting lots between two goats and sacrificing the Lord's goat",
+      jesusGifAlt: "Christ's substitutionary sacrifice for the people"
     },
     // Step 13
     {
@@ -141,7 +198,11 @@ const TimelinePage = () => {
       jesus: "Christ goes into the Most Holy Place in Heaven (1844)",
       aaronRef: "Leviticus 16:15-16",
       jesusRef: "Hebrews 9:23-24 (historic application 1844)",
-      description: "Entrance into the climactic phase of atonement."
+      description: "Entrance into the climactic phase of atonement.",
+      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron entering through the veil into the Most Holy Place",
+      jesusGifAlt: "Christ entering the Most Holy Place of the heavenly sanctuary in 1844"
     },
     // Step 14
     {
@@ -150,7 +211,11 @@ const TimelinePage = () => {
       jesus: "Jesus stands before the Law showing the Sabbath to those in 1844",
       aaronRef: "",
       jesusRef: "Revelation 11:19 (interpreted); Exodus 20:8-11",
-      description: "Law-centered focus in the Most Holy Place (interpretive emphasis)."
+      description: "Law-centered focus in the Most Holy Place (interpretive emphasis).",
+      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron standing before the ark containing God's law",
+      jesusGifAlt: "Christ revealing the Sabbath commandment to His people"
     },
     // Step 15
     {
@@ -159,16 +224,24 @@ const TimelinePage = () => {
       jesus: "Christ sits with God as Judge; Investigative Judgment",
       aaronRef: "",
       jesusRef: "Daniel 7:9-10; Revelation 20:12 (investigative judgment interpreted)",
-      description: "Judicial phase emphasizing review and verdict."
+      description: "Judicial phase emphasizing review and verdict.",
+      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron conducting the Day of Atonement judgment ritual",
+      jesusGifAlt: "Christ seated in judgment with the Ancient of Days"
     },
     // Step 16
     {
       step: 16,
       aaron: "High Priest stands before God and the Law; sprinkles blood on the Mercy Seat and before the Law",
-      jesus: "Pleads His blood; second death removed & God’s people sealed; blots out sins from “the book”",
+      jesus: "Pleads His blood; second death removed & God's people sealed; blots out sins from "the book"",
       aaronRef: "Leviticus 16:14-15",
       jesusRef: "Hebrews 10:17; Revelation 3:5; Acts 3:19",
-      description: "Atonement finalized for the faithful; sins removed from the record (interpretive)."
+      description: "Atonement finalized for the faithful; sins removed from the record (interpretive).",
+      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron sprinkling blood before the law in the ark",
+      jesusGifAlt: "Christ's blood pleading for the faithful - sins blotted out"
     },
     // Step 17
     {
@@ -177,7 +250,11 @@ const TimelinePage = () => {
       jesus: "Throws down censer; cleans Holy Place; Close of Probation",
       aaronRef: "Leviticus 16:16-19",
       jesusRef: "Revelation 8:5; Revelation 22:11",
-      description: "Cleansing completed; intercession concludes."
+      description: "Cleansing completed; intercession concludes.",
+      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron cleansing the Holy Place with blood",
+      jesusGifAlt: "Christ throwing down the censer - end of intercession"
     },
     // Step 18
     {
@@ -186,7 +263,11 @@ const TimelinePage = () => {
       jesus: "Puts sins on Satan",
       aaronRef: "Leviticus 16:20-22",
       jesusRef: "Revelation 20:1-3 (antitypical confinement interpreted)",
-      description: "Transfer of sin responsibility to the ultimate originator."
+      description: "Transfer of sin responsibility to the ultimate originator.",
+      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron laying hands on the scapegoat to transfer sins",
+      jesusGifAlt: "Satan bound and confined - ultimate responsibility for sin"
     },
     // Step 19
     {
@@ -195,7 +276,11 @@ const TimelinePage = () => {
       jesus: "Removes High Priest robe",
       aaronRef: "Leviticus 16:23-24",
       jesusRef: "",
-      description: "Transition from intercessory attire signifying phase change."
+      description: "Transition from intercessory attire signifying phase change.",
+      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron removing the high priestly garments",
+      jesusGifAlt: "Christ removing His high priestly robe"
     },
     // Step 20
     {
@@ -204,16 +289,24 @@ const TimelinePage = () => {
       jesus: "Leaves Sanctuary; Plagues fall; comes out in white",
       aaronRef: "Leviticus 16:23-24",
       jesusRef: "Revelation 15–16",
-      description: "Emergence signals completed mediation; judgments proceed."
+      description: "Emergence signals completed mediation; judgments proceed.",
+      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron emerging from the sanctuary in white linen",
+      jesusGifAlt: "Christ leaving the sanctuary as the seven last plagues begin"
     },
     // Step 21
     {
       step: 21,
-      aaron: "Washes body – “baptism”",
-      jesus: "Jacob’s Time of Trouble; Plagues; the cup of baptism",
+      aaron: "Washes body – "baptism"",
+      jesus: "Jacob's Time of Trouble; Plagues; the cup of baptism",
       aaronRef: "Leviticus 16:24, 26, 28",
       jesusRef: "Jeremiah 30:7; Daniel 12:1",
-      description: "Final purification motif; God’s people endure final crisis."
+      description: "Final purification motif; God's people endure final crisis.",
+      aaronGif: "https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron washing his entire body - final purification",
+      jesusGifAlt: "God's people enduring the time of trouble"
     },
     // Step 22
     {
@@ -222,7 +315,11 @@ const TimelinePage = () => {
       jesus: "Second coming of Christ",
       aaronRef: "Leviticus 16:24",
       jesusRef: "Matthew 24:30-31; 1 Thessalonians 4:16-17",
-      description: "Culminating offering in type; visible return in antitype."
+      description: "Culminating offering in type; visible return in antitype.",
+      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron placing the two rams on the altar fire",
+      jesusGifAlt: "Christ's glorious Second Coming in the clouds"
     },
     // Step 23
     {
@@ -231,7 +328,11 @@ const TimelinePage = () => {
       jesus: "End of sinners in fire (lake of fire)",
       aaronRef: "Leviticus 16:25",
       jesusRef: "Revelation 20:14-15",
-      description: "Final judgment on sin."
+      description: "Final judgment on sin.",
+      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Aaron placing fat portions on the altar fire",
+      jesusGifAlt: "Final judgment - lake of fire consuming sin"
     },
     // Step 24
     {
@@ -240,7 +341,11 @@ const TimelinePage = () => {
       jesus: "Second fire; New Earth; All traces of sin gone!",
       aaronRef: "Leviticus 16:27",
       jesusRef: "Revelation 21–22; Nahum 1:9",
-      description: "Total removal of sin; restoration of all things."
+      description: "Total removal of sin; restoration of all things.",
+      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGifAlt: "Burning the sacrificial remains outside the camp",
+      jesusGifAlt: "New Earth - all traces of sin completely removed"
     }
   ];
 
@@ -252,7 +357,7 @@ const TimelinePage = () => {
         if (prev >= timelineSteps.length - 1) return 0; // loop back to 0
         return prev + 1;
       });
-    }, 2500);
+    }, 4000); // Increased to 4 seconds to allow time to view GIFs
     return () => clearInterval(id);
   }, [isPlaying, timelineSteps.length]);
 
@@ -298,6 +403,15 @@ const TimelinePage = () => {
             <div className="flex items-center space-x-4">
               <span className="text-sanctuary-brass">Step {currentStepData?.step} of {timelineSteps.length - 1}</span>
               <div className="flex items-center space-x-2">
+                <button
+                  onClick={() => setShowGifs(!showGifs)}
+                  className={`flex items-center space-x-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    showGifs ? 'bg-sanctuary-gold text-sanctuary-purple' : 'bg-sanctuary-silver text-sanctuary-purple'
+                  }`}
+                >
+                  <Image className="w-4 h-4" />
+                  <span>{showGifs ? 'Hide' : 'Show'} Animations</span>
+                </button>
                 <button
                   onClick={prevStep}
                   disabled={currentStep === 0}
@@ -363,15 +477,32 @@ const TimelinePage = () => {
             </div>
 
             <div className="p-6">
-              <div className="h-64 bg-gradient-to-br from-amber-50 to-yellow-100 rounded-lg mb-4 flex items-center justify-center border-2 border-sanctuary-brass/30">
-                <div className="text-center text-sanctuary-brass">
-                  <div className="w-20 h-20 mx-auto mb-3 bg-sanctuary-brass/20 rounded-lg flex items-center justify-center">
-                    <Clock className="w-10 h-10 text-sanctuary-brass" />
+              {/* Animated GIF Display */}
+              {showGifs && currentStepData?.aaronGif ? (
+                <div className="h-64 mb-4 rounded-lg overflow-hidden border-2 border-sanctuary-brass/30">
+                  <img 
+                    src={currentStepData.aaronGif}
+                    alt={currentStepData.aaronGifAlt}
+                    className="w-full h-full object-cover"
+                    style={{
+                      filter: 'sepia(20%) saturate(120%) hue-rotate(15deg) brightness(110%)'
+                    }}
+                  />
+                  <div className="absolute bottom-2 left-2 bg-black/70 text-white px-2 py-1 rounded text-xs">
+                    {currentStepData.aaronGifAlt}
                   </div>
-                  <p className="text-lg font-medium">Step {currentStepData?.step} Animation</p>
-                  <p className="text-sm">Aaron's Ministry Visualization</p>
                 </div>
-              </div>
+              ) : (
+                <div className="h-64 bg-gradient-to-br from-amber-50 to-yellow-100 rounded-lg mb-4 flex items-center justify-center border-2 border-sanctuary-brass/30">
+                  <div className="text-center text-sanctuary-brass">
+                    <div className="w-20 h-20 mx-auto mb-3 bg-sanctuary-brass/20 rounded-lg flex items-center justify-center">
+                      <Clock className="w-10 h-10 text-sanctuary-brass" />
+                    </div>
+                    <p className="text-lg font-medium">Step {currentStepData?.step} Animation</p>
+                    <p className="text-sm">Aaron's Ministry Visualization</p>
+                  </div>
+                </div>
+              )}
 
               <div className="space-y-4">
                 <div className="bg-sanctuary-linen rounded-lg p-4">
@@ -384,7 +515,9 @@ const TimelinePage = () => {
                     <Book className="w-4 h-4" />
                     <span>Scripture Reference</span>
                   </h4>
-                  <p className="text-sanctuary-blue font-medium">{currentStepData?.aaronRef || '—'}</p>
+                  <p className="text-sanctuary-blue font-medium text-sm leading-relaxed">
+                    {currentStepData?.aaronRef || '—'}
+                  </p>
                 </div>
               </div>
             </div>
@@ -398,15 +531,34 @@ const TimelinePage = () => {
             </div>
 
             <div className="p-6">
-              <div className="h-64 bg-gradient-to-br from-yellow-50 to-amber-100 rounded-lg mb-4 flex items-center justify-center border-2 border-sanctuary-gold/30">
-                <div className="text-center text-sanctuary-gold-dark">
-                  <div className="w-20 h-20 mx-auto mb-3 bg-sanctuary-gold/20 rounded-lg flex items-center justify-center">
-                    <Clock className="w-10 h-10 text-sanctuary-gold-dark" />
+              {/* Animated GIF Display */}
+              {showGifs && currentStepData?.jesusGif ? (
+                <div className="h-64 mb-4 rounded-lg overflow-hidden border-2 border-sanctuary-gold/30 relative">
+                  <img 
+                    src={currentStepData.jesusGif}
+                    alt={currentStepData.jesusGifAlt}
+                    className="w-full h-full object-cover"
+                    style={{
+                      filter: 'sepia(10%) saturate(130%) hue-rotate(25deg) brightness(115%)'
+                    }}
+                  />
+                  <div className="absolute bottom-2 left-2 bg-black/70 text-white px-2 py-1 rounded text-xs">
+                    {currentStepData.jesusGifAlt}
                   </div>
-                  <p className="text-lg font-medium">Step {currentStepData?.step} Animation</p>
-                  <p className="text-sm">Jesus' Ministry Visualization</p>
+                  {/* Heavenly glow effect for Jesus' ministry */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-sanctuary-gold/10 pointer-events-none"></div>
                 </div>
-              </div>
+              ) : (
+                <div className="h-64 bg-gradient-to-br from-yellow-50 to-amber-100 rounded-lg mb-4 flex items-center justify-center border-2 border-sanctuary-gold/30">
+                  <div className="text-center text-sanctuary-gold-dark">
+                    <div className="w-20 h-20 mx-auto mb-3 bg-sanctuary-gold/20 rounded-lg flex items-center justify-center">
+                      <Clock className="w-10 h-10 text-sanctuary-gold-dark" />
+                    </div>
+                    <p className="text-lg font-medium">Step {currentStepData?.step} Animation</p>
+                    <p className="text-sm">Jesus' Ministry Visualization</p>
+                  </div>
+                </div>
+              )}
 
               <div className="space-y-4">
                 <div className="bg-sanctuary-linen rounded-lg p-4">
@@ -419,7 +571,9 @@ const TimelinePage = () => {
                     <Book className="w-4 h-4" />
                     <span>Scripture Reference</span>
                   </h4>
-                  <p className="text-sanctuary-blue font-medium">{currentStepData?.jesusRef || '—'}</p>
+                  <p className="text-sanctuary-blue font-medium text-sm leading-relaxed">
+                    {currentStepData?.jesusRef || '—'}
+                  </p>
                 </div>
               </div>
             </div>
@@ -436,11 +590,84 @@ const TimelinePage = () => {
           </div>
         </div>
 
+        {/* Biblical Context Panel */}
+        <div className="bg-white rounded-xl p-6 shadow-lg border border-sanctuary-gold/30 mb-8">
+          <h3 className="text-xl font-bold text-sanctuary-purple mb-6">Biblical Context & Symbolism</h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-lg p-6 border border-sanctuary-brass/30">
+              <h4 className="font-semibold text-sanctuary-brass mb-3 flex items-center space-x-2">
+                <Book className="w-5 h-5" />
+                <span>Levitical Service (Type)</span>
+              </h4>
+              <p className="text-sanctuary-purple text-sm leading-relaxed mb-3">
+                The earthly sanctuary service established by God through Moses provided a visual 
+                representation of the plan of salvation. Each action Aaron performed pointed 
+                forward to Christ's ministry.
+              </p>
+              <div className="bg-white/60 rounded-lg p-3">
+                <p className="text-xs text-sanctuary-brass">
+                  <strong>Key Books:</strong> Exodus 25-40, Leviticus 1-16, Numbers 3-4
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-lg p-6 border border-sanctuary-gold/30">
+              <h4 className="font-semibold text-sanctuary-gold-dark mb-3 flex items-center space-x-2">
+                <Book className="w-5 h-5" />
+                <span>Christ's Ministry (Antitype)</span>
+              </h4>
+              <p className="text-sanctuary-purple text-sm leading-relaxed mb-3">
+                Jesus fulfills every aspect of the sanctuary service in His earthly life, 
+                death, resurrection, and heavenly ministry. The book of Hebrews extensively 
+                explains these connections.
+              </p>
+              <div className="bg-white/60 rounded-lg p-3">
+                <p className="text-xs text-sanctuary-brass">
+                  <strong>Key Books:</strong> Hebrews 7-10, Revelation 4-5, 8, 11, 14-22
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Animation Legend */}
+        {showGifs && (
+          <div className="bg-white rounded-xl p-6 shadow-lg border border-sanctuary-gold/30 mb-8">
+            <h3 className="text-xl font-bold text-sanctuary-purple mb-4">Animation Guide</h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-sanctuary-linen rounded-lg p-4">
+                <h4 className="font-semibold text-sanctuary-brass mb-3">Aaron's Service Animations</h4>
+                <ul className="space-y-2 text-sm text-sanctuary-purple">
+                  <li>• Visual representations of Levitical rituals</li>
+                  <li>• Based on Exodus and Leviticus descriptions</li>
+                  <li>• Shows the earthly sanctuary service</li>
+                  <li>• Emphasizes the typological significance</li>
+                </ul>
+              </div>
+              <div className="bg-sanctuary-linen rounded-lg p-4">
+                <h4 className="font-semibold text-sanctuary-gold-dark mb-3">Jesus' Ministry Animations</h4>
+                <ul className="space-y-2 text-sm text-sanctuary-purple">
+                  <li>• Depicts the antitypical fulfillment</li>
+                  <li>• Based on Hebrews and Revelation</li>
+                  <li>• Shows the heavenly reality</li>
+                  <li>• Emphasizes the eternal significance</li>
+                </ul>
+              </div>
+            </div>
+            <div className="mt-4 p-4 bg-gradient-to-r from-sanctuary-blue/10 to-sanctuary-purple/10 rounded-lg border border-sanctuary-blue/20">
+              <p className="text-sanctuary-purple text-sm">
+                <strong>Note:</strong> These animations are artistic representations based on biblical descriptions. 
+                They are designed to help visualize the sanctuary service and its prophetic fulfillment in Christ's ministry.
+              </p>
+            </div>
+          </div>
+        )}
+
         {/* Complete Timeline Overview */}
         <div className="bg-white rounded-xl p-6 shadow-lg border border-sanctuary-gold/30">
           <h3 className="text-xl font-bold text-sanctuary-purple mb-6">Complete 25-Step Timeline (including Step 0)</h3>
           <div className="text-center text-sanctuary-brass mb-4">
-            <p>This timeline presents steps 0–24, aligning Aaron’s typical services with Jesus’ antitypical ministry.</p>
+            <p>This timeline presents steps 0–24, aligning Aaron's typical services with Jesus' antitypical ministry.</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -448,18 +675,57 @@ const TimelinePage = () => {
               <button
                 key={index}
                 onClick={() => setCurrentStep(index)}
-                className={`p-4 rounded-lg text-left transition-colors ${
+                className={`p-4 rounded-lg text-left transition-colors relative overflow-hidden ${
                   currentStep === index
                     ? 'bg-sanctuary-purple text-white'
                     : 'bg-sanctuary-linen hover:bg-sanctuary-purple/10 text-sanctuary-purple'
                 }`}
               >
+                {/* Mini preview of GIF when available */}
+                {showGifs && step.aaronGif && currentStep === index && (
+                  <div className="absolute top-2 right-2 w-8 h-8 rounded overflow-hidden border border-white/30">
+                    <img 
+                      src={step.aaronGif} 
+                      alt="Preview"
+                      className="w-full h-full object-cover opacity-60"
+                    />
+                  </div>
+                )}
+                
                 <div className="font-semibold mb-1">Step {step.step}</div>
-                <div className="text-sm opacity-90">{step.aaron}</div>
+                <div className="text-sm opacity-90 line-clamp-2">{step.aaron}</div>
                 <div className="text-xs mt-1 opacity-75">↓</div>
-                <div className="text-sm opacity-90">{step.jesus}</div>
+                <div className="text-sm opacity-90 line-clamp-2">{step.jesus}</div>
               </button>
             ))}
+          </div>
+        </div>
+
+        {/* Educational Notes */}
+        <div className="bg-white rounded-xl p-6 shadow-lg border border-sanctuary-gold/30">
+          <h3 className="text-xl font-bold text-sanctuary-purple mb-4">Educational Notes</h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-sanctuary-linen rounded-lg p-4">
+              <h4 className="font-semibold text-sanctuary-purple mb-3">Daily Service (Steps 0-10)</h4>
+              <p className="text-sanctuary-brass text-sm leading-relaxed">
+                Represents Christ's earthly ministry, death, resurrection, and ongoing intercession 
+                in the Holy Place of the heavenly sanctuary from 31 AD to 1844 AD.
+              </p>
+            </div>
+            <div className="bg-sanctuary-linen rounded-lg p-4">
+              <h4 className="font-semibold text-sanctuary-purple mb-3">Yearly Service (Steps 11-18)</h4>
+              <p className="text-sanctuary-brass text-sm leading-relaxed">
+                Represents the Day of Atonement service and its fulfillment in the investigative 
+                judgment beginning in 1844, culminating in the close of probation.
+              </p>
+            </div>
+            <div className="bg-sanctuary-linen rounded-lg p-4">
+              <h4 className="font-semibold text-sanctuary-purple mb-3">Final Events (Steps 19-24)</h4>
+              <p className="text-sanctuary-brass text-sm leading-relaxed">
+                Represents the final phase including the Second Coming, millennium, 
+                executive judgment, and the creation of the New Earth.
+              </p>
+            </div>
           </div>
         </div>
       </div>
