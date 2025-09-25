@@ -92,7 +92,7 @@ const TimelinePage = () => {
       step: 8,
       aaron: "Dresses as High Priest",
       jesus: "Inauguration as High Priest",
-      aaronRef: "Leviticus 16:4, 23-24",
+      aaronRef: "{Leviticus 16:4, 23-24} (4)) He shall put on the holy linen coat, and he shall have the linen breeches upon his flesh, and shall be girded with a linen girdle, and with the linen mitre shall he be attired: these are holy garments; therefore shall he wash his flesh in water, and so put them on. (23-24) And Aaron shall come into the tabernacle of the congregation, and shall put off the linen garments, which he put on when he went into the holy place, and shall leave them there:(24) And he shall wash his flesh with water in the holy place, and put on his garments, and come forth, and offer his burnt offering, and the burnt offering of the people, and make an atonement for himself, and for the people.",
       jesusRef: "Hebrews 4:14; Hebrews 8:1-2",
       description: "High-priestly investiture and inauguration."
     },
