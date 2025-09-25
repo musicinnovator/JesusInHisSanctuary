@@ -110,8 +110,8 @@ const TimelinePage = () => {
       step: 10,
       aaron: "Puts incense on altar",
       jesus: "Christ on first throne; pleads His merits for the people",
-      aaronRef: "Exodus 30:7-10",
-      jesusRef: "Hebrews 7:25; Revelation 8:3-4",
+      aaronRef: "{Exodus 30:7-10}  And Aaron shall burn thereon sweet incense every morning: when he dresseth the lamps, he shall burn incense upon it. (8)  And when Aaron lighteth the lamps at even, he shall burn incense upon it, a perpetual incense before the LORD throughout your generations. (9) Ye shall offer no strange incense thereon, nor burnt sacrifice, nor meat offering; neither shall ye pour drink offering thereon. (10) And Aaron shall make an atonement upon the horns of it once in a year with the blood of the sin offering of atonements: once in the year shall he make atonement upon it throughout your generations: it is most holy unto the LORD.",
+      jesusRef: "{Hebrews 7:25} Wherefore he is able also to save them to the uttermost that come unto God by him, seeing he ever liveth to make intercession for them.; {Revelation 8:3-4}  And another angel came and stood at the altar, having a golden censer; and there was given unto him much incense, that he should offer it with the prayers of all saints upon the golden altar which was before the throne. (4) And the smoke of the incense, which came with the prayers of the saints, ascended up before God out of the angel's hand. ",
       description: "Active intercession on behalf of the people."
     },
 
