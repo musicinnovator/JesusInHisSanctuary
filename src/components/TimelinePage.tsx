@@ -47,8 +47,8 @@ const TimelinePage = () => {
       step: 3,
       aaron: "Washes hands & feet",
       jesus: "Resurrection (removes traces of sin)",
-      aaronRef: "Exodus 30:18-21",
-      jesusRef: "Matthew 28; Romans 6:9-10; 1 Corinthians 15",
+      aaronRef: "{Exodus 30:18-21} Thou shalt also make a laver of brass, and his foot also of brass, to wash withal: and thou shalt put it between the tabernacle of the congregation and the altar, and thou shalt put water therein.(19) For Aaron and his sons shall wash their hands and their feet thereat: (20) When they go into the tabernacle of the congregation, they shall wash with water, that they die not; or when they come near to the altar to minister, to burn offering made by fire unto the LORD: (21) So they shall wash their hands and their feet, that they die not: and it shall be a statute for ever to them, even to him and to his seed throughout their generations.",
+      jesusRef: "{Matthew 28} (see entire chapter); {Romans 6:9-10} Knowing that Christ being raised from the dead dieth no more; death hath no more dominion over him (10) For in that he died, he died unto sin once: but in that he liveth, he liveth unto God.;  {1 Corinthians 15} (see entire chapter)",
       description: "Purity emphasized; Christ’s resurrection demonstrates victory over sin and death."
     },
     // Step 4
