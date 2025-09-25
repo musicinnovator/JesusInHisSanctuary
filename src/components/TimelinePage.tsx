@@ -102,7 +102,7 @@ const TimelinePage = () => {
       aaron: "Pours oil into lamp",
       jesus: "Pentecost",
       aaronRef: "{Exodus 27:20-21}  And thou shalt command the children of Israel, that they bring thee pure oil olive beaten for the light, to cause the lamp to burn always. (21) In the tabernacle of the congregation without the vail, which is before the testimony, Aaron and his sons shall order it from evening to morning before the LORD: it shall be a statute for ever unto their generations on the behalf of the children of Israel.",
-      jesusRef: "Acts 2} (see entire chapter); {John 16:7} Nevertheless I tell you the truth; It is expedient for you that I go away: for if I go not away, the Comforter will not come unto you; but if I depart, I will send him unto you. ",
+      jesusRef: "{Acts 2} (see entire chapter); {John 16:7} Nevertheless I tell you the truth; It is expedient for you that I go away: for if I go not away, the Comforter will not come unto you; but if I depart, I will send him unto you. ",
       description: "Light and Spirit poured out upon the people."
     },
     // Step 10
