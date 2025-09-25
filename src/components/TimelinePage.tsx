@@ -57,7 +57,7 @@ const TimelinePage = () => {
       aaron: "Picks up incense & censer",
       jesus: "Passed through with His own merits",
       aaronRef: "{Leviticus 16:12-13}  And he shall take a censer full of burning coals of fire from off the altar before the LORD, and his hands full of sweet incense beaten small, and bring it within the vail:(13) And he shall put the incense upon the fire before the LORD, that the cloud of the incense may cover the mercy seat that is upon the testimony, that he die not: ",
-      jesusRef: "{Hebrews 9:11-12}  ; {Hebrews 4:14-16}",
+      jesusRef: "{Hebrews 9:11-12} But Christ being come an high priest of good things to come, by a greater and more perfect tabernacle, not made with hands, that is to say, not of this building; (12) Neither by the blood of goats and calves, but by his own blood he entered in once into the holy place, having obtained eternal redemption for us. ; {Hebrews 4:14-16}  Seeing then that we have a great high priest, that is passed into the heavens, Jesus the Son of God, let us hold fast our profession. (15) For we have not an high priest which cannot be touched with the feeling of our infirmities; but was in all points tempted like as we are, yet without sin. (16) Let us therefore come boldly unto the throne of grace, that we may obtain mercy, and find grace to help in time of need.",
       description: "Intercession initiates: Aaron’s incense typifies Christ’s merits."
     },
     // Step 5
