@@ -83,8 +83,8 @@ const TimelinePage = () => {
       step: 7,
       aaron: "Washes hands & feet",
       jesus: "He possesed the same body that He had before taking on humanity. Divine stature restored to 16ft.",
-      aaronRef: "Exodus 30:18-21",
-      jesusRef: "Hebrews 2:5-19; I Corinthians 15:35-53",
+      aaronRef: "{Exodus 30:18-21}  Thou shalt also make a laver of brass, and his foot also of brass, to wash withal: and thou shalt put it between the tabernacle of the congregation and the altar, and thou shalt put water therein. (19)For Aaron and his sons shall wash their hands and their feet thereat: (20) When they go into the tabernacle of the congregation, they shall wash with water, that they die not; or when they come near to the altar to minister, to burn offering made by fire unto the LORD: (21) So they shall wash their hands and their feet, that they die not: and it shall be a statute for ever to them, even to him and to his seed throughout their generations.",
+      jesusRef: "{Hebrews 2:5-19} But we see Jesus, who was made a little lower than the angels for the suffering of death, crowned with glory and honour; that he by the grace of God should taste death for every man...; {I Corinthians 15:35-53} So also is the resurrection of the dead. It is sown in corruption; it is raised in incorruption: (43) It is sown in dishonour; it is raised in glory: it is sown in weakness; it is raised in power:...",
       description: "Renewed purity in type; assertion of restored divine stature as He had in Heaven."
     },
     // Step 8
