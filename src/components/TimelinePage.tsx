@@ -107,7 +107,7 @@ const TimelinePage = () => {
       jesusRef: "{Acts 1:3} To whom also he shewed himself alive after his passion by many infallible proofs, being seen of them forty days, and speaking of the things pertaining to the kingdom of God:; {Luke 24}(see entire chapter)",
       description: "Ministry with disciples before His Ascension.",
       aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
-      jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://zxvbmmdkhpqiaqdjxepr.supabase.co/storage/v1/object/sign/Pictures/a388ac21-d889-4362-8c1b-823e154b88d5_0.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80ZTAxYzgwNi1hZWVlLTRiZjItODhiMS03M2MzZDYwNWVkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaWN0dXJlcy9hMzg4YWMyMS1kODg5LTQzNjItOGMxYi04MjNlMTU0Yjg4ZDVfMC5wbmciLCJpYXQiOjE3NTg5Mjc2NjYsImV4cCI6MjA3NDI4NzY2Nn0.ugfP6EpyonB88C5O7lfPjH_UX-sdU-13fD5lc_gmpIc",
       aaronGifAlt: "Aaron meeting with fellow priests and inspecting the sacrificial lamb",
       jesusGifAlt: "Jesus appearing to His disciples for 40 days after resurrection"
     },
