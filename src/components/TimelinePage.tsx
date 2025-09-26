@@ -120,7 +120,7 @@ const TimelinePage = () => {
       jesusRef: "{Hebrews 2:5-19} But we see Jesus, who was made a little lower than the angels for the suffering of death, crowned with glory and honour; that he by the grace of God should taste death for every man...; {I Corinthians 15:35-53} So also is the resurrection of the dead. It is sown in corruption; it is raised in incorruption: (43) It is sown in dishonour; it is raised in glory: it is sown in weakness; it is raised in power:...",
       description: "Renewed purity in type; assertion of restored divine stature as He had in Heaven.",
       aaronGif: "https://zxvbmmdkhpqiaqdjxepr.supabase.co/storage/v1/object/sign/Pictures/d2ff6872-a50b-403f-ba3a-eac5f2a14cc2_0.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80ZTAxYzgwNi1hZWVlLTRiZjItODhiMS03M2MzZDYwNWVkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaWN0dXJlcy9kMmZmNjg3Mi1hNTBiLTQwM2YtYmEzYS1lYWM1ZjJhMTRjYzJfMC5wbmciLCJpYXQiOjE3NTg5MjgyMTYsImV4cCI6MjA3NDI4ODIxNn0.YIkBDGF3kmvjfOK7L-KNQlH4b7PUJ90PyRD08w3Gdjg",
-      jesusGif: "https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://zxvbmmdkhpqiaqdjxepr.supabase.co/storage/v1/object/sign/Pictures/f82b9494-4ad2-4b59-8b00-e4d82c4e5075_0.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80ZTAxYzgwNi1hZWVlLTRiZjItODhiMS03M2MzZDYwNWVkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaWN0dXJlcy9mODJiOTQ5NC00YWQyLTRiNTktOGIwMC1lNGQ4MmM0ZTUwNzVfMC5wbmciLCJpYXQiOjE3NTg5Mjg1NTksImV4cCI6MjA3NDI4ODU1OX0.J95A0CbR3sbrfY4CgjD705E3n2J4Rpfvj1YoelTvH1s",
       aaronGifAlt: "Aaron washing hands and feet again for renewed purity",
       jesusGifAlt: "Christ's divine stature restored - glorified body"
     },
