@@ -93,7 +93,7 @@ const TimelinePage = () => {
       aaronRef: "{Leviticus 16:14} And he shall take of the blood of the bullock, and sprinkle it with his finger upon the mercy seat eastward; and before the mercy seat shall he sprinkle of the blood with his finger seven times. ",
       jesusRef: "{Hebrews 9:12}  Neither by the blood of goats and calves, but by his own blood he entered in once into the holy place, having obtained eternal redemption for us. ; {Hebrews 10:12-14} But this man, after he had offered one sacrifice for sins for ever, sat down on the right hand of God; (13) From henceforth expecting till his enemies be made his footstool. (14) For by one offering he hath perfected for ever them that are sanctified.",
       description: "Acceptance before God on the basis of blood.",
-      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGif: "https://zxvbmmdkhpqiaqdjxepr.supabase.co/storage/v1/object/sign/Pictures/4b6ee013-cff3-4239-8922-a284da7b494b_0.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80ZTAxYzgwNi1hZWVlLTRiZjItODhiMS03M2MzZDYwNWVkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaWN0dXJlcy80YjZlZTAxMy1jZmYzLTQyMzktODkyMi1hMjg0ZGE3YjQ5NGJfMC5wbmciLCJpYXQiOjE3NTg5MjYzOTIsImV4cCI6MjA3NDI4NjM5Mn0.nMv2r_Xk9w0Zu28vns2xd2wMSyIKxqwHrbTBpdvCp4U",
       jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
       aaronGifAlt: "Aaron sprinkling blood on the mercy seat seven times",
       jesusGifAlt: "Christ presenting His blood before the Father's throne"
