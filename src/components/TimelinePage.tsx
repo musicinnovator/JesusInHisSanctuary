@@ -54,7 +54,7 @@ const TimelinePage = () => {
       aaronRef: "{Leviticus 16:6, 11} (6) And Aaron shall offer his bullock of the sin offering, which is for himself, and make an atonement for himself, and for his house. (11) And Aaron shall bring the bullock of the sin offering, which is for himself, and shall make an atonement for himself, and for his house, and shall kill the bullock of the sin offering which is for himself: ",
       jesusRef: "{Hebrews 7:27} Who needeth not daily, as those high priests, to offer up sacrifice, first for his own sins, and then for the people's: for this he did once, when he offered up himself.; {2 Corinthians 5:21}  - For he hath made him to be sin for us, who knew no sin; that we might be made the righteousness of God in him.",
       description: "Atonement provision: Aaron needs covering; Christ provides the ultimate sacrifice.",
-      aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
+      aaronGif: "https://zxvbmmdkhpqiaqdjxepr.supabase.co/storage/v1/object/sign/Pictures/58d3bcbd-7daa-4e2c-8505-9fda0d66418f_0.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80ZTAxYzgwNi1hZWVlLTRiZjItODhiMS03M2MzZDYwNWVkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaWN0dXJlcy81OGQzYmNiZC03ZGFhLTRlMmMtODUwNS05ZmRhMGQ2NjQxOGZfMC5wbmciLCJpYXQiOjE3NTg5MjM5MDIsImV4cCI6MjA3NDI4MzkwMn0.iv3bpN4TBj5xaWDOQaEqzekGtTMPGKZ5uQW9yGizjXQ",
       jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
       aaronGifAlt: "Aaron sacrificing the bull at the bronze altar",
       jesusGifAlt: "Christ's crucifixion - the ultimate sacrifice"
