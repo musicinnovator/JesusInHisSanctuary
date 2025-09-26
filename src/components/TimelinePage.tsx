@@ -68,7 +68,7 @@ const TimelinePage = () => {
       jesusRef: "{Matthew 28} (see entire chapter); {Romans 6:9-10} Knowing that Christ being raised from the dead dieth no more; death hath no more dominion over him (10) For in that he died, he died unto sin once: but in that he liveth, he liveth unto God.;  {1 Corinthians 15} (see entire chapter)",
       description: "Purity emphasized; Christ's resurrection demonstrates victory over sin and death.",
       aaronGif: "https://zxvbmmdkhpqiaqdjxepr.supabase.co/storage/v1/object/sign/Pictures/d2ff6872-a50b-403f-ba3a-eac5f2a14cc2_0.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80ZTAxYzgwNi1hZWVlLTRiZjItODhiMS03M2MzZDYwNWVkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaWN0dXJlcy9kMmZmNjg3Mi1hNTBiLTQwM2YtYmEzYS1lYWM1ZjJhMTRjYzJfMC5wbmciLCJpYXQiOjE3NTg5MjQxMTUsImV4cCI6MjA3NDI4NDExNX0.0JxnS6f8hFYKmj2BorZw8esRFTFRkZsAvYNA0pV5jM0",
-      jesusGif: "https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=400",
+      jesusGif: "https://zxvbmmdkhpqiaqdjxepr.supabase.co/storage/v1/object/sign/Pictures/c683ec04-77cd-4381-928b-7f17c8d29218_0.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80ZTAxYzgwNi1hZWVlLTRiZjItODhiMS03M2MzZDYwNWVkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaWN0dXJlcy9jNjgzZWMwNC03N2NkLTQzODEtOTI4Yi03ZjE3YzhkMjkyMThfMC5wbmciLCJpYXQiOjE3NTg5MjQ1NTMsImV4cCI6MjA3NDI4NDU1M30.R6DaFGj7kWQ0vS490wxXHg8_XP9LHpsZHuo1WV6TfIk",
       aaronGifAlt: "Aaron washing hands and feet at the laver for purification",
       jesusGifAlt: "Christ's resurrection - victory over sin and death"
     },
