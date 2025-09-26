@@ -340,7 +340,7 @@ const TimelinePage = () => {
       aaron: "Bodies of bull and goat burned outside of the camp",
       jesus: "Second fire; New Earth; All traces of sin gone!",
       aaronRef: "Leviticus 16:27 - Le:16:27: And the bullock for the sin offering, and the goat for the sin offering, whose blood was brought in to make atonement in the holy place, shall one carry forth without the camp; and they shall burn in the fire their skins, and their flesh, and their dung.",
-      jesusRef: "Revelation 21–22 (the whole chapter); Nahum 1:9",
+      jesusRef: "Revelation 21–22 (the whole chapter); Nahum 1:9 - Na:1:9: What do ye imagine against the LORD?  he will make an utter end: affliction shall not rise up the second time.",
       description: "Total removal of sin; restoration of all things.",
       aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
       jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
