@@ -327,8 +327,7 @@ const TimelinePage = () => {
       aaron: "Puts fat on the fire",
       jesus: "End of sinners in fire (lake of fire)",
       aaronRef: "Leviticus 16:25 -Le:16:25: And the fat of the sin offering shall he burn upon the altar.",
-      jesusRef: "Revelation 20:14-15 Re:20:14: And death and hell were cast into the lake of fire. This is the second death. 15: And whosoever was not found written in the book of life was cast into the lake of fire.
- ",
+      jesusRef: "Revelation 20:14-15 Re:20:14: And death and hell were cast into the lake of fire. This is the second death. 15: And whosoever was not found written in the book of life was cast into the lake of fire.",
       description: "Final judgment on sin.",
       aaronGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
       jesusGif: "https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=400",
