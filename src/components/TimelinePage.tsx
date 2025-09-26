@@ -102,7 +102,7 @@ const TimelinePage = () => {
     {
       step: 6,
       aaron: "Meets with co-laborers (fellow priests) and returns to altar of sacrifice (the Outer Court = World); kills lamb for the people: inspects the lamb",
-      jesus: "Meets with co-laborers; 40 days spent on Earth as a Lamb for the people",
+      jesus: "Meets with co-laborers (His disciples(Peter,James, John, Mattheew, Mark, etc..)); 40 days spent on Earth as the Risen Lamb for the people",
       aaronRef: "{Leviticus 1:3} If his offering be a burnt sacrifice of the herd, let him offer a male without blemish: he shall offer it of his own voluntary will at the door of the tabernacle of the congregation before the LORD.",
       jesusRef: "{Acts 1:3} To whom also he shewed himself alive after his passion by many infallible proofs, being seen of them forty days, and speaking of the things pertaining to the kingdom of God:; {Luke 24}(see entire chapter)",
       description: "Ministry with disciples before His Ascension.",
