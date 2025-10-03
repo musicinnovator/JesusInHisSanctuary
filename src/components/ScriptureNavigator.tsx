@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, BookOpen, Search, Eye, Link, Languages } from 'lucide-react';
+import DonationBanner from './DonationBanner';
 
 const ScriptureNavigator = () => {
   const [selectedTranslation, setSelectedTranslation] = useState('KJV');
@@ -21,6 +22,7 @@ const ScriptureNavigator = () => {
 
   return (
     <div className="min-h-screen bg-sanctuary-linen">
+      <DonationBanner />
       {/* Header */}
       <div className="bg-sanctuary-gold text-sanctuary-purple py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

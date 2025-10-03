@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Users, MessageSquare, Shield, Plus, Search, Clock, Eye } from 'lucide-react';
+import DonationBanner from './DonationBanner';
 
 const ForumsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -95,6 +96,7 @@ const ForumsPage = () => {
 
   return (
     <div className="min-h-screen bg-sanctuary-linen">
+      <DonationBanner />
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-cyan-800 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

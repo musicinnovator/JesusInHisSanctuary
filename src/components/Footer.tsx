@@ -58,13 +58,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Donation Links Section */}
-        <div className="border-t border-sanctuary-brass pt-8 mt-12">
-          <div className="flex justify-center">
-            <DonationLinks />
-          </div>
-        </div>
-
         <div className="border-t border-sanctuary-brass pt-8 mt-12">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sanctuary-silver text-sm mb-4 md:mb-0">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Shield, Calendar, Book, Users, CheckCircle, Clock } from 'lucide-react';
+import DonationBanner from './DonationBanner';
 
 const JudgmentModule = () => {
   const [activeSection, setActiveSection] = useState('overview');
@@ -19,6 +20,7 @@ const JudgmentModule = () => {
 
   return (
     <div className="min-h-screen bg-sanctuary-linen">
+      <DonationBanner />
       {/* Header */}
       <div className="bg-gradient-to-r from-sanctuary-brass to-yellow-700 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

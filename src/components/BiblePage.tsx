@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Book, Search, Bookmark, Brain, Eye, Volume2 } from 'lucide-react';
+import DonationBanner from './DonationBanner';
 
 const BiblePage = () => {
   const [selectedBook, setSelectedBook] = useState('Genesis');
@@ -74,6 +75,7 @@ const BiblePage = () => {
 
   return (
     <div className="min-h-screen bg-sanctuary-linen">
+      <DonationBanner />
       {/* Header */}
       <div className="bg-gradient-to-r from-amber-600 to-orange-800 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

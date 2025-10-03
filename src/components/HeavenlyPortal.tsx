@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Star, Eye, Volume2, Play, Pause, SkipForward } from 'lucide-react';
+import DonationBanner from './DonationBanner';
 
 const HeavenlyPortal = () => {
   const [currentStage, setCurrentStage] = useState('outer-court');
@@ -52,6 +53,7 @@ const HeavenlyPortal = () => {
 
   return (
     <div className="min-h-screen bg-sanctuary-linen">
+      <DonationBanner />
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-600 to-indigo-800 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

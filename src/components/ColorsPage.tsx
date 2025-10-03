@@ -1,9 +1,11 @@
 import React from 'react';
 import { Palette, Book, ArrowLeft } from 'lucide-react';
+import DonationBanner from './DonationBanner';
 
 const ColorsPage = () => {
   return (
     <div className="min-h-screen bg-sanctuary-linen">
+      <DonationBanner />
       {/* Header */}
       <div className="bg-sanctuary-purple-dark text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

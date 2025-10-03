@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Headphones, Video, Download, Play, Clock, Calendar, Star, Users } from 'lucide-react';
+import DonationBanner from './DonationBanner';
 
 const MediaPage = () => {
   const [activeTab, setActiveTab] = useState('podcasts');
@@ -138,6 +139,7 @@ const MediaPage = () => {
 
   return (
     <div className="min-h-screen bg-sanctuary-linen">
+      <DonationBanner />
       {/* Header */}
       <div className="bg-gradient-to-r from-indigo-600 to-purple-800 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

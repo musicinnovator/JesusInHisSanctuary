@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Award, BookOpen, Clock, Star, Trophy, User, Settings, Download, Share2 } from 'lucide-react';
+import DonationBanner from './DonationBanner';
 
 const ProfilesPage = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -58,6 +59,7 @@ const ProfilesPage = () => {
 
   return (
     <div className="min-h-screen bg-sanctuary-linen">
+      <DonationBanner />
       {/* Header */}
       <div className="bg-gradient-to-r from-orange-600 to-red-700 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

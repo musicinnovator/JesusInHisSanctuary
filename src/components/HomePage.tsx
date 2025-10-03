@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import DonationBanner from './DonationBanner';
 import { 
   Eye, 
   GitCompare, 
@@ -165,6 +166,7 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-sanctuary-linen">
+      <DonationBanner />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-sanctuary-blue-dark via-sanctuary-purple to-sanctuary-purple-dark text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">

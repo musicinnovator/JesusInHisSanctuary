@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import DonationBanner from './DonationBanner';
 import { 
   RotateCcw, 
   ZoomIn, 
@@ -101,6 +102,7 @@ const SanctuaryViewer = () => {
 
   return (
     <section className="min-h-screen relative overflow-hidden">
+      <DonationBanner />
       {/* Dynamic Environment Background */}
       <div className={`absolute inset-0 transition-all duration-1000 ${getEnvironmentClasses(selectedModel)}`}>
         {selectedModel === 'wilderness' && (

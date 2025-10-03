@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, GitCompare, Eye, Layers, Download, Share2, Maximize2 } from 'lucide-react';
+import DonationBanner from './DonationBanner';
 
 const ComparePage = () => {
   const [selectedSanctuaries, setSelectedSanctuaries] = useState(['wilderness', 'solomon']);
@@ -24,6 +25,7 @@ const ComparePage = () => {
 
   return (
     <div className="min-h-screen bg-sanctuary-linen">
+      <DonationBanner />
       {/* Header */}
       <div className="bg-sanctuary-purple-dark text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

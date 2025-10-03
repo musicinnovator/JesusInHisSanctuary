@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Sparkles, Eye, Book, Users, ToggleLeft, ToggleRight } from 'lucide-react';
+import DonationBanner from './DonationBanner';
 
 const SymbolismPage = () => {
   const [selectedFurnishing, setSelectedFurnishing] = useState('');
@@ -80,6 +81,7 @@ const SymbolismPage = () => {
 
   return (
     <div className="min-h-screen bg-sanctuary-linen">
+      <DonationBanner />
       {/* Header */}
       <div className="bg-gradient-to-r from-sanctuary-scarlet to-red-700 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

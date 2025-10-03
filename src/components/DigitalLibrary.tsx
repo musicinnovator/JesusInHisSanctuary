@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, GraduationCap, Search, Download, ExternalLink, Filter, Star, Book } from 'lucide-react';
+import DonationBanner from './DonationBanner';
 
 const DigitalLibrary = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -119,6 +120,7 @@ const DigitalLibrary = () => {
 
   return (
     <div className="min-h-screen bg-sanctuary-linen">
+      <DonationBanner />
       {/* Header */}
       <div className="bg-gradient-to-r from-green-600 to-emerald-800 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
