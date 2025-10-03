@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, GraduationCap, Search, Download, ExternalLink, Filter, Star, Book } from 'lucide-react';
+import { ArrowLeft, GraduationCap, Search, Download, ExternalLink, ListFilter as Filter, Star, Book } from 'lucide-react';
 import DonationBanner from './DonationBanner';
 
 const DigitalLibrary = () => {

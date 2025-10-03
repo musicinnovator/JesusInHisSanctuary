@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Shield, Calendar, Book, Users, CheckCircle, Clock } from 'lucide-react';
+import { ArrowLeft, Shield, Calendar, Book, Users, CircleCheck as CheckCircle, Clock } from 'lucide-react';
 import DonationBanner from './DonationBanner';
 
 const JudgmentModule = () => {

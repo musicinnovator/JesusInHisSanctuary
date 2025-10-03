@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, HelpCircle, CheckCircle, XCircle, Lightbulb, Book, Users } from 'lucide-react';
+import { ArrowLeft, Circle as HelpCircle, CircleCheck as CheckCircle, Circle as XCircle, Lightbulb, Book, Users } from 'lucide-react';
 import DonationBanner from './DonationBanner';
 
 const MythsPage = () => {

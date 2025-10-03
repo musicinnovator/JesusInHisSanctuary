@@ -1,18 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import DonationBanner from './DonationBanner';
-import { 
-  RotateCcw, 
-  ZoomIn, 
-  ZoomOut, 
-  Move3D, 
-  Eye, 
-  Layers, 
-  Info,
-  Play,
-  Pause,
-  SkipBack,
-  SkipForward
-} from 'lucide-react';
+import { RotateCcw, ZoomIn, ZoomOut, Move3d as Move3D, Eye, Layers, Info, Play, Pause, SkipBack, SkipForward } from 'lucide-react';
 
 interface SanctuaryModel {
   id: string;

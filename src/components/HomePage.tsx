@@ -1,24 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import DonationBanner from './DonationBanner';
-import { 
-  Eye, 
-  GitCompare, 
-  BookOpen, 
-  Sparkles, 
-  ArrowRight,
-  Play,
-  Users,
-  Globe,
-  Award,
-  Clock,
-  Star,
-  Shield,
-  GraduationCap,
-  Headphones,
-  HelpCircle,
-  Book
-} from 'lucide-react';
+import { Eye, GitCompare, BookOpen, Sparkles, ArrowRight, Play, Users, Globe, Award, Clock, Star, Shield, GraduationCap, Headphones, Circle as HelpCircle, Book } from 'lucide-react';
 
 const HomePage = () => {
   const pages = [
