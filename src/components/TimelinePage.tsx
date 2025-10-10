@@ -1,71 +1,278 @@
-import React, { useState } from 'react';
-import { ArrowLeft, Clock, Play, Pause, SkipBack, SkipForward, Calendar, User, Crown } from 'lucide-react';
-import DonationBanner from './DonationBanner';
+import React, { useEffect, useState } from 'react';
+import { ArrowLeft, Clock, Play, Pause, SkipForward, SkipBack, Book } from 'lucide-react';
+
+type TimelineStep = {
+  step: number;
+  aaron: string;
+  jesus: string;
+  aaronRef?: string;
+  jesusRef?: string;
+  description?: string;
+};
 
 const TimelinePage = () => {
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const timelineSteps = [
+  const timelineSteps: TimelineStep[] = [
+    // Step 0
     {
-      id: 1,
-      aaron: "Aaron enters the outer court",
-      jesus: "Jesus begins His earthly ministry",
-      scripture: "Leviticus 16:3",
-      description: "The high priest begins the Day of Atonement service"
+      step: 0,
+      aaron: "Aaron comes through the gate to work in the morning",
+      jesus: "Jesus is born into this world of sinful human flesh",
+      aaronRef: "Leviticus 16:3 - Thus shall Aaron come into the holy place: with a young bullock for a sin offering, and a ram for a burnt offering.",
+      jesusRef: "Matthew 1:21 - And she shall bring forth a son, and thou shalt call his name JESUS: for he shall save his people from their sins.; Luke 1:35 - And the angel answered and said unto her, The Holy Ghost shall come upon thee, and the power of the Highest shall overshadow thee: therefore also that holy thing which shall be born of thee shall be called the Son of God. ; John 1:14 - And the Word was made flesh, and dwelt among us, (and we beheld his glory, the glory as of the only begotten of the Father,) full of grace and truth.",
+      description: "Entrance into the work of Salvation: Aaron begins daily service in the Tabernacle; Christ enters humanity through Mary and the Holy Spirit."
     },
+    // Step 1
     {
-      id: 2,
-      aaron: "Aaron washes at the bronze laver",
-      jesus: "Jesus is baptized by John",
-      scripture: "Leviticus 16:4",
-      description: "Ceremonial cleansing before sacred service"
+      step: 1,
+      aaron: "Washes body & puts on common priest’s clothes",
+      jesus: "Baptism (by John at the river Jordan)",
+      aaronRef: "Leviticus 16:4 - He shall put on the holy linen coat, and he shall have the linen breeches upon his flesh, and shall be girded with a linen girdle, and with the linen mitre shall he be attired: these are holy garments; therefore shall he wash his flesh in water, and so put them on.\nExodus 30:18-21 - Thou shalt also make a laver of brass, and his foot also of brass, to wash withal: and thou shalt put it between the tabernacle of the congregation and the altar, and thou shalt put water therein. For Aaron and his sons shall wash their hands and their feet thereat: When they go into the tabernacle of the congregation, they shall wash with water, that they die not; or when they come near to the altar to minister, to burn offering made by fire unto the LORD: So they shall wash their hands and their feet, that they die not: and it shall be a statute for ever to them, even to him and to his seed throughout their generations.",
+      jesusRef: "Matthew 3:13-17 - Then cometh Jesus from Galilee to Jordan unto John, to be baptized of him. But John forbad him, saying, I have need to be baptized of thee, and comest thou to me? And Jesus answering said unto him, Suffer it to be so now: for thus it becometh us to fulfil all righteousness. Then he suffered him. And Jesus, when he was baptized, went up straightway out of the water: and, lo, the heavens were opened unto him, and he saw the Spirit of God descending like a dove, and lighting upon him: And lo a voice from heaven, saying, This is my beloved Son, in whom I am well pleased.; Mark 1:9-11; Luke 3:21-22",
+      description: "Consecration and preparation for ministry."
     },
+    // Step 2
     {
-      id: 3,
-      aaron: "Aaron puts on holy garments",
-      jesus: "Jesus receives the Holy Spirit",
-      scripture: "Leviticus 16:4",
-      description: "Preparation for priestly ministry"
+      step: 2,
+      aaron: "Kills bull for himself & his household",
+      jesus: "Crucifixion as a bull for Himself & co-laborers",
+      aaronRef: "Leviticus 16:6, 11",
+      jesusRef: "Hebrews 7:27; 2 Corinthians 5:21",
+      description: "Atonement provision: Aaron needs covering; Christ provides the ultimate sacrifice."
     },
+    // Step 3
     {
-      id: 4,
-      aaron: "Aaron offers sacrifice for himself",
-      jesus: "Jesus lives a sinless life",
-      scripture: "Leviticus 16:6",
-      description: "The priest must be without sin"
+      step: 3,
+      aaron: "Washes hands & feet",
+      jesus: "Resurrection (removes traces of sin)",
+      aaronRef: "Exodus 30:18-21",
+      jesusRef: "Matthew 28; Romans 6:9-10; 1 Corinthians 15",
+      description: "Purity emphasized; Christ’s resurrection demonstrates victory over sin and death."
     },
+    // Step 4
     {
-      id: 5,
-      aaron: "Aaron casts lots over two goats",
-      jesus: "Jesus chooses to die for humanity",
-      scripture: "Leviticus 16:8",
-      description: "The choice between life and death"
+      step: 4,
+      aaron: "Picks up incense & censer",
+      jesus: "Passed through with His own merits",
+      aaronRef: "Leviticus 16:12-13",
+      jesusRef: "Hebrews 9:11-12; Hebrews 4:14-16",
+      description: "Intercession initiates: Aaron’s incense typifies Christ’s merits."
+    },
+    // Step 5
+    {
+      step: 5,
+      aaron: "Aaron as common priest puts blood of bullock on ark: acceptance by God; puts censer on Mercy Seat",
+      jesus: "Jesus presents His blood; acceptance by God",
+      aaronRef: "Leviticus 16:14",
+      jesusRef: "Hebrews 9:12; Hebrews 10:12-14",
+      description: "Acceptance before God on the basis of blood."
+    },
+    // Step 6
+    {
+      step: 6,
+      aaron: "Meets with co-laborers (fellow priests) and returns to altar of sacrifice (the Outer Court = World); kills lamb for the people",
+      jesus: "Meets with co-laborers; 40 days spent on Earth as a Lamb for the people",
+      aaronRef: "",
+      jesusRef: "Acts 1:3; Luke 24",
+      description: "Ministry with disciples before His Ascension."
+    },
+    // Step 7
+    {
+      step: 7,
+      aaron: "Washes hands & feet",
+      jesus: "He possesed the same body that He had before taking on humanity. Divine stature restored to 16ft.",
+      aaronRef: "Exodus 30:18-21",
+      jesusRef: "Hebrews 2:5-19; I Corinthians 15:35-53",
+      description: "Renewed purity in type; assertion of restored divine stature as He had in Heaven."
+    },
+    // Step 8
+    {
+      step: 8,
+      aaron: "Dresses as High Priest",
+      jesus: "Inauguration as High Priest",
+      aaronRef: "Leviticus 16:4, 23-24",
+      jesusRef: "Hebrews 4:14; Hebrews 8:1-2",
+      description: "High-priestly investiture and inauguration."
+    },
+    // Step 9
+    {
+      step: 9,
+      aaron: "Pours oil into lamp",
+      jesus: "Pentecost",
+      aaronRef: "Exodus 27:20-21",
+      jesusRef: "Acts 2; John 16:7",
+      description: "Light and Spirit poured out upon the people."
+    },
+    // Step 10
+    {
+      step: 10,
+      aaron: "Puts incense on altar",
+      jesus: "Christ on first throne; pleads His merits for the people",
+      aaronRef: "Exodus 30:7-10",
+      jesusRef: "Hebrews 7:25; Revelation 8:3-4",
+      description: "Active intercession on behalf of the people."
+    },
+
+    // Yearly Service section
+    // Step 11
+    {
+      step: 11,
+      aaron: "Blowing of the trumpet (~10 days before Day of Atonement)",
+      jesus: "First Angel’s Message preached (1833)",
+      aaronRef: "Leviticus 23:24-27",
+      jesusRef: "Revelation 14:6-7 (historic application 1830s)",
+      description: "Announcement and warning preceding the atonement."
+    },
+    // Step 12
+    {
+      step: 12,
+      aaron: "Common priests leave the court; Aaron casts lots & kills the Lord’s goat for the people",
+      jesus: "Ends work of 24 elders & 4 beasts; Jesus shows He died as a goat for the people",
+      aaronRef: "Leviticus 16:7-10, 15",
+      jesusRef: "Hebrews 9:26-28",
+      description: "Selection and offering for the people; antitype emphasizes Christ’s substitution."
+    },
+    // Step 13
+    {
+      step: 13,
+      aaron: "High Priest goes into the Most Holy Place",
+      jesus: "Christ goes into the Most Holy Place in Heaven (1844)",
+      aaronRef: "Leviticus 16:15-16",
+      jesusRef: "Hebrews 9:23-24 (historic application 1844)",
+      description: "Entrance into the climactic phase of atonement."
+    },
+    // Step 14
+    {
+      step: 14,
+      aaron: "(continued from above)",
+      jesus: "Jesus stands before the Law showing the Sabbath to those in 1844",
+      aaronRef: "",
+      jesusRef: "Revelation 11:19 (interpreted); Exodus 20:8-11",
+      description: "Law-centered focus in the Most Holy Place (interpretive emphasis)."
+    },
+    // Step 15
+    {
+      step: 15,
+      aaron: "(continued from above)",
+      jesus: "Christ sits with God as Judge; Investigative Judgment",
+      aaronRef: "",
+      jesusRef: "Daniel 7:9-10; Revelation 20:12 (investigative judgment interpreted)",
+      description: "Judicial phase emphasizing review and verdict."
+    },
+    // Step 16
+    {
+      step: 16,
+      aaron: "High Priest stands before God and the Law; sprinkles blood on the Mercy Seat and before the Law",
+      jesus: "Pleads His blood; second death removed & God’s people sealed; blots out sins from “the book”",
+      aaronRef: "Leviticus 16:14-15",
+      jesusRef: "Hebrews 10:17; Revelation 3:5; Acts 3:19",
+      description: "Atonement finalized for the faithful; sins removed from the record (interpretive)."
+    },
+    // Step 17
+    {
+      step: 17,
+      aaron: "Stops at altar of incense; cleans Holy Place by blood",
+      jesus: "Throws down censer; cleans Holy Place; Close of Probation",
+      aaronRef: "Leviticus 16:16-19",
+      jesusRef: "Revelation 8:5; Revelation 22:11",
+      description: "Cleansing completed; intercession concludes."
+    },
+    // Step 18
+    {
+      step: 18,
+      aaron: "Puts sins on scapegoat",
+      jesus: "Puts sins on Satan",
+      aaronRef: "Leviticus 16:20-22",
+      jesusRef: "Revelation 20:1-3 (antitypical confinement interpreted)",
+      description: "Transfer of sin responsibility to the ultimate originator."
+    },
+    // Step 19
+    {
+      step: 19,
+      aaron: "Removes High Priest robes",
+      jesus: "Removes High Priest robe",
+      aaronRef: "Leviticus 16:23-24",
+      jesusRef: "",
+      description: "Transition from intercessory attire signifying phase change."
+    },
+    // Step 20
+    {
+      step: 20,
+      aaron: "Leaves Sanctuary; comes out in white (linen)",
+      jesus: "Leaves Sanctuary; Plagues fall; comes out in white",
+      aaronRef: "Leviticus 16:23-24",
+      jesusRef: "Revelation 15–16",
+      description: "Emergence signals completed mediation; judgments proceed."
+    },
+    // Step 21
+    {
+      step: 21,
+      aaron: "Washes body – “baptism”",
+      jesus: "Jacob’s Time of Trouble; Plagues; the cup of baptism",
+      aaronRef: "Leviticus 16:24, 26, 28",
+      jesusRef: "Jeremiah 30:7; Daniel 12:1",
+      description: "Final purification motif; God’s people endure final crisis."
+    },
+    // Step 22
+    {
+      step: 22,
+      aaron: "Puts two rams on the fire",
+      jesus: "Second coming of Christ",
+      aaronRef: "Leviticus 16:24",
+      jesusRef: "Matthew 24:30-31; 1 Thessalonians 4:16-17",
+      description: "Culminating offering in type; visible return in antitype."
+    },
+    // Step 23
+    {
+      step: 23,
+      aaron: "Puts fat on the fire",
+      jesus: "End of sinners in fire (lake of fire)",
+      aaronRef: "Leviticus 16:25",
+      jesusRef: "Revelation 20:14-15",
+      description: "Final judgment on sin."
+    },
+    // Step 24
+    {
+      step: 24,
+      aaron: "Bodies of bull and goat burned outside of the camp",
+      jesus: "Second fire; New Earth; All traces of sin gone!",
+      aaronRef: "Leviticus 16:27",
+      jesusRef: "Revelation 21–22; Nahum 1:9",
+      description: "Total removal of sin; restoration of all things."
     }
   ];
 
+  // Simple autoplay for demo (optional). You can remove this if undesired.
+  useEffect(() => {
+    if (!isPlaying) return;
+    const id = setInterval(() => {
+      setCurrentStep((prev) => {
+        if (prev >= timelineSteps.length - 1) return 0; // loop back to 0
+        return prev + 1;
+      });
+    }, 2500);
+    return () => clearInterval(id);
+  }, [isPlaying, timelineSteps.length]);
+
   const nextStep = () => {
-    if (currentStep < timelineSteps.length) {
-      setCurrentStep(currentStep + 1);
-    }
+    setCurrentStep((s) => Math.min(s + 1, timelineSteps.length - 1));
   };
 
   const prevStep = () => {
-    if (currentStep > 1) {
-      setCurrentStep(currentStep - 1);
-    }
+    setCurrentStep((s) => Math.max(s - 1, 0));
   };
 
-  const currentStepData = timelineSteps.find(step => step.id === currentStep);
+  const currentStepData = timelineSteps[currentStep];
 
   return (
     <div className="min-h-screen bg-sanctuary-linen">
-      <DonationBanner />
       {/* Header */}
       <div className="bg-gradient-to-r from-sanctuary-silver to-gray-600 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center space-x-4 mb-4">
-            <button 
+            <button
               onClick={() => window.history.back()}
               className="flex items-center space-x-2 text-sanctuary-gold hover:text-sanctuary-gold-dark transition-colors"
             >
@@ -77,7 +284,7 @@ const TimelinePage = () => {
             <Clock className="w-12 h-12 text-sanctuary-gold" />
             <div>
               <h1 className="text-4xl font-bold">Aaron & Jesus Ministry Timeline</h1>
-              <p className="text-gray-100 text-lg">24-step animated comparison of earthly and heavenly ministry</p>
+              <p className="text-gray-100 text-lg">Animated comparison of earthly type and heavenly antitype</p>
             </div>
           </div>
         </div>
@@ -86,107 +293,171 @@ const TimelinePage = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Timeline Controls */}
         <div className="bg-white rounded-xl p-6 shadow-lg border border-sanctuary-gold/30 mb-8">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-xl font-bold text-sanctuary-purple">Timeline Navigation</h3>
             <div className="flex items-center space-x-4">
-              <button
-                onClick={() => setIsPlaying(!isPlaying)}
-                className="flex items-center space-x-2 px-4 py-2 bg-sanctuary-silver text-sanctuary-purple rounded-lg hover:bg-sanctuary-silver-dark transition-colors"
-              >
-                {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-                <span>{isPlaying ? 'Pause' : 'Play'}</span>
-              </button>
-              
+              <span className="text-sanctuary-brass">Step {currentStepData?.step} of {timelineSteps.length - 1}</span>
               <div className="flex items-center space-x-2">
                 <button
                   onClick={prevStep}
-                  disabled={currentStep === 1}
+                  disabled={currentStep === 0}
                   className="p-2 bg-sanctuary-silver text-sanctuary-purple rounded-lg hover:bg-sanctuary-silver-dark transition-colors disabled:opacity-50"
                 >
                   <SkipBack className="w-4 h-4" />
                 </button>
                 <button
+                  onClick={() => setIsPlaying(!isPlaying)}
+                  className="p-2 bg-sanctuary-purple text-white rounded-lg hover:bg-sanctuary-purple-dark transition-colors"
+                >
+                  {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+                </button>
+                <button
                   onClick={nextStep}
-                  disabled={currentStep === timelineSteps.length}
+                  disabled={currentStep === timelineSteps.length - 1}
                   className="p-2 bg-sanctuary-silver text-sanctuary-purple rounded-lg hover:bg-sanctuary-silver-dark transition-colors disabled:opacity-50"
                 >
                   <SkipForward className="w-4 h-4" />
                 </button>
               </div>
             </div>
-
-            <div className="text-sanctuary-purple">
-              <span className="font-semibold">Step {currentStep} of {timelineSteps.length}</span>
-            </div>
           </div>
 
           {/* Progress Bar */}
-          <div className="mt-4 w-full bg-sanctuary-linen rounded-full h-2">
-            <div 
-              className="bg-sanctuary-silver h-2 rounded-full transition-all duration-300"
-              style={{ width: `${(currentStep / timelineSteps.length) * 100}%` }}
+          <div className="w-full bg-sanctuary-linen rounded-full h-2 mb-4">
+            <div
+              className="bg-sanctuary-purple h-2 rounded-full transition-all duration-300"
+              style={{
+                width: `${((currentStep) / (timelineSteps.length - 1)) * 100}%`
+              }}
             ></div>
+          </div>
+
+          {/* Step Indicators */}
+          <div className="flex flex-wrap gap-2">
+            {timelineSteps.map((s, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentStep(index)}
+                className={`w-10 h-10 rounded-full text-sm font-medium transition-colors ${
+                  currentStep === index
+                    ? 'bg-sanctuary-purple text-white'
+                    : currentStep > index
+                    ? 'bg-sanctuary-gold text-sanctuary-purple'
+                    : 'bg-sanctuary-silver text-sanctuary-purple'
+                }`}
+                title={`Step ${s.step}`}
+              >
+                {s.step}
+              </button>
+            ))}
           </div>
         </div>
 
         {/* Main Timeline Display */}
-        <div className="bg-white rounded-xl shadow-lg border border-sanctuary-gold/30 overflow-hidden">
-          <div className="bg-sanctuary-silver text-white p-4">
-            <h3 className="font-semibold">Step {currentStep}: {currentStepData?.description}</h3>
-          </div>
-
-          <div className="p-8">
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Aaron's Ministry */}
-              <div className="bg-gradient-to-br from-sanctuary-brass/10 to-sanctuary-gold/10 rounded-lg p-6 border border-sanctuary-brass/30">
-                <div className="flex items-center space-x-3 mb-4">
-                  <User className="w-8 h-8 text-sanctuary-brass" />
-                  <h4 className="text-xl font-bold text-sanctuary-purple">Aaron's Ministry</h4>
-                  <span className="text-sm text-sanctuary-brass">(Earthly Type)</span>
-                </div>
-                <p className="text-sanctuary-purple text-lg leading-relaxed">
-                  {currentStepData?.aaron}
-                </p>
-              </div>
-
-              {/* Jesus' Ministry */}
-              <div className="bg-gradient-to-br from-sanctuary-gold/10 to-sanctuary-scarlet/10 rounded-lg p-6 border border-sanctuary-gold/30">
-                <div className="flex items-center space-x-3 mb-4">
-                  <Crown className="w-8 h-8 text-sanctuary-gold" />
-                  <h4 className="text-xl font-bold text-sanctuary-purple">Jesus' Ministry</h4>
-                  <span className="text-sm text-sanctuary-brass">(Heavenly Antitype)</span>
-                </div>
-                <p className="text-sanctuary-purple text-lg leading-relaxed">
-                  {currentStepData?.jesus}
-                </p>
-              </div>
+        <div className="grid lg:grid-cols-2 gap-8 mb-8">
+          {/* Aaron's Ministry (Type) */}
+          <div className="bg-white rounded-xl shadow-lg border border-sanctuary-brass overflow-hidden">
+            <div className="bg-sanctuary-brass text-white p-4">
+              <h3 className="text-xl font-bold">Aaron's Earthly Ministry (Type)</h3>
+              <p className="text-amber-100">Daily and Day of Atonement Service</p>
             </div>
 
-            {/* Scripture Reference */}
-            <div className="mt-8 bg-sanctuary-linen rounded-lg p-6 text-center">
-              <div className="flex items-center justify-center space-x-2 mb-3">
-                <Calendar className="w-5 h-5 text-sanctuary-blue" />
-                <h5 className="font-semibold text-sanctuary-purple">Scripture Reference</h5>
+            <div className="p-6">
+              <div className="h-64 bg-gradient-to-br from-amber-50 to-yellow-100 rounded-lg mb-4 flex items-center justify-center border-2 border-sanctuary-brass/30">
+                <div className="text-center text-sanctuary-brass">
+                  <div className="w-20 h-20 mx-auto mb-3 bg-sanctuary-brass/20 rounded-lg flex items-center justify-center">
+                    <Clock className="w-10 h-10 text-sanctuary-brass" />
+                  </div>
+                  <p className="text-lg font-medium">Step {currentStepData?.step} Animation</p>
+                  <p className="text-sm">Aaron's Ministry Visualization</p>
+                </div>
               </div>
-              <p className="text-sanctuary-blue font-medium text-lg">{currentStepData?.scripture}</p>
+
+              <div className="space-y-4">
+                <div className="bg-sanctuary-linen rounded-lg p-4">
+                  <h4 className="font-semibold text-sanctuary-purple mb-2">Aaron's Action</h4>
+                  <p className="text-sanctuary-brass">{currentStepData?.aaron}</p>
+                </div>
+
+                <div className="bg-sanctuary-linen rounded-lg p-4">
+                  <h4 className="font-semibold text-sanctuary-purple mb-2 flex items-center space-x-2">
+                    <Book className="w-4 h-4" />
+                    <span>Scripture Reference</span>
+                  </h4>
+                  <p className="text-sanctuary-blue font-medium">{currentStepData?.aaronRef || '—'}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Jesus' Ministry (Antitype) */}
+          <div className="bg-white rounded-xl shadow-lg border border-sanctuary-gold overflow-hidden">
+            <div className="bg-sanctuary-gold text-sanctuary-purple p-4">
+              <h3 className="text-xl font-bold">Jesus' Heavenly Ministry (Antitype)</h3>
+              <p className="text-yellow-800">Eternal Salvation Work</p>
+            </div>
+
+            <div className="p-6">
+              <div className="h-64 bg-gradient-to-br from-yellow-50 to-amber-100 rounded-lg mb-4 flex items-center justify-center border-2 border-sanctuary-gold/30">
+                <div className="text-center text-sanctuary-gold-dark">
+                  <div className="w-20 h-20 mx-auto mb-3 bg-sanctuary-gold/20 rounded-lg flex items-center justify-center">
+                    <Clock className="w-10 h-10 text-sanctuary-gold-dark" />
+                  </div>
+                  <p className="text-lg font-medium">Step {currentStepData?.step} Animation</p>
+                  <p className="text-sm">Jesus' Ministry Visualization</p>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="bg-sanctuary-linen rounded-lg p-4">
+                  <h4 className="font-semibold text-sanctuary-purple mb-2">Jesus' Fulfillment</h4>
+                  <p className="text-sanctuary-brass">{currentStepData?.jesus}</p>
+                </div>
+
+                <div className="bg-sanctuary-linen rounded-lg p-4">
+                  <h4 className="font-semibold text-sanctuary-purple mb-2 flex items-center space-x-2">
+                    <Book className="w-4 h-4" />
+                    <span>Scripture Reference</span>
+                  </h4>
+                  <p className="text-sanctuary-blue font-medium">{currentStepData?.jesusRef || '—'}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Step Navigation */}
-        <div className="mt-8 bg-white rounded-xl p-6 shadow-lg border border-sanctuary-gold/30">
-          <h3 className="text-lg font-semibold text-sanctuary-purple mb-4">Timeline Steps</h3>
-          <div className="grid grid-cols-5 gap-2">
-            {timelineSteps.map((step) => (
+        {/* Theological Connection */}
+        <div className="bg-white rounded-xl p-6 shadow-lg border border-sanctuary-gold/30 mb-8">
+          <h3 className="text-xl font-bold text-sanctuary-purple mb-4">Theological Connection</h3>
+          <div className="bg-gradient-to-r from-sanctuary-linen to-white rounded-lg p-6 border border-sanctuary-silver">
+            <p className="text-sanctuary-brass leading-relaxed text-lg">
+              {currentStepData?.description}
+            </p>
+          </div>
+        </div>
+
+        {/* Complete Timeline Overview */}
+        <div className="bg-white rounded-xl p-6 shadow-lg border border-sanctuary-gold/30">
+          <h3 className="text-xl font-bold text-sanctuary-purple mb-6">Complete 25-Step Timeline (including Step 0)</h3>
+          <div className="text-center text-sanctuary-brass mb-4">
+            <p>This timeline presents steps 0–24, aligning Aaron’s typical services with Jesus’ antitypical ministry.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {timelineSteps.map((step, index) => (
               <button
-                key={step.id}
-                onClick={() => setCurrentStep(step.id)}
-                className={`p-2 text-center rounded-lg text-sm font-medium transition-colors ${
-                  currentStep === step.id
-                    ? 'bg-sanctuary-silver text-white'
-                    : 'bg-sanctuary-linen text-sanctuary-purple hover:bg-sanctuary-silver/20'
+                key={index}
+                onClick={() => setCurrentStep(index)}
+                className={`p-4 rounded-lg text-left transition-colors ${
+                  currentStep === index
+                    ? 'bg-sanctuary-purple text-white'
+                    : 'bg-sanctuary-linen hover:bg-sanctuary-purple/10 text-sanctuary-purple'
                 }`}
               >
-                {step.id}
+                <div className="font-semibold mb-1">Step {step.step}</div>
+                <div className="text-sm opacity-90">{step.aaron}</div>
+                <div className="text-xs mt-1 opacity-75">↓</div>
+                <div className="text-sm opacity-90">{step.jesus}</div>
               </button>
             ))}
           </div>
