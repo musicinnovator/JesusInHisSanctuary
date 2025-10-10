@@ -177,7 +177,7 @@ const ScriptureNavigator = () => {
                         <p><strong>21</strong>So they shall wash their hands and their feet, that they die not: and it shall be a statute for ever to them, even to him and to his seed throughout their generations.</p>
                       </div>
                   )}
-                  {selectedPassage === 'I Kings 6:1-38' && (
+                  {selectedPassage === '1 Kings 6:1-38' && (
                       <div className="space-y-3 text-sanctuary-purple">
                         <p><strong>1-38</strong>1Ki:6:1: And it came to pass in the four hundred and eightieth year after the children of Israel were come out of the land of Egypt, in the fourth year of Solomon's reign over Israel, in the month Zif, which is the second month, that he began to build the house of the LORD.
                           1Ki:6:2: And the house which king Solomon built for the LORD, the length thereof was threescore cubits, and the breadth thereof twenty cubits, and the height thereof thirty cubits.
