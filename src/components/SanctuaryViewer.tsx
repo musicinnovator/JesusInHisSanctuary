@@ -180,14 +180,49 @@ const SanctuaryViewer = () => {
                       {/* Outer Court */}
                       <div className="bg-white/90 rounded-lg p-8 shadow-lg border-2 border-sanctuary-brass">
                         <h4 className="text-2xl font-bold text-sanctuary-purple mb-6">Outer Court</h4>
-                        <div className="relative h-96 bg-gradient-to-br from-amber-50 to-yellow-100 rounded-lg overflow-hidden border-2 border-sanctuary-brass/50 flex items-center justify-center">
-                          <div className="text-center text-sanctuary-brass">
-                            <div className="w-20 h-20 mx-auto mb-3 bg-sanctuary-brass/20 rounded-lg flex items-center justify-center">
-                              <Eye className="w-10 h-10 text-sanctuary-brass" />
+                        <div className="relative h-96 bg-gradient-to-b from-blue-300 via-amber-100 to-yellow-200 rounded-lg overflow-hidden border-2 border-sanctuary-brass/50">
+                          {/* Sky */}
+                          <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-blue-400 via-blue-300 to-blue-200"></div>
+
+                          {/* Desert Ground with perspective */}
+                          <div className="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-b from-yellow-200 via-amber-300 to-yellow-400" style={{ transform: 'perspective(400px) rotateX(15deg)', transformOrigin: 'bottom' }}></div>
+
+                          {/* Court Walls - White Linen Hangings */}
+                          <div className="absolute inset-0 flex items-center justify-center" style={{ perspective: '800px' }}>
+                            {/* Back wall */}
+                            <div className="absolute top-1/3 left-1/4 right-1/4 h-32 bg-gradient-to-b from-gray-100 via-white to-gray-200 border-l-4 border-r-4 border-sanctuary-brass opacity-90" style={{ transform: 'rotateY(0deg) translateZ(-50px)' }}></div>
+
+                            {/* Side walls */}
+                            <div className="absolute top-1/3 left-8 h-32 w-24 bg-gradient-to-r from-gray-200 via-white to-gray-100 border-t-2 border-b-2 border-sanctuary-brass opacity-70" style={{ transform: 'rotateY(-75deg) translateX(-20px)' }}></div>
+                            <div className="absolute top-1/3 right-8 h-32 w-24 bg-gradient-to-l from-gray-200 via-white to-gray-100 border-t-2 border-b-2 border-sanctuary-brass opacity-70" style={{ transform: 'rotateY(75deg) translateX(20px)' }}></div>
+
+                            {/* Bronze Altar - center */}
+                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/4">
+                              <div className="w-24 h-20 bg-gradient-to-br from-yellow-700 via-amber-700 to-yellow-800 rounded shadow-2xl border-2 border-yellow-900" style={{ transform: 'perspective(500px) rotateX(20deg)' }}>
+                                {/* Horns on corners */}
+                                <div className="absolute -top-2 -left-2 w-4 h-4 bg-yellow-600 rounded-full"></div>
+                                <div className="absolute -top-2 -right-2 w-4 h-4 bg-yellow-600 rounded-full"></div>
+                                {/* Fire/smoke effect */}
+                                <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-8 bg-gradient-to-t from-orange-500 via-red-400 to-gray-400 opacity-60 rounded-full blur-sm"></div>
+                              </div>
                             </div>
-                            <p className="text-lg">Wilderness Tabernacle - Outer Court</p>
-                            <p className="text-base">Image Placeholder</p>
+
+                            {/* Bronze Laver - front right */}
+                            <div className="absolute top-2/3 right-1/3 transform translate-x-8">
+                              <div className="w-16 h-16 bg-gradient-to-br from-amber-600 via-yellow-700 to-amber-800 rounded-full shadow-xl border-2 border-yellow-900" style={{ transform: 'perspective(300px) rotateX(30deg)' }}>
+                                <div className="absolute inset-2 bg-gradient-to-br from-blue-300 to-blue-500 rounded-full opacity-70"></div>
+                              </div>
+                            </div>
+
+                            {/* Pillars */}
+                            <div className="absolute top-1/3 left-12 w-3 h-32 bg-gradient-to-r from-amber-700 to-yellow-700 shadow-md"></div>
+                            <div className="absolute top-1/3 left-24 w-3 h-32 bg-gradient-to-r from-amber-700 to-yellow-700 shadow-md"></div>
+                            <div className="absolute top-1/3 right-12 w-3 h-32 bg-gradient-to-r from-amber-700 to-yellow-700 shadow-md"></div>
+                            <div className="absolute top-1/3 right-24 w-3 h-32 bg-gradient-to-r from-amber-700 to-yellow-700 shadow-md"></div>
                           </div>
+
+                          {/* Gate entrance - front center */}
+                          <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 w-32 h-24 bg-gradient-to-t from-blue-700 via-purple-600 to-red-500 opacity-80 shadow-2xl border-4 border-sanctuary-brass"></div>
                         </div>
                         <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
                           <div>
@@ -238,14 +273,65 @@ const SanctuaryViewer = () => {
                       {/* Holy Place */}
                       <div className="bg-white/90 rounded-lg p-8 shadow-lg border-2 border-sanctuary-silver">
                         <h4 className="text-2xl font-bold text-sanctuary-purple mb-6">Holy Place</h4>
-                        <div className="relative h-96 bg-gradient-to-br from-gray-50 to-slate-100 rounded-lg overflow-hidden border-2 border-sanctuary-silver/50 flex items-center justify-center">
-                          <div className="text-center text-sanctuary-silver-dark">
-                            <div className="w-20 h-20 mx-auto mb-3 bg-sanctuary-silver/20 rounded-lg flex items-center justify-center">
-                              <Eye className="w-10 h-10 text-sanctuary-silver-dark" />
+                        <div className="relative h-96 bg-gradient-to-b from-amber-900 via-yellow-800 to-yellow-700 rounded-lg overflow-hidden border-2 border-sanctuary-silver/50">
+                          {/* Gold overlay for walls */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-yellow-600 via-amber-700 to-yellow-800 opacity-90"></div>
+
+                          {/* Ceiling with tapestry effect */}
+                          <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-blue-900 via-purple-800 to-red-800 opacity-60"></div>
+
+                          {/* Interior room perspective */}
+                          <div className="absolute inset-0" style={{ perspective: '600px' }}>
+                            {/* Back wall with veil */}
+                            <div className="absolute top-1/4 left-1/4 right-1/4 h-48 bg-gradient-to-b from-purple-900 via-blue-800 to-red-900 shadow-2xl border-4 border-yellow-600" style={{ transform: 'rotateY(0deg) translateZ(-80px)' }}>
+                              <div className="absolute inset-0 bg-gradient-to-br from-yellow-600/20 via-transparent to-yellow-600/20"></div>
                             </div>
-                            <p className="text-lg">Wilderness Tabernacle - Holy Place</p>
-                            <p className="text-base">Image Placeholder</p>
+
+                            {/* Floor */}
+                            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-amber-900 to-yellow-800 opacity-80" style={{ transform: 'rotateX(60deg) translateY(40px)' }}></div>
+
+                            {/* Golden Candlestick (Menorah) - left/south side */}
+                            <div className="absolute top-1/2 left-16 transform -translate-y-1/2">
+                              <div className="relative w-20 h-32">
+                                {/* Central stem */}
+                                <div className="absolute left-1/2 bottom-0 w-3 h-32 bg-gradient-to-t from-yellow-600 via-yellow-500 to-yellow-400 transform -translate-x-1/2 shadow-lg"></div>
+                                {/* Branches */}
+                                <div className="absolute left-1/2 top-8 w-16 h-2 bg-gradient-to-r from-yellow-400 to-yellow-600 transform -translate-x-1/2 shadow-md"></div>
+                                <div className="absolute left-1/2 top-16 w-12 h-2 bg-gradient-to-r from-yellow-400 to-yellow-600 transform -translate-x-1/2 shadow-md"></div>
+                                {/* Flames */}
+                                <div className="absolute top-2 left-1/2 w-6 h-6 bg-gradient-to-t from-orange-500 to-yellow-300 rounded-full blur-sm transform -translate-x-1/2"></div>
+                                <div className="absolute top-6 left-2 w-4 h-4 bg-gradient-to-t from-orange-500 to-yellow-300 rounded-full blur-sm"></div>
+                                <div className="absolute top-6 right-2 w-4 h-4 bg-gradient-to-t from-orange-500 to-yellow-300 rounded-full blur-sm"></div>
+                              </div>
+                            </div>
+
+                            {/* Table of Showbread - right/north side */}
+                            <div className="absolute top-1/2 right-16 transform -translate-y-1/2">
+                              <div className="w-24 h-16 bg-gradient-to-br from-yellow-500 via-amber-600 to-yellow-700 shadow-2xl border-2 border-yellow-800" style={{ transform: 'perspective(400px) rotateY(-15deg) rotateX(20deg)' }}>
+                                {/* Bread loaves */}
+                                <div className="absolute -top-3 left-2 w-6 h-6 bg-gradient-to-br from-amber-200 to-amber-400 rounded shadow-md"></div>
+                                <div className="absolute -top-3 left-10 w-6 h-6 bg-gradient-to-br from-amber-200 to-amber-400 rounded shadow-md"></div>
+                                <div className="absolute -top-3 right-2 w-6 h-6 bg-gradient-to-br from-amber-200 to-amber-400 rounded shadow-md"></div>
+                                {/* Table legs */}
+                                <div className="absolute -bottom-4 left-2 w-2 h-4 bg-yellow-700"></div>
+                                <div className="absolute -bottom-4 right-2 w-2 h-4 bg-yellow-700"></div>
+                              </div>
+                            </div>
+
+                            {/* Altar of Incense - center front */}
+                            <div className="absolute bottom-1/4 left-1/2 transform -translate-x-1/2">
+                              <div className="w-16 h-24 bg-gradient-to-b from-yellow-400 via-amber-600 to-yellow-700 shadow-2xl border-2 border-yellow-800" style={{ transform: 'perspective(300px) rotateX(10deg)' }}>
+                                {/* Horns */}
+                                <div className="absolute -top-2 -left-1 w-3 h-3 bg-yellow-500 rounded-sm"></div>
+                                <div className="absolute -top-2 -right-1 w-3 h-3 bg-yellow-500 rounded-sm"></div>
+                                {/* Smoke rising */}
+                                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-8 h-12 bg-gradient-to-t from-white/60 via-gray-300/40 to-transparent blur-md"></div>
+                              </div>
+                            </div>
                           </div>
+
+                          {/* Ambient golden light effect */}
+                          <div className="absolute inset-0 bg-gradient-radial from-yellow-400/30 via-transparent to-transparent pointer-events-none"></div>
                         </div>
                         <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
                           <div>
@@ -296,13 +382,72 @@ const SanctuaryViewer = () => {
                       {/* Most Holy Place */}
                       <div className="bg-white/90 rounded-lg p-8 shadow-lg border-2 border-sanctuary-gold">
                         <h4 className="text-2xl font-bold text-sanctuary-purple mb-6">Most Holy Place</h4>
-                        <div className="relative h-96 bg-gradient-to-br from-yellow-50 to-amber-100 rounded-lg overflow-hidden border-2 border-sanctuary-gold/50 flex items-center justify-center">
-                          <div className="text-center text-sanctuary-gold-dark">
-                            <div className="w-20 h-20 mx-auto mb-3 bg-sanctuary-gold/20 rounded-lg flex items-center justify-center">
-                              <Eye className="w-10 h-10 text-sanctuary-gold-dark" />
+                        <div className="relative h-96 bg-gradient-to-br from-yellow-900 via-amber-800 to-yellow-700 rounded-lg overflow-hidden border-2 border-sanctuary-gold/50">
+                          {/* Divine radiant background */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-yellow-500 via-amber-700 to-yellow-900"></div>
+
+                          {/* Shekinah Glory - divine light */}
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-64 h-64 bg-gradient-radial from-yellow-200 via-yellow-400/60 to-transparent rounded-full blur-3xl animate-pulse"></div>
+                            <div className="absolute w-48 h-48 bg-gradient-radial from-white via-yellow-300/40 to-transparent rounded-full blur-2xl"></div>
+                          </div>
+
+                          {/* Perfect cube room perspective */}
+                          <div className="absolute inset-0" style={{ perspective: '700px' }}>
+                            {/* Gold walls */}
+                            <div className="absolute inset-8 bg-gradient-to-br from-yellow-600 via-amber-700 to-yellow-800 opacity-80" style={{ transform: 'rotateY(0deg) translateZ(-50px)' }}></div>
+
+                            {/* Floor with golden pattern */}
+                            <div className="absolute bottom-8 left-8 right-8 h-24 bg-gradient-to-t from-yellow-900 to-amber-700 opacity-70" style={{ transform: 'rotateX(70deg) translateY(20px)' }}>
+                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-600/30 to-transparent"></div>
                             </div>
-                            <p className="text-lg">Wilderness Tabernacle - Most Holy Place</p>
-                            <p className="text-base">Image Placeholder</p>
+
+                            {/* Ark of the Covenant - center */}
+                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/4">
+                              <div className="relative">
+                                {/* Ark box */}
+                                <div className="w-32 h-24 bg-gradient-to-br from-yellow-400 via-amber-600 to-yellow-700 shadow-2xl border-4 border-yellow-800 rounded-sm" style={{ transform: 'perspective(500px) rotateX(15deg) rotateY(-5deg)' }}>
+                                  {/* Gold overlay pattern */}
+                                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-300/40 to-transparent"></div>
+
+                                  {/* Carrying poles */}
+                                  <div className="absolute top-1/2 -left-4 w-32 h-2 bg-gradient-to-r from-yellow-600 to-amber-700 transform -translate-y-1/2 shadow-md"></div>
+                                  <div className="absolute top-1/2 -right-20 w-32 h-2 bg-gradient-to-r from-amber-700 to-yellow-600 transform -translate-y-1/2 shadow-md"></div>
+                                </div>
+
+                                {/* Mercy Seat with Cherubim */}
+                                <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 w-36 h-16">
+                                  {/* Mercy Seat */}
+                                  <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-300 shadow-xl rounded-sm"></div>
+
+                                  {/* Left Cherub */}
+                                  <div className="absolute bottom-4 left-2 w-12 h-12 bg-gradient-to-br from-yellow-300 via-amber-500 to-yellow-400 opacity-90 shadow-lg" style={{ clipPath: 'polygon(50% 0%, 100% 100%, 0% 100%)' }}>
+                                    {/* Wing */}
+                                    <div className="absolute -top-2 -left-1 w-10 h-8 bg-gradient-to-r from-yellow-400 to-amber-600 opacity-70 rounded-tl-full"></div>
+                                  </div>
+
+                                  {/* Right Cherub */}
+                                  <div className="absolute bottom-4 right-2 w-12 h-12 bg-gradient-to-br from-yellow-300 via-amber-500 to-yellow-400 opacity-90 shadow-lg" style={{ clipPath: 'polygon(50% 0%, 100% 100%, 0% 100%)' }}>
+                                    {/* Wing */}
+                                    <div className="absolute -top-2 -right-1 w-10 h-8 bg-gradient-to-l from-yellow-400 to-amber-600 opacity-70 rounded-tr-full"></div>
+                                  </div>
+
+                                  {/* Divine presence between cherubim */}
+                                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gradient-radial from-white via-yellow-200 to-transparent rounded-full blur-lg animate-pulse"></div>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Veil entrance - multi-colored */}
+                            <div className="absolute top-12 left-8 w-2 h-64 bg-gradient-to-b from-blue-700 via-purple-700 to-red-700 opacity-60 shadow-xl"></div>
+                            <div className="absolute top-12 right-8 w-2 h-64 bg-gradient-to-b from-blue-700 via-purple-700 to-red-700 opacity-60 shadow-xl"></div>
+                          </div>
+
+                          {/* Divine light rays */}
+                          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                            <div className="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-yellow-200 via-yellow-400/30 to-transparent blur-sm"></div>
+                            <div className="absolute top-0 left-1/2 w-2 h-full bg-gradient-to-b from-white via-yellow-300/40 to-transparent blur-sm"></div>
+                            <div className="absolute top-0 right-1/4 w-1 h-full bg-gradient-to-b from-yellow-200 via-yellow-400/30 to-transparent blur-sm"></div>
                           </div>
                         </div>
                         <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
