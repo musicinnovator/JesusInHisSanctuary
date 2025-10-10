@@ -30,8 +30,8 @@ const StudySection = () => {
       title: 'Interpretive Approaches',
       icon: <FileText className="w-6 h-6" />,
       content: {
-        preterist: 'Fulfilled in Maccabean period (168-165 BC)',
-        historicist: 'Spans from 457 BC to 1844 AD',
+        preterist: '(Biblically inconsistent and doesn\'t fulfill the prophecy completely in every particular) Fulfilled in Maccabean period (168-165 BC)',
+        historicist: '(Biblically consistent and fulfills the prophecy completely in every particular) Spans from 457 BC to 1844 AD',
         futurist: 'Points to end-time temple restoration'
       }
     }
