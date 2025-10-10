@@ -102,16 +102,52 @@ const ScriptureNavigator = () => {
                     <div className="space-y-3 text-sanctuary-purple">
                       <p><strong>10</strong> And they shall make an ark of shittim wood: two cubits and a half shall be the length thereof, and a cubit and a half the breadth thereof, and a cubit and a half the height thereof.</p>
                       <p><strong>11</strong> And thou shalt overlay it with pure gold, within and without shalt thou overlay it, and shalt make upon it a crown of gold round about.</p>
+                      <p><strong>12</strong>And thou shalt cast four rings of gold for it, and put them in the four corners thereof; and two rings shall be in the one side of it, and two rings in the other side of it.</p>
+                      <p><strong>13</strong>And thou shalt make staves of shittim wood, and overlay them with gold.</p>
+                      <p><strong>14</strong>And thou shalt put the staves into the rings by the sides of the ark, that the ark may be borne with them.</p>
+                      <p><strong>15</strong>The staves shall be in the rings of the ark: they shall not be taken from it.</p>
+                      <p><strong>16</strong>And thou shalt put into the ark the testimony which I shall give thee.</p>
                       <p><strong>17</strong> And thou shalt make a mercy seat of pure gold: two cubits and a half shall be the length thereof, and a cubit and a half the breadth thereof.</p>
+                      <p><strong>18</strong>And thou shalt make two cherubims of gold, of beaten work shalt thou make them, in the two ends of the mercy seat.</p>
+                      <p><strong>19</strong>And make one cherub on the one end, and the other cherub on the other end: even of the mercy seat shall ye make the cherubims on the two ends thereof.</p>
+                      <p><strong>20</strong>And the cherubims shall stretch forth their wings on high, covering the mercy seat with their wings, and their faces shall look one to another; toward the mercy seat shall the faces of the cherubims be.</p>
+                      <p><strong>21</strong>And thou shalt put the mercy seat above upon the ark; and in the ark thou shalt put the testimony that I shall give thee.</p>
                       <p><strong>22</strong> And there I will meet with thee, and I will commune with thee from above the mercy seat, from between the two cherubims which are upon the ark of the testimony, of all things which I will give thee in commandment unto the children of Israel.</p>
                     </div>
+                  )}
+                  {selectedPassage === 'Exodus 25:23-30' && (
+                      <div className="space-y-3 text-sanctuary-purple">
+                        <p><strong>23</strong>Thou shalt also make a table of shittim wood: two cubits shall be the length thereof, and a cubit the breadth thereof, and a cubit and a half the height thereof.</p>
+                        <p><strong>24</strong>And thou shalt overlay it with pure gold, and make thereto a crown of gold round about.</p>
+                        <p><strong>25</strong>And thou shalt make unto it a border of an hand breadth round about, and thou shalt make a golden crown to the border thereof round about.</p>
+                        <p><strong>26</strong>And thou shalt make for it four rings of gold, and put the rings in the four corners that are on the four feet thereof. </p>
+                        <p><strong>27</strong>Over against the border shall the rings be for places of the staves to bear the table. </p>
+                        <p><strong>28</strong>And thou shalt make the staves of shittim wood, and overlay them with gold, that the table may be borne with them.</p>
+                        <p><strong>29</strong>And thou shalt make the dishes thereof, and spoons thereof, and covers thereof, and bowls thereof, to cover withal: of pure gold shalt thou make them.</p>
+                        <p><strong>30</strong>And thou shalt set upon the table shewbread before me alway.</p>
+                      </div>
                   )}
                   {selectedPassage === 'Exodus 25:31-40' && (
                     <div className="space-y-3 text-sanctuary-purple">
                       <p><strong>31</strong> And thou shalt make a candlestick of pure gold: of beaten work shall the candlestick be made: his shaft, and his branches, his bowls, his knops, and his flowers, shall be of the same.</p>
                       <p><strong>32</strong> And six branches shall come out of the sides of it; three branches of the candlestick out of the one side, and three branches of the candlestick out of the other side:</p>
+                      <p><strong>33</strong>Three bowls made like unto almonds, with a knop and a flower in one branch; and three bowls made like almonds in the other branch, with a knop and a flower: so in the six branches that come out of the candlestick.</p>
+                      <p><strong>34</strong>And in the candlestick shall be four bowls made like unto almonds, with their knops and their flowers.</p>
+                      <p><strong>35</strong>And there shall be a knop under two branches of the same, and a knop under two branches of the same, and a knop under two branches of the same, according to the six branches that proceed out of the candlestick.</p>
+                      <p><strong>36</strong>Their knops and their branches shall be of the same: all it shall be one beaten work of pure gold.</p>
                       <p><strong>37</strong> And thou shalt make the seven lamps thereof: and they shall light the lamps thereof, that they may give light over against it.</p>
+                      <p><strong>38</strong>And the tongs thereof, and the snuffdishes thereof, shall be of pure gold.</p>
+                      <p><strong>39</strong>Of a talent of pure gold shall he make it, with all these vessels.</p>
+                      <p><strong>40</strong>And look that thou make them after their pattern, which was shewed thee in the mount.
+                      </p>
                     </div>
+                  )}
+                  {selectedPassage === 'Exodus 25:23-30' && (
+                      <div className="space-y-3 text-sanctuary-purple">
+                        <p><strong>31</strong> And thou shalt make a candlestick of pure gold: of beaten work shall the candlestick be made: his shaft, and his branches, his bowls, his knops, and his flowers, shall be of the same.</p>
+                        <p><strong>32</strong> And six branches shall come out of the sides of it; three branches of the candlestick out of the one side, and three branches of the candlestick out of the other side:</p>
+                        <p><strong>37</strong> And thou shalt make the seven lamps thereof: and they shall light the lamps thereof, that they may give light over against it.</p>
+                      </div>
                   )}
                   {!selectedPassage.startsWith('Exodus 25') && (
                     <p className="text-sanctuary-purple italic">Scripture text will appear here when you select a passage...</p>
