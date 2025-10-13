@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Home, BookOpen, Search, Eye, Link, Languages } from 'lucide-react';
+import { Home, BookOpen, Search, Eye, Link2, Languages } from 'lucide-react';
 import DonationBanner from './DonationBanner';
 
 const ScriptureNavigator = () => {
@@ -280,7 +280,7 @@ const ScriptureNavigator = () => {
               <div className="bg-sanctuary-purple text-white p-4 flex items-center justify-between">
                 <h3 className="font-semibold">Interactive Sanctuary Model</h3>
                 <div className="flex items-center space-x-2">
-                  <Link className="w-5 h-5" />
+                  <Link2 className="w-5 h-5" />
                   <span className="text-sm">Scripture-Linked Elements</span>
                 </div>
               </div>
