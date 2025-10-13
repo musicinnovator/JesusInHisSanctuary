@@ -5,7 +5,9 @@ import Footer from './components/Footer';
 import HomePage from './components/HomePage';
 import ColorsPage from './components/ColorsPage';
 import SanctuaryViewer from './components/SanctuaryViewer';
+import EnhancedSanctuaryViewer from './components/EnhancedSanctuaryViewer';
 import ComparePage from './components/ComparePage';
+import EnhancedCompareView from './components/EnhancedCompareView';
 import ScriptureNavigator from './components/ScriptureNavigator';
 import SymbolismPage from './components/SymbolismPage';
 import TimelinePage from './components/TimelinePage';
@@ -27,8 +29,10 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/colors" element={<ColorsPage />} />
-          <Route path="/explorer" element={<SanctuaryViewer />} />
-          <Route path="/compare" element={<ComparePage />} />
+          <Route path="/explorer" element={<EnhancedSanctuaryViewer />} />
+          <Route path="/explorer-classic" element={<SanctuaryViewer />} />
+          <Route path="/compare" element={<EnhancedCompareView />} />
+          <Route path="/compare-classic" element={<ComparePage />} />
           <Route path="/scripture" element={<ScriptureNavigator />} />
           <Route path="/symbolism" element={<SymbolismPage />} />
           <Route path="/timeline" element={<TimelinePage />} />
