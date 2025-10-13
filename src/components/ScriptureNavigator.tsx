@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ArrowLeft, BookOpen, Search, Eye, Link, Languages } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Home, BookOpen, Search, Eye, Link, Languages } from 'lucide-react';
 import DonationBanner from './DonationBanner';
 
 const ScriptureNavigator = () => {
@@ -27,13 +28,13 @@ const ScriptureNavigator = () => {
       <div className="bg-sanctuary-gold text-sanctuary-purple py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center space-x-4 mb-4">
-            <button 
-              onClick={() => window.history.back()}
+            <Link 
+              to="/"
               className="flex items-center space-x-2 text-sanctuary-brass hover:text-sanctuary-purple transition-colors"
             >
-              <ArrowLeft className="w-5 h-5" />
+              <Home className="w-5 h-5" />
               <span>Back to Home</span>
-            </button>
+            </Link>
           </div>
           <div className="flex items-center space-x-4">
             <BookOpen className="w-12 h-12 text-sanctuary-brass" />
@@ -322,12 +323,12 @@ const ScriptureNavigator = () => {
               {/* Model Controls */}
               <div className="bg-sanctuary-linen p-4 flex items-center justify-between">
                 <div className="flex items-center space-x-4">
-                  <button className="px-3 py-2 bg-sanctuary-blue text-white rounded-lg text-sm hover:bg-sanctuary-blue-dark transition-colors">
+                  <Link className="px-3 py-2 bg-sanctuary-blue text-white rounded-lg text-sm hover:bg-sanctuary-blue-dark transition-colors">
                     Reset View
-                  </button>
-                  <button className="px-3 py-2 bg-sanctuary-gold text-sanctuary-purple rounded-lg text-sm hover:bg-sanctuary-gold-dark transition-colors">
+                  </Link>
+                  <Link className="px-3 py-2 bg-sanctuary-gold text-sanctuary-purple rounded-lg text-sm hover:bg-sanctuary-gold-dark transition-colors">
                     Full Screen
-                  </button>
+                  </Link>
                 </div>
                 <div className="text-sm text-sanctuary-brass">
                   Use mouse to rotate • Scroll to zoom • Click elements for details

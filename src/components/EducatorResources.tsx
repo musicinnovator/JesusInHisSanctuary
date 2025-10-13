@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ArrowLeft, GraduationCap, Download, FileText, Video, Users, Presentation, BookOpen, Calendar } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Home, GraduationCap, Download, FileText, Video, Users, Presentation, BookOpen, Calendar } from 'lucide-react';
 import DonationBanner from './DonationBanner';
 
 const EducatorResources = () => {
@@ -122,13 +123,13 @@ const EducatorResources = () => {
       <div className="bg-gradient-to-r from-teal-600 to-cyan-800 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center space-x-4 mb-4">
-            <button 
-              onClick={() => window.history.back()}
+            <Link 
+              to="/"
               className="flex items-center space-x-2 text-sanctuary-gold hover:text-sanctuary-gold-dark transition-colors"
             >
-              <ArrowLeft className="w-5 h-5" />
+              <Home className="w-5 h-5" />
               <span>Back to Home</span>
-            </button>
+            </Link>
           </div>
           <div className="flex items-center space-x-4">
             <GraduationCap className="w-12 h-12 text-sanctuary-gold" />
@@ -338,9 +339,9 @@ const EducatorResources = () => {
           </div>
 
           <div className="mt-8 text-center">
-            <button className="bg-teal-600 text-white px-8 py-3 rounded-lg hover:bg-teal-700 transition-colors font-semibold">
+            <Link className="bg-teal-600 text-white px-8 py-3 rounded-lg hover:bg-teal-700 transition-colors font-semibold">
               Request Additional Resources
-            </button>
+            </Link>
           </div>
         </div>
       </div>

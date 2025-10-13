@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Users, MessageSquare, Shield, Plus, Search, Clock, Eye } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Home, Users, MessageSquare, Shield, Plus, Search, Clock, Eye } from 'lucide-react';
 import DonationBanner from './DonationBanner';
 
 const ForumsPage = () => {
@@ -101,13 +102,13 @@ const ForumsPage = () => {
       <div className="bg-gradient-to-r from-blue-600 to-cyan-800 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center space-x-4 mb-4">
-            <button 
-              onClick={() => window.history.back()}
+            <Link 
+              to="/"
               className="flex items-center space-x-2 text-sanctuary-gold hover:text-sanctuary-gold-dark transition-colors"
             >
-              <ArrowLeft className="w-5 h-5" />
+              <Home className="w-5 h-5" />
               <span>Back to Home</span>
-            </button>
+            </Link>
           </div>
           <div className="flex items-center space-x-4">
             <Users className="w-12 h-12 text-sanctuary-gold" />
@@ -124,10 +125,10 @@ const ForumsPage = () => {
         <div className="bg-white rounded-xl p-6 shadow-lg border border-sanctuary-gold/30 mb-8">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-4 lg:space-y-0">
             <div className="flex items-center space-x-4">
-              <button className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+              <Link className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
                 <Plus className="w-4 h-4" />
                 <span>New Discussion</span>
-              </button>
+              </Link>
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-sanctuary-brass" />
                 <input
@@ -255,16 +256,16 @@ const ForumsPage = () => {
                   Showing {filteredDiscussions.length} discussions
                 </span>
                 <div className="flex items-center space-x-2">
-                  <button className="px-3 py-1 bg-white border border-sanctuary-silver rounded text-sm hover:bg-sanctuary-linen transition-colors">
+                  <Link className="px-3 py-1 bg-white border border-sanctuary-silver rounded text-sm hover:bg-sanctuary-linen transition-colors">
                     Previous
-                  </button>
-                  <button className="px-3 py-1 bg-blue-600 text-white rounded text-sm">1</button>
-                  <button className="px-3 py-1 bg-white border border-sanctuary-silver rounded text-sm hover:bg-sanctuary-linen transition-colors">
+                  </Link>
+                  <Link className="px-3 py-1 bg-blue-600 text-white rounded text-sm">1</Link>
+                  <Link className="px-3 py-1 bg-white border border-sanctuary-silver rounded text-sm hover:bg-sanctuary-linen transition-colors">
                     2
-                  </button>
-                  <button className="px-3 py-1 bg-white border border-sanctuary-silver rounded text-sm hover:bg-sanctuary-linen transition-colors">
+                  </Link>
+                  <Link className="px-3 py-1 bg-white border border-sanctuary-silver rounded text-sm hover:bg-sanctuary-linen transition-colors">
                     Next
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

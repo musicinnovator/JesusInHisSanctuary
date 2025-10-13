@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ArrowLeft, GraduationCap, Search, Download, ExternalLink, ListFilter as Filter, Star, Book } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Home, GraduationCap, Search, Download, ExternalLink, ListFilter as Filter, Star, Book } from 'lucide-react';
 import DonationBanner from './DonationBanner';
 
 const DigitalLibrary = () => {
@@ -125,13 +126,13 @@ const DigitalLibrary = () => {
       <div className="bg-gradient-to-r from-green-600 to-emerald-800 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center space-x-4 mb-4">
-            <button 
-              onClick={() => window.history.back()}
+            <Link 
+              to="/"
               className="flex items-center space-x-2 text-sanctuary-gold hover:text-sanctuary-gold-dark transition-colors"
             >
-              <ArrowLeft className="w-5 h-5" />
+              <Home className="w-5 h-5" />
               <span>Back to Home</span>
-            </button>
+            </Link>
           </div>
           <div className="flex items-center space-x-4">
             <GraduationCap className="w-12 h-12 text-sanctuary-gold" />
@@ -242,14 +243,14 @@ const DigitalLibrary = () => {
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <button className="flex items-center space-x-2 text-green-600 hover:text-green-700 transition-colors">
+                  <Link className="flex items-center space-x-2 text-green-600 hover:text-green-700 transition-colors">
                     <Download className="w-4 h-4" />
                     <span className="text-sm font-medium">Download PDF</span>
-                  </button>
-                  <button className="flex items-center space-x-2 text-sanctuary-brass hover:text-sanctuary-purple transition-colors">
+                  </Link>
+                  <Link className="flex items-center space-x-2 text-sanctuary-brass hover:text-sanctuary-purple transition-colors">
                     <ExternalLink className="w-4 h-4" />
                     <span className="text-sm font-medium">View Details</span>
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -268,9 +269,9 @@ const DigitalLibrary = () => {
                   Andreasen, M. L. (1947). <em>The Sanctuary Service</em>. Review and Herald Publishing Association.
                 </p>
               </div>
-              <button className="mt-3 text-sm text-green-600 hover:text-green-700 transition-colors">
+              <Link className="mt-3 text-sm text-green-600 hover:text-green-700 transition-colors">
                 Copy APA Citation
-              </button>
+              </Link>
             </div>
 
             <div className="bg-sanctuary-linen rounded-lg p-6">
@@ -280,9 +281,9 @@ const DigitalLibrary = () => {
                   Andreasen, M. L. <em>The Sanctuary Service</em>. Review and Herald Publishing Association, 1947.
                 </p>
               </div>
-              <button className="mt-3 text-sm text-green-600 hover:text-green-700 transition-colors">
+              <Link className="mt-3 text-sm text-green-600 hover:text-green-700 transition-colors">
                 Copy MLA Citation
-              </button>
+              </Link>
             </div>
 
             <div className="bg-sanctuary-linen rounded-lg p-6">
@@ -292,9 +293,9 @@ const DigitalLibrary = () => {
                   Andreasen, M. L. <em>The Sanctuary Service</em>. Takoma Park, MD: Review and Herald Publishing Association, 1947.
                 </p>
               </div>
-              <button className="mt-3 text-sm text-green-600 hover:text-green-700 transition-colors">
+              <Link className="mt-3 text-sm text-green-600 hover:text-green-700 transition-colors">
                 Copy Chicago Citation
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -312,9 +313,9 @@ const DigitalLibrary = () => {
               </p>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-sanctuary-brass">120+ Resources</span>
-                <button className="text-green-600 hover:text-green-700 transition-colors font-medium">
+                <Link className="text-green-600 hover:text-green-700 transition-colors font-medium">
                   Explore Collection →
-                </button>
+                </Link>
               </div>
             </div>
 
@@ -326,9 +327,9 @@ const DigitalLibrary = () => {
               </p>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-sanctuary-brass">85+ Resources</span>
-                <button className="text-green-600 hover:text-green-700 transition-colors font-medium">
+                <Link className="text-green-600 hover:text-green-700 transition-colors font-medium">
                   Explore Collection →
-                </button>
+                </Link>
               </div>
             </div>
           </div>

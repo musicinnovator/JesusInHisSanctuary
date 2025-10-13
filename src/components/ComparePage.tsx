@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ArrowLeft, GitCompare, Eye, Layers, Download, Share2, Maximize2, Info } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowLeft, GitCompare, Eye, Layers, Download, Share2, Maximize2, Info, Home } from 'lucide-react';
 import DonationBanner from './DonationBanner';
 import SanctuaryVisualizer from './SanctuaryVisualizer';
 
@@ -186,13 +187,13 @@ const ComparePage = () => {
       <div className="bg-sanctuary-purple-dark text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center space-x-4 mb-4">
-            <button
-              onClick={() => window.history.back()}
+            <Link
+              to="/"
               className="flex items-center space-x-2 text-sanctuary-gold hover:text-sanctuary-gold-dark transition-colors"
             >
-              <ArrowLeft className="w-5 h-5" />
+              <Home className="w-5 h-5" />
               <span>Back to Home</span>
-            </button>
+            </Link>
           </div>
           <div className="flex items-center space-x-4">
             <GitCompare className="w-12 h-12 text-sanctuary-gold" />

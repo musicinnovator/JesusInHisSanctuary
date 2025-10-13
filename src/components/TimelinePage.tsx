@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowLeft, Clock, Play, Pause, SkipForward, SkipBack, Book } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Home, Clock, Play, Pause, SkipForward, SkipBack, Book } from 'lucide-react';
 
 type TimelineStep = {
   step: number;
@@ -272,13 +273,13 @@ const TimelinePage = () => {
       <div className="bg-gradient-to-r from-sanctuary-silver to-gray-600 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center space-x-4 mb-4">
-            <button
-              onClick={() => window.history.back()}
+            <Link
+              to="/"
               className="flex items-center space-x-2 text-sanctuary-gold hover:text-sanctuary-gold-dark transition-colors"
             >
-              <ArrowLeft className="w-5 h-5" />
+              <Home className="w-5 h-5" />
               <span>Back to Home</span>
-            </button>
+            </Link>
           </div>
           <div className="flex items-center space-x-4">
             <Clock className="w-12 h-12 text-sanctuary-gold" />

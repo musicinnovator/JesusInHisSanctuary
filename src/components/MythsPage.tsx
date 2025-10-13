@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Circle as HelpCircle, CircleCheck as CheckCircle, Circle as XCircle, Lightbulb, Book, Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Home, Circle as HelpCircle, CircleCheck as CheckCircle, Circle as XCircle, Lightbulb, Book, Users } from 'lucide-react';
 import DonationBanner from './DonationBanner';
 
 const MythsPage = () => {
@@ -147,13 +148,13 @@ const MythsPage = () => {
       <div className="bg-gradient-to-r from-pink-600 to-rose-800 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center space-x-4 mb-4">
-            <button 
-              onClick={() => window.history.back()}
+            <Link 
+              to="/"
               className="flex items-center space-x-2 text-sanctuary-gold hover:text-sanctuary-gold-dark transition-colors"
             >
-              <ArrowLeft className="w-5 h-5" />
+              <Home className="w-5 h-5" />
               <span>Back to Home</span>
-            </button>
+            </Link>
           </div>
           <div className="flex items-center space-x-4">
             <HelpCircle className="w-12 h-12 text-sanctuary-gold" />
@@ -395,9 +396,9 @@ const MythsPage = () => {
           </div>
 
           <div className="mt-6 text-center">
-            <button className="bg-pink-600 text-white px-6 py-3 rounded-lg hover:bg-pink-700 transition-colors font-semibold">
+            <Link className="bg-pink-600 text-white px-6 py-3 rounded-lg hover:bg-pink-700 transition-colors font-semibold">
               Download Study Guide (PDF)
-            </button>
+            </Link>
           </div>
         </div>
       </div>

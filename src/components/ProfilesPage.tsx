@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Award, BookOpen, Clock, Star, Trophy, User, Settings, Download, Share2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Home, Award, BookOpen, Clock, Star, Trophy, User, Settings, Download, Share2 } from 'lucide-react';
 import DonationBanner from './DonationBanner';
 
 const ProfilesPage = () => {
@@ -64,13 +65,13 @@ const ProfilesPage = () => {
       <div className="bg-gradient-to-r from-orange-600 to-red-700 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center space-x-4 mb-4">
-            <button 
-              onClick={() => window.history.back()}
+            <Link 
+              to="/"
               className="flex items-center space-x-2 text-sanctuary-gold hover:text-sanctuary-gold-dark transition-colors"
             >
-              <ArrowLeft className="w-5 h-5" />
+              <Home className="w-5 h-5" />
               <span>Back to Home</span>
-            </button>
+            </Link>
           </div>
           <div className="flex items-center space-x-4">
             <Award className="w-12 h-12 text-sanctuary-gold" />
@@ -186,12 +187,12 @@ const ProfilesPage = () => {
                     <div className="bg-sanctuary-linen rounded-lg p-6">
                       <h4 className="font-semibold text-sanctuary-purple mb-2">Complete Heavenly Portal</h4>
                       <p className="text-sanctuary-brass text-sm mb-4">Experience the immersive journey from earthly to celestial realms</p>
-                      <button className="text-orange-600 hover:text-orange-700 font-medium">Continue Journey →</button>
+                      <Link className="text-orange-600 hover:text-orange-700 font-medium">Continue Journey →</Link>
                     </div>
                     <div className="bg-sanctuary-linen rounded-lg p-6">
                       <h4 className="font-semibold text-sanctuary-purple mb-2">Explore Library Resources</h4>
                       <p className="text-sanctuary-brass text-sm mb-4">Discover scholarly articles by M.L. Andreasen and other experts</p>
-                      <button className="text-orange-600 hover:text-orange-700 font-medium">Browse Library →</button>
+                      <Link className="text-orange-600 hover:text-orange-700 font-medium">Browse Library →</Link>
                     </div>
                   </div>
                 </div>

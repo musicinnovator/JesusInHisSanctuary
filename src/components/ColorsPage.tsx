@@ -1,5 +1,6 @@
 import React from 'react';
-import { Palette, Book, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Palette, Book, Home } from 'lucide-react';
 import DonationBanner from './DonationBanner';
 
 const ColorsPage = () => {
@@ -10,13 +11,13 @@ const ColorsPage = () => {
       <div className="bg-sanctuary-purple-dark text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center space-x-4 mb-4">
-            <button 
-              onClick={() => window.history.back()}
+            <Link 
+              to="/"
               className="flex items-center space-x-2 text-sanctuary-gold hover:text-sanctuary-gold-dark transition-colors"
             >
-              <ArrowLeft className="w-5 h-5" />
+              <Home className="w-5 h-5" />
               <span>Back to Sanctuary Explorer</span>
-            </button>
+            </Link>
           </div>
           <div className="flex items-center space-x-4">
             <Palette className="w-12 h-12 text-sanctuary-gold" />
