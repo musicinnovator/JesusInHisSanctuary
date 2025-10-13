@@ -1,0 +1,162 @@
+{
+  "id": "solomon",
+  "name": "Solomon's Temple",
+  "period": "Solomon",
+  "dimensions": {
+    "unit": "cubits",
+    "values": {
+      "templeLength": 60,
+      "templeWidth": 20,
+      "templeHeight": 30,
+      "porchDepth": 10,
+      "mostHolyLength": 20,
+      "mostHolyWidth": 20,
+      "mostHolyHeight": 20
+    }
+  },
+  "components": [
+    {
+      "id": "bronze_altar",
+      "name": "Bronze Altar",
+      "type": "altar",
+      "material": "bronze",
+      "meshRef": "BronzeAltar",
+      "scriptureRefs": [
+        {
+          "book": "2 Chronicles",
+          "chapter": 4,
+          "verses": "1",
+          "excerpt": "Moreover he made an altar of brass, twenty cubits the length thereof, and twenty cubits the breadth thereof, and ten cubits the height thereof."
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "notes": "Significantly larger than tabernacle altar"
+      }
+    },
+    {
+      "id": "molten_sea",
+      "name": "Molten Sea",
+      "type": "basin",
+      "material": "bronze",
+      "meshRef": "MoltenSea",
+      "scriptureRefs": [
+        {
+          "book": "1 Kings",
+          "chapter": 7,
+          "verses": "23-26",
+          "excerpt": "And he made a molten sea, ten cubits from the one brim to the other: it was round all about, and his height was five cubits: and a line of thirty cubits did compass it round about. And it was an hand breadth thick, and the brim thereof was wrought like the brim of a cup, with flowers of lilies: it contained two thousand baths."
+        },
+        {
+          "book": "2 Chronicles",
+          "chapter": 4,
+          "verses": "2-5",
+          "excerpt": "Also he made a molten sea of ten cubits from brim to brim, round in compass, and five cubits the height thereof; and a line of thirty cubits did compass it round about... It stood upon twelve oxen, three looking toward the north, and three looking toward the west, and three looking toward the south, and three looking toward the east."
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "notes": "Held by twelve bronze oxen, capacity specified"
+      }
+    },
+    {
+      "id": "ark",
+      "name": "Ark of the Covenant",
+      "type": "ark",
+      "material": "acacia_gold",
+      "meshRef": "Ark",
+      "scriptureRefs": [
+        {
+          "book": "1 Kings",
+          "chapter": 8,
+          "verses": "6-9",
+          "excerpt": "And the priests brought in the ark of the covenant of the LORD unto his place, into the oracle of the house, to the most holy place, even under the wings of the cherubims. For the cherubims spread forth their two wings over the place of the ark, and the cherubims covered the ark and the staves thereof above."
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "notes": "Same ark from wilderness tabernacle"
+      }
+    },
+    {
+      "id": "golden_lampstands",
+      "name": "Ten Golden Lampstands",
+      "type": "lampstand",
+      "material": "pure_gold",
+      "meshRef": "Lampstands",
+      "scriptureRefs": [
+        {
+          "book": "1 Kings",
+          "chapter": 7,
+          "verses": "49",
+          "excerpt": "And the candlesticks of pure gold, five on the right side, and five on the left, before the oracle, with the flowers, and the lamps, and the tongs of gold."
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "notes": "Expanded from one to ten lampstands"
+      }
+    },
+    {
+      "id": "table_showbread",
+      "name": "Table of Showbread",
+      "type": "table",
+      "material": "gold",
+      "meshRef": "Table",
+      "scriptureRefs": [
+        {
+          "book": "1 Kings",
+          "chapter": 7,
+          "verses": "48",
+          "excerpt": "And Solomon made all the vessels that pertained unto the house of the LORD: the altar of gold, and the table of gold, whereupon the shewbread was."
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "notes": "Golden table maintained from tabernacle design"
+      }
+    },
+    {
+      "id": "jachin_boaz",
+      "name": "Pillars Jachin and Boaz",
+      "type": "pillar",
+      "material": "bronze",
+      "meshRef": "Pillars",
+      "scriptureRefs": [
+        {
+          "book": "1 Kings",
+          "chapter": 7,
+          "verses": "15-22",
+          "excerpt": "For he cast two pillars of brass, of eighteen cubits high apiece: and a line of twelve cubits did compass either of them about... And he set up the pillars in the porch of the temple: and he set up the right pillar, and called the name thereof Jachin: and he set up the left pillar, and called the name thereof Boaz."
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "notes": "Massive freestanding pillars at entrance"
+      }
+    }
+  ],
+  "scripture": [
+    {
+      "book": "1 Kings",
+      "chapter": 6,
+      "verses": "1",
+      "excerpt": "And it came to pass in the four hundred and eightieth year after the children of Israel were come out of the land of Egypt, in the fourth year of Solomon's reign over Israel, in the month Zif, which is the second month, that he began to build the house of the LORD."
+    },
+    {
+      "book": "1 Kings",
+      "chapter": 8,
+      "verses": "10-11",
+      "excerpt": "And it came to pass, when the priests were come out of the holy place, that the cloud filled the house of the LORD, So that the priests could not stand to minister because of the cloud: for the glory of the LORD had filled the house of the LORD."
+    }
+  ],
+  "review": {
+    "status": "beta",
+    "reviewedBy": [],
+    "sources": [
+      "1 Kings 6-8",
+      "2 Chronicles 3-7"
+    ],
+    "notes": "Awaiting review. Temple built on Mount Moriah. Destroyed 586 BC by Babylon."
+  }
+}
