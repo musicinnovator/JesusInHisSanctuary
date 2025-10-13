@@ -3,3 +3,209 @@ For all designs I ask you to make, have them be beautiful, not cookie cutter. Ma
 By default, this template supports JSX syntax with Tailwind CSS classes, React hooks, and Lucide React for icons. Do not install other packages for UI themes, icons, etc unless absolutely necessary or I request them.
 
 Use icons from lucide-react for logos.
+
+bolt_knowledge:
+  id: sanctuary_intra_comparative_study
+  version: 1.0
+  title: "Sanctuary Intra-Comparative Study Interactive Website"
+  source: "jesusinhissanctuary.org"
+  summary: >
+    A dynamic, research-based digital platform exploring the biblical sanctuary doctrine
+    through Seventh-day Adventist theology, integrating 3D visualization, comparative study,
+    and immersive learning experiences for global audiences.
+
+  objectives:
+    - Deliver accurate, immersive, and biblically faithful education on the sanctuary doctrine.
+    - Facilitate comparative analysis across traditions and historical contexts.
+    - Provide scholarly tools and interactive visuals for deep theological study.
+    - Foster respectful dialogue through moderated academic discussion.
+    - Create a lasting, sustainable, and expanding theological knowledge platform.
+
+  audience:
+    - Adventist members
+    - Bible students and educators
+    - Scholars and theologians
+    - Comparative religion researchers
+    - Digital learners seeking visual biblical understanding
+
+  design_core:
+    homepage_vision: >
+      The homepage acts as a gateway to exploration, featuring interactive 3D models of the
+      tabernacle, Solomon’s temple, Zerubbabel’s temple, Herod’s temple, and the heavenly sanctuary.
+      Users can zoom, pan, rotate, and tour each space in detail.
+
+    3d_models:
+      technologies:
+        - WebGL 2.0
+        - Babylon.js (premium engine)
+        - PBR materials and volumetric lighting
+        - Progressive asset loading
+      features:
+        - Contextual hotspots and access points
+        - Cinematic camera navigation
+        - Historical and symbolic overlays
+        - Interactive light and shadow simulation
+      models:
+        - Wilderness Tabernacle
+        - Solomon’s Temple
+        - Zerubbabel’s Temple
+        - Herod’s Temple
+        - Heavenly Sanctuary (symbolic and prophetic)
+      visualization_modes:
+        - Guided Tours
+        - Component Isolation / X-Ray view
+        - Exploded View Mode
+        - Material Analysis
+        - Comparative Transitions
+
+  compare_mode:
+    description: >
+      Side-by-side sanctuary analysis mode enabling synchronized navigation, structural comparison,
+      and symbolic overlays.
+    features:
+      - Synchronized navigation across multiple sanctuaries
+      - Annotated overlays and tooltips
+      - Color-coded material or spatial contrasts
+      - Exportable comparison charts for educators and researchers
+
+  scripture_navigator:
+    description: >
+      Links Scripture directly to 3D model components for contextualized study.
+    capabilities:
+      - Highlighting of sanctuary sections by biblical reference
+      - Cross-references, commentary, and language tools
+      - Toggle between Bible translations (KJV, ESV, NIV)
+      - Integration of Greek/Hebrew lexical data
+
+  symbolism_mode:
+    description: >
+      Furnishing-based theological exploration presenting symbolic meaning through multiple traditions.
+    contexts:
+      - Judaism (rabbinic interpretation)
+      - Christianity (Christological types)
+      - Seventh-day Adventist theology (prophetic and soteriological context)
+    includes:
+      - Scripture cross-references
+      - Ellen G. White commentary
+      - Modern Adventist scholarly sources
+      - Toggle by religious tradition for comparison
+
+  historical_timeline:
+    description: >
+      Interactive chronological timeline showing the evolution of sanctuary theology and its fulfillment in Christ.
+    features:
+      - Scrollable time slider with sanctuary-to-Christ typology
+      - 24-step Aaronic type vs. Christ anti-type placeholders
+      - Embedded scripture, video, and article links
+      - Integration of historical, prophetic, and doctrinal events
+
+  multimedia_learning:
+    animated_videos:
+      duration: "1–5 minutes each"
+      languages: [Spanish, Portuguese, Russian, Chinese, French, Arabic]
+      features:
+        - Voice narration and subtitles
+        - Scriptural cross-references
+        - Accessibility-focused transcripts
+    heavenly_portal:
+      description: >
+        Immersive WebGL simulation of the Heavenly Sanctuary experience
+        (Daniel 7, Revelation 4–5, Hebrews 9).
+      features:
+        - Progressive journey from earthly to heavenly courts
+        - Celestial visual and audio atmosphere
+        - Scripture overlays and ambient music
+
+  learning_modules:
+    investigative_judgment:
+      focus: "Doctrine of the investigative judgment and sanctuary cleansing"
+      tools:
+        - Animated flowcharts (Daniel 8:14 → 1844 → present)
+        - Clickable cross-references
+        - Historical context of the Millerite movement
+        - Reflection quizzes
+    digital_library:
+      content:
+        - Peer-reviewed academic papers
+        - Classic Adventist texts (ML Andreasen, EG White, Haskell, Hardinge, etc.)
+        - PDF downloads with citation support
+      search_filters:
+        - Keyword
+        - Author
+        - Scripture reference
+        - Tradition
+    discussion_forums:
+      security:
+        - OAuth login
+        - Two-factor authentication
+        - AI-assisted content moderation
+      structure:
+        - Thematic study groups
+        - Global multilingual participation
+        - Notification and reply tracking
+    personalized_learning:
+      user_profiles:
+        - Save learning progress and bookmarks
+        - Track engagement analytics
+        - Achievement badges and certificates
+        - Personalized content suggestions
+
+  outreach_features:
+    myth_vs_fact:
+      description: "Quiz-based learning to clarify sanctuary misconceptions"
+      audience: ["Individuals", "Study groups", "Educators"]
+    educator_resources:
+      includes:
+        - Lesson plans
+        - Discussion activities
+        - Presentation slides
+        - Licensing for non-commercial educational use
+    companion_media:
+      title: "Sanctuary Insights"
+      format: ["Podcast", "Video series"]
+      content:
+        - Weekly interviews and theological discussions
+        - Transcripts and study guides
+        - Distribution via 3ABN, Hope Channel, YouTube
+
+  technical_framework:
+    mobile_and_pwa:
+      features:
+        - Full responsive design
+        - Offline Progressive Web App (PWA) mode
+        - Optimized 3D rendering for mobile devices
+        - Gesture and touch support
+    seo_discoverability:
+      strategies:
+        - Schema.org markup for scripture and resources
+        - SEO metadata optimization
+        - Multilingual support
+        - Internal cross-linking
+    academic_partnerships:
+      institutions:
+        - Andrews University Theological Seminary
+        - Loma Linda University
+        - Adventist Graduate School
+      contributions:
+        - Peer review and theological oversight
+        - Faculty advisory content
+        - Institutional endorsements
+
+  sustainability_plan:
+    continuous_improvement:
+      - User rating and feedback systems
+      - Iterative UX testing
+      - Analytics-driven updates
+    multilingual_expansion:
+      next_languages: [Indonesian, Hindi, Swahili, French]
+      strategy: "Volunteer translation via global Adventist network"
+    long_term_vision:
+      - Donation and volunteer contributor model
+      - Cloud-based data backup (AWS/Google Cloud)
+      - Editorial and technical governance boards
+
+  conclusion: >
+    The Sanctuary Intra-Comparative Study Interactive Website merges biblical accuracy, theological
+    scholarship, and immersive 3D technology into a transformative learning experience. By connecting
+    ancient sanctuary symbolism with modern interactivity, it provides a comprehensive platform for
+    global Adventist education, digital discipleship, and scholarly engagement.
