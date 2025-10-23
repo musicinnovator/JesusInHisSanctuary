@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Book, Layers, Info, Eye, Play, ChevronRight } from 'lucide-react';
+import { Home, Book, Layers, Info, Eye, ChevronRight } from 'lucide-react';
 import DonationBanner from './DonationBanner';
+import BabylonScene from './BabylonScene';
 import { useSanctuaryData } from '../hooks/useSanctuaryData';
 import { SanctuaryComponent } from '../types/sanctuary';
 
@@ -111,14 +112,19 @@ const EnhancedSanctuaryViewer = () => {
                 </div>
               </div>
 
-              {/* 3D Viewer Placeholder */}
-              <div className="relative h-96 lg:h-[600px] bg-gradient-to-br from-sanctuary-linen to-sanctuary-linen-dark flex items-center justify-center">
-                <div className="text-center text-sanctuary-brass p-8">
-                  <Play className="w-16 h-16 mx-auto mb-4 text-sanctuary-gold" />
-                  <p className="text-xl font-semibold mb-2">3D Model Viewer</p>
-                  <p className="text-sm">WebGL/Babylon.js integration ready</p>
-                  <p className="text-xs mt-4 opacity-75">Click components below to explore Scripture references</p>
-                </div>
+              {/* 3D Viewer with Babylon.js */}
+              <div className="relative h-96 lg:h-[600px] bg-sanctuary-linen-dark">
+                <BabylonScene
+                  modelId={selectedModelId}
+                  onComponentClick={(componentId) => {
+                    const component = sanctuaryData?.components.find(c => c.id === componentId);
+                    if (component) {
+                      handleComponentClick(component);
+                    }
+                  }}
+                  highlightedComponent={selectedComponent?.id}
+                  className="w-full h-full"
+                />
               </div>
 
               {/* Components Grid */}
