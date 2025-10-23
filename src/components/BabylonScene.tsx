@@ -160,114 +160,402 @@ const BabylonScene: React.FC<BabylonSceneProps> = ({
   };
 
   const createTabernacleModel = (scene: Scene, shadowGenerator: ShadowGenerator) => {
-    // Courtyard walls (linen curtains)
-    const courtyardWall = MeshBuilder.CreateBox(
-      'courtyard-walls',
-      { height: 5, width: 100, depth: 1 },
-      scene
-    );
-    courtyardWall.position = new Vector3(0, 2.5, -25);
-    const curtainMaterial = new StandardMaterial('curtainMaterial', scene);
-    curtainMaterial.diffuseColor = new Color3(0.95, 0.95, 0.9);
-    curtainMaterial.alpha = 0.8;
-    courtyardWall.material = curtainMaterial;
+    // CUBIT CONVERSION: 1 cubit = 1.5 feet = 18 inches = 0.4572 meters
+    // Using 1 cubit = 0.5 units for visualization scale
+    const CUBIT = 0.5;
 
-    // Bronze Altar
-    const altar = MeshBuilder.CreateBox('altar_burnt', { size: 5, height: 3 }, scene);
-    altar.position = new Vector3(0, 1.5, -15);
+    // Materials
     const bronzeMaterial = new StandardMaterial('bronzeMaterial', scene);
     bronzeMaterial.diffuseColor = new Color3(0.72, 0.45, 0.2);
     bronzeMaterial.specularColor = new Color3(0.8, 0.6, 0.3);
-    altar.material = bronzeMaterial;
-    shadowGenerator.addShadowCaster(altar);
-    meshesRef.current.set('altar_burnt', altar);
+    bronzeMaterial.specularPower = 64;
 
-    // Laver (basin)
-    const laver = MeshBuilder.CreateCylinder(
-      'laver',
-      { diameter: 3, height: 2 },
-      scene
-    );
-    laver.position = new Vector3(0, 1, -5);
-    laver.material = bronzeMaterial;
-    shadowGenerator.addShadowCaster(laver);
-    meshesRef.current.set('laver', laver);
-
-    // Tent structure (Holy Place and Most Holy Place)
-    const tentStructure = MeshBuilder.CreateBox(
-      'tent',
-      { width: 10, height: 10, depth: 30 },
-      scene
-    );
-    tentStructure.position = new Vector3(0, 5, 10);
-    const tentMaterial = new StandardMaterial('tentMaterial', scene);
-    tentMaterial.diffuseColor = new Color3(0.9, 0.8, 0.6);
-    tentStructure.material = tentMaterial;
-    shadowGenerator.addShadowCaster(tentStructure);
-
-    // Golden Lampstand (Menorah) - inside tent, visible through transparency
-    const lampstand = MeshBuilder.CreateCylinder(
-      'lampstand',
-      { diameter: 0.5, height: 4 },
-      scene
-    );
-    lampstand.position = new Vector3(-3, 2, 5);
     const goldMaterial = new StandardMaterial('goldMaterial', scene);
     goldMaterial.diffuseColor = new Color3(1, 0.84, 0);
     goldMaterial.specularColor = new Color3(1, 0.95, 0.5);
-    goldMaterial.emissiveColor = new Color3(0.2, 0.17, 0);
-    lampstand.material = goldMaterial;
-    meshesRef.current.set('lampstand', lampstand);
+    goldMaterial.specularPower = 128;
+    goldMaterial.emissiveColor = new Color3(0.15, 0.13, 0);
 
-    // Table of Showbread
-    const table = MeshBuilder.CreateBox(
+    const acaciaWoodMaterial = new StandardMaterial('acaciaWoodMaterial', scene);
+    acaciaWoodMaterial.diffuseColor = new Color3(0.55, 0.4, 0.25);
+    acaciaWoodMaterial.specularColor = new Color3(0.3, 0.2, 0.1);
+
+    const curtainMaterial = new StandardMaterial('curtainMaterial', scene);
+    curtainMaterial.diffuseColor = new Color3(0.95, 0.95, 0.9);
+    curtainMaterial.alpha = 0.85;
+
+    // ============================================
+    // 1. BRAZEN ALTAR (Exodus 27:1-8)
+    // "5 cubits long, 5 cubits broad, 3 cubits high"
+    // ============================================
+    const brazenAltarBase = MeshBuilder.CreateBox(
+      'altar_burnt',
+      { width: 5 * CUBIT, height: 3 * CUBIT, depth: 5 * CUBIT },
+      scene
+    );
+    brazenAltarBase.position = new Vector3(0, (3 * CUBIT) / 2, -15);
+    brazenAltarBase.material = bronzeMaterial;
+    shadowGenerator.addShadowCaster(brazenAltarBase);
+    meshesRef.current.set('altar_burnt', brazenAltarBase);
+
+    // Four horns on corners (Exodus 27:2)
+    const hornPositions = [
+      { x: (5 * CUBIT) / 2, z: (5 * CUBIT) / 2 },
+      { x: -(5 * CUBIT) / 2, z: (5 * CUBIT) / 2 },
+      { x: (5 * CUBIT) / 2, z: -(5 * CUBIT) / 2 },
+      { x: -(5 * CUBIT) / 2, z: -(5 * CUBIT) / 2 }
+    ];
+    hornPositions.forEach((pos, i) => {
+      const horn = MeshBuilder.CreateCylinder(
+        `altar_horn_${i}`,
+        { diameter: 0.3, height: 0.6, tessellation: 4 },
+        scene
+      );
+      horn.position = new Vector3(
+        pos.x,
+        3 * CUBIT + 0.3,
+        -15 + pos.z
+      );
+      horn.material = bronzeMaterial;
+      shadowGenerator.addShadowCaster(horn);
+    });
+
+    // Brazen grating/network (Exodus 27:4)
+    const grating = MeshBuilder.CreateBox(
+      'altar_grating',
+      { width: 4.5 * CUBIT, height: 0.1, depth: 4.5 * CUBIT },
+      scene
+    );
+    grating.position = new Vector3(0, (3 * CUBIT) / 2, -15);
+    grating.material = bronzeMaterial;
+    grating.material.alpha = 0.7;
+
+    // ============================================
+    // 2. BRONZE LAVER (Exodus 30:17-21)
+    // "laver of brass and his foot also of brass"
+    // ============================================
+    const laverFoot = MeshBuilder.CreateCylinder(
+      'laver_foot',
+      { diameter: 2, height: 1.5, tessellation: 32 },
+      scene
+    );
+    laverFoot.position = new Vector3(0, 0.75, -5);
+    laverFoot.material = bronzeMaterial;
+    shadowGenerator.addShadowCaster(laverFoot);
+
+    const laverBasin = MeshBuilder.CreateSphere(
+      'laver',
+      { diameter: 2.5, segments: 32, slice: 0.5 },
+      scene
+    );
+    laverBasin.position = new Vector3(0, 2, -5);
+    laverBasin.material = bronzeMaterial;
+    shadowGenerator.addShadowCaster(laverBasin);
+    meshesRef.current.set('laver', laverBasin);
+
+    // Water in laver
+    const water = MeshBuilder.CreateSphere(
+      'laver_water',
+      { diameter: 2.3, segments: 32, slice: 0.5 },
+      scene
+    );
+    water.position = new Vector3(0, 2, -5);
+    const waterMaterial = new StandardMaterial('waterMaterial', scene);
+    waterMaterial.diffuseColor = new Color3(0.4, 0.6, 0.8);
+    waterMaterial.alpha = 0.6;
+    waterMaterial.specularColor = new Color3(1, 1, 1);
+    water.material = waterMaterial;
+
+    // ============================================
+    // 3. TENT STRUCTURE
+    // ============================================
+    const tentWalls = MeshBuilder.CreateBox(
+      'tent',
+      { width: 10 * CUBIT, height: 10 * CUBIT, depth: 30 * CUBIT },
+      scene
+    );
+    tentWalls.position = new Vector3(0, 5 * CUBIT, 10);
+    const tentMaterial = new StandardMaterial('tentMaterial', scene);
+    tentMaterial.diffuseColor = new Color3(0.9, 0.8, 0.6);
+    tentMaterial.alpha = 0.9;
+    tentWalls.material = tentMaterial;
+    shadowGenerator.addShadowCaster(tentWalls);
+
+    // ============================================
+    // 4. GOLDEN LAMPSTAND / MENORAH (Exodus 25:31-40)
+    // "six branches... three on one side, three on the other"
+    // ============================================
+    const lampstandBase = MeshBuilder.CreateCylinder(
+      'lampstand_base',
+      { diameter: 0.4, height: 0.3, tessellation: 32 },
+      scene
+    );
+    lampstandBase.position = new Vector3(-3, 0.15, 5);
+    lampstandBase.material = goldMaterial;
+
+    // Central shaft
+    const centralShaft = MeshBuilder.CreateCylinder(
+      'lampstand',
+      { diameterTop: 0.15, diameterBottom: 0.2, height: 3, tessellation: 32 },
+      scene
+    );
+    centralShaft.position = new Vector3(-3, 1.8, 5);
+    centralShaft.material = goldMaterial;
+    shadowGenerator.addShadowCaster(centralShaft);
+    meshesRef.current.set('lampstand', centralShaft);
+
+    // Six branches (3 on each side)
+    const branchPositions = [
+      { x: -0.6, y: 2.4, angle: -0.5 },
+      { x: -0.4, y: 2.7, angle: -0.3 },
+      { x: -0.2, y: 3.0, angle: -0.1 },
+      { x: 0.2, y: 3.0, angle: 0.1 },
+      { x: 0.4, y: 2.7, angle: 0.3 },
+      { x: 0.6, y: 2.4, angle: 0.5 }
+    ];
+
+    branchPositions.forEach((pos, i) => {
+      const branch = MeshBuilder.CreateCylinder(
+        `lampstand_branch_${i}`,
+        { diameterTop: 0.08, diameterBottom: 0.1, height: 0.8, tessellation: 16 },
+        scene
+      );
+      branch.position = new Vector3(-3 + pos.x, pos.y, 5);
+      branch.rotation.z = pos.angle;
+      branch.material = goldMaterial;
+
+      // Lamp on each branch
+      const lamp = MeshBuilder.CreateSphere(
+        `lamp_${i}`,
+        { diameter: 0.2, segments: 16 },
+        scene
+      );
+      lamp.position = new Vector3(-3 + pos.x, pos.y + 0.5, 5);
+      const lampMaterial = new StandardMaterial(`lampMat_${i}`, scene);
+      lampMaterial.emissiveColor = new Color3(1, 0.9, 0.6);
+      lampMaterial.diffuseColor = new Color3(1, 0.95, 0.7);
+      lamp.material = lampMaterial;
+    });
+
+    // Central lamp
+    const centralLamp = MeshBuilder.CreateSphere(
+      'central_lamp',
+      { diameter: 0.2, segments: 16 },
+      scene
+    );
+    centralLamp.position = new Vector3(-3, 3.3, 5);
+    const centralLampMat = new StandardMaterial('centralLampMat', scene);
+    centralLampMat.emissiveColor = new Color3(1, 0.9, 0.6);
+    centralLamp.material = centralLampMat;
+
+    // ============================================
+    // 5. TABLE OF SHOWBREAD (Exodus 25:23-30)
+    // "2 cubits long, 1 cubit broad, 1.5 cubits high"
+    // ============================================
+    const tableTop = MeshBuilder.CreateBox(
       'table_showbread',
-      { width: 2, height: 1, depth: 1 },
+      { width: 1 * CUBIT, height: 0.1, depth: 2 * CUBIT },
       scene
     );
-    table.position = new Vector3(3, 1.5, 5);
-    table.material = goldMaterial;
-    meshesRef.current.set('table_showbread', table);
+    tableTop.position = new Vector3(3, 1.5 * CUBIT, 5);
+    tableTop.material = goldMaterial;
+    shadowGenerator.addShadowCaster(tableTop);
+    meshesRef.current.set('table_showbread', tableTop);
 
-    // Altar of Incense
-    const incenseAltar = MeshBuilder.CreateBox(
+    // Crown/border of gold (Exodus 25:24-25)
+    const tableCrown = MeshBuilder.CreateBox(
+      'table_crown',
+      { width: 1.05 * CUBIT, height: 0.05, depth: 2.05 * CUBIT },
+      scene
+    );
+    tableCrown.position = new Vector3(3, (1.5 * CUBIT) + 0.075, 5);
+    tableCrown.material = goldMaterial;
+
+    // Four legs
+    const legPositions = [
+      { x: 0.45 * CUBIT, z: 0.95 * CUBIT },
+      { x: -0.45 * CUBIT, z: 0.95 * CUBIT },
+      { x: 0.45 * CUBIT, z: -0.95 * CUBIT },
+      { x: -0.45 * CUBIT, z: -0.95 * CUBIT }
+    ];
+    legPositions.forEach((pos, i) => {
+      const leg = MeshBuilder.CreateCylinder(
+        `table_leg_${i}`,
+        { diameter: 0.08, height: 1.5 * CUBIT, tessellation: 16 },
+        scene
+      );
+      leg.position = new Vector3(3 + pos.x, (1.5 * CUBIT) / 2, 5 + pos.z);
+      leg.material = goldMaterial;
+      shadowGenerator.addShadowCaster(leg);
+    });
+
+    // Showbread loaves (12 loaves in 2 rows)
+    for (let row = 0; row < 2; row++) {
+      for (let col = 0; col < 6; col++) {
+        const bread = MeshBuilder.CreateBox(
+          `bread_${row}_${col}`,
+          { width: 0.12, height: 0.08, depth: 0.12 },
+          scene
+        );
+        bread.position = new Vector3(
+          3 + (row === 0 ? -0.15 : 0.15),
+          (1.5 * CUBIT) + 0.09,
+          5 - 0.5 + (col * 0.18)
+        );
+        const breadMaterial = new StandardMaterial(`breadMat_${row}_${col}`, scene);
+        breadMaterial.diffuseColor = new Color3(0.85, 0.75, 0.55);
+        bread.material = breadMaterial;
+      }
+    }
+
+    // ============================================
+    // 6. ALTAR OF INCENSE (Exodus 30:1-10)
+    // "1 cubit long, 1 cubit broad, 2 cubits high"
+    // ============================================
+    const incenseAltarBody = MeshBuilder.CreateBox(
       'incense_altar',
-      { width: 1, height: 2, depth: 1 },
+      { width: 1 * CUBIT, height: 2 * CUBIT, depth: 1 * CUBIT },
       scene
     );
-    incenseAltar.position = new Vector3(0, 1, 12);
-    incenseAltar.material = goldMaterial;
-    meshesRef.current.set('incense_altar', incenseAltar);
+    incenseAltarBody.position = new Vector3(0, 1 * CUBIT, 12);
+    incenseAltarBody.material = goldMaterial;
+    shadowGenerator.addShadowCaster(incenseAltarBody);
+    meshesRef.current.set('incense_altar', incenseAltarBody);
 
-    // Ark of the Covenant (in Most Holy Place)
-    const ark = MeshBuilder.CreateBox(
+    // Four horns (Exodus 30:2)
+    const incenseHornPositions = [
+      { x: (1 * CUBIT) / 2, z: (1 * CUBIT) / 2 },
+      { x: -(1 * CUBIT) / 2, z: (1 * CUBIT) / 2 },
+      { x: (1 * CUBIT) / 2, z: -(1 * CUBIT) / 2 },
+      { x: -(1 * CUBIT) / 2, z: -(1 * CUBIT) / 2 }
+    ];
+    incenseHornPositions.forEach((pos, i) => {
+      const horn = MeshBuilder.CreateCylinder(
+        `incense_horn_${i}`,
+        { diameter: 0.12, height: 0.2, tessellation: 4 },
+        scene
+      );
+      horn.position = new Vector3(pos.x, 2 * CUBIT + 0.1, 12 + pos.z);
+      horn.material = goldMaterial;
+      shadowGenerator.addShadowCaster(horn);
+    });
+
+    // Crown of gold (Exodus 30:3)
+    const incenseCrown = MeshBuilder.CreateBox(
+      'incense_crown',
+      { width: 1.05 * CUBIT, height: 0.05, depth: 1.05 * CUBIT },
+      scene
+    );
+    incenseCrown.position = new Vector3(0, 2 * CUBIT + 0.025, 12);
+    incenseCrown.material = goldMaterial;
+
+    // Incense smoke effect
+    const smoke = MeshBuilder.CreateCylinder(
+      'incense_smoke',
+      { diameterTop: 0.4, diameterBottom: 0.1, height: 1.5, tessellation: 16 },
+      scene
+    );
+    smoke.position = new Vector3(0, (2 * CUBIT) + 0.8, 12);
+    const smokeMaterial = new StandardMaterial('smokeMaterial', scene);
+    smokeMaterial.diffuseColor = new Color3(0.9, 0.9, 0.95);
+    smokeMaterial.alpha = 0.3;
+    smokeMaterial.emissiveColor = new Color3(0.1, 0.1, 0.15);
+    smoke.material = smokeMaterial;
+
+    // ============================================
+    // 7. ARK OF THE COVENANT (Exodus 25:10-22)
+    // "2.5 cubits long, 1.5 cubits broad, 1.5 cubits high"
+    // ============================================
+    const arkBody = MeshBuilder.CreateBox(
       'ark',
-      { width: 2.5, height: 1.5, depth: 1.5 },
+      { width: 1.5 * CUBIT, height: 1.5 * CUBIT, depth: 2.5 * CUBIT },
       scene
     );
-    ark.position = new Vector3(0, 1.5, 20);
-    ark.material = goldMaterial;
-    meshesRef.current.set('ark', ark);
+    arkBody.position = new Vector3(0, 0.75 * CUBIT, 20);
+    arkBody.material = goldMaterial;
+    shadowGenerator.addShadowCaster(arkBody);
+    meshesRef.current.set('ark', arkBody);
 
-    // Mercy Seat (lid of ark)
+    // Crown of gold around it (Exodus 25:11)
+    const arkCrown = MeshBuilder.CreateBox(
+      'ark_crown',
+      { width: 1.55 * CUBIT, height: 0.05, depth: 2.55 * CUBIT },
+      scene
+    );
+    arkCrown.position = new Vector3(0, (1.5 * CUBIT) + 0.025, 20);
+    arkCrown.material = goldMaterial;
+
+    // Mercy Seat (Exodus 25:17)
     const mercySeat = MeshBuilder.CreateBox(
       'mercy_seat',
-      { width: 2.6, height: 0.2, depth: 1.6 },
+      { width: 1.5 * CUBIT, height: 0.1, depth: 2.5 * CUBIT },
       scene
     );
-    mercySeat.position = new Vector3(0, 2.4, 20);
+    mercySeat.position = new Vector3(0, (1.5 * CUBIT) + 0.05, 20);
     mercySeat.material = goldMaterial;
 
-    // Cherubim (simplified as spheres with wings)
-    const cherub1 = MeshBuilder.CreateSphere('cherub1', { diameter: 0.8 }, scene);
-    cherub1.position = new Vector3(-1, 2.8, 20);
-    cherub1.material = goldMaterial;
+    // Two Cherubim (Exodus 25:18-20)
+    const cherub1Body = MeshBuilder.CreateSphere(
+      'cherub1_body',
+      { diameter: 0.4, segments: 16 },
+      scene
+    );
+    cherub1Body.position = new Vector3(-0.5, (1.5 * CUBIT) + 0.3, 20);
+    cherub1Body.material = goldMaterial;
 
-    const cherub2 = MeshBuilder.CreateSphere('cherub2', { diameter: 0.8 }, scene);
-    cherub2.position = new Vector3(1, 2.8, 20);
-    cherub2.material = goldMaterial;
+    // Cherub 1 wings
+    const wing1Left = MeshBuilder.CreateBox(
+      'cherub1_wing_left',
+      { width: 0.6, height: 0.02, depth: 0.4 },
+      scene
+    );
+    wing1Left.position = new Vector3(-0.8, (1.5 * CUBIT) + 0.35, 20);
+    wing1Left.rotation.z = -0.3;
+    wing1Left.rotation.y = 0.2;
+    wing1Left.material = goldMaterial;
 
-    // Add click interactions
+    const wing1Right = MeshBuilder.CreateBox(
+      'cherub1_wing_right',
+      { width: 0.6, height: 0.02, depth: 0.4 },
+      scene
+    );
+    wing1Right.position = new Vector3(-0.2, (1.5 * CUBIT) + 0.35, 20);
+    wing1Right.rotation.z = 0.3;
+    wing1Right.rotation.y = -0.2;
+    wing1Right.material = goldMaterial;
+
+    const cherub2Body = MeshBuilder.CreateSphere(
+      'cherub2_body',
+      { diameter: 0.4, segments: 16 },
+      scene
+    );
+    cherub2Body.position = new Vector3(0.5, (1.5 * CUBIT) + 0.3, 20);
+    cherub2Body.material = goldMaterial;
+
+    // Cherub 2 wings
+    const wing2Left = MeshBuilder.CreateBox(
+      'cherub2_wing_left',
+      { width: 0.6, height: 0.02, depth: 0.4 },
+      scene
+    );
+    wing2Left.position = new Vector3(0.2, (1.5 * CUBIT) + 0.35, 20);
+    wing2Left.rotation.z = -0.3;
+    wing2Left.rotation.y = 0.2;
+    wing2Left.material = goldMaterial;
+
+    const wing2Right = MeshBuilder.CreateBox(
+      'cherub2_wing_right',
+      { width: 0.6, height: 0.02, depth: 0.4 },
+      scene
+    );
+    wing2Right.position = new Vector3(0.8, (1.5 * CUBIT) + 0.35, 20);
+    wing2Right.rotation.z = 0.3;
+    wing2Right.rotation.y = -0.2;
+    wing2Right.material = goldMaterial;
+
+    // ============================================
+    // Add click interactions to all components
+    // ============================================
     meshesRef.current.forEach((mesh, id) => {
       mesh.actionManager = new ActionManager(scene);
       mesh.actionManager.registerAction(
