@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Sparkles, Eye, Book, Users, ToggleLeft, ToggleRight } from 'lucide-react';
+import { Home, Sparkles, Book, Users, ToggleLeft, ToggleRight } from 'lucide-react';
 import DonationBanner from './DonationBanner';
+import BabylonScene from './BabylonScene';
 
 const SymbolismPage = () => {
   const [selectedFurnishing, setSelectedFurnishing] = useState('');
@@ -11,6 +12,7 @@ const SymbolismPage = () => {
   const furnishings = [
     {
       id: 'ark',
+      componentId: 'ark',
       name: 'Ark of the Covenant',
       location: 'Most Holy Place',
       hebrew: 'God\'s throne and law',
@@ -18,6 +20,7 @@ const SymbolismPage = () => {
     },
     {
       id: 'lampstand',
+      componentId: 'lampstand',
       name: 'Golden Lampstand',
       location: 'Holy Place',
       hebrew: 'Divine light and wisdom',
@@ -25,6 +28,7 @@ const SymbolismPage = () => {
     },
     {
       id: 'table',
+      componentId: 'table_showbread',
       name: 'Table of Showbread',
       location: 'Holy Place',
       hebrew: 'God\'s provision and presence',
@@ -32,6 +36,7 @@ const SymbolismPage = () => {
     },
     {
       id: 'incense-altar',
+      componentId: 'incense_altar',
       name: 'Altar of Incense',
       location: 'Holy Place',
       hebrew: 'Prayers ascending to God',
@@ -39,6 +44,7 @@ const SymbolismPage = () => {
     },
     {
       id: 'bronze-altar',
+      componentId: 'altar_burnt',
       name: 'Bronze Altar',
       location: 'Outer Court',
       hebrew: 'Sacrifice and atonement',
@@ -46,6 +52,7 @@ const SymbolismPage = () => {
     },
     {
       id: 'laver',
+      componentId: 'laver',
       name: 'Bronze Laver',
       location: 'Outer Court',
       hebrew: 'Cleansing and purification',
@@ -185,27 +192,27 @@ const SymbolismPage = () => {
                 <h3 className="font-semibold">Interactive Sanctuary Model - Symbolism Mode</h3>
               </div>
               
-              <div className="relative h-96 lg:h-[500px] bg-gradient-to-br from-sanctuary-linen to-sanctuary-linen-dark flex items-center justify-center">
-                <div className="text-center text-sanctuary-brass">
-                  <Eye className="w-20 h-20 mx-auto mb-4" />
-                  <p className="text-xl">3D Sanctuary Model</p>
-                  <p className="text-base">Click on furnishings to explore their symbolism</p>
-                  {selectedFurnishing && (
-                    <div className="mt-4 p-3 bg-sanctuary-scarlet/20 rounded-lg">
-                      <p className="text-sanctuary-purple font-medium">
-                        Selected: {furnishings.find(f => f.id === selectedFurnishing)?.name}
-                      </p>
-                    </div>
-                  )}
-                </div>
+              <div className="relative h-96 lg:h-[500px] bg-sanctuary-linen-dark">
+                <BabylonScene
+                  modelId="tabernacle"
+                  onComponentClick={(componentId) => {
+                    const furnishing = furnishings.find(f => f.componentId === componentId);
+                    if (furnishing) {
+                      setSelectedFurnishing(furnishing.id);
+                    }
+                  }}
+                  highlightedComponent={furnishings.find(f => f.id === selectedFurnishing)?.componentId || null}
+                  className="w-full h-full"
+                />
 
-                {/* Interactive Hotspots */}
                 {selectedFurnishing && (
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <div className="w-6 h-6 bg-sanctuary-scarlet rounded-full animate-pulse border-2 border-white shadow-lg"></div>
-                    <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-sanctuary-scarlet text-white px-3 py-1 rounded text-sm whitespace-nowrap">
+                  <div className="absolute top-4 left-4 bg-sanctuary-scarlet/95 text-white px-4 py-2 rounded-lg shadow-lg">
+                    <p className="font-semibold">
                       {furnishings.find(f => f.id === selectedFurnishing)?.name}
-                    </div>
+                    </p>
+                    <p className="text-xs opacity-90">
+                      {furnishings.find(f => f.id === selectedFurnishing)?.location}
+                    </p>
                   </div>
                 )}
               </div>

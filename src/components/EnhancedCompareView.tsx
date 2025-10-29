@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Home, GitCompare, Eye, ArrowLeftRight, Book, Check, X } from 'lucide-react';
+import { Home, GitCompare, Book, Check, X } from 'lucide-react';
 import DonationBanner from './DonationBanner';
+import BabylonScene from './BabylonScene';
 import { useAllSanctuaryModels } from '../hooks/useSanctuaryData';
 import { SanctuaryModel } from '../types/sanctuary';
 
@@ -173,12 +174,16 @@ const EnhancedCompareView = () => {
               <p className="text-sm opacity-90">{leftData?.period}</p>
             </div>
 
-            {/* Viewer Placeholder */}
-            <div className="relative h-96 bg-gradient-to-br from-amber-50 to-orange-50 flex items-center justify-center">
-              <div className="text-center text-sanctuary-brass p-4">
-                <Eye className="w-12 h-12 mx-auto mb-2 text-sanctuary-gold" />
-                <p className="text-sm">3D Model: {leftData?.name}</p>
-              </div>
+            {/* 3D Viewer */}
+            <div className="relative h-96 bg-sanctuary-linen-dark">
+              <BabylonScene
+                modelId={leftModel}
+                onComponentClick={(componentId) => {
+                  console.log('Left model component clicked:', componentId);
+                }}
+                highlightedComponent={null}
+                className="w-full h-full"
+              />
             </div>
 
             {/* Comparison Data */}
@@ -256,12 +261,16 @@ const EnhancedCompareView = () => {
               <p className="text-sm opacity-90">{rightData?.period}</p>
             </div>
 
-            {/* Viewer Placeholder */}
-            <div className="relative h-96 bg-gradient-to-br from-purple-50 to-indigo-50 flex items-center justify-center">
-              <div className="text-center text-sanctuary-brass p-4">
-                <Eye className="w-12 h-12 mx-auto mb-2 text-sanctuary-purple" />
-                <p className="text-sm">3D Model: {rightData?.name}</p>
-              </div>
+            {/* 3D Viewer */}
+            <div className="relative h-96 bg-sanctuary-linen-dark">
+              <BabylonScene
+                modelId={rightModel}
+                onComponentClick={(componentId) => {
+                  console.log('Right model component clicked:', componentId);
+                }}
+                highlightedComponent={null}
+                className="w-full h-full"
+              />
             </div>
 
             {/* Comparison Data */}

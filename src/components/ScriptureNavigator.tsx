@@ -1,24 +1,26 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Home, BookOpen, Search, Eye, Link2, Languages } from 'lucide-react';
+import { Home, BookOpen, Search, Link2, Languages } from 'lucide-react';
 import DonationBanner from './DonationBanner';
+import BabylonScene from './BabylonScene';
 
 const ScriptureNavigator = () => {
   const [selectedTranslation, setSelectedTranslation] = useState('KJV');
   const [selectedPassage, setSelectedPassage] = useState('');
   const [highlightedElement, setHighlightedElement] = useState('');
+  const [currentModelId, setCurrentModelId] = useState('tabernacle');
 
   const translations = ['KJV', 'NIV', 'ESV', 'NASB', 'NKJV'];
-  
+
   const sanctuaryPassages = [
-    { ref: 'Exodus 25:10-22', title: 'The Ark of the Covenant', element: 'ark' },
-    { ref: 'Exodus 25:23-30', title: 'Table of Showbread', element: 'table' },
-    { ref: 'Exodus 25:31-40', title: 'Golden Lampstand', element: 'lampstand' },
-    { ref: 'Exodus 27:1-8', title: 'Bronze Altar', element: 'altar' },
-    { ref: 'Exodus 30:1-10', title: 'Altar of Incense', element: 'incense-altar' },
-    { ref: 'Exodus 30:17-21', title: 'Bronze Laver', element: 'laver' },
-    { ref: '1 Kings 6:1-38', title: 'Solomon\'s Temple', element: 'temple' },
-    { ref: 'Hebrews 9:1-28', title: 'Heavenly Sanctuary', element: 'heavenly' }
+    { ref: 'Exodus 25:10-22', title: 'The Ark of the Covenant', element: 'ark', modelId: 'tabernacle' },
+    { ref: 'Exodus 25:23-30', title: 'Table of Showbread', element: 'table_showbread', modelId: 'tabernacle' },
+    { ref: 'Exodus 25:31-40', title: 'Golden Lampstand', element: 'lampstand', modelId: 'tabernacle' },
+    { ref: 'Exodus 27:1-8', title: 'Bronze Altar', element: 'altar_burnt', modelId: 'tabernacle' },
+    { ref: 'Exodus 30:1-10', title: 'Altar of Incense', element: 'incense_altar', modelId: 'tabernacle' },
+    { ref: 'Exodus 30:17-21', title: 'Bronze Laver', element: 'laver', modelId: 'tabernacle' },
+    { ref: '1 Kings 6:1-38', title: 'Solomon\'s Temple', element: 'jachin_boaz', modelId: 'solomon' },
+    { ref: 'Hebrews 9:1-28', title: 'Heavenly Sanctuary', element: 'throne', modelId: 'heavenly' }
   ];
 
   return (
@@ -80,6 +82,7 @@ const ScriptureNavigator = () => {
                     onClick={() => {
                       setSelectedPassage(passage.ref);
                       setHighlightedElement(passage.element);
+                      setCurrentModelId(passage.modelId);
                     }}
                     className={`w-full text-left p-3 rounded-lg transition-colors ${
                       selectedPassage === passage.ref
@@ -285,37 +288,29 @@ const ScriptureNavigator = () => {
                 </div>
               </div>
 
-              <div className="relative h-96 lg:h-[600px] bg-gradient-to-br from-sanctuary-linen to-sanctuary-linen-dark flex items-center justify-center">
-                {/* Model Placeholder */}
-                <div className="text-center text-sanctuary-brass">
-                  <Eye className="w-20 h-20 mx-auto mb-4" />
-                  <p className="text-xl">3D Sanctuary Model</p>
-                  <p className="text-base">Click scripture passages to highlight elements</p>
-                  {highlightedElement && (
-                    <div className="mt-4 p-3 bg-sanctuary-gold/20 rounded-lg">
-                      <p className="text-sanctuary-purple font-medium">
-                        Highlighting: {sanctuaryPassages.find(p => p.element === highlightedElement)?.title}
-                      </p>
-                    </div>
-                  )}
-                </div>
+              <div className="relative h-96 lg:h-[600px] bg-sanctuary-linen-dark">
+                <BabylonScene
+                  modelId={currentModelId}
+                  onComponentClick={(componentId) => {
+                    const passage = sanctuaryPassages.find(p => p.element === componentId);
+                    if (passage) {
+                      setSelectedPassage(passage.ref);
+                      setHighlightedElement(passage.element);
+                      setCurrentModelId(passage.modelId);
+                    }
+                  }}
+                  highlightedComponent={highlightedElement}
+                  className="w-full h-full"
+                />
 
-                {/* Interactive Hotspots */}
-                {highlightedElement === 'ark' && (
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <div className="w-4 h-4 bg-sanctuary-gold rounded-full animate-pulse border-2 border-white shadow-lg"></div>
-                    <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-sanctuary-purple text-white px-2 py-1 rounded text-xs whitespace-nowrap">
-                      Ark of the Covenant
-                    </div>
-                  </div>
-                )}
-
-                {highlightedElement === 'lampstand' && (
-                  <div className="absolute top-1/3 left-1/3 transform -translate-x-1/2 -translate-y-1/2">
-                    <div className="w-4 h-4 bg-sanctuary-gold rounded-full animate-pulse border-2 border-white shadow-lg"></div>
-                    <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-sanctuary-purple text-white px-2 py-1 rounded text-xs whitespace-nowrap">
-                      Golden Lampstand
-                    </div>
+                {highlightedElement && (
+                  <div className="absolute top-4 left-4 bg-sanctuary-gold/95 text-sanctuary-purple px-4 py-2 rounded-lg shadow-lg">
+                    <p className="font-semibold">
+                      {sanctuaryPassages.find(p => p.element === highlightedElement)?.title}
+                    </p>
+                    <p className="text-xs opacity-90">
+                      {sanctuaryPassages.find(p => p.element === highlightedElement)?.ref}
+                    </p>
                   </div>
                 )}
               </div>
