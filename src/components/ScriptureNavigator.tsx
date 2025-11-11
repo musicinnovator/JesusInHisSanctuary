@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Home, BookOpen, Search, Link2, Languages } from 'lucide-react';
 import DonationBanner from './DonationBanner';
 import BabylonScene from './BabylonScene';
+import SanctuaryImagePanel from './SanctuaryImagePanel';
 
 const ScriptureNavigator = () => {
   const [selectedTranslation, setSelectedTranslation] = useState('KJV');
@@ -277,8 +278,9 @@ const ScriptureNavigator = () => {
             )}
           </div>
 
-          {/* 3D Model Viewer */}
-          <div className="lg:col-span-2">
+          {/* 3D Model Viewer and Image Panel */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* 3D Model Viewer */}
             <div className="bg-white rounded-xl shadow-lg border border-sanctuary-gold/30 overflow-hidden">
               <div className="bg-sanctuary-purple text-white p-4 flex items-center justify-between">
                 <h3 className="font-semibold">Interactive Sanctuary Model</h3>
@@ -331,9 +333,17 @@ const ScriptureNavigator = () => {
               </div>
             </div>
 
+            {/* Biblical Illustration Image Panel */}
+            {selectedPassage && (
+              <SanctuaryImagePanel
+                passageRef={selectedPassage}
+                title={sanctuaryPassages.find(p => p.ref === selectedPassage)?.title || ''}
+              />
+            )}
+
             {/* Word Study Panel */}
             {selectedPassage && (
-              <div className="mt-6 bg-white rounded-xl p-6 shadow-lg border border-sanctuary-gold/30">
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-sanctuary-gold/30">
                 <h3 className="text-lg font-semibold text-sanctuary-purple mb-4">Hebrew/Greek Word Study</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="bg-sanctuary-linen rounded-lg p-4">
