@@ -218,29 +218,29 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8 mt-16">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-sanctuary-gold/30 hover:bg-white/15 transition-all duration-300">
-              <Eye className="w-12 h-12 text-sanctuary-gold mb-4" />
-              <h3 className="text-xl font-semibold mb-3">Interactive 3D Models</h3>
-              <p className="text-sanctuary-linen">Explore historically accurate sanctuary models with immersive navigation</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-12 max-w-4xl mx-auto opacity-75">
+            <div className="bg-white/5 backdrop-blur-sm rounded-md p-3 border border-sanctuary-gold/20 hover:bg-white/10 transition-all duration-300">
+              <Eye className="w-6 h-6 text-sanctuary-gold mb-2" />
+              <h3 className="text-sm font-semibold mb-1">Interactive 3D Models</h3>
+              <p className="text-xs text-sanctuary-linen/80">Explore historically accurate sanctuary models with immersive navigation</p>
             </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-sanctuary-gold/30 hover:bg-white/15 transition-all duration-300">
-              <BookOpen className="w-12 h-12 text-sanctuary-gold mb-4" />
-              <h3 className="text-xl font-semibold mb-3">Scripture Integration</h3>
-              <p className="text-sanctuary-linen">Link biblical texts directly to 3D model components and furnishings</p>
+
+            <div className="bg-white/5 backdrop-blur-sm rounded-md p-3 border border-sanctuary-gold/20 hover:bg-white/10 transition-all duration-300">
+              <BookOpen className="w-6 h-6 text-sanctuary-gold mb-2" />
+              <h3 className="text-sm font-semibold mb-1">Scripture Integration</h3>
+              <p className="text-xs text-sanctuary-linen/80">Link biblical texts directly to 3D model components and furnishings</p>
             </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-sanctuary-gold/30 hover:bg-white/15 transition-all duration-300">
-              <Users className="w-12 h-12 text-sanctuary-gold mb-4" />
-              <h3 className="text-xl font-semibold mb-3">Global Community</h3>
-              <p className="text-sanctuary-linen">Connect with scholars and students worldwide in moderated discussions</p>
+
+            <div className="bg-white/5 backdrop-blur-sm rounded-md p-3 border border-sanctuary-gold/20 hover:bg-white/10 transition-all duration-300">
+              <Users className="w-6 h-6 text-sanctuary-gold mb-2" />
+              <h3 className="text-sm font-semibold mb-1">Global Community</h3>
+              <p className="text-xs text-sanctuary-linen/80">Connect with scholars and students worldwide in moderated discussions</p>
             </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-sanctuary-gold/30 hover:bg-white/15 transition-all duration-300">
-              <GraduationCap className="w-12 h-12 text-sanctuary-gold mb-4" />
-              <h3 className="text-xl font-semibold mb-3">Academic Resources</h3>
-              <p className="text-sanctuary-linen">Access peer-reviewed articles and classic Adventist theological texts</p>
+
+            <div className="bg-white/5 backdrop-blur-sm rounded-md p-3 border border-sanctuary-gold/20 hover:bg-white/10 transition-all duration-300">
+              <GraduationCap className="w-6 h-6 text-sanctuary-gold mb-2" />
+              <h3 className="text-sm font-semibold mb-1">Academic Resources</h3>
+              <p className="text-xs text-sanctuary-linen/80">Access peer-reviewed articles and classic Adventist theological texts</p>
             </div>
           </div>
         </div>
