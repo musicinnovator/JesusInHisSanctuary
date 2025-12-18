@@ -1,9 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import DonationBanner from './DonationBanner';
+import ViewToggle from './ViewToggle';
+import MasterNavigationCard from './MasterNavigationCard';
+import NavigationDrawer from './NavigationDrawer';
 import { Eye, GitCompare, BookOpen, Sparkles, ArrowRight, Play, Users, Globe, Award, Clock, Star, Shield, GraduationCap, Headphones, Circle as HelpCircle, Book, Palette } from 'lucide-react';
 
 const HomePage = () => {
+  const [viewMode, setViewMode] = useState<'grid' | 'compact'>(() => {
+    try {
+      const saved = localStorage.getItem('sanctuary-homepage-view');
+      return (saved === 'compact' ? 'compact' : 'grid') as 'grid' | 'compact';
+    } catch (error) {
+      return 'grid';
+    }
+  });
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('sanctuary-homepage-view', viewMode);
+    } catch (error) {
+      console.warn('Could not save view preference to localStorage');
+    }
+  }, [viewMode]);
+
+  const handleViewChange = (mode: 'grid' | 'compact') => {
+    setViewMode(mode);
+  };
   const pages = [
     {
       id: 'explorer',
@@ -215,12 +251,17 @@ const HomePage = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-sanctuary-purple mb-4">Explore Our Platform</h2>
             <p className="text-xl text-sanctuary-brass max-w-3xl mx-auto">
-              Discover 14 specialized sections designed to enhance your understanding of sanctuary doctrine
+              Discover 15 specialized sections designed to enhance your understanding of sanctuary doctrine
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {pages.map((page) => (
+          {/* View Toggle */}
+          <ViewToggle viewMode={viewMode} onViewChange={handleViewChange} />
+
+          {/* Grid View (Existing/Default) */}
+          {viewMode === 'grid' && (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {pages.map((page) => (
               <Link
                 key={page.id}
                 to={page.link}
@@ -269,8 +310,20 @@ const HomePage = () => {
                   </div>
                 </div>
               </Link>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
+
+          {/* Compact View (New) */}
+          {viewMode === 'compact' && (
+            <>
+              {isMobile ? (
+                <NavigationDrawer pages={pages} />
+              ) : (
+                <MasterNavigationCard pages={pages} />
+              )}
+            </>
+          )}
         </div>
       </section>
 
@@ -325,7 +378,7 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-sanctuary-gold mb-2">14</div>
+              <div className="text-4xl font-bold text-sanctuary-gold mb-2">15</div>
               <div className="text-sanctuary-linen">Interactive Sections</div>
             </div>
             <div>
