@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import DonationBanner from './DonationBanner';
-import { Eye, GitCompare, BookOpen, Sparkles, ArrowRight, Play, Users, Globe, Award, Clock, Star, Shield, GraduationCap, Headphones, Circle as HelpCircle, Book } from 'lucide-react';
+import { Eye, GitCompare, BookOpen, Sparkles, ArrowRight, Play, Users, Globe, Award, Clock, Star, Shield, GraduationCap, Headphones, Circle as HelpCircle, Book, Palette } from 'lucide-react';
 
 const HomePage = () => {
   const pages = [
@@ -144,6 +144,16 @@ const HomePage = () => {
       color: 'from-amber-600 to-orange-800',
       link: '/bible',
       preview: 'Study the King James Version with powerful search tools and memorization strategies'
+    },
+    {
+      id: 'colors',
+      title: 'Sacred Colors of the Sanctuary',
+      description: 'Explore the eight divine colors and their spiritual significance',
+      features: ['Blue - God\'s Law', 'Red - Messiah\'s Blood', 'White - Righteousness', 'Gold - Deity'],
+      icon: <Palette className="w-8 h-8" />,
+      color: 'from-indigo-600 to-pink-600',
+      link: '/colors',
+      preview: 'Discover the profound meaning behind each of the eight sacred colors used in the sanctuary'
     }
   ];
 

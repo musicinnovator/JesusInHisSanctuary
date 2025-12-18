@@ -20,6 +20,14 @@ import MythsPage from './components/MythsPage';
 import EducatorResources from './components/EducatorResources';
 import MediaPage from './components/MediaPage';
 import BiblePage from './components/BiblePage';
+import BluePage from './components/colors/BluePage';
+import DarkPage from './components/colors/DarkPage';
+import RedPage from './components/colors/RedPage';
+import WhitePage from './components/colors/WhitePage';
+import PurplePage from './components/colors/PurplePage';
+import BrassPage from './components/colors/BrassPage';
+import GoldPage from './components/colors/GoldPage';
+import SilverPage from './components/colors/SilverPage';
 
 function App() {
   return (
@@ -29,6 +37,14 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/colors" element={<ColorsPage />} />
+          <Route path="/colors/blue" element={<BluePage />} />
+          <Route path="/colors/dark" element={<DarkPage />} />
+          <Route path="/colors/red" element={<RedPage />} />
+          <Route path="/colors/white" element={<WhitePage />} />
+          <Route path="/colors/purple" element={<PurplePage />} />
+          <Route path="/colors/brass" element={<BrassPage />} />
+          <Route path="/colors/gold" element={<GoldPage />} />
+          <Route path="/colors/silver" element={<SilverPage />} />
           <Route path="/explorer" element={<EnhancedSanctuaryViewer />} />
           <Route path="/explorer-classic" element={<SanctuaryViewer />} />
           <Route path="/compare" element={<EnhancedCompareView />} />
