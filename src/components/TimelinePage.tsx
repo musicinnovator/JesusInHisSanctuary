@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Clock, Play, Pause, SkipForward, SkipBack, Book } from 'lucide-react';
+import { Home, Clock, Play, Pause, SkipForward, SkipBack, Book, GraduationCap, Trophy } from 'lucide-react';
+import { QuestionModal } from './timeline-learning/QuestionModal';
+import { ProgressDashboard } from './timeline-learning/ProgressDashboard';
+import { useTimelineLearning } from '../hooks/useTimelineLearning';
 
 type TimelineStep = {
   step: number;
@@ -14,6 +17,13 @@ type TimelineStep = {
 const TimelinePage = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  // New state for learning system (additive - does not modify existing functionality)
+  const [showQuestionModal, setShowQuestionModal] = useState(false);
+  const [showProgressDashboard, setShowProgressDashboard] = useState(false);
+  const [selectedStepForQuestions, setSelectedStepForQuestions] = useState<number | null>(null);
+  const [questionMode, setQuestionMode] = useState<'study' | 'challenge'>('study');
+  const { userId, getStepProgress } = useTimelineLearning(currentStep);
 
   const timelineSteps: TimelineStep[] = [
     // Step 0
@@ -265,6 +275,18 @@ const TimelinePage = () => {
     setCurrentStep((s) => Math.max(s - 1, 0));
   };
 
+  // New handler functions for learning system (additive)
+  const handleOpenQuestions = (stepId: number, mode: 'study' | 'challenge') => {
+    setSelectedStepForQuestions(stepId);
+    setQuestionMode(mode);
+    setShowQuestionModal(true);
+  };
+
+  const handleCloseQuestions = () => {
+    setShowQuestionModal(false);
+    setSelectedStepForQuestions(null);
+  };
+
   const currentStepData = timelineSteps[currentStep];
 
   return (
@@ -272,7 +294,7 @@ const TimelinePage = () => {
       {/* Header */}
       <div className="bg-gradient-to-r from-sanctuary-silver to-gray-600 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center space-x-4 mb-4">
+          <div className="flex items-center justify-between mb-4">
             <Link
               to="/"
               className="flex items-center space-x-2 text-sanctuary-gold hover:text-sanctuary-gold-dark transition-colors"
@@ -280,6 +302,14 @@ const TimelinePage = () => {
               <Home className="w-5 h-5" />
               <span>Back to Home</span>
             </Link>
+            {/* New: My Progress Button (additive) */}
+            <button
+              onClick={() => setShowProgressDashboard(true)}
+              className="flex items-center space-x-2 px-4 py-2 bg-sanctuary-gold text-sanctuary-purple rounded-lg hover:bg-sanctuary-gold-dark transition-colors font-semibold"
+            >
+              <Trophy className="w-5 h-5" />
+              <span>My Progress</span>
+            </button>
           </div>
           <div className="flex items-center space-x-4">
             <Clock className="w-12 h-12 text-sanctuary-gold" />
@@ -387,6 +417,17 @@ const TimelinePage = () => {
                   </h4>
                   <p className="text-sanctuary-blue font-medium">{currentStepData?.aaronRef || '—'}</p>
                 </div>
+
+                {/* New: Test Your Knowledge Button (additive) */}
+                <div className="pt-2 space-y-2">
+                  <button
+                    onClick={() => handleOpenQuestions(currentStepData?.step || 0, 'study')}
+                    className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-sanctuary-purple text-white rounded-lg hover:bg-sanctuary-purple-dark transition-all hover:shadow-lg group"
+                  >
+                    <GraduationCap className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                    <span className="font-semibold">Test Your Knowledge</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -421,6 +462,17 @@ const TimelinePage = () => {
                     <span>Scripture Reference</span>
                   </h4>
                   <p className="text-sanctuary-blue font-medium">{currentStepData?.jesusRef || '—'}</p>
+                </div>
+
+                {/* New: Test Your Knowledge Button (additive) */}
+                <div className="pt-2 space-y-2">
+                  <button
+                    onClick={() => handleOpenQuestions(currentStepData?.step || 0, 'study')}
+                    className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-sanctuary-gold text-sanctuary-purple rounded-lg hover:bg-sanctuary-gold-dark transition-all hover:shadow-lg group"
+                  >
+                    <GraduationCap className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                    <span className="font-semibold">Test Your Knowledge</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -464,6 +516,23 @@ const TimelinePage = () => {
           </div>
         </div>
       </div>
+
+      {/* New: Interactive Learning System Modals (additive - does not affect existing functionality) */}
+      {selectedStepForQuestions !== null && (
+        <QuestionModal
+          stepId={selectedStepForQuestions}
+          stepTitle={`Step ${selectedStepForQuestions}: ${timelineSteps.find(s => s.step === selectedStepForQuestions)?.aaron || 'Timeline Study'}`}
+          isOpen={showQuestionModal}
+          onClose={handleCloseQuestions}
+          mode={questionMode}
+        />
+      )}
+
+      <ProgressDashboard
+        isOpen={showProgressDashboard}
+        onClose={() => setShowProgressDashboard(false)}
+        userId={userId}
+      />
     </div>
   );
 };
