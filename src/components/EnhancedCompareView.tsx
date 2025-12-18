@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Home, GitCompare, Book, Check, X } from 'lucide-react';
+import { Home, GitCompare, Book, Check, X, ArrowLeftRight } from 'lucide-react';
 import DonationBanner from './DonationBanner';
 import BabylonScene from './BabylonScene';
 import { useAllSanctuaryModels } from '../hooks/useSanctuaryData';
