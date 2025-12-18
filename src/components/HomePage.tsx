@@ -4,6 +4,7 @@ import DonationBanner from './DonationBanner';
 import ViewToggle from './ViewToggle';
 import MasterNavigationCard from './MasterNavigationCard';
 import NavigationDrawer from './NavigationDrawer';
+import BadgeImageOverlay from './BadgeImageOverlay';
 import { Eye, GitCompare, BookOpen, Sparkles, ArrowRight, Play, Users, Globe, Award, Clock, Star, Shield, GraduationCap, Headphones, Circle as HelpCircle, Book, Palette } from 'lucide-react';
 
 const HomePage = () => {
@@ -274,6 +275,13 @@ const HomePage = () => {
                     <div className="mt-2 text-sm font-medium">Preview</div>
                   </div>
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+
+                  {/* Additive SVG Illustration Overlay */}
+                  <BadgeImageOverlay
+                    featureId={page.id}
+                    fallbackIcon={page.icon}
+                    fallbackColor={page.color}
+                  />
                 </div>
 
                 <div className="p-6">
