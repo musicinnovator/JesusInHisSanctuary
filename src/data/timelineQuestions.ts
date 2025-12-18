@@ -757,20 +757,2291 @@ export const timelineQuestions: TimelineQuestion[] = [
       { book: 'Hebrews', chapter: 10, verses: '12-14' }
     ],
     orderPosition: 8
+  },
+
+  // ==================== STEP 6: Meeting with Co-laborers ====================
+  {
+    stepId: 6,
+    questionId: 'step6_qa1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'After presenting His sacrifice, where did Jesus return and what did He do?',
+    options: [
+      'Jesus returned to Earth for 40 days to meet with His co-laborers (disciples)',
+      'Jesus remained in heaven permanently',
+      'Jesus went directly to the Most Holy Place',
+      'Jesus appeared only to the high priest'
+    ],
+    correctAnswer: 'Jesus returned to Earth for 40 days to meet with His co-laborers (disciples)',
+    explanation: 'After His sacrifice was accepted, Jesus returned to Earth for 40 days to minister to and teach His disciples before His final ascension.',
+    scriptureReferences: [
+      { book: 'Acts', chapter: 1, verses: '3' }
+    ],
+    hint: 'Think about the time between resurrection and final ascension.',
+    orderPosition: 1
+  },
+  {
+    stepId: 6,
+    questionId: 'step6_mc1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'What does Aaron meeting with fellow priests symbolize in Jesus\' ministry?',
+    options: [
+      'Jesus meeting with His disciples after resurrection',
+      'Jesus preaching to the crowds',
+      'Jesus teaching in the temple',
+      'Jesus praying alone'
+    ],
+    correctAnswer: 'Jesus meeting with His disciples after resurrection',
+    explanation: 'Aaron\'s meeting with fellow priests represents Jesus spending time with His disciples, His co-laborers in ministry, after His resurrection.',
+    scriptureReferences: [
+      { book: 'Luke', chapter: 24, verses: '36-43' }
+    ],
+    orderPosition: 2
+  },
+  {
+    stepId: 6,
+    questionId: 'step6_fill1',
+    type: 'fill-blank',
+    difficulty: 'easy',
+    question: 'Jesus spent ________ days with His disciples after His resurrection.',
+    options: ['40', '30', '50', '7'],
+    correctAnswer: '40',
+    explanation: 'Acts 1:3 specifically states that Jesus appeared to His disciples for 40 days after His resurrection.',
+    scriptureReferences: [
+      { book: 'Acts', chapter: 1, verses: '3' }
+    ],
+    orderPosition: 3
+  },
+  {
+    stepId: 6,
+    questionId: 'step6_fill2',
+    type: 'fill-blank',
+    difficulty: 'medium',
+    question: 'During the 40 days, Jesus spoke to His disciples about things pertaining to the ________ of God.',
+    options: ['kingdom', 'temple', 'law', 'sacrifice'],
+    correctAnswer: 'kingdom',
+    explanation: 'Acts 1:3 tells us Jesus taught about the kingdom of God during these 40 days.',
+    scriptureReferences: [
+      { book: 'Acts', chapter: 1, verses: '3' }
+    ],
+    orderPosition: 4
+  },
+  {
+    stepId: 6,
+    questionId: 'step6_tf1',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'Jesus immediately ascended to heaven and never returned to Earth after His resurrection.',
+    options: ['True', 'False'],
+    correctAnswer: 'False',
+    explanation: 'False. Jesus spent 40 days on Earth with His disciples before His final ascension.',
+    scriptureReferences: [
+      { book: 'Acts', chapter: 1, verses: '3' }
+    ],
+    orderPosition: 5
+  },
+  {
+    stepId: 6,
+    questionId: 'step6_tf2',
+    type: 'true-false',
+    difficulty: 'medium',
+    question: 'The disciples were able to touch and handle Jesus during the 40 days.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Jesus invited them to touch Him and even ate with them to prove He was truly resurrected with a physical body.',
+    scriptureReferences: [
+      { book: 'Luke', chapter: 24, verses: '39-43' }
+    ],
+    orderPosition: 6
+  },
+  {
+    stepId: 6,
+    questionId: 'step6_tf3',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'Aaron returned to the altar in the outer court after being in God\'s presence.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Aaron went out to the altar in the outer court, symbolizing Jesus returning to Earth.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '18' }
+    ],
+    orderPosition: 7
+  },
+  {
+    stepId: 6,
+    questionId: 'step6_mc2',
+    type: 'multiple-choice',
+    difficulty: 'hard',
+    question: 'What was the primary purpose of Jesus\' 40-day ministry after resurrection?',
+    options: [
+      'To prepare and commission His disciples for their work',
+      'To perform more miracles',
+      'To establish an earthly kingdom',
+      'To write the New Testament'
+    ],
+    correctAnswer: 'To prepare and commission His disciples for their work',
+    explanation: 'Jesus used this time to teach about the kingdom, commission the disciples, and prepare them for receiving the Holy Spirit.',
+    scriptureReferences: [
+      { book: 'Acts', chapter: 1, verses: '3-8' }
+    ],
+    orderPosition: 8
+  },
+
+  // ==================== STEP 7: Restoration of Divine Stature ====================
+  {
+    stepId: 7,
+    questionId: 'step7_qa1',
+    type: 'multiple-choice',
+    difficulty: 'hard',
+    question: 'What significant change occurred to Jesus\' body at this stage?',
+    options: [
+      'He was restored to His original divine stature of approximately 16 feet tall',
+      'He became invisible',
+      'He transformed into pure spirit',
+      'He remained the same height as during His earthly ministry'
+    ],
+    correctAnswer: 'He was restored to His original divine stature of approximately 16 feet tall',
+    explanation: 'Jesus was restored to the same physical stature He had possessed in heaven before taking on human form, which biblical evidence suggests was approximately 16 feet tall.',
+    scriptureReferences: [
+      { book: 'Hebrews', chapter: 2, verses: '5-19' },
+      { book: '1 Corinthians', chapter: 15, verses: '35-53' }
+    ],
+    hint: 'Consider the change from earthly to heavenly form.',
+    orderPosition: 1
+  },
+  {
+    stepId: 7,
+    questionId: 'step7_mc1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'What does Aaron\'s washing at the laver before dressing as High Priest represent?',
+    options: [
+      'Jesus\' restoration to His divine nature and stature',
+      'Jesus\' baptism',
+      'Jesus\' crucifixion',
+      'The day of Pentecost'
+    ],
+    correctAnswer: 'Jesus\' restoration to His divine nature and stature',
+    explanation: 'The washing symbolized purification and restoration - Jesus being restored to His full divine glory and stature.',
+    scriptureReferences: [
+      { book: 'Exodus', chapter: 30, verses: '18-21' }
+    ],
+    orderPosition: 2
+  },
+  {
+    stepId: 7,
+    questionId: 'step7_fill1',
+    type: 'fill-blank',
+    difficulty: 'medium',
+    question: 'Aaron washed his ________ and ________ before putting on the High Priest\'s garments.',
+    options: ['hands, feet', 'face, hands', 'body, soul', 'head, feet'],
+    correctAnswer: 'hands, feet',
+    explanation: 'Aaron washed his hands and feet at the laver before changing into the High Priest\'s garments.',
+    scriptureReferences: [
+      { book: 'Exodus', chapter: 30, verses: '18-21' }
+    ],
+    orderPosition: 3
+  },
+  {
+    stepId: 7,
+    questionId: 'step7_fill2',
+    type: 'fill-blank',
+    difficulty: 'hard',
+    question: 'Jesus possessed the same body that He had ________ taking on humanity, with His divine stature restored.',
+    options: ['before', 'after', 'during', 'without'],
+    correctAnswer: 'before',
+    explanation: 'Jesus was restored to the same glorious form He had possessed before the incarnation.',
+    scriptureReferences: [
+      { book: '1 Corinthians', chapter: 15, verses: '35-53' }
+    ],
+    orderPosition: 4
+  },
+  {
+    stepId: 7,
+    questionId: 'step7_tf1',
+    type: 'true-false',
+    difficulty: 'medium',
+    question: 'After His resurrection, Jesus retained the same 5.5-foot height He had during His earthly ministry.',
+    options: ['True', 'False'],
+    correctAnswer: 'False',
+    explanation: 'False. Jesus was restored to His original divine stature, which was significantly taller than His earthly form.',
+    scriptureReferences: [
+      { book: '1 Corinthians', chapter: 15, verses: '35-53' }
+    ],
+    orderPosition: 5
+  },
+  {
+    stepId: 7,
+    questionId: 'step7_tf2',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'Aaron washed multiple times during the Day of Atonement service.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Aaron washed at various stages throughout the service to maintain ceremonial purity.',
+    scriptureReferences: [
+      { book: 'Exodus', chapter: 30, verses: '18-21' }
+    ],
+    orderPosition: 6
+  },
+  {
+    stepId: 7,
+    questionId: 'step7_tf3',
+    type: 'true-false',
+    difficulty: 'medium',
+    question: 'Jesus laid aside His divine nature permanently when He became human.',
+    options: ['True', 'False'],
+    correctAnswer: 'False',
+    explanation: 'False. While Jesus veiled His divinity during His earthly ministry, He was restored to His full divine glory after His sacrifice was complete.',
+    scriptureReferences: [
+      { book: 'Philippians', chapter: 2, verses: '5-11' }
+    ],
+    orderPosition: 7
+  },
+
+  // ==================== STEP 8: Inauguration as High Priest ====================
+  {
+    stepId: 8,
+    questionId: 'step8_qa1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'What significant event occurred when Aaron put on the High Priest\'s garments?',
+    options: [
+      'He was fully inaugurated as High Priest with all authority',
+      'He became king of Israel',
+      'He entered the Most Holy Place',
+      'He offered the final sacrifice'
+    ],
+    correctAnswer: 'He was fully inaugurated as High Priest with all authority',
+    explanation: 'Putting on the High Priest\'s garments signified Aaron\'s full investiture in the office of High Priest.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '23-24' }
+    ],
+    hint: 'Think about the significance of the priestly garments.',
+    orderPosition: 1
+  },
+  {
+    stepId: 8,
+    questionId: 'step8_mc1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'When was Jesus inaugurated as our High Priest?',
+    options: [
+      'After His ascension to heaven',
+      'At His baptism',
+      'At His birth',
+      'At the crucifixion'
+    ],
+    correctAnswer: 'After His ascension to heaven',
+    explanation: 'Jesus was inaugurated as High Priest after His ascension, when He entered the heavenly sanctuary.',
+    scriptureReferences: [
+      { book: 'Hebrews', chapter: 4, verses: '14' },
+      { book: 'Hebrews', chapter: 8, verses: '1-2' }
+    ],
+    orderPosition: 2
+  },
+  {
+    stepId: 8,
+    questionId: 'step8_fill1',
+    type: 'fill-blank',
+    difficulty: 'easy',
+    question: 'Aaron changed from the common priest\'s linen garments into the ________ ________ garments.',
+    options: ['High Priest', 'holy temple', 'royal king', 'sacred ritual'],
+    correctAnswer: 'High Priest',
+    explanation: 'Aaron changed into the elaborate High Priest\'s garments, symbolizing his full authority in that office.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '23-24' }
+    ],
+    orderPosition: 3
+  },
+  {
+    stepId: 8,
+    questionId: 'step8_fill2',
+    type: 'fill-blank',
+    difficulty: 'medium',
+    question: 'Jesus is our High Priest who is seated at the ________ hand of the throne of the Majesty in the heavens.',
+    options: ['right', 'left', 'mighty', 'holy'],
+    correctAnswer: 'right',
+    explanation: 'Hebrews 8:1 describes Jesus as being seated at the right hand of God\'s throne.',
+    scriptureReferences: [
+      { book: 'Hebrews', chapter: 8, verses: '1' }
+    ],
+    orderPosition: 4
+  },
+  {
+    stepId: 8,
+    questionId: 'step8_tf1',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'Jesus became our High Priest immediately at His birth.',
+    options: ['True', 'False'],
+    correctAnswer: 'False',
+    explanation: 'False. Jesus was inaugurated as High Priest after His ascension to heaven, not at His birth.',
+    scriptureReferences: [
+      { book: 'Hebrews', chapter: 4, verses: '14' }
+    ],
+    orderPosition: 5
+  },
+  {
+    stepId: 8,
+    questionId: 'step8_tf2',
+    type: 'true-false',
+    difficulty: 'medium',
+    question: 'The High Priest\'s garments included a breastplate with twelve stones representing the twelve tribes.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. The High Priest\'s breastplate had twelve precious stones, one for each tribe of Israel.',
+    scriptureReferences: [
+      { book: 'Exodus', chapter: 28, verses: '15-21' }
+    ],
+    orderPosition: 6
+  },
+  {
+    stepId: 8,
+    questionId: 'step8_tf3',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'Jesus serves as High Priest in the true tabernacle in heaven.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Hebrews 8:2 states that Jesus ministers in the sanctuary and true tabernacle which the Lord pitched, not man.',
+    scriptureReferences: [
+      { book: 'Hebrews', chapter: 8, verses: '2' }
+    ],
+    orderPosition: 7
+  },
+  {
+    stepId: 8,
+    questionId: 'step8_mc2',
+    type: 'multiple-choice',
+    difficulty: 'hard',
+    question: 'What distinguishes Jesus\' high priesthood from Aaron\'s?',
+    options: [
+      'Jesus is a priest forever after the order of Melchizedek, not the Levitical order',
+      'Jesus only serves on earth',
+      'Jesus does not need to offer sacrifices',
+      'Jesus is also a prophet'
+    ],
+    correctAnswer: 'Jesus is a priest forever after the order of Melchizedek, not the Levitical order',
+    explanation: 'Jesus\' priesthood is superior because it is eternal and after the order of Melchizedek, not the temporary Levitical priesthood.',
+    scriptureReferences: [
+      { book: 'Hebrews', chapter: 7, verses: '17-21' }
+    ],
+    orderPosition: 8
+  },
+
+  // ==================== STEP 9: Pentecost ====================
+  {
+    stepId: 9,
+    questionId: 'step9_qa1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'What does Aaron pouring oil into the lamps represent?',
+    options: [
+      'The outpouring of the Holy Spirit at Pentecost',
+      'The baptism of Jesus',
+      'The anointing of David as king',
+      'The lighting of torches'
+    ],
+    correctAnswer: 'The outpouring of the Holy Spirit at Pentecost',
+    explanation: 'The oil symbolizes the Holy Spirit, and Aaron pouring oil represents the outpouring at Pentecost.',
+    scriptureReferences: [
+      { book: 'Exodus', chapter: 27, verses: '20-21' },
+      { book: 'Acts', chapter: 2, verses: '1-4' }
+    ],
+    hint: 'Oil consistently symbolizes the Holy Spirit in Scripture.',
+    orderPosition: 1
+  },
+  {
+    stepId: 9,
+    questionId: 'step9_mc1',
+    type: 'multiple-choice',
+    difficulty: 'easy',
+    question: 'When did the outpouring of the Holy Spirit at Pentecost occur?',
+    options: [
+      'Approximately 50 days after Jesus\' resurrection',
+      'Immediately after Jesus\' baptism',
+      '40 days after the crucifixion',
+      'At Jesus\' birth'
+    ],
+    correctAnswer: 'Approximately 50 days after Jesus\' resurrection',
+    explanation: 'Pentecost occurred 50 days after Passover, which was approximately 50 days after Jesus\' resurrection.',
+    scriptureReferences: [
+      { book: 'Acts', chapter: 2, verses: '1' }
+    ],
+    orderPosition: 2
+  },
+  {
+    stepId: 9,
+    questionId: 'step9_fill1',
+    type: 'fill-blank',
+    difficulty: 'easy',
+    question: 'Aaron poured ________ into the lamps to keep them burning.',
+    options: ['oil', 'water', 'wine', 'incense'],
+    correctAnswer: 'oil',
+    explanation: 'Pure olive oil was used to keep the lamps burning continually in the sanctuary.',
+    scriptureReferences: [
+      { book: 'Exodus', chapter: 27, verses: '20' }
+    ],
+    orderPosition: 3
+  },
+  {
+    stepId: 9,
+    questionId: 'step9_fill2',
+    type: 'fill-blank',
+    difficulty: 'medium',
+    question: 'On the day of Pentecost, there appeared cloven tongues like as of ________, and they were all filled with the Holy Ghost.',
+    options: ['fire', 'light', 'oil', 'wind'],
+    correctAnswer: 'fire',
+    explanation: 'Acts 2:3 describes tongues of fire appearing on the disciples when they were filled with the Holy Spirit.',
+    scriptureReferences: [
+      { book: 'Acts', chapter: 2, verses: '3-4' }
+    ],
+    orderPosition: 4
+  },
+  {
+    stepId: 9,
+    questionId: 'step9_tf1',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'The Holy Spirit was poured out on the day of Pentecost.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. The Holy Spirit was poured out in fulfillment of Jesus\' promise on the day of Pentecost.',
+    scriptureReferences: [
+      { book: 'Acts', chapter: 2, verses: '1-4' }
+    ],
+    orderPosition: 5
+  },
+  {
+    stepId: 9,
+    questionId: 'step9_tf2',
+    type: 'true-false',
+    difficulty: 'medium',
+    question: 'Oil in the sanctuary consistently symbolizes the Holy Spirit throughout Scripture.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Oil is used throughout Scripture as a symbol of the Holy Spirit and anointing.',
+    scriptureReferences: [
+      { book: '1 Samuel', chapter: 16, verses: '13' },
+      { book: 'Zechariah', chapter: 4, verses: '1-6' }
+    ],
+    orderPosition: 6
+  },
+  {
+    stepId: 9,
+    questionId: 'step9_tf3',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'Jesus said it was necessary for Him to leave so the Holy Spirit could come.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Jesus said in John 16:7 that He must go away so the Comforter (Holy Spirit) could come.',
+    scriptureReferences: [
+      { book: 'John', chapter: 16, verses: '7' }
+    ],
+    orderPosition: 7
+  },
+  {
+    stepId: 9,
+    questionId: 'step9_mc2',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'What miraculous sign accompanied the outpouring of the Holy Spirit at Pentecost?',
+    options: [
+      'The disciples spoke in other languages they had never learned',
+      'The temple curtain was torn',
+      'An earthquake shook the building',
+      'Fire consumed the altar'
+    ],
+    correctAnswer: 'The disciples spoke in other languages they had never learned',
+    explanation: 'The Holy Spirit enabled the disciples to speak in languages they had never learned, allowing people from many nations to hear the gospel.',
+    scriptureReferences: [
+      { book: 'Acts', chapter: 2, verses: '4-11' }
+    ],
+    orderPosition: 8
+  },
+
+  // ==================== STEP 10: Daily Intercession ====================
+  {
+    stepId: 10,
+    questionId: 'step10_qa1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'What does the incense on the altar of incense represent?',
+    options: [
+      'The prayers of the saints mixed with Christ\'s merits',
+      'The sins of the people',
+      'The law of God',
+      'The blood of Christ'
+    ],
+    correctAnswer: 'The prayers of the saints mixed with Christ\'s merits',
+    explanation: 'The incense represents the prayers of God\'s people, made acceptable through Christ\'s merits and intercession.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 8, verses: '3-4' }
+    ],
+    hint: 'Think about what rises up to God like incense smoke.',
+    orderPosition: 1
+  },
+  {
+    stepId: 10,
+    questionId: 'step10_mc1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'Where is Jesus currently ministering as our High Priest?',
+    options: [
+      'In the Holy Place of the heavenly sanctuary',
+      'On Earth',
+      'In the Most Holy Place since Pentecost',
+      'In the outer court'
+    ],
+    correctAnswer: 'In the Holy Place of the heavenly sanctuary',
+    explanation: 'From Pentecost until 1844, Jesus ministered in the Holy Place (first apartment) of the heavenly sanctuary.',
+    scriptureReferences: [
+      { book: 'Hebrews', chapter: 7, verses: '25' }
+    ],
+    orderPosition: 2
+  },
+  {
+    stepId: 10,
+    questionId: 'step10_fill1',
+    type: 'fill-blank',
+    difficulty: 'easy',
+    question: 'Aaron burned sweet ________ on the golden altar every morning and evening.',
+    options: ['incense', 'sacrifice', 'oil', 'grain'],
+    correctAnswer: 'incense',
+    explanation: 'Aaron burned sweet incense on the altar of incense twice daily as a continual offering.',
+    scriptureReferences: [
+      { book: 'Exodus', chapter: 30, verses: '7-8' }
+    ],
+    orderPosition: 3
+  },
+  {
+    stepId: 10,
+    questionId: 'step10_fill2',
+    type: 'fill-blank',
+    difficulty: 'medium',
+    question: 'Jesus ever lives to make ________ for those who come to God through Him.',
+    options: ['intercession', 'sacrifice', 'atonement', 'judgment'],
+    correctAnswer: 'intercession',
+    explanation: 'Hebrews 7:25 states that Jesus ever lives to make intercession for us.',
+    scriptureReferences: [
+      { book: 'Hebrews', chapter: 7, verses: '25' }
+    ],
+    orderPosition: 4
+  },
+  {
+    stepId: 10,
+    questionId: 'step10_tf1',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'Jesus is currently interceding for believers in heaven.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Jesus continuously intercedes for us as our High Priest in the heavenly sanctuary.',
+    scriptureReferences: [
+      { book: 'Hebrews', chapter: 7, verses: '25' },
+      { book: 'Romans', chapter: 8, verses: '34' }
+    ],
+    orderPosition: 5
+  },
+  {
+    stepId: 10,
+    questionId: 'step10_tf2',
+    type: 'true-false',
+    difficulty: 'medium',
+    question: 'The incense had to be offered twice daily - morning and evening.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Aaron burned incense every morning when he dressed the lamps and every evening when he lit them.',
+    scriptureReferences: [
+      { book: 'Exodus', chapter: 30, verses: '7-8' }
+    ],
+    orderPosition: 6
+  },
+  {
+    stepId: 10,
+    questionId: 'step10_tf3',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'Our prayers reach God only through Christ\'s mediation.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Our prayers are made acceptable to God through Christ\'s merits and intercession.',
+    scriptureReferences: [
+      { book: 'John', chapter: 14, verses: '6' },
+      { book: '1 Timothy', chapter: 2, verses: '5' }
+    ],
+    orderPosition: 7
+  },
+  {
+    stepId: 10,
+    questionId: 'step10_mc2',
+    type: 'multiple-choice',
+    difficulty: 'hard',
+    question: 'What was the significance of the golden altar\'s location?',
+    options: [
+      'It stood before the veil, closest to God\'s presence in the Most Holy Place',
+      'It was in the outer court for all to see',
+      'It was hidden in a secret chamber',
+      'It was placed at the entrance gate'
+    ],
+    correctAnswer: 'It stood before the veil, closest to God\'s presence in the Most Holy Place',
+    explanation: 'The altar of incense was positioned directly before the veil leading to the Most Holy Place, symbolizing prayers ascending to God\'s throne.',
+    scriptureReferences: [
+      { book: 'Exodus', chapter: 30, verses: '6' }
+    ],
+    orderPosition: 8
+  },
+
+  // Continue with Steps 11-24...
+  // ==================== STEP 11: First Angel's Message ====================
+  {
+    stepId: 11,
+    questionId: 'step11_qa1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'What does the blowing of trumpets before the Day of Atonement represent?',
+    options: [
+      'The proclamation of the First Angel\'s Message announcing judgment',
+      'The Second Coming of Christ',
+      'The crucifixion',
+      'Pentecost'
+    ],
+    correctAnswer: 'The proclamation of the First Angel\'s Message announcing judgment',
+    explanation: 'The trumpet blast warned Israel that the Day of Atonement was approaching; similarly, the First Angel\'s Message warned that judgment hour had come.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 23, verses: '24-27' },
+      { book: 'Revelation', chapter: 14, verses: '6-7' }
+    ],
+    hint: 'Consider the purpose of trumpets - to announce and warn.',
+    orderPosition: 1
+  },
+  {
+    stepId: 11,
+    questionId: 'step11_mc1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'When did the First Angel\'s Message begin to be preached?',
+    options: [
+      'Around 1833-1840s',
+      'At Pentecost',
+      'In 1844 exactly',
+      'During the Reformation'
+    ],
+    correctAnswer: 'Around 1833-1840s',
+    explanation: 'The First Angel\'s Message began to be proclaimed in the 1830s and 1840s, particularly through the Millerite movement.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 14, verses: '6-7' }
+    ],
+    orderPosition: 2
+  },
+  {
+    stepId: 11,
+    questionId: 'step11_fill1',
+    type: 'fill-blank',
+    difficulty: 'easy',
+    question: 'The feast of trumpets occurred approximately ________ days before the Day of Atonement.',
+    options: ['10', '7', '40', '50'],
+    correctAnswer: '10',
+    explanation: 'The feast of trumpets was on the first day of the seventh month, and the Day of Atonement was on the tenth day of the same month.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 23, verses: '24, 27' }
+    ],
+    orderPosition: 3
+  },
+  {
+    stepId: 11,
+    questionId: 'step11_fill2',
+    type: 'fill-blank',
+    difficulty: 'medium',
+    question: 'The First Angel proclaims: "Fear God, and give glory to him; for the hour of his ________ is come."',
+    options: ['judgment', 'mercy', 'wrath', 'kingdom'],
+    correctAnswer: 'judgment',
+    explanation: 'Revelation 14:7 announces that the hour of God\'s judgment has come.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 14, verses: '7' }
+    ],
+    orderPosition: 4
+  },
+  {
+    stepId: 11,
+    questionId: 'step11_tf1',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'The blowing of trumpets was a warning that the Day of Atonement was approaching.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. The feast of trumpets served as a 10-day warning before the Day of Atonement.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 23, verses: '24-27' }
+    ],
+    orderPosition: 5
+  },
+  {
+    stepId: 11,
+    questionId: 'step11_tf2',
+    type: 'true-false',
+    difficulty: 'medium',
+    question: 'The First Angel\'s Message includes a call to worship the Creator.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. The message includes: "worship him that made heaven, and earth, and the sea, and the fountains of waters."',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 14, verses: '7' }
+    ],
+    orderPosition: 6
+  },
+  {
+    stepId: 11,
+    questionId: 'step11_tf3',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'The investigative judgment began immediately after the First Angel\'s Message was preached.',
+    options: ['True', 'False'],
+    correctAnswer: 'False',
+    explanation: 'False. The First Angel\'s Message announced that judgment was coming, but the investigative judgment itself began in 1844.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 14, verses: '6-7' }
+    ],
+    orderPosition: 7
+  },
+
+  // ==================== STEP 12: The Lord's Goat ====================
+  {
+    stepId: 12,
+    questionId: 'step12_qa1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'Why were two goats required on the Day of Atonement?',
+    options: [
+      'One represented Christ\'s sacrifice, the other represented Satan bearing sin',
+      'Both were offered as sacrifices for different sins',
+      'One was for the priest, one for the people',
+      'One was burned, one was eaten'
+    ],
+    correctAnswer: 'One represented Christ\'s sacrifice, the other represented Satan bearing sin',
+    explanation: 'The Lord\'s goat represented Christ\'s sacrifice; the scapegoat represented Satan ultimately bearing the sins he caused.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '7-10' }
+    ],
+    hint: 'Consider what happened to each goat.',
+    orderPosition: 1
+  },
+  {
+    stepId: 12,
+    questionId: 'step12_mc1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'How was the Lord\'s goat chosen?',
+    options: [
+      'By casting lots',
+      'By the high priest\'s selection',
+      'By its physical perfection',
+      'By popular vote'
+    ],
+    correctAnswer: 'By casting lots',
+    explanation: 'Aaron cast lots upon the two goats - one lot for the LORD and the other for the scapegoat.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '8' }
+    ],
+    orderPosition: 2
+  },
+  {
+    stepId: 12,
+    questionId: 'step12_fill1',
+    type: 'fill-blank',
+    difficulty: 'easy',
+    question: 'The goat upon which the LORD\'s lot fell was offered as a ________ offering.',
+    options: ['sin', 'burnt', 'peace', 'grain'],
+    correctAnswer: 'sin',
+    explanation: 'The Lord\'s goat was killed and offered as a sin offering for the people.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '9' }
+    ],
+    orderPosition: 3
+  },
+  {
+    stepId: 12,
+    questionId: 'step12_fill2',
+    type: 'fill-blank',
+    difficulty: 'medium',
+    question: 'Jesus died as a ________ for the people, showing that He is the ultimate sacrifice.',
+    options: ['goat', 'lamb', 'bull', 'ram'],
+    correctAnswer: 'goat',
+    explanation: 'While often called the Lamb of God, Jesus also fulfilled the symbolism of the Lord\'s goat offered for the people on the Day of Atonement.',
+    scriptureReferences: [
+      { book: 'Hebrews', chapter: 9, verses: '26-28' }
+    ],
+    orderPosition: 4
+  },
+  {
+    stepId: 12,
+    questionId: 'step12_tf1',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'The Lord\'s goat was killed and its blood taken into the Most Holy Place.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. The Lord\'s goat was killed and its blood was brought within the veil into the Most Holy Place.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '15' }
+    ],
+    orderPosition: 5
+  },
+  {
+    stepId: 12,
+    questionId: 'step12_tf2',
+    type: 'true-false',
+    difficulty: 'medium',
+    question: 'Both goats were killed on the Day of Atonement.',
+    options: ['True', 'False'],
+    correctAnswer: 'False',
+    explanation: 'False. Only the Lord\'s goat was killed; the scapegoat was sent alive into the wilderness.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '10, 15' }
+    ],
+    orderPosition: 6
+  },
+  {
+    stepId: 12,
+    questionId: 'step12_tf3',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'At this stage, the 24 elders and 4 beasts ended their work in heaven.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. This marks a transition point where their particular phase of ministry concluded as judgment began.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 4, verses: '4-8' }
+    ],
+    orderPosition: 7
+  },
+
+  // ==================== STEP 13: Entering the Most Holy Place (1844) ====================
+  {
+    stepId: 13,
+    questionId: 'step13_qa1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'When did Jesus enter the Most Holy Place of the heavenly sanctuary?',
+    options: [
+      'October 22, 1844',
+      'At His ascension',
+      'At Pentecost',
+      'At His second coming'
+    ],
+    correctAnswer: 'October 22, 1844',
+    explanation: 'According to the 2300-day prophecy, Jesus entered the Most Holy Place to begin the investigative judgment on October 22, 1844.',
+    scriptureReferences: [
+      { book: 'Daniel', chapter: 8, verses: '14' },
+      { book: 'Hebrews', chapter: 9, verses: '23-24' }
+    ],
+    hint: 'This date marks the end of the 2300-day prophecy.',
+    orderPosition: 1
+  },
+  {
+    stepId: 13,
+    questionId: 'step13_mc1',
+    type: 'multiple-choice',
+    difficulty: 'hard',
+    question: 'What was the primary purpose of Aaron entering the Most Holy Place?',
+    options: [
+      'To make atonement for the holy place and cleanse it from the accumulated sins of the year',
+      'To worship before the ark',
+      'To receive the Ten Commandments',
+      'To offer daily sacrifices'
+    ],
+    correctAnswer: 'To make atonement for the holy place and cleanse it from the accumulated sins of the year',
+    explanation: 'Aaron entered to cleanse the sanctuary from all the sins that had been symbolically transferred there throughout the year.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '16' }
+    ],
+    orderPosition: 2
+  },
+  {
+    stepId: 13,
+    questionId: 'step13_fill1',
+    type: 'fill-blank',
+    difficulty: 'easy',
+    question: 'The 2300-day prophecy ends in the year ________.',
+    options: ['1844', '1833', '1798', '1888'],
+    correctAnswer: '1844',
+    explanation: 'The 2300 prophetic days (years) beginning in 457 BC ended in AD 1844.',
+    scriptureReferences: [
+      { book: 'Daniel', chapter: 8, verses: '14' }
+    ],
+    orderPosition: 3
+  },
+  {
+    stepId: 13,
+    questionId: 'step13_fill2',
+    type: 'fill-blank',
+    difficulty: 'medium',
+    question: 'Aaron entered the Most Holy Place to make atonement because of the ________ of the children of Israel.',
+    options: ['uncleanness', 'offerings', 'prayers', 'wealth'],
+    correctAnswer: 'uncleanness',
+    explanation: 'The sanctuary needed cleansing because of the uncleanness and transgressions of the people that had been symbolically transferred there.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '16' }
+    ],
+    orderPosition: 4
+  },
+  {
+    stepId: 13,
+    questionId: 'step13_tf1',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'Jesus entered the Most Holy Place immediately after His ascension.',
+    options: ['True', 'False'],
+    correctAnswer: 'False',
+    explanation: 'False. Jesus ministered in the Holy Place first, then entered the Most Holy Place in 1844 to begin the investigative judgment.',
+    scriptureReferences: [
+      { book: 'Hebrews', chapter: 9, verses: '23-24' }
+    ],
+    orderPosition: 5
+  },
+  {
+    stepId: 13,
+    questionId: 'step13_tf2',
+    type: 'true-false',
+    difficulty: 'medium',
+    question: 'The Day of Atonement was the only time the high priest entered the Most Holy Place.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. The high priest entered the Most Holy Place only once a year, on the Day of Atonement.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '2' }
+    ],
+    orderPosition: 6
+  },
+  {
+    stepId: 13,
+    questionId: 'step13_tf3',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'The investigative judgment examines the lives of professed believers.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. The judgment begins with the house of God, examining the lives of those who have professed faith.',
+    scriptureReferences: [
+      { book: '1 Peter', chapter: 4, verses: '17' }
+    ],
+    orderPosition: 7
+  },
+  {
+    stepId: 13,
+    questionId: 'step13_mc2',
+    type: 'multiple-choice',
+    difficulty: 'hard',
+    question: 'What must be cleansed according to Daniel 8:14?',
+    options: [
+      'The sanctuary',
+      'The earth',
+      'The people',
+      'The temple in Jerusalem'
+    ],
+    correctAnswer: 'The sanctuary',
+    explanation: 'Daniel 8:14 specifically states: "Unto two thousand and three hundred days; then shall the sanctuary be cleansed."',
+    scriptureReferences: [
+      { book: 'Daniel', chapter: 8, verses: '14' }
+    ],
+    orderPosition: 8
+  },
+
+  // ==================== STEP 14: Revelation of the Law ====================
+  {
+    stepId: 14,
+    questionId: 'step14_qa1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'What significant truth was revealed to God\'s people around 1844?',
+    options: [
+      'The importance of the seventh-day Sabbath',
+      'The doctrine of the Trinity',
+      'The return of Christ',
+      'The state of the dead'
+    ],
+    correctAnswer: 'The importance of the seventh-day Sabbath',
+    explanation: 'When the temple was opened in heaven, God\'s people saw the ark containing the law, leading to the Sabbath truth being restored.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 11, verses: '19' },
+      { book: 'Exodus', chapter: 20, verses: '8-11' }
+    ],
+    hint: 'Think about what\'s inside the ark in the Most Holy Place.',
+    orderPosition: 1
+  },
+  {
+    stepId: 14,
+    questionId: 'step14_mc1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'What does Revelation 11:19 reveal?',
+    options: [
+      'The ark of God\'s testament was seen in His temple in heaven',
+      'The second coming of Christ',
+      'The fall of Babylon',
+      'The seven last plagues'
+    ],
+    correctAnswer: 'The ark of God\'s testament was seen in His temple in heaven',
+    explanation: 'This vision shows the ark of the covenant containing God\'s law being revealed in the heavenly temple.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 11, verses: '19' }
+    ],
+    orderPosition: 2
+  },
+  {
+    stepId: 14,
+    questionId: 'step14_fill1',
+    type: 'fill-blank',
+    difficulty: 'easy',
+    question: 'The fourth commandment says to "Remember the ________ day, to keep it holy."',
+    options: ['sabbath', 'first', 'seventh', 'holy'],
+    correctAnswer: 'sabbath',
+    explanation: 'The fourth commandment specifically commands the keeping of the Sabbath day.',
+    scriptureReferences: [
+      { book: 'Exodus', chapter: 20, verses: '8' }
+    ],
+    orderPosition: 3
+  },
+  {
+    stepId: 14,
+    questionId: 'step14_fill2',
+    type: 'fill-blank',
+    difficulty: 'medium',
+    question: 'The Sabbath commemorates God as the ________ of heaven and earth.',
+    options: ['Creator', 'Redeemer', 'Judge', 'King'],
+    correctAnswer: 'Creator',
+    explanation: 'The Sabbath commandment points to God as Creator: "For in six days the LORD made heaven and earth... and rested the seventh day."',
+    scriptureReferences: [
+      { book: 'Exodus', chapter: 20, verses: '11' }
+    ],
+    orderPosition: 4
+  },
+  {
+    stepId: 14,
+    questionId: 'step14_tf1',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'The Ten Commandments were kept inside the ark of the covenant.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. The stone tablets containing the Ten Commandments were placed inside the ark.',
+    scriptureReferences: [
+      { book: 'Exodus', chapter: 25, verses: '16' },
+      { book: 'Deuteronomy', chapter: 10, verses: '5' }
+    ],
+    orderPosition: 5
+  },
+  {
+    stepId: 14,
+    questionId: 'step14_tf2',
+    type: 'true-false',
+    difficulty: 'medium',
+    question: 'The seventh-day Sabbath was changed to Sunday by God.',
+    options: ['True', 'False'],
+    correctAnswer: 'False',
+    explanation: 'False. God never changed the Sabbath. It remains the seventh day as established at creation and commanded in the law.',
+    scriptureReferences: [
+      { book: 'Exodus', chapter: 20, verses: '8-11' },
+      { book: 'Genesis', chapter: 2, verses: '2-3' }
+    ],
+    orderPosition: 6
+  },
+  {
+    stepId: 14,
+    questionId: 'step14_tf3',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'The law of God is eternal and unchangeable.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. God\'s law reflects His character and is as unchangeable as He is.',
+    scriptureReferences: [
+      { book: 'Psalm', chapter: 111, verses: '7-8' },
+      { book: 'Matthew', chapter: 5, verses: '17-18' }
+    ],
+    orderPosition: 7
+  },
+
+  // ==================== STEP 15: Investigative Judgment ====================
+  {
+    stepId: 15,
+    questionId: 'step15_qa1',
+    type: 'multiple-choice',
+    difficulty: 'hard',
+    question: 'What is the investigative judgment?',
+    options: [
+      'A pre-advent judgment where God reviews the lives of professed believers to determine who is worthy of eternal life',
+      'The final judgment after the millennium',
+      'The judgment of unbelievers only',
+      'A judgment that occurs at death'
+    ],
+    correctAnswer: 'A pre-advent judgment where God reviews the lives of professed believers to determine who is worthy of eternal life',
+    explanation: 'The investigative judgment examines the records of all who have professed faith, determining who will be saved.',
+    scriptureReferences: [
+      { book: 'Daniel', chapter: 7, verses: '9-10' },
+      { book: 'Revelation', chapter: 20, verses: '12' }
+    ],
+    hint: 'This judgment happens before Jesus returns.',
+    orderPosition: 1
+  },
+  {
+    stepId: 15,
+    questionId: 'step15_mc1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'Who is involved in the investigative judgment scene of Daniel 7?',
+    options: [
+      'The Ancient of Days (Father) and the Son of Man (Jesus)',
+      'Only angels',
+      'Only Jesus',
+      'The 24 elders'
+    ],
+    correctAnswer: 'The Ancient of Days (Father) and the Son of Man (Jesus)',
+    explanation: 'Daniel 7 shows the Ancient of Days (Father) sitting in judgment, and the Son of Man (Jesus) coming before Him.',
+    scriptureReferences: [
+      { book: 'Daniel', chapter: 7, verses: '9-14' }
+    ],
+    orderPosition: 2
+  },
+  {
+    stepId: 15,
+    questionId: 'step15_fill1',
+    type: 'fill-blank',
+    difficulty: 'medium',
+    question: 'In the investigative judgment, the ________ were opened.',
+    options: ['books', 'gates', 'seals', 'doors'],
+    correctAnswer: 'books',
+    explanation: 'Daniel 7:10 states that "the judgment was set, and the books were opened."',
+    scriptureReferences: [
+      { book: 'Daniel', chapter: 7, verses: '10' }
+    ],
+    orderPosition: 3
+  },
+  {
+    stepId: 15,
+    questionId: 'step15_fill2',
+    type: 'fill-blank',
+    difficulty: 'hard',
+    question: 'No one could enter the temple until the seven plagues were ________.',
+    options: ['fulfilled', 'poured', 'prepared', 'sealed'],
+    correctAnswer: 'fulfilled',
+    explanation: 'Revelation 15:8 indicates that no one could enter the temple until the seven plagues of God\'s wrath were completed.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 15, verses: '8' }
+    ],
+    orderPosition: 4
+  },
+  {
+    stepId: 15,
+    questionId: 'step15_tf1',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'The investigative judgment began in 1844.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. The investigative judgment began when Jesus entered the Most Holy Place in 1844.',
+    scriptureReferences: [
+      { book: 'Daniel', chapter: 8, verses: '14' }
+    ],
+    orderPosition: 5
+  },
+  {
+    stepId: 15,
+    questionId: 'step15_tf2',
+    type: 'true-false',
+    difficulty: 'medium',
+    question: 'The investigative judgment examines the lives of all humanity, including unbelievers.',
+    options: ['True', 'False'],
+    correctAnswer: 'False',
+    explanation: 'False. The investigative judgment begins with the house of God - those who have professed faith. Unbelievers are judged during the millennium.',
+    scriptureReferences: [
+      { book: '1 Peter', chapter: 4, verses: '17' }
+    ],
+    orderPosition: 6
+  },
+  {
+    stepId: 15,
+    questionId: 'step15_tf3',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'During the Day of Atonement, no one was allowed in the sanctuary while the high priest ministered.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Leviticus 16:17 states that no one shall be in the tabernacle when the high priest goes in to make atonement.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '17' }
+    ],
+    orderPosition: 7
+  },
+  {
+    stepId: 15,
+    questionId: 'step15_mc2',
+    type: 'multiple-choice',
+    difficulty: 'hard',
+    question: 'What determines the outcome of the investigative judgment for each person?',
+    options: [
+      'Whether they accepted Christ and lived lives of faithful obedience',
+      'Whether they attended church regularly',
+      'Whether they were baptized',
+      'Whether they knew the truth'
+    ],
+    correctAnswer: 'Whether they accepted Christ and lived lives of faithful obedience',
+    explanation: 'The judgment examines whether individuals truly accepted Christ and, through His power, lived lives of faithful obedience.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 20, verses: '12' },
+      { book: 'James', chapter: 2, verses: '17' }
+    ],
+    orderPosition: 8
+  },
+
+  // ==================== STEP 16: Blotting Out Sins ====================
+  {
+    stepId: 16,
+    questionId: 'step16_qa1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'What happens to the sins of the righteous during this phase?',
+    options: [
+      'Their sins are blotted out of the record books',
+      'Their sins are transferred to Satan',
+      'Their sins are remembered forever',
+      'Their sins remain on the books'
+    ],
+    correctAnswer: 'Their sins are blotted out of the record books',
+    explanation: 'For those who are found faithful, their sins are blotted out - permanently removed from the heavenly records.',
+    scriptureReferences: [
+      { book: 'Acts', chapter: 3, verses: '19' },
+      { book: 'Hebrews', chapter: 10, verses: '17' }
+    ],
+    hint: 'Think about erasing something permanently from a record.',
+    orderPosition: 1
+  },
+  {
+    stepId: 16,
+    questionId: 'step16_mc1',
+    type: 'multiple-choice',
+    difficulty: 'hard',
+    question: 'What does Christ plead on behalf of the faithful during this phase?',
+    options: [
+      'His blood and His righteousness',
+      'Their good works',
+      'Their church membership',
+      'Their knowledge of truth'
+    ],
+    correctAnswer: 'His blood and His righteousness',
+    explanation: 'Christ pleads His own blood and righteousness on behalf of His people, not their merits.',
+    scriptureReferences: [
+      { book: 'Hebrews', chapter: 10, verses: '17' },
+      { book: '1 John', chapter: 2, verses: '1-2' }
+    ],
+    orderPosition: 2
+  },
+  {
+    stepId: 16,
+    questionId: 'step16_fill1',
+    type: 'fill-blank',
+    difficulty: 'easy',
+    question: 'God says, "Their sins and iniquities will I remember no ________."',
+    options: ['more', 'longer', 'less', 'again'],
+    correctAnswer: 'more',
+    explanation: 'Hebrews 10:17 promises that God will remember our sins no more when they are blotted out.',
+    scriptureReferences: [
+      { book: 'Hebrews', chapter: 10, verses: '17' }
+    ],
+    orderPosition: 3
+  },
+  {
+    stepId: 16,
+    questionId: 'step16_fill2',
+    type: 'fill-blank',
+    difficulty: 'medium',
+    question: 'Those who overcome will be clothed in ________ raiment and their names will not be blotted out.',
+    options: ['white', 'gold', 'purple', 'royal'],
+    correctAnswer: 'white',
+    explanation: 'Revelation 3:5 promises white raiment and assurance that their names remain in the book of life.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 3, verses: '5' }
+    ],
+    orderPosition: 4
+  },
+  {
+    stepId: 16,
+    questionId: 'step16_tf1',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'God promises to blot out the sins of those who repent and turn to Him.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Acts 3:19 promises that sins will be blotted out when we repent and turn to God.',
+    scriptureReferences: [
+      { book: 'Acts', chapter: 3, verses: '19' }
+    ],
+    orderPosition: 5
+  },
+  {
+    stepId: 16,
+    questionId: 'step16_tf2',
+    type: 'true-false',
+    difficulty: 'medium',
+    question: 'Aaron sprinkled blood on the mercy seat only once.',
+    options: ['True', 'False'],
+    correctAnswer: 'False',
+    explanation: 'False. Aaron sprinkled blood on the mercy seat seven times, symbolizing complete atonement.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '14-15' }
+    ],
+    orderPosition: 6
+  },
+  {
+    stepId: 16,
+    questionId: 'step16_tf3',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'The second death will be removed from God\'s faithful people.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Those found faithful will be saved from the second death and receive eternal life.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 2, verses: '11' },
+      { book: 'Revelation', chapter: 20, verses: '6' }
+    ],
+    orderPosition: 7
+  },
+
+  // ==================== STEP 17: Close of Probation ====================
+  {
+    stepId: 17,
+    questionId: 'step17_qa1',
+    type: 'multiple-choice',
+    difficulty: 'hard',
+    question: 'What does casting down the censer symbolize?',
+    options: [
+      'The end of Christ\'s intercessory work - probation has closed',
+      'The beginning of judgment',
+      'The pouring of incense',
+      'The cleansing of the altar'
+    ],
+    correctAnswer: 'The end of Christ\'s intercessory work - probation has closed',
+    explanation: 'When the censer is cast down, it signifies that Christ\'s intercession has ended and probation for humanity has closed.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 8, verses: '5' },
+      { book: 'Revelation', chapter: 22, verses: '11' }
+    ],
+    hint: 'The censer was used for intercession - what does putting it down mean?',
+    orderPosition: 1
+  },
+  {
+    stepId: 17,
+    questionId: 'step17_mc1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'What declaration marks the close of probation?',
+    options: [
+      '"He that is unjust, let him be unjust still... he that is holy, let him be holy still"',
+      '"The harvest is past, the summer is ended"',
+      '"Behold, I come quickly"',
+      '"The kingdoms of this world are become the kingdoms of our Lord"'
+    ],
+    correctAnswer: '"He that is unjust, let him be unjust still... he that is holy, let him be holy still"',
+    explanation: 'This declaration in Revelation 22:11 indicates that everyone\'s destiny has been forever fixed.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 22, verses: '11' }
+    ],
+    orderPosition: 2
+  },
+  {
+    stepId: 17,
+    questionId: 'step17_fill1',
+    type: 'fill-blank',
+    difficulty: 'medium',
+    question: 'The angel filled the censer with ________ from the altar and cast it to the earth.',
+    options: ['fire', 'incense', 'blood', 'oil'],
+    correctAnswer: 'fire',
+    explanation: 'Revelation 8:5 describes the censer being filled with fire from the altar before being cast to the earth.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 8, verses: '5' }
+    ],
+    orderPosition: 3
+  },
+  {
+    stepId: 17,
+    questionId: 'step17_fill2',
+    type: 'fill-blank',
+    difficulty: 'hard',
+    question: 'Aaron cleansed the Holy Place by sprinkling ________ of the bullock and the goat.',
+    options: ['blood', 'water', 'oil', 'incense'],
+    correctAnswer: 'blood',
+    explanation: 'Aaron used the blood of both the bullock and the goat to cleanse and make atonement for the Holy Place.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '18-19' }
+    ],
+    orderPosition: 4
+  },
+  {
+    stepId: 17,
+    questionId: 'step17_tf1',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'After probation closes, people can still repent and be saved.',
+    options: ['True', 'False'],
+    correctAnswer: 'False',
+    explanation: 'False. Once probation closes, everyone\'s eternal destiny is fixed and no more changes can be made.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 22, verses: '11' }
+    ],
+    orderPosition: 5
+  },
+  {
+    stepId: 17,
+    questionId: 'step17_tf2',
+    type: 'true-false',
+    difficulty: 'medium',
+    question: 'The close of probation happens before Jesus returns.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Probation closes shortly before Christ\'s second coming, during the time of the seven last plagues.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 22, verses: '11-12' }
+    ],
+    orderPosition: 6
+  },
+  {
+    stepId: 17,
+    questionId: 'step17_tf3',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'Christ\'s intercession continues even after probation closes.',
+    options: ['True', 'False'],
+    correctAnswer: 'False',
+    explanation: 'False. Christ\'s intercessory work ends when probation closes. The censer is cast down.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 8, verses: '5' }
+    ],
+    orderPosition: 7
+  },
+
+  // Continue with Steps 18-24...
+  // ==================== STEP 18: Sins Placed on Satan ====================
+  {
+    stepId: 18,
+    questionId: 'step18_qa1',
+    type: 'multiple-choice',
+    difficulty: 'hard',
+    question: 'Why are the sins placed on the scapegoat (Satan)?',
+    options: [
+      'Because Satan is the originator of sin and bears ultimate responsibility',
+      'Because Satan is the savior',
+      'Because Satan asked for forgiveness',
+      'Because Satan will save humanity'
+    ],
+    correctAnswer: 'Because Satan is the originator of sin and bears ultimate responsibility',
+    explanation: 'While Christ bore our sins for atonement, Satan as the originator of sin bears ultimate responsibility for all sin.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '20-22' },
+      { book: 'Revelation', chapter: 20, verses: '1-3' }
+    ],
+    hint: 'Think about who started sin in the universe.',
+    orderPosition: 1
+  },
+  {
+    stepId: 18,
+    questionId: 'step18_mc1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'What happened to the scapegoat?',
+    options: [
+      'It was led alive into the wilderness to die',
+      'It was sacrificed on the altar',
+      'It was kept in the temple',
+      'It was set free to return to the flock'
+    ],
+    correctAnswer: 'It was led alive into the wilderness to die',
+    explanation: 'The scapegoat was led alive into an uninhabited wilderness, bearing the sins upon it.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '21-22' }
+    ],
+    orderPosition: 2
+  },
+  {
+    stepId: 18,
+    questionId: 'step18_fill1',
+    type: 'fill-blank',
+    difficulty: 'easy',
+    question: 'Aaron laid both his ________ upon the head of the live goat and confessed all the iniquities of Israel.',
+    options: ['hands', 'arms', 'fingers', 'palms'],
+    correctAnswer: 'hands',
+    explanation: 'Aaron laid both hands on the scapegoat\'s head, symbolically transferring the sins of the people.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '21' }
+    ],
+    orderPosition: 3
+  },
+  {
+    stepId: 18,
+    questionId: 'step18_fill2',
+    type: 'fill-blank',
+    difficulty: 'medium',
+    question: 'Satan will be bound for ________ years in the bottomless pit.',
+    options: ['1000', '100', '7', '70'],
+    correctAnswer: '1000',
+    explanation: 'Revelation 20:2 describes Satan being bound for a thousand years.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 20, verses: '2' }
+    ],
+    orderPosition: 4
+  },
+  {
+    stepId: 18,
+    questionId: 'step18_tf1',
+    type: 'true-false',
+    difficulty: 'medium',
+    question: 'The scapegoat represented Jesus Christ.',
+    options: ['True', 'False'],
+    correctAnswer: 'False',
+    explanation: 'False. The scapegoat represented Satan, who bears ultimate responsibility for sin. The Lord\'s goat represented Christ.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '8-10' }
+    ],
+    orderPosition: 5
+  },
+  {
+    stepId: 18,
+    questionId: 'step18_tf2',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'Satan will be confined to earth during the millennium.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Satan will be bound to the desolate earth for 1000 years, unable to deceive anyone.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 20, verses: '1-3' }
+    ],
+    orderPosition: 6
+  },
+  {
+    stepId: 18,
+    questionId: 'step18_tf3',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'Both goats were needed to complete the atonement symbolism.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Both goats together represented the complete atonement - one for forgiveness through Christ, one for final disposition of sin\'s responsibility.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '7-10' }
+    ],
+    orderPosition: 7
+  },
+
+  // ==================== STEP 19: Removing Priestly Garments ====================
+  {
+    stepId: 19,
+    questionId: 'step19_qa1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'What does Aaron removing his High Priest garments symbolize?',
+    options: [
+      'Christ ending His priestly ministry and preparing for His return as King',
+      'Christ becoming human',
+      'Christ beginning His ministry',
+      'Christ offering a sacrifice'
+    ],
+    correctAnswer: 'Christ ending His priestly ministry and preparing for His return as King',
+    explanation: 'Removing the priestly garments symbolizes the transition from Christ\'s role as High Priest to His role as conquering King.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '23-24' },
+      { book: 'Isaiah', chapter: 63, verses: '1-3' }
+    ],
+    hint: 'Think about the change from priest to king.',
+    orderPosition: 1
+  },
+  {
+    stepId: 19,
+    questionId: 'step19_mc1',
+    type: 'multiple-choice',
+    difficulty: 'hard',
+    question: 'What imagery describes Jesus coming as King?',
+    options: [
+      'Garments dyed red from treading the winepress',
+      'White robes of righteousness',
+      'Priestly garments with bells',
+      'Simple linen clothes'
+    ],
+    correctAnswer: 'Garments dyed red from treading the winepress',
+    explanation: 'Isaiah 63 and Revelation 19 describe Christ\'s garments stained red from treading the winepress of God\'s wrath.',
+    scriptureReferences: [
+      { book: 'Isaiah', chapter: 63, verses: '1-3' },
+      { book: 'Revelation', chapter: 19, verses: '13-15' }
+    ],
+    orderPosition: 2
+  },
+  {
+    stepId: 19,
+    questionId: 'step19_fill1',
+    type: 'fill-blank',
+    difficulty: 'easy',
+    question: 'Aaron left the linen ________ in the holy place after removing them.',
+    options: ['garments', 'robes', 'clothes', 'vestments'],
+    correctAnswer: 'garments',
+    explanation: 'Aaron removed and left the linen garments in the holy place before putting on other clothes.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '23' }
+    ],
+    orderPosition: 3
+  },
+  {
+    stepId: 19,
+    questionId: 'step19_fill2',
+    type: 'fill-blank',
+    difficulty: 'medium',
+    question: 'Christ will tread the winepress in His ________ and in His fury.',
+    options: ['anger', 'power', 'glory', 'might'],
+    correctAnswer: 'anger',
+    explanation: 'Isaiah 63:3 describes Christ treading the winepress in His anger against sin and rebellion.',
+    scriptureReferences: [
+      { book: 'Isaiah', chapter: 63, verses: '3' }
+    ],
+    orderPosition: 4
+  },
+  {
+    stepId: 19,
+    questionId: 'step19_tf1',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'Jesus\' role changes from High Priest to King when He returns.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Jesus will return not as the suffering priest but as the conquering King.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 19, verses: '16' }
+    ],
+    orderPosition: 5
+  },
+  {
+    stepId: 19,
+    questionId: 'step19_tf2',
+    type: 'true-false',
+    difficulty: 'medium',
+    question: 'Aaron put on his regular garments after removing the priestly ones.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. After removing the holy linen garments, Aaron put on his other (regular) garments.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '23-24' }
+    ],
+    orderPosition: 6
+  },
+  {
+    stepId: 19,
+    questionId: 'step19_tf3',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'Christ\'s garments will be stained from the battle against sin.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Isaiah 63 describes Christ\'s garments being stained from treading the winepress of God\'s wrath against sin.',
+    scriptureReferences: [
+      { book: 'Isaiah', chapter: 63, verses: '2-3' }
+    ],
+    orderPosition: 7
+  },
+
+  // ==================== STEP 20: Seven Last Plagues ====================
+  {
+    stepId: 20,
+    questionId: 'step20_qa1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'What falls upon the earth after Christ leaves the Most Holy Place?',
+    options: [
+      'The seven last plagues',
+      'The latter rain',
+      'Peace and safety',
+      'Great revival'
+    ],
+    correctAnswer: 'The seven last plagues',
+    explanation: 'After Christ completes His work in the sanctuary, the seven last plagues fall upon the unrepentant.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 15, verses: '1, 6-8' },
+      { book: 'Revelation', chapter: 16, verses: '1' }
+    ],
+    hint: 'What final judgments come before Christ returns?',
+    orderPosition: 1
+  },
+  {
+    stepId: 20,
+    questionId: 'step20_mc1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'What color garment did Aaron wear when coming out?',
+    options: [
+      'White linen',
+      'Purple and scarlet',
+      'Gold',
+      'Black'
+    ],
+    correctAnswer: 'White linen',
+    explanation: 'Aaron came out wearing white linen garments, symbolizing purity and completed ministry.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '23-24' }
+    ],
+    orderPosition: 2
+  },
+  {
+    stepId: 20,
+    questionId: 'step20_fill1',
+    type: 'fill-blank',
+    difficulty: 'easy',
+    question: 'There are ________ last plagues that fall upon the earth.',
+    options: ['seven', 'ten', 'twelve', 'three'],
+    correctAnswer: 'seven',
+    explanation: 'Revelation describes seven angels with the seven last plagues.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 15, verses: '1' }
+    ],
+    orderPosition: 3
+  },
+  {
+    stepId: 20,
+    questionId: 'step20_fill2',
+    type: 'fill-blank',
+    difficulty: 'medium',
+    question: 'The temple was filled with ________ from the glory of God during the plagues.',
+    options: ['smoke', 'fire', 'light', 'clouds'],
+    correctAnswer: 'smoke',
+    explanation: 'Revelation 15:8 states the temple was filled with smoke from God\'s glory during this time.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 15, verses: '8' }
+    ],
+    orderPosition: 4
+  },
+  {
+    stepId: 20,
+    questionId: 'step20_tf1',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'The seven last plagues fall before Jesus returns.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. The plagues fall after probation closes but before the Second Coming.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 15, verses: '1' }
+    ],
+    orderPosition: 5
+  },
+  {
+    stepId: 20,
+    questionId: 'step20_tf2',
+    type: 'true-false',
+    difficulty: 'medium',
+    question: 'The plagues are mixed with mercy.',
+    options: ['True', 'False'],
+    correctAnswer: 'False',
+    explanation: 'False. These are the seven last plagues - God\'s wrath unmixed with mercy.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 15, verses: '1' }
+    ],
+    orderPosition: 6
+  },
+  {
+    stepId: 20,
+    questionId: 'step20_tf3',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'Aaron came out of the sanctuary in white garments.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Aaron came forth in white linen garments after completing the atonement.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '23-24' }
+    ],
+    orderPosition: 7
+  },
+
+  // ==================== STEP 21: Jacob's Time of Trouble ====================
+  {
+    stepId: 21,
+    questionId: 'step21_qa1',
+    type: 'multiple-choice',
+    difficulty: 'hard',
+    question: 'What is Jacob\'s time of trouble?',
+    options: [
+      'The final time of testing for God\'s people during the seven last plagues',
+      'The crucifixion of Christ',
+      'The destruction of Jerusalem',
+      'The millennium'
+    ],
+    correctAnswer: 'The final time of testing for God\'s people during the seven last plagues',
+    explanation: 'Like Jacob\'s wrestling experience, God\'s people will face intense testing but will be delivered.',
+    scriptureReferences: [
+      { book: 'Jeremiah', chapter: 30, verses: '7' },
+      { book: 'Daniel', chapter: 12, verses: '1' }
+    ],
+    hint: 'Think about Jacob wrestling all night.',
+    orderPosition: 1
+  },
+  {
+    stepId: 21,
+    questionId: 'step21_mc1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'What does Aaron\'s washing symbolize at this stage?',
+    options: [
+      'The final purification and testing of God\'s people',
+      'The baptism of Jesus',
+      'The day of Pentecost',
+      'The resurrection'
+    ],
+    correctAnswer: 'The final purification and testing of God\'s people',
+    explanation: 'The washing represents the final testing and purification that God\'s people endure during the time of trouble.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '24, 26, 28' }
+    ],
+    orderPosition: 2
+  },
+  {
+    stepId: 21,
+    questionId: 'step21_fill1',
+    type: 'fill-blank',
+    difficulty: 'medium',
+    question: 'Jeremiah calls this "the time of Jacob\'s ________."',
+    options: ['trouble', 'blessing', 'journey', 'victory'],
+    correctAnswer: 'trouble',
+    explanation: 'Jeremiah 30:7 specifically calls it "the time of Jacob\'s trouble."',
+    scriptureReferences: [
+      { book: 'Jeremiah', chapter: 30, verses: '7' }
+    ],
+    orderPosition: 3
+  },
+  {
+    stepId: 21,
+    questionId: 'step21_fill2',
+    type: 'fill-blank',
+    difficulty: 'hard',
+    question: 'At that time Michael shall stand up, and there shall be a time of ________ such as never was.',
+    options: ['trouble', 'peace', 'prosperity', 'rest'],
+    correctAnswer: 'trouble',
+    explanation: 'Daniel 12:1 describes an unprecedented time of trouble when Michael stands up.',
+    scriptureReferences: [
+      { book: 'Daniel', chapter: 12, verses: '1' }
+    ],
+    orderPosition: 4
+  },
+  {
+    stepId: 21,
+    questionId: 'step21_tf1',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'God\'s people will be protected during this time of trouble.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Though they face trials, God promises to deliver them - "thy people shall be delivered."',
+    scriptureReferences: [
+      { book: 'Daniel', chapter: 12, verses: '1' }
+    ],
+    orderPosition: 5
+  },
+  {
+    stepId: 21,
+    questionId: 'step21_tf2',
+    type: 'true-false',
+    difficulty: 'medium',
+    question: 'All who wash during the Day of Atonement service must bathe their flesh in water.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Everyone involved in the service had to wash themselves, symbolizing purification.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '24, 26, 28' }
+    ],
+    orderPosition: 6
+  },
+  {
+    stepId: 21,
+    questionId: 'step21_tf3',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'Jesus spoke of Jacob\'s trouble as a "cup of baptism."',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Jesus referred to His suffering and the final testing as a baptism or cup to drink.',
+    scriptureReferences: [
+      { book: 'Matthew', chapter: 20, verses: '22-23' }
+    ],
+    orderPosition: 7
+  },
+
+  // ==================== STEP 22: Second Coming ====================
+  {
+    stepId: 22,
+    questionId: 'step22_qa1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'What do the two rams on the altar represent?',
+    options: [
+      'The Second Coming of Christ',
+      'The crucifixion',
+      'The resurrection',
+      'Pentecost'
+    ],
+    correctAnswer: 'The Second Coming of Christ',
+    explanation: 'The two rams (burnt offerings) represent the culmination of the atonement - Christ\'s glorious return.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '24' }
+    ],
+    hint: 'This is the climax and completion of the salvation story.',
+    orderPosition: 1
+  },
+  {
+    stepId: 22,
+    questionId: 'step22_mc1',
+    type: 'multiple-choice',
+    difficulty: 'easy',
+    question: 'How will Jesus return to earth?',
+    options: [
+      'Visibly in the clouds with power and great glory',
+      'Secretly and invisibly',
+      'Spiritually in our hearts',
+      'Through reincarnation'
+    ],
+    correctAnswer: 'Visibly in the clouds with power and great glory',
+    explanation: 'Jesus will return visibly in the clouds, and every eye will see Him.',
+    scriptureReferences: [
+      { book: 'Matthew', chapter: 24, verses: '30-31' },
+      { book: 'Revelation', chapter: 1, verses: '7' }
+    ],
+    orderPosition: 2
+  },
+  {
+    stepId: 22,
+    questionId: 'step22_fill1',
+    type: 'fill-blank',
+    difficulty: 'easy',
+    question: 'Jesus will come in the ________ with power and great glory.',
+    options: ['clouds', 'night', 'morning', 'temple'],
+    correctAnswer: 'clouds',
+    explanation: 'Scripture repeatedly describes Jesus coming in the clouds of heaven.',
+    scriptureReferences: [
+      { book: 'Matthew', chapter: 24, verses: '30' }
+    ],
+    orderPosition: 3
+  },
+  {
+    stepId: 22,
+    questionId: 'step22_fill2',
+    type: 'fill-blank',
+    difficulty: 'medium',
+    question: 'The Lord Himself shall descend from heaven with a ________, with the voice of the archangel.',
+    options: ['shout', 'whisper', 'song', 'cry'],
+    correctAnswer: 'shout',
+    explanation: '1 Thessalonians 4:16 describes Jesus descending with a shout and the voice of the archangel.',
+    scriptureReferences: [
+      { book: '1 Thessalonians', chapter: 4, verses: '16' }
+    ],
+    orderPosition: 4
+  },
+  {
+    stepId: 22,
+    questionId: 'step22_tf1',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'Every eye will see Jesus when He returns.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Revelation 1:7 states that every eye shall see Him when He comes.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 1, verses: '7' }
+    ],
+    orderPosition: 5
+  },
+  {
+    stepId: 22,
+    questionId: 'step22_tf2',
+    type: 'true-false',
+    difficulty: 'medium',
+    question: 'The righteous dead will be resurrected at the Second Coming.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. The dead in Christ will rise first when Jesus returns.',
+    scriptureReferences: [
+      { book: '1 Thessalonians', chapter: 4, verses: '16' }
+    ],
+    orderPosition: 6
+  },
+  {
+    stepId: 22,
+    questionId: 'step22_tf3',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'Believers will be caught up to meet the Lord in the air.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. 1 Thessalonians 4:17 describes believers being caught up together in the clouds to meet the Lord.',
+    scriptureReferences: [
+      { book: '1 Thessalonians', chapter: 4, verses: '17' }
+    ],
+    orderPosition: 7
+  },
+
+  // ==================== STEP 23: Lake of Fire ====================
+  {
+    stepId: 23,
+    questionId: 'step23_qa1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'What does the burning of fat on the altar represent?',
+    options: [
+      'The final destruction of the wicked in the lake of fire',
+      'The baptism of fire',
+      'Pentecost',
+      'The crucifixion'
+    ],
+    correctAnswer: 'The final destruction of the wicked in the lake of fire',
+    explanation: 'The fat burning on the altar symbolizes the complete destruction of sin and sinners in the lake of fire.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '25' },
+      { book: 'Revelation', chapter: 20, verses: '14-15' }
+    ],
+    hint: 'This is the final judgment on the wicked.',
+    orderPosition: 1
+  },
+  {
+    stepId: 23,
+    questionId: 'step23_mc1',
+    type: 'multiple-choice',
+    difficulty: 'hard',
+    question: 'Who will be cast into the lake of fire?',
+    options: [
+      'Death, hell, the devil, and all whose names are not in the book of life',
+      'Only Satan',
+      'Only demons',
+      'No one - it is symbolic'
+    ],
+    correctAnswer: 'Death, hell, the devil, and all whose names are not in the book of life',
+    explanation: 'Revelation 20 describes death, hell, Satan, and all the wicked being cast into the lake of fire.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 20, verses: '10, 14-15' }
+    ],
+    orderPosition: 2
+  },
+  {
+    stepId: 23,
+    questionId: 'step23_fill1',
+    type: 'fill-blank',
+    difficulty: 'easy',
+    question: 'The fat of the sin offering was burned upon the ________.',
+    options: ['altar', 'ground', 'temple', 'gate'],
+    correctAnswer: 'altar',
+    explanation: 'The fat was burned on the altar of burnt offering.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '25' }
+    ],
+    orderPosition: 3
+  },
+  {
+    stepId: 23,
+    questionId: 'step23_fill2',
+    type: 'fill-blank',
+    difficulty: 'medium',
+    question: 'The lake of fire is the ________ death.',
+    options: ['second', 'first', 'final', 'eternal'],
+    correctAnswer: 'second',
+    explanation: 'Revelation 20:14 identifies the lake of fire as the second death.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 20, verses: '14' }
+    ],
+    orderPosition: 4
+  },
+  {
+    stepId: 23,
+    questionId: 'step23_tf1',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'The wicked will be destroyed in the lake of fire.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. The lake of fire is the final judgment where the wicked are completely destroyed.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 20, verses: '14-15' }
+    ],
+    orderPosition: 5
+  },
+  {
+    stepId: 23,
+    questionId: 'step23_tf2',
+    type: 'true-false',
+    difficulty: 'medium',
+    question: 'Death itself will be destroyed in the lake of fire.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Revelation 20:14 states that death and hell (the grave) are cast into the lake of fire.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 20, verses: '14' }
+    ],
+    orderPosition: 6
+  },
+  {
+    stepId: 23,
+    questionId: 'step23_tf3',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'The lake of fire is an eternal burning where people suffer forever.',
+    options: ['True', 'False'],
+    correctAnswer: 'False',
+    explanation: 'False. The Bible teaches that the wicked are completely destroyed, not tormented eternally. The fire is eternal in its consequences, not duration.',
+    scriptureReferences: [
+      { book: 'Malachi', chapter: 4, verses: '1, 3' },
+      { book: 'Matthew', chapter: 10, verses: '28' }
+    ],
+    orderPosition: 7
+  },
+
+  // ==================== STEP 24: New Earth ====================
+  {
+    stepId: 24,
+    questionId: 'step24_qa1',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'What does the burning of the bodies outside the camp represent?',
+    options: [
+      'The final purification - the new heaven and new earth',
+      'The seven last plagues',
+      'The millennium',
+      'The Second Coming'
+    ],
+    correctAnswer: 'The final purification - the new heaven and new earth',
+    explanation: 'The complete burning outside the camp represents the total removal of all traces of sin, making way for the new earth.',
+    scriptureReferences: [
+      { book: 'Leviticus', chapter: 16, verses: '27' },
+      { book: 'Revelation', chapter: 21, verses: '1' }
+    ],
+    hint: 'This is the final step - what comes after all sin is destroyed?',
+    orderPosition: 1
+  },
+  {
+    stepId: 24,
+    questionId: 'step24_mc1',
+    type: 'multiple-choice',
+    difficulty: 'easy',
+    question: 'What will God create after sin is finally destroyed?',
+    options: [
+      'A new heaven and a new earth',
+      'A better version of the current earth',
+      'A spiritual realm only',
+      'Nothing - we stay in heaven'
+    ],
+    correctAnswer: 'A new heaven and a new earth',
+    explanation: 'God promises to create a new heaven and a new earth where righteousness dwells.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 21, verses: '1' },
+      { book: '2 Peter', chapter: 3, verses: '13' }
+    ],
+    orderPosition: 2
+  },
+  {
+    stepId: 24,
+    questionId: 'step24_fill1',
+    type: 'fill-blank',
+    difficulty: 'easy',
+    question: 'God will wipe away all ________ from their eyes in the new earth.',
+    options: ['tears', 'sins', 'memories', 'scars'],
+    correctAnswer: 'tears',
+    explanation: 'Revelation 21:4 promises that God will wipe away every tear.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 21, verses: '4' }
+    ],
+    orderPosition: 3
+  },
+  {
+    stepId: 24,
+    questionId: 'step24_fill2',
+    type: 'fill-blank',
+    difficulty: 'medium',
+    question: 'There shall be no more ________, neither sorrow, nor crying, neither shall there be any more pain.',
+    options: ['death', 'night', 'curse', 'sin'],
+    correctAnswer: 'death',
+    explanation: 'Revelation 21:4 promises no more death, sorrow, crying, or pain in the new earth.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 21, verses: '4' }
+    ],
+    orderPosition: 4
+  },
+  {
+    stepId: 24,
+    questionId: 'step24_fill3',
+    type: 'fill-blank',
+    difficulty: 'hard',
+    question: 'Affliction shall not rise up the ________ time.',
+    options: ['second', 'first', 'third', 'last'],
+    correctAnswer: 'second',
+    explanation: 'Nahum 1:9 promises that affliction (sin) will never rise again after being completely destroyed.',
+    scriptureReferences: [
+      { book: 'Nahum', chapter: 1, verses: '9' }
+    ],
+    orderPosition: 5
+  },
+  {
+    stepId: 24,
+    questionId: 'step24_tf1',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'There will be no more curse in the new earth.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Revelation 22:3 promises that there shall be no more curse.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 22, verses: '3' }
+    ],
+    orderPosition: 6
+  },
+  {
+    stepId: 24,
+    questionId: 'step24_tf2',
+    type: 'true-false',
+    difficulty: 'easy',
+    question: 'God will dwell with His people on the new earth.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Revelation 21:3 promises that God will dwell with us and be our God.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 21, verses: '3' }
+    ],
+    orderPosition: 7
+  },
+  {
+    stepId: 24,
+    questionId: 'step24_tf3',
+    type: 'true-false',
+    difficulty: 'medium',
+    question: 'Sin will never arise again in the universe.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'True. Nahum 1:9 promises that affliction shall not rise up the second time.',
+    scriptureReferences: [
+      { book: 'Nahum', chapter: 1, verses: '9' }
+    ],
+    orderPosition: 8
+  },
+  {
+    stepId: 24,
+    questionId: 'step24_mc2',
+    type: 'multiple-choice',
+    difficulty: 'medium',
+    question: 'What will NOT be in the New Jerusalem?',
+    options: [
+      'A temple - for the Lord God Almighty and the Lamb are the temple',
+      'Streets of gold',
+      'The tree of life',
+      'A river'
+    ],
+    correctAnswer: 'A temple - for the Lord God Almighty and the Lamb are the temple',
+    explanation: 'Revelation 21:22 states there is no temple in the city, for the Lord God and the Lamb are its temple.',
+    scriptureReferences: [
+      { book: 'Revelation', chapter: 21, verses: '22' }
+    ],
+    orderPosition: 9
   }
-
-  // Continue with remaining steps...
-  // Due to character limits, I'm providing a note that in production,
-  // Steps 6-24 should be expanded following the exact pattern above.
-  // Each step (6-24) needs 7-10 questions total covering all question types.
-  // For now, I'll add placeholders that can be populated with the full content from the user's document.
 ];
-
-// REMINDER TO USER: We have established the pattern for Steps 0-5 with full questions.
-// Steps 6-24 should be expanded using the comprehensive question set provided in your document.
-// This creates a rotating question bank that can be easily updated later.
-
-// Note: The above represents the first 5 steps (0-4) fully expanded.
-// Due to file size, I'm providing a template. In production, all 25 steps
-// would be fully expanded following this exact pattern.
-// Each step should have 7-10 questions as specified.
