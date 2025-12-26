@@ -1,123 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { Home, GraduationCap, Search, Download, ExternalLink, ListFilter as Filter, Star, Book } from 'lucide-react';
+import { Home, GraduationCap, Search, Download, ExternalLink, ListFilter as Filter, Star, Book, Loader2 } from 'lucide-react';
 import DonationBanner from './DonationBanner';
+import { useLibraryResources, useAuthors, useCategories, useFeaturedCollections, useResourceDownload } from '../hooks/useLibraryResources';
+import { generateCitations, copyToClipboard } from '../utils/citationGenerator';
+import type { ResourceWithAuthor } from '../types/library';
 
 const DigitalLibrary = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedAuthor, setSelectedAuthor] = useState('all');
+  const [copiedCitation, setCopiedCitation] = useState<string | null>(null);
 
-  const categories = [
-    { id: 'all', name: 'All Resources' },
-    { id: 'sanctuary', name: 'Sanctuary Doctrine' },
-    { id: 'prophecy', name: 'Prophetic Studies' },
-    { id: 'judgment', name: 'Investigative Judgment' },
-    { id: 'historical', name: 'Historical Studies' },
-    { id: 'commentary', name: 'Biblical Commentary' }
-  ];
+  const { categories: dbCategories, loading: categoriesLoading } = useCategories();
+  const { authors: dbAuthors, loading: authorsLoading } = useAuthors();
+  const { collections, loading: collectionsLoading } = useFeaturedCollections();
+  const { trackDownload, downloading } = useResourceDownload();
 
-  const authors = [
-    { id: 'all', name: 'All Authors' },
-    { id: 'white', name: 'Ellen G. White' },
-    { id: 'andreasen', name: 'M.L. Andreasen' },
-    { id: 'haskell', name: 'S.N. Haskell' },
-    { id: 'evans', name: 'Merrill Evans' },
-    { id: 'gilbert', name: 'F.C. Gilbert' },
-    { id: 'hardinge', name: 'Leslie Hardinge' },
-    { id: 'frazee', name: 'W.D. Frazee' }
-  ];
+  const categories = useMemo(() => [
+    { id: 'all', name: 'All Resources', slug: 'all' },
+    ...dbCategories
+  ], [dbCategories]);
 
-  const resources = [
-    {
-      id: 1,
-      title: 'The Sanctuary Service',
-      author: 'M.L. Andreasen',
-      category: 'sanctuary',
-      type: 'Book',
-      year: 1947,
-      pages: 350,
-      rating: 5,
-      description: 'A comprehensive study of the sanctuary and its services, showing the plan of salvation.',
-      downloadUrl: '#',
-      citations: 1250
-    },
-    {
-      id: 2,
-      title: 'The Cross and Its Shadow',
-      author: 'S.N. Haskell',
-      category: 'sanctuary',
-      type: 'Book',
-      year: 1914,
-      pages: 400,
-      rating: 5,
-      description: 'Types and shadows of the Old Testament pointing to Christ and His work.',
-      downloadUrl: '#',
-      citations: 890
-    },
-    {
-      id: 3,
-      title: 'Patriarchs and Prophets',
-      author: 'Ellen G. White',
-      category: 'historical',
-      type: 'Book',
-      year: 1890,
-      pages: 756,
-      rating: 5,
-      description: 'The story of the great conflict between good and evil from creation to King David.',
-      downloadUrl: '#',
-      citations: 2100
-    },
-    {
-      id: 4,
-      title: 'The Great Controversy',
-      author: 'Ellen G. White',
-      category: 'prophecy',
-      type: 'Book',
-      year: 1888,
-      pages: 678,
-      rating: 5,
-      description: 'The final conflict between Christ and Satan, including the investigative judgment.',
-      downloadUrl: '#',
-      citations: 1800
-    },
-    {
-      id: 5,
-      title: 'Daniel and the Revelation',
-      author: 'Uriah Smith',
-      category: 'prophecy',
-      type: 'Commentary',
-      year: 1897,
-      pages: 800,
-      rating: 4,
-      description: 'Verse-by-verse commentary on the prophetic books of Daniel and Revelation.',
-      downloadUrl: '#',
-      citations: 650
-    },
-    {
-      id: 6,
-      title: 'The Atonement',
-      author: 'Leslie Hardinge',
-      category: 'judgment',
-      type: 'Academic Paper',
-      year: 1980,
-      pages: 120,
-      rating: 4,
-      description: 'Scholarly examination of the doctrine of atonement in Adventist theology.',
-      downloadUrl: '#',
-      citations: 340
-    }
-  ];
+  const authors = useMemo(() => [
+    { id: 'all', full_name: 'All Authors' },
+    ...dbAuthors
+  ], [dbAuthors]);
 
-  const filteredResources = resources.filter(resource => {
-    const matchesSearch = resource.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         resource.author.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         resource.description.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = selectedCategory === 'all' || resource.category === selectedCategory;
-    const matchesAuthor = selectedAuthor === 'all' || resource.author.toLowerCase().includes(authors.find(a => a.id === selectedAuthor)?.name.toLowerCase() || '');
-    
-    return matchesSearch && matchesCategory && matchesAuthor;
-  });
+  const searchParams = useMemo(() => ({
+    query: searchQuery || undefined,
+    category: selectedCategory !== 'all' ? selectedCategory : undefined,
+    author: selectedAuthor !== 'all' ? selectedAuthor : undefined,
+    sortBy: 'title' as const,
+    sortOrder: 'asc' as const
+  }), [searchQuery, selectedCategory, selectedAuthor]);
+
+  const { resources: allResources, loading: resourcesLoading, total } = useLibraryResources(searchParams);
+
+  const filteredResources = allResources;
 
   return (
     <div className="min-h-screen bg-sanctuary-linen">
@@ -170,6 +90,7 @@ const DigitalLibrary = () => {
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
                 className="w-full p-3 border border-sanctuary-silver rounded-lg focus:ring-2 focus:ring-green-500"
+                disabled={categoriesLoading}
               >
                 {categories.map((category) => (
                   <option key={category.id} value={category.id}>{category.name}</option>
@@ -184,9 +105,10 @@ const DigitalLibrary = () => {
                 value={selectedAuthor}
                 onChange={(e) => setSelectedAuthor(e.target.value)}
                 className="w-full p-3 border border-sanctuary-silver rounded-lg focus:ring-2 focus:ring-green-500"
+                disabled={authorsLoading}
               >
                 {authors.map((author) => (
-                  <option key={author.id} value={author.id}>{author.name}</option>
+                  <option key={author.id} value={author.id}>{author.full_name}</option>
                 ))}
               </select>
             </div>
@@ -194,145 +116,184 @@ const DigitalLibrary = () => {
 
           {/* Results Summary */}
           <div className="mt-6 pt-6 border-t border-sanctuary-silver">
-            <p className="text-sanctuary-brass">
-              Showing {filteredResources.length} of {resources.length} resources
-            </p>
+            {resourcesLoading ? (
+              <div className="flex items-center space-x-2 text-sanctuary-brass">
+                <Loader2 className="w-4 h-4 animate-spin" />
+                <span>Loading resources...</span>
+              </div>
+            ) : (
+              <p className="text-sanctuary-brass">
+                Showing {filteredResources.length} of {total} resources
+              </p>
+            )}
           </div>
         </div>
 
         {/* Resources Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {filteredResources.map((resource) => (
-            <div key={resource.id} className="bg-white rounded-xl shadow-lg border border-sanctuary-silver hover:shadow-xl transition-all duration-300 overflow-hidden">
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center space-x-2">
-                    <Book className="w-5 h-5 text-green-600" />
-                    <span className="text-sm font-medium text-sanctuary-brass bg-sanctuary-linen px-2 py-1 rounded">
-                      {resource.type}
-                    </span>
+          {resourcesLoading ? (
+            <div className="col-span-full flex items-center justify-center py-12">
+              <Loader2 className="w-8 h-8 animate-spin text-green-600" />
+            </div>
+          ) : filteredResources.length === 0 ? (
+            <div className="col-span-full text-center py-12">
+              <p className="text-sanctuary-brass text-lg">No resources found matching your search criteria.</p>
+            </div>
+          ) : (
+            filteredResources.map((resource) => (
+              <div key={resource.id} className="bg-white rounded-xl shadow-lg border border-sanctuary-silver hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center space-x-2">
+                      <Book className="w-5 h-5 text-green-600" />
+                      <span className="text-sm font-medium text-sanctuary-brass bg-sanctuary-linen px-2 py-1 rounded capitalize">
+                        {resource.resource_type}
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className={`w-4 h-4 ${i < Math.round(resource.average_rating) ? 'text-sanctuary-gold fill-current' : 'text-sanctuary-silver'}`}
+                        />
+                      ))}
+                    </div>
                   </div>
-                  <div className="flex items-center space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star 
-                        key={i} 
-                        className={`w-4 h-4 ${i < resource.rating ? 'text-sanctuary-gold fill-current' : 'text-sanctuary-silver'}`} 
-                      />
-                    ))}
-                  </div>
-                </div>
 
-                <h3 className="text-lg font-bold text-sanctuary-purple mb-2 leading-tight">{resource.title}</h3>
-                <p className="text-sm font-medium text-green-600 mb-3">{resource.author}</p>
-                <p className="text-sanctuary-brass text-sm leading-relaxed mb-4">{resource.description}</p>
+                  <h3 className="text-lg font-bold text-sanctuary-purple mb-2 leading-tight">{resource.title}</h3>
+                  <p className="text-sm font-medium text-green-600 mb-3">{resource.author?.full_name || 'Unknown Author'}</p>
+                  <p className="text-sanctuary-brass text-sm leading-relaxed mb-4">{resource.description}</p>
 
-                {/* Resource Details */}
-                <div className="grid grid-cols-2 gap-4 mb-4 text-xs text-sanctuary-brass">
-                  <div>
-                    <span className="font-medium">Year:</span> {resource.year}
+                  {/* Resource Details */}
+                  <div className="grid grid-cols-2 gap-4 mb-4 text-xs text-sanctuary-brass">
+                    <div>
+                      <span className="font-medium">Year:</span> {resource.publication_year || 'N/A'}
+                    </div>
+                    <div>
+                      <span className="font-medium">Pages:</span> {resource.total_pages || 'N/A'}
+                    </div>
+                    <div>
+                      <span className="font-medium">Citations:</span> {resource.citation_count}
+                    </div>
+                    <div>
+                      <span className="font-medium">Category:</span> {resource.category?.name || 'Uncategorized'}
+                    </div>
                   </div>
-                  <div>
-                    <span className="font-medium">Pages:</span> {resource.pages}
-                  </div>
-                  <div>
-                    <span className="font-medium">Citations:</span> {resource.citations}
-                  </div>
-                  <div>
-                    <span className="font-medium">Category:</span> {categories.find(c => c.id === resource.category)?.name}
-                  </div>
-                </div>
 
-                <div className="flex items-center justify-between">
-                  <Link className="flex items-center space-x-2 text-green-600 hover:text-green-700 transition-colors">
-                    <Download className="w-4 h-4" />
-                    <span className="text-sm font-medium">Download PDF</span>
-                  </Link>
-                  <Link className="flex items-center space-x-2 text-sanctuary-brass hover:text-sanctuary-purple transition-colors">
-                    <ExternalLink className="w-4 h-4" />
-                    <span className="text-sm font-medium">View Details</span>
-                  </Link>
+                  <div className="flex items-center justify-between">
+                    <button
+                      onClick={() => trackDownload(resource.id)}
+                      disabled={downloading}
+                      className="flex items-center space-x-2 text-green-600 hover:text-green-700 transition-colors disabled:opacity-50"
+                    >
+                      {downloading ? (
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                      ) : (
+                        <Download className="w-4 h-4" />
+                      )}
+                      <span className="text-sm font-medium">Download PDF</span>
+                    </button>
+                    <Link to="#" className="flex items-center space-x-2 text-sanctuary-brass hover:text-sanctuary-purple transition-colors">
+                      <ExternalLink className="w-4 h-4" />
+                      <span className="text-sm font-medium">View Details</span>
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
 
         {/* Citation Tools */}
-        <div className="bg-white rounded-xl p-8 shadow-lg border border-sanctuary-gold/30 mb-8">
-          <h3 className="text-2xl font-bold text-sanctuary-purple mb-6">Citation Tools</h3>
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-sanctuary-linen rounded-lg p-6">
-              <h4 className="font-semibold text-sanctuary-purple mb-4">APA Format</h4>
-              <div className="bg-white rounded-lg p-4 border border-sanctuary-silver">
-                <p className="text-sanctuary-brass text-sm font-mono">
-                  Andreasen, M. L. (1947). <em>The Sanctuary Service</em>. Review and Herald Publishing Association.
-                </p>
-              </div>
-              <Link className="mt-3 text-sm text-green-600 hover:text-green-700 transition-colors">
-                Copy APA Citation
-              </Link>
-            </div>
+        {filteredResources.length > 0 && (
+          <div className="bg-white rounded-xl p-8 shadow-lg border border-sanctuary-gold/30 mb-8">
+            <h3 className="text-2xl font-bold text-sanctuary-purple mb-6">Citation Tools</h3>
+            <p className="text-sanctuary-brass mb-6">Example citation for: <span className="font-semibold">{filteredResources[0].title}</span></p>
 
-            <div className="bg-sanctuary-linen rounded-lg p-6">
-              <h4 className="font-semibold text-sanctuary-purple mb-4">MLA Format</h4>
-              <div className="bg-white rounded-lg p-4 border border-sanctuary-silver">
-                <p className="text-sanctuary-brass text-sm font-mono">
-                  Andreasen, M. L. <em>The Sanctuary Service</em>. Review and Herald Publishing Association, 1947.
-                </p>
-              </div>
-              <Link className="mt-3 text-sm text-green-600 hover:text-green-700 transition-colors">
-                Copy MLA Citation
-              </Link>
-            </div>
+            {(() => {
+              const citations = generateCitations(filteredResources[0]);
+              const handleCopy = async (format: string, text: string) => {
+                try {
+                  await copyToClipboard(text);
+                  setCopiedCitation(format);
+                  setTimeout(() => setCopiedCitation(null), 2000);
+                } catch (err) {
+                  console.error('Failed to copy:', err);
+                }
+              };
 
-            <div className="bg-sanctuary-linen rounded-lg p-6">
-              <h4 className="font-semibold text-sanctuary-purple mb-4">Chicago Format</h4>
-              <div className="bg-white rounded-lg p-4 border border-sanctuary-silver">
-                <p className="text-sanctuary-brass text-sm font-mono">
-                  Andreasen, M. L. <em>The Sanctuary Service</em>. Takoma Park, MD: Review and Herald Publishing Association, 1947.
-                </p>
-              </div>
-              <Link className="mt-3 text-sm text-green-600 hover:text-green-700 transition-colors">
-                Copy Chicago Citation
-              </Link>
-            </div>
+              return (
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="bg-sanctuary-linen rounded-lg p-6">
+                    <h4 className="font-semibold text-sanctuary-purple mb-4">APA Format</h4>
+                    <div className="bg-white rounded-lg p-4 border border-sanctuary-silver min-h-[80px]">
+                      <p className="text-sanctuary-brass text-sm font-mono" dangerouslySetInnerHTML={{ __html: citations.apa }} />
+                    </div>
+                    <button
+                      onClick={() => handleCopy('apa', citations.apa)}
+                      className="mt-3 text-sm text-green-600 hover:text-green-700 transition-colors"
+                    >
+                      {copiedCitation === 'apa' ? 'Copied!' : 'Copy APA Citation'}
+                    </button>
+                  </div>
+
+                  <div className="bg-sanctuary-linen rounded-lg p-6">
+                    <h4 className="font-semibold text-sanctuary-purple mb-4">MLA Format</h4>
+                    <div className="bg-white rounded-lg p-4 border border-sanctuary-silver min-h-[80px]">
+                      <p className="text-sanctuary-brass text-sm font-mono" dangerouslySetInnerHTML={{ __html: citations.mla }} />
+                    </div>
+                    <button
+                      onClick={() => handleCopy('mla', citations.mla)}
+                      className="mt-3 text-sm text-green-600 hover:text-green-700 transition-colors"
+                    >
+                      {copiedCitation === 'mla' ? 'Copied!' : 'Copy MLA Citation'}
+                    </button>
+                  </div>
+
+                  <div className="bg-sanctuary-linen rounded-lg p-6">
+                    <h4 className="font-semibold text-sanctuary-purple mb-4">Chicago Format</h4>
+                    <div className="bg-white rounded-lg p-4 border border-sanctuary-silver min-h-[80px]">
+                      <p className="text-sanctuary-brass text-sm font-mono" dangerouslySetInnerHTML={{ __html: citations.chicago }} />
+                    </div>
+                    <button
+                      onClick={() => handleCopy('chicago', citations.chicago)}
+                      className="mt-3 text-sm text-green-600 hover:text-green-700 transition-colors"
+                    >
+                      {copiedCitation === 'chicago' ? 'Copied!' : 'Copy Chicago Citation'}
+                    </button>
+                  </div>
+                </div>
+              );
+            })()}
           </div>
-        </div>
+        )}
 
         {/* Featured Collections */}
         <div className="bg-white rounded-xl p-8 shadow-lg border border-sanctuary-gold/30">
           <h3 className="text-2xl font-bold text-sanctuary-purple mb-6">Featured Collections</h3>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-sanctuary-linen to-white rounded-lg p-6 border border-sanctuary-silver">
-              <h4 className="text-xl font-semibold text-sanctuary-purple mb-4">Ellen G. White Estate</h4>
-              <p className="text-sanctuary-brass mb-4 leading-relaxed">
-                Complete collection of Ellen G. White's published works, including books, 
-                articles, and manuscripts related to sanctuary doctrine.
-              </p>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-sanctuary-brass">120+ Resources</span>
-                <Link className="text-green-600 hover:text-green-700 transition-colors font-medium">
-                  Explore Collection →
-                </Link>
-              </div>
-            </div>
 
-            <div className="bg-gradient-to-br from-sanctuary-linen to-white rounded-lg p-6 border border-sanctuary-silver">
-              <h4 className="text-xl font-semibold text-sanctuary-purple mb-4">Adventist Pioneers</h4>
-              <p className="text-sanctuary-brass mb-4 leading-relaxed">
-                Historical works by early Adventist theologians who developed 
-                sanctuary doctrine, including Andreasen, Haskell, and others.
-              </p>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-sanctuary-brass">85+ Resources</span>
-                <Link className="text-green-600 hover:text-green-700 transition-colors font-medium">
-                  Explore Collection →
-                </Link>
-              </div>
+          {collectionsLoading ? (
+            <div className="flex items-center justify-center py-8">
+              <Loader2 className="w-8 h-8 animate-spin text-green-600" />
             </div>
-          </div>
+          ) : (
+            <div className="grid md:grid-cols-2 gap-8">
+              {collections.map((collection) => (
+                <div key={collection.id} className="bg-gradient-to-br from-sanctuary-linen to-white rounded-lg p-6 border border-sanctuary-silver">
+                  <h4 className="text-xl font-semibold text-sanctuary-purple mb-4">{collection.title}</h4>
+                  <p className="text-sanctuary-brass mb-4 leading-relaxed">
+                    {collection.description}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-sanctuary-brass">{collection.resource_count} Resource{collection.resource_count !== 1 ? 's' : ''}</span>
+                    <Link to="#" className="text-green-600 hover:text-green-700 transition-colors font-medium">
+                      Explore Collection →
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
