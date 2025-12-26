@@ -36,3 +36,76 @@ CREATE POLICY "Allow public insert for seeding color_quiz_questions"
   ON color_quiz_questions FOR INSERT
   TO public
   WITH CHECK (true);
+
+-- 3D Sanctuary Explorer INSERT policies
+CREATE POLICY "Allow public insert for seeding sanctuary_3d_models"
+  ON sanctuary_3d_models FOR INSERT
+  TO public
+  WITH CHECK (true);
+
+CREATE POLICY "Allow public insert for seeding model_hotspots"
+  ON model_hotspots FOR INSERT
+  TO public
+  WITH CHECK (true);
+
+CREATE POLICY "Allow public insert for seeding guided_tours"
+  ON guided_tours FOR INSERT
+  TO public
+  WITH CHECK (true);
+
+CREATE POLICY "Allow public insert for seeding tour_stops"
+  ON tour_stops FOR INSERT
+  TO public
+  WITH CHECK (true);
+
+CREATE POLICY "Allow public insert for seeding model_comparisons"
+  ON model_comparisons FOR INSERT
+  TO public
+  WITH CHECK (true);
+
+CREATE POLICY "Allow public insert for seeding comparison_points"
+  ON comparison_points FOR INSERT
+  TO public
+  WITH CHECK (true);
+
+CREATE POLICY "Allow public insert for seeding element_measurements"
+  ON element_measurements FOR INSERT
+  TO public
+  WITH CHECK (true);
+
+-- UPDATE policies for seeding (allows idempotent seeding)
+CREATE POLICY "Allow public update for seeding sanctuary_3d_models"
+  ON sanctuary_3d_models FOR UPDATE
+  TO public
+  USING (true)
+  WITH CHECK (true);
+
+CREATE POLICY "Allow public update for seeding model_hotspots"
+  ON model_hotspots FOR UPDATE
+  TO public
+  USING (true)
+  WITH CHECK (true);
+
+CREATE POLICY "Allow public update for seeding guided_tours"
+  ON guided_tours FOR UPDATE
+  TO public
+  USING (true)
+  WITH CHECK (true);
+
+CREATE POLICY "Allow public update for seeding tour_stops"
+  ON tour_stops FOR UPDATE
+  TO public
+  USING (true)
+  WITH CHECK (true);
+
+CREATE POLICY "Allow public update for seeding element_measurements"
+  ON element_measurements FOR UPDATE
+  TO public
+  USING (true)
+  WITH CHECK (true);
+
+-- DELETE policies for tour_stops (to allow re-seeding of tours)
+CREATE POLICY "Allow public delete for seeding tour_stops"
+  ON tour_stops FOR DELETE
+  TO public
+  USING (true);

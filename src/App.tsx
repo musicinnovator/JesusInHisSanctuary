@@ -30,6 +30,8 @@ import PurplePage from './components/colors/PurplePage';
 import BrassPage from './components/colors/BrassPage';
 import GoldPage from './components/colors/GoldPage';
 import SilverPage from './components/colors/SilverPage';
+import { ThreeDExplorerLanding } from './components/3DExplorerLanding';
+import { Enhanced3DSanctuaryViewer } from './components/Enhanced3DSanctuaryViewer';
 
 function App() {
   return (
@@ -49,7 +51,8 @@ function App() {
           <Route path="/colors-classic/brass" element={<BrassPage />} />
           <Route path="/colors-classic/gold" element={<GoldPage />} />
           <Route path="/colors-classic/silver" element={<SilverPage />} />
-          <Route path="/explorer" element={<EnhancedSanctuaryViewer />} />
+          <Route path="/explorer" element={<ThreeDExplorerLanding />} />
+          <Route path="/explorer/:modelName" element={<Enhanced3DSanctuaryViewer />} />
           <Route path="/explorer-classic" element={<SanctuaryViewer />} />
           <Route path="/compare" element={<EnhancedCompareView />} />
           <Route path="/compare-classic" element={<ComparePage />} />
