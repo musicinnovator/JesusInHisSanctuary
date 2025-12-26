@@ -4,6 +4,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './components/HomePage';
 import ColorsPage from './components/ColorsPage';
+import SacredColorsLanding from './components/SacredColorsLanding';
+import ColorDetailPage from './components/ColorDetailPage';
 import SanctuaryViewer from './components/SanctuaryViewer';
 import EnhancedSanctuaryViewer from './components/EnhancedSanctuaryViewer';
 import ComparePage from './components/ComparePage';
@@ -36,15 +38,17 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/colors" element={<ColorsPage />} />
-          <Route path="/colors/blue" element={<BluePage />} />
-          <Route path="/colors/dark" element={<DarkPage />} />
-          <Route path="/colors/red" element={<RedPage />} />
-          <Route path="/colors/white" element={<WhitePage />} />
-          <Route path="/colors/purple" element={<PurplePage />} />
-          <Route path="/colors/brass" element={<BrassPage />} />
-          <Route path="/colors/gold" element={<GoldPage />} />
-          <Route path="/colors/silver" element={<SilverPage />} />
+          <Route path="/colors" element={<SacredColorsLanding />} />
+          <Route path="/colors/:slug" element={<ColorDetailPage />} />
+          <Route path="/colors-classic" element={<ColorsPage />} />
+          <Route path="/colors-classic/blue" element={<BluePage />} />
+          <Route path="/colors-classic/dark" element={<DarkPage />} />
+          <Route path="/colors-classic/red" element={<RedPage />} />
+          <Route path="/colors-classic/white" element={<WhitePage />} />
+          <Route path="/colors-classic/purple" element={<PurplePage />} />
+          <Route path="/colors-classic/brass" element={<BrassPage />} />
+          <Route path="/colors-classic/gold" element={<GoldPage />} />
+          <Route path="/colors-classic/silver" element={<SilverPage />} />
           <Route path="/explorer" element={<EnhancedSanctuaryViewer />} />
           <Route path="/explorer-classic" element={<SanctuaryViewer />} />
           <Route path="/compare" element={<EnhancedCompareView />} />
