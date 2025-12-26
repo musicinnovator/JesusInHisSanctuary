@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Play, Pause, RotateCw, ZoomIn, ZoomOut, Info, Map, BookOpen } from 'lucide-react';
+import { ArrowLeft, Play, Pause, RotateCw, ZoomIn, ZoomOut, Info, Map, BookOpen, Image } from 'lucide-react';
 import { useModelByName, trackModelView } from '../hooks/useSanctuary3D';
 import type { ModelHotspot, GuidedTour } from '../types/sanctuary3d';
+import { HistoricalImageGallery } from './HistoricalImageGallery';
+import { sampleHistoricalImages } from '../data/sampleHistoricalImages';
 
 export function Enhanced3DSanctuaryViewer() {
   const { modelName } = useParams<{ modelName: string }>();
@@ -14,6 +16,7 @@ export function Enhanced3DSanctuaryViewer() {
   const [showHotspots, setShowHotspots] = useState(true);
   const [showInfo, setShowInfo] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [viewMode, setViewMode] = useState<'3d' | 'images'>('3d');
 
   useEffect(() => {
     if (modelData) {
@@ -78,74 +81,99 @@ export function Enhanced3DSanctuaryViewer() {
             </div>
 
             <div className="flex items-center space-x-2">
-              <button
-                onClick={() => setShowInfo(!showInfo)}
-                className={`p-2 rounded-lg transition-colors ${
-                  showInfo ? 'bg-blue-600 text-white' : 'bg-white/10 text-white hover:bg-white/20'
-                }`}
-                title="Toggle Info Panel"
-              >
-                <Info className="w-5 h-5" />
-              </button>
-              <button
-                onClick={() => setShowHotspots(!showHotspots)}
-                className={`p-2 rounded-lg transition-colors ${
-                  showHotspots ? 'bg-blue-600 text-white' : 'bg-white/10 text-white hover:bg-white/20'
-                }`}
-                title="Toggle Hotspots"
-              >
-                <Map className="w-5 h-5" />
-              </button>
+              <div className="flex items-center bg-black/40 rounded-lg p-1 border border-white/10">
+                <button
+                  onClick={() => setViewMode('3d')}
+                  className={`px-3 py-1.5 rounded transition-colors text-sm font-medium ${
+                    viewMode === '3d' ? 'bg-blue-600 text-white' : 'text-gray-300 hover:text-white'
+                  }`}
+                >
+                  3D View
+                </button>
+                <button
+                  onClick={() => setViewMode('images')}
+                  className={`px-3 py-1.5 rounded transition-colors text-sm font-medium ${
+                    viewMode === 'images' ? 'bg-blue-600 text-white' : 'text-gray-300 hover:text-white'
+                  }`}
+                >
+                  Images
+                </button>
+              </div>
+
+              {viewMode === '3d' && (
+                <>
+                  <button
+                    onClick={() => setShowInfo(!showInfo)}
+                    className={`p-2 rounded-lg transition-colors ${
+                      showInfo ? 'bg-blue-600 text-white' : 'bg-white/10 text-white hover:bg-white/20'
+                    }`}
+                    title="Toggle Info Panel"
+                  >
+                    <Info className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={() => setShowHotspots(!showHotspots)}
+                    className={`p-2 rounded-lg transition-colors ${
+                      showHotspots ? 'bg-blue-600 text-white' : 'bg-white/10 text-white hover:bg-white/20'
+                    }`}
+                    title="Toggle Hotspots"
+                  >
+                    <Map className="w-5 h-5" />
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>
       </header>
 
       <div className="relative" style={{ height: 'calc(100vh - 88px)' }}>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40">
-          <div className="w-full h-full flex items-center justify-center">
-            <div className="text-center text-white max-w-2xl px-6">
-              <div className="mb-8">
-                <div className="w-32 h-32 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                  <BookOpen className="w-16 h-16 text-white" />
-                </div>
-                <h2 className="text-4xl font-bold mb-4">3D Model Coming Soon</h2>
-                <p className="text-lg text-gray-300 mb-8">
-                  The interactive 3D model for {modelData.title} is currently in development.
-                  Explore the hotspots and guided tours below to learn about this sacred space.
-                </p>
-              </div>
-
-              <div className="bg-black/60 backdrop-blur-sm rounded-xl p-6 text-left">
-                <h3 className="text-xl font-semibold mb-3">About This Sanctuary</h3>
-                <p className="text-gray-300 mb-4">{modelData.description}</p>
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {modelData.biblical_references.map((ref, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1 bg-blue-600/30 border border-blue-400/50 rounded-full text-sm text-blue-200"
-                    >
-                      {ref}
-                    </span>
-                  ))}
-                </div>
-
-                {modelData.dimensions_cubits && (
-                  <div className="text-sm text-gray-400">
-                    <span className="font-semibold">Dimensions: </span>
-                    {modelData.dimensions_cubits.length && `${modelData.dimensions_cubits.length} × `}
-                    {modelData.dimensions_cubits.width && `${modelData.dimensions_cubits.width} × `}
-                    {modelData.dimensions_cubits.height && `${modelData.dimensions_cubits.height}`}
-                    {' cubits'}
+        {viewMode === '3d' ? (
+          <>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40">
+              <div className="w-full h-full flex items-center justify-center">
+                <div className="text-center text-white max-w-2xl px-6">
+                  <div className="mb-8">
+                    <div className="w-32 h-32 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                      <BookOpen className="w-16 h-16 text-white" />
+                    </div>
+                    <h2 className="text-4xl font-bold mb-4">3D Model Coming Soon</h2>
+                    <p className="text-lg text-gray-300 mb-8">
+                      The interactive 3D model for {modelData.title} is currently in development.
+                      Explore the hotspots and guided tours below, or switch to the Images view to see real historical photographs and reconstructions.
+                    </p>
                   </div>
-                )}
+
+                  <div className="bg-black/60 backdrop-blur-sm rounded-xl p-6 text-left">
+                    <h3 className="text-xl font-semibold mb-3">About This Sanctuary</h3>
+                    <p className="text-gray-300 mb-4">{modelData.description}</p>
+
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {modelData.biblical_references.map((ref, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3 py-1 bg-blue-600/30 border border-blue-400/50 rounded-full text-sm text-blue-200"
+                        >
+                          {ref}
+                        </span>
+                      ))}
+                    </div>
+
+                    {modelData.dimensions_cubits && (
+                      <div className="text-sm text-gray-400">
+                        <span className="font-semibold">Dimensions: </span>
+                        {modelData.dimensions_cubits.length && `${modelData.dimensions_cubits.length} × `}
+                        {modelData.dimensions_cubits.width && `${modelData.dimensions_cubits.width} × `}
+                        {modelData.dimensions_cubits.height && `${modelData.dimensions_cubits.height}`}
+                        {' cubits'}
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        {showInfo && selectedHotspot && (
+            {showInfo && selectedHotspot && (
           <div className="absolute right-4 top-4 w-96 bg-black/90 backdrop-blur-lg rounded-xl border border-white/20 shadow-2xl overflow-hidden animate-fade-in">
             <div className="p-6">
               <div className="flex items-start justify-between mb-4">
@@ -198,9 +226,21 @@ export function Enhanced3DSanctuaryViewer() {
             </div>
           </div>
         )}
+          </>
+        ) : (
+          <div className="absolute inset-0 overflow-y-auto">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+              <HistoricalImageGallery
+                modelName={modelData.name}
+                images={sampleHistoricalImages[modelData.name as keyof typeof sampleHistoricalImages] || []}
+              />
+            </div>
+          </div>
+        )}
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 bg-black/60 backdrop-blur-lg border-t border-white/10">
+      {viewMode === '3d' && (
+        <div className="fixed bottom-0 left-0 right-0 bg-black/60 backdrop-blur-lg border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="grid md:grid-cols-2 gap-6">
             <div>
@@ -261,7 +301,8 @@ export function Enhanced3DSanctuaryViewer() {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      )}
     </div>
   );
 }
