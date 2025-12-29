@@ -16,6 +16,7 @@ import TimelinePage from './components/TimelinePage';
 import HeavenlyPortal from './components/HeavenlyPortal';
 import JudgmentModule from './components/JudgmentModule';
 import DigitalLibrary from './components/DigitalLibrary';
+import { CrosierBookViewer } from './components/CrosierBookViewer';
 import ForumsPage from './components/ForumsPage';
 import ProfilesPage from './components/ProfilesPage';
 import MythsPage from './components/MythsPage';
@@ -62,6 +63,7 @@ function App() {
           <Route path="/heavenly" element={<HeavenlyPortal />} />
           <Route path="/judgment" element={<JudgmentModule />} />
           <Route path="/library" element={<DigitalLibrary />} />
+          <Route path="/library/crosier-sanctuary" element={<CrosierBookViewer />} />
           <Route path="/forums" element={<ForumsPage />} />
           <Route path="/profiles" element={<ProfilesPage />} />
           <Route path="/myths" element={<MythsPage />} />

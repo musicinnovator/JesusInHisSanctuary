@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { Home, GraduationCap, Search, Download, ExternalLink, ListFilter as Filter, Star, Book, Loader2 } from 'lucide-react';
+import { Home, GraduationCap, Search, Download, ExternalLink, ListFilter as Filter, Star, Book, Loader2, BookOpen, Calendar, Award } from 'lucide-react';
 import DonationBanner from './DonationBanner';
 import { useLibraryResources, useAuthors, useCategories, useFeaturedCollections, useResourceDownload } from '../hooks/useLibraryResources';
 import { generateCitations, copyToClipboard } from '../utils/citationGenerator';
@@ -127,6 +127,101 @@ const DigitalLibrary = () => {
               </p>
             )}
           </div>
+        </div>
+
+        {/* Featured Historical Document - Crosier's Sanctuary */}
+        <div className="mb-8">
+          <Link to="/library/crosier-sanctuary" className="block">
+            <div className="bg-gradient-to-r from-amber-50 to-yellow-50 rounded-xl shadow-lg border-2 border-amber-600 hover:shadow-2xl hover:border-amber-700 transition-all duration-300 overflow-hidden">
+              <div className="flex flex-col md:flex-row">
+                {/* Image/Icon Section */}
+                <div className="md:w-1/4 bg-gradient-to-br from-amber-900 to-amber-800 flex items-center justify-center p-8">
+                  <div className="text-center">
+                    <BookOpen className="w-20 h-20 text-amber-200 mx-auto mb-3" />
+                    <div className="text-amber-100 text-sm font-semibold">1846</div>
+                  </div>
+                </div>
+
+                {/* Content Section */}
+                <div className="md:w-3/4 p-8">
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                          FEATURED HISTORICAL DOCUMENT
+                        </span>
+                        <span className="bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                          <Award className="w-3 h-3" />
+                          NEW
+                        </span>
+                      </div>
+                      <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                        The Sanctuary: The Center of Christ's Work
+                      </h2>
+                      <p className="text-lg text-amber-900 font-semibold mb-2">
+                        By O.R.L. Crosier
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    The foundational 1846 exposition of heavenly sanctuary doctrine that emerged from the 1844 Great Disappointment.
+                    This groundbreaking work, endorsed by Ellen G. White, established the biblical basis for Christ's two-phase ministry
+                    in the heavenly sanctuary and became a cornerstone of Seventh-day Adventist theology.
+                  </p>
+
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                    <div className="flex items-center gap-2 text-sm">
+                      <Calendar className="w-4 h-4 text-amber-700" />
+                      <span className="text-gray-700"><strong>Published:</strong> Feb 1846</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <BookOpen className="w-4 h-4 text-amber-700" />
+                      <span className="text-gray-700"><strong>Chapters:</strong> 8</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <Book className="w-4 h-4 text-amber-700" />
+                      <span className="text-gray-700"><strong>Scriptures:</strong> 100+</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <Star className="w-4 h-4 text-amber-600 fill-current" />
+                      <span className="text-gray-700"><strong>EGW Endorsed</strong></span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    <span className="text-xs px-3 py-1 bg-amber-100 text-amber-800 rounded-full font-medium">
+                      Heavenly Sanctuary
+                    </span>
+                    <span className="text-xs px-3 py-1 bg-amber-100 text-amber-800 rounded-full font-medium">
+                      1844 Movement
+                    </span>
+                    <span className="text-xs px-3 py-1 bg-amber-100 text-amber-800 rounded-full font-medium">
+                      Investigative Judgment
+                    </span>
+                    <span className="text-xs px-3 py-1 bg-amber-100 text-amber-800 rounded-full font-medium">
+                      Type & Antitype
+                    </span>
+                    <span className="text-xs px-3 py-1 bg-amber-100 text-amber-800 rounded-full font-medium">
+                      Day of Atonement
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-4 border-t border-amber-200">
+                    <div className="flex items-center gap-4">
+                      <div className="text-sm text-gray-600">
+                        <strong>Interactive Features:</strong> Chapter Analysis • Scripture Index • Concept Maps • Historical Timeline
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 text-amber-700 font-bold text-lg">
+                      Explore Now
+                      <ExternalLink className="w-5 h-5" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Link>
         </div>
 
         {/* Resources Grid */}
