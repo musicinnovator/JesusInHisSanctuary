@@ -224,6 +224,101 @@ const DigitalLibrary = () => {
           </Link>
         </div>
 
+        {/* Featured Historical Document - Haskell's Cross and Shadow */}
+        <div className="mb-8">
+          <Link to="/library/haskell-cross-shadow" className="block">
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl shadow-lg border-2 border-blue-600 hover:shadow-2xl hover:border-blue-700 transition-all duration-300 overflow-hidden">
+              <div className="flex flex-col md:flex-row">
+                {/* Image/Icon Section */}
+                <div className="md:w-1/4 bg-gradient-to-br from-blue-900 to-blue-800 flex items-center justify-center p-8">
+                  <div className="text-center">
+                    <BookOpen className="w-20 h-20 text-blue-200 mx-auto mb-3" />
+                    <div className="text-blue-100 text-sm font-semibold">1896</div>
+                  </div>
+                </div>
+
+                {/* Content Section */}
+                <div className="md:w-3/4 p-8">
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                          FEATURED HISTORICAL DOCUMENT
+                        </span>
+                        <span className="bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                          <Award className="w-3 h-3" />
+                          NEW
+                        </span>
+                      </div>
+                      <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                        The Cross and Its Shadow
+                      </h2>
+                      <p className="text-lg text-blue-900 font-semibold mb-2">
+                        By Stephen N. Haskell
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    The most comprehensive study of the Old Testament sanctuary and its services, demonstrating how every element
+                    prefigured Christ's ministry. Written between 1896-1914, this systematic exploration became one of the most
+                    influential sanctuary studies in Adventist literature, examining each offering, feast, and furnishing in detail.
+                  </p>
+
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                    <div className="flex items-center gap-2 text-sm">
+                      <Calendar className="w-4 h-4 text-blue-700" />
+                      <span className="text-gray-700"><strong>Published:</strong> 1896-1914</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <BookOpen className="w-4 h-4 text-blue-700" />
+                      <span className="text-gray-700"><strong>Chapters:</strong> 28</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <Book className="w-4 h-4 text-blue-700" />
+                      <span className="text-gray-700"><strong>Scriptures:</strong> 200+</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <Star className="w-4 h-4 text-blue-600 fill-current" />
+                      <span className="text-gray-700"><strong>Pioneer Work</strong></span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    <span className="text-xs px-3 py-1 bg-blue-100 text-blue-800 rounded-full font-medium">
+                      Levitical Services
+                    </span>
+                    <span className="text-xs px-3 py-1 bg-blue-100 text-blue-800 rounded-full font-medium">
+                      Type & Antitype
+                    </span>
+                    <span className="text-xs px-3 py-1 bg-blue-100 text-blue-800 rounded-full font-medium">
+                      Sanctuary Furniture
+                    </span>
+                    <span className="text-xs px-3 py-1 bg-blue-100 text-blue-800 rounded-full font-medium">
+                      The Offerings
+                    </span>
+                    <span className="text-xs px-3 py-1 bg-blue-100 text-blue-800 rounded-full font-medium">
+                      The Feasts
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-4 border-t border-blue-200">
+                    <div className="flex items-center gap-4">
+                      <div className="text-sm text-gray-600">
+                        <strong>Interactive Features:</strong> 28 Chapters • Scripture Index • Concept Maps • Type-Antitype Analysis
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 text-blue-700 font-bold text-lg">
+                      Explore Now
+                      <ExternalLink className="w-5 h-5" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </div>
+
         {/* Resources Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {resourcesLoading ? (
