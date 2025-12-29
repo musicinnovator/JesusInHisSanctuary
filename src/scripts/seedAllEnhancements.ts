@@ -10,6 +10,9 @@
  * Run with: npx tsx src/scripts/seedAllEnhancements.ts
  */
 
+// Load environment variables from .env file
+import 'dotenv/config';
+
 import { seedScriptureTexts } from './seedScriptureTexts';
 import { seedTimelineEvents } from './seedTimelineEvents';
 import { seedConceptRelationships } from './seedConceptRelationships';

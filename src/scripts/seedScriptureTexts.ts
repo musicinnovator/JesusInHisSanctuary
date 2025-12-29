@@ -265,7 +265,7 @@ export async function seedScriptureTexts() {
     // First, get existing scripture references to link to
     const { data: existingRefs, error: refsError } = await supabase
       .from('crosier_scripture_references')
-      .select('id, reference');
+      .select('id, reference_text, book, chapter, verse_start, verse_end');
 
     if (refsError) {
       console.error('Error fetching existing references:', refsError);
@@ -277,16 +277,13 @@ export async function seedScriptureTexts() {
     const textsToInsert = [];
 
     for (const text of scriptureTexts) {
-      // Try to find matching reference
-      const reference = text.verse_end
-        ? `${text.book} ${text.chapter}:${text.verse_start}-${text.verse_end}`
-        : `${text.book} ${text.chapter}:${text.verse_start}`;
-
-      const matchingRef = existingRefs?.find(ref => {
-        const refStr = ref.reference.trim();
-        const targetStr = reference.trim();
-        return refStr === targetStr || refStr.includes(text.book) && refStr.includes(`${text.chapter}:`);
-      });
+      // Try to find matching reference by book, chapter, and verse
+      const matchingRef = existingRefs?.find(ref =>
+        ref.book === text.book &&
+        ref.chapter === text.chapter &&
+        ref.verse_start === text.verse_start &&
+        (ref.verse_end === text.verse_end || (!ref.verse_end && !text.verse_end))
+      );
 
       textsToInsert.push({
         reference_id: matchingRef?.id || null,
