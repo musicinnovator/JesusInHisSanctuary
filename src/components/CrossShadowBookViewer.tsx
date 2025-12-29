@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Book, ChevronRight, Search, Filter, BookOpen, Grid, List, FileText, Link as LinkIcon } from 'lucide-react';
 import { useCrossShadowBook } from '../hooks/useCrossShadowBook';
+import { CrossShadowScripturesView } from './CrossShadowScripturesView';
+import { CrossShadowConceptsView } from './CrossShadowConceptsView';
 
 interface ViewMode {
   type: 'overview' | 'chapters' | 'sections' | 'scriptures' | 'concepts';
@@ -339,19 +341,9 @@ export function CrossShadowBookViewer() {
           </div>
         )}
 
-        {viewMode.type === 'scriptures' && (
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Scripture References</h2>
-            <p className="text-gray-600">Scripture catalog coming soon...</p>
-          </div>
-        )}
+        {viewMode.type === 'scriptures' && <CrossShadowScripturesView />}
 
-        {viewMode.type === 'concepts' && (
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Theological Concepts</h2>
-            <p className="text-gray-600">Concept exploration coming soon...</p>
-          </div>
-        )}
+        {viewMode.type === 'concepts' && <CrossShadowConceptsView />}
       </main>
     </div>
   );
