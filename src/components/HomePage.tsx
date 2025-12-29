@@ -268,15 +268,11 @@ const HomePage = () => {
                 to={page.link}
                 className="group bg-white rounded-xl shadow-lg border border-sanctuary-silver hover:shadow-xl transition-all duration-300 overflow-hidden"
               >
-                {/* Preview Image Placeholder */}
+                {/* Badge Illustration */}
                 <div className={`h-48 bg-gradient-to-br ${page.color} flex items-center justify-center relative overflow-hidden`}>
-                  <div className="text-white/80 text-center">
-                    {page.icon}
-                    <div className="mt-2 text-sm font-medium">Preview</div>
-                  </div>
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
 
-                  {/* Additive SVG Illustration Overlay */}
+                  {/* SVG Illustration Overlay */}
                   <BadgeImageOverlay
                     featureId={page.id}
                     fallbackIcon={page.icon}
