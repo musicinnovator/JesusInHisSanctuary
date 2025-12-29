@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { supabase } from '../lib/supabase';
 
 interface ConceptRelationshipData {
@@ -33,7 +34,7 @@ const conceptRelationships: ConceptRelationshipData[] = [
   },
   {
     concept_from: 'Two-Phase Ministry',
-    concept_to: 'Yearly Atonement (Day of Atonement)',
+    concept_to: 'Yearly Atonement',
     relationship_type: 'supports',
     strength: 9,
     description: 'The second phase of Christ\'s ministry corresponds to the yearly Day of Atonement service.'
@@ -46,14 +47,14 @@ const conceptRelationships: ConceptRelationshipData[] = [
     description: 'Through the daily ministry, Christ applies His sacrifice to forgive repentant sinners and intercedes for believers.'
   },
   {
-    concept_from: 'Yearly Atonement (Day of Atonement)',
+    concept_from: 'Yearly Atonement',
     concept_to: 'Blotting Out of Sins',
     relationship_type: 'supports',
     strength: 10,
     description: 'The Day of Atonement ministry accomplishes the final blotting out and complete removal of confessed sins from the sanctuary records.'
   },
   {
-    concept_from: 'Yearly Atonement (Day of Atonement)',
+    concept_from: 'Yearly Atonement',
     concept_to: 'Investigative Judgment',
     relationship_type: 'supports',
     strength: 10,
@@ -68,13 +69,13 @@ const conceptRelationships: ConceptRelationshipData[] = [
   },
   {
     concept_from: 'Cleansing of the Sanctuary',
-    concept_to: '2300 Days Prophecy',
+    concept_to: '2300 Day Prophecy',
     relationship_type: 'fulfills',
     strength: 10,
     description: 'Daniel 8:14 prophesies that after 2300 days (years), the sanctuary will be cleansed. This was fulfilled in 1844.'
   },
   {
-    concept_from: '2300 Days Prophecy',
+    concept_from: '2300 Day Prophecy',
     concept_to: 'October 22, 1844',
     relationship_type: 'fulfills',
     strength: 10,
@@ -97,13 +98,6 @@ const conceptRelationships: ConceptRelationshipData[] = [
     description: 'The Aaronic priests were types of Christ, the true High Priest. Their work foreshadowed Christ\'s heavenly ministry.'
   },
   {
-    concept_from: 'Daily Sacrifices',
-    concept_to: 'Christ\'s Sacrifice',
-    relationship_type: 'exemplifies',
-    strength: 10,
-    description: 'The continual daily sacrifices in the earthly sanctuary pointed forward to Christ\'s once-for-all sacrifice on the cross.'
-  },
-  {
     concept_from: 'Day of Atonement (Type)',
     concept_to: 'Investigative Judgment',
     relationship_type: 'exemplifies',
@@ -111,7 +105,7 @@ const conceptRelationships: ConceptRelationshipData[] = [
     description: 'The earthly Day of Atonement ceremony was a type of the investigative judgment that began in 1844.'
   },
   {
-    concept_from: 'Scapegoat',
+    concept_from: 'Scapegoat as Satan',
     concept_to: 'Satan\'s Final Judgment',
     relationship_type: 'exemplifies',
     strength: 8,
@@ -120,7 +114,7 @@ const conceptRelationships: ConceptRelationshipData[] = [
 
   // Prophetic Interpretation Relationships
   {
-    concept_from: '2300 Days Prophecy',
+    concept_from: '2300 Day Prophecy',
     concept_to: '70 Weeks Prophecy',
     relationship_type: 'depends_on',
     strength: 9,
@@ -135,7 +129,7 @@ const conceptRelationships: ConceptRelationshipData[] = [
   },
   {
     concept_from: 'Year-Day Principle',
-    concept_to: '2300 Days Prophecy',
+    concept_to: '2300 Day Prophecy',
     relationship_type: 'supports',
     strength: 10,
     description: 'The year-day principle (one prophetic day = one literal year) is essential for understanding the 2300 days as 2300 years.'
@@ -293,7 +287,7 @@ const conceptRelationships: ConceptRelationshipData[] = [
     description: 'The blotting out of sins represents the final, complete atonement for God\'s faithful people.'
   },
   {
-    concept_from: 'Scapegoat',
+    concept_from: 'Scapegoat as Satan',
     concept_to: 'Close of Probation',
     relationship_type: 'precedes',
     strength: 8,
