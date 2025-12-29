@@ -123,6 +123,16 @@ const HomePage = () => {
       preview: 'Access thousands of scholarly articles and historical documents with citation tools'
     },
     {
+      id: 'cross-shadow',
+      title: 'The Cross and Its Shadow',
+      description: 'Stephen N. Haskell\'s comprehensive study of sanctuary typology',
+      features: ['50 Chapters', '9 Sections', '1,114+ Scripture References', 'Theological Concepts'],
+      icon: <Book className="w-8 h-8" />,
+      color: 'from-amber-700 to-orange-900',
+      link: '/cross-shadow',
+      preview: 'Explore Haskell\'s masterwork connecting Old Testament sanctuary types to Christ\'s ministry'
+    },
+    {
       id: 'forums',
       title: 'Secure Discussion Forums',
       description: 'Moderated community dialogue and study groups',
