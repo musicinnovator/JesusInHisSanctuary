@@ -319,6 +319,102 @@ const DigitalLibrary = () => {
           </Link>
         </div>
 
+        {/* Featured Historical Document - Andreasen's Sanctuary Service */}
+        <div className="mb-8">
+          <Link to="/library/andreasen-sanctuary" className="block">
+            <div className="bg-gradient-to-r from-purple-50 to-violet-50 rounded-xl shadow-lg border-2 border-purple-600 hover:shadow-2xl hover:border-purple-700 transition-all duration-300 overflow-hidden">
+              <div className="flex flex-col md:flex-row">
+                {/* Image/Icon Section */}
+                <div className="md:w-1/4 bg-gradient-to-br from-purple-900 to-purple-800 flex items-center justify-center p-8">
+                  <div className="text-center">
+                    <BookOpen className="w-20 h-20 text-purple-200 mx-auto mb-3" />
+                    <div className="text-purple-100 text-sm font-semibold">1947</div>
+                  </div>
+                </div>
+
+                {/* Content Section */}
+                <div className="md:w-3/4 p-8">
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                          FEATURED HISTORICAL DOCUMENT
+                        </span>
+                        <span className="bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                          <Award className="w-3 h-3" />
+                          NEW
+                        </span>
+                      </div>
+                      <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                        The Sanctuary Service
+                      </h2>
+                      <p className="text-lg text-purple-900 font-semibold mb-2">
+                        By M.L. Andreasen
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    A comprehensive mid-20th century exposition of sanctuary theology that became foundational to Adventist doctrine.
+                    Published in 1947, this systematic study explores the sacrificial system, Day of Atonement, investigative judgment,
+                    and last generation theology with extensive Ellen G. White quotations. Andreasen presents the sanctuary as the
+                    central organizing principle of biblical theology.
+                  </p>
+
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                    <div className="flex items-center gap-2 text-sm">
+                      <Calendar className="w-4 h-4 text-purple-700" />
+                      <span className="text-gray-700"><strong>Published:</strong> 1947</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <BookOpen className="w-4 h-4 text-purple-700" />
+                      <span className="text-gray-700"><strong>Chapters:</strong> 22</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <Book className="w-4 h-4 text-purple-700" />
+                      <span className="text-gray-700"><strong>Scriptures:</strong> 150+</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <Star className="w-4 h-4 text-purple-600 fill-current" />
+                      <span className="text-gray-700"><strong>Systematic Study</strong></span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    <span className="text-xs px-3 py-1 bg-purple-100 text-purple-800 rounded-full font-medium">
+                      Investigative Judgment
+                    </span>
+                    <span className="text-xs px-3 py-1 bg-purple-100 text-purple-800 rounded-full font-medium">
+                      Last Generation
+                    </span>
+                    <span className="text-xs px-3 py-1 bg-purple-100 text-purple-800 rounded-full font-medium">
+                      Scapegoat Theology
+                    </span>
+                    <span className="text-xs px-3 py-1 bg-purple-100 text-purple-800 rounded-full font-medium">
+                      Five Offerings
+                    </span>
+                    <span className="text-xs px-3 py-1 bg-purple-100 text-purple-800 rounded-full font-medium">
+                      Prophetic Timeline
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-4 border-t border-purple-200">
+                    <div className="flex items-center gap-4">
+                      <div className="text-sm text-gray-600">
+                        <strong>Interactive Features:</strong> 22 Chapters • Scripture Explorer • Concepts Map • Timeline • Study Tools
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 text-purple-700 font-bold text-lg">
+                      Explore Now
+                      <ExternalLink className="w-5 h-5" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </div>
+
         {/* Resources Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {resourcesLoading ? (
