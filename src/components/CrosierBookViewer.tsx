@@ -12,6 +12,10 @@
 import React, { useState } from 'react';
 import { Book, ScrollText, Lightbulb, Map, Search, Calendar } from 'lucide-react';
 import { useCrosierMetadata, useCrosierChapters } from '../hooks/useCrosierBook';
+import { ScriptureExplorerView } from './ScriptureExplorerView';
+import { ConceptsMapView } from './ConceptsMapView';
+import { DiagramsView as DiagramsViewComponent } from './DiagramsView';
+import { TimelineView as TimelineViewComponent } from './TimelineView';
 
 type ViewMode = 'overview' | 'chapters' | 'scriptures' | 'concepts' | 'diagrams' | 'timeline';
 
@@ -113,13 +117,13 @@ export function CrosierBookViewer() {
       </nav>
 
       {/* Main Content Area */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className={viewMode === 'overview' || viewMode === 'chapters' ? 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8' : ''}>
         {viewMode === 'overview' && <OverviewView metadata={metadata} chapters={chapters} />}
         {viewMode === 'chapters' && <ChaptersView chapters={chapters} />}
-        {viewMode === 'scriptures' && <ScripturesView />}
-        {viewMode === 'concepts' && <ConceptsView />}
-        {viewMode === 'diagrams' && <DiagramsView />}
-        {viewMode === 'timeline' && <TimelineView />}
+        {viewMode === 'scriptures' && <ScriptureExplorerView />}
+        {viewMode === 'concepts' && <ConceptsMapView />}
+        {viewMode === 'diagrams' && <DiagramsViewComponent />}
+        {viewMode === 'timeline' && <TimelineViewComponent />}
       </main>
     </div>
   );
@@ -290,38 +294,5 @@ function ChaptersView({ chapters }: { chapters: any[] }) {
   );
 }
 
-function ScripturesView() {
-  return (
-    <div className="bg-white rounded-lg shadow-md p-6">
-      <h2 className="text-2xl font-bold mb-4">Scripture Reference Index</h2>
-      <p className="text-gray-600">Browse all 100+ scripture references used by Crosier, organized by Bible book...</p>
-    </div>
-  );
-}
-
-function ConceptsView() {
-  return (
-    <div className="bg-white rounded-lg shadow-md p-6">
-      <h2 className="text-2xl font-bold mb-4">Theological Concepts</h2>
-      <p className="text-gray-600">Interactive concept map showing relationships between doctrinal themes...</p>
-    </div>
-  );
-}
-
-function DiagramsView() {
-  return (
-    <div className="bg-white rounded-lg shadow-md p-6">
-      <h2 className="text-2xl font-bold mb-4">Diagrams & Visualizations</h2>
-      <p className="text-gray-600">Visual representations of sanctuary structure, ministry phases, and prophetic timelines...</p>
-    </div>
-  );
-}
-
-function TimelineView() {
-  return (
-    <div className="bg-white rounded-lg shadow-md p-6">
-      <h2 className="text-2xl font-bold mb-4">Historical Timeline</h2>
-      <p className="text-gray-600">Timeline of events from 1844 Great Disappointment to publication...</p>
-    </div>
-  );
-}
+// Note: ScripturesView, ConceptsView, DiagramsView, and TimelineView are now
+// imported from their own component files for better code organization
