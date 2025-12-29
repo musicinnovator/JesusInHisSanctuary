@@ -20,6 +20,7 @@ import { CrosierBookViewer } from './components/CrosierBookViewer';
 import { CrossShadowBookViewer } from './components/CrossShadowBookViewer';
 import { HaskellBookViewer } from './components/HaskellBookViewer';
 import AndreasenBookViewer from './components/AndreasenBookViewer';
+import { GilbertBookViewer } from './components/GilbertBookViewer';
 import ForumsPage from './components/ForumsPage';
 import ProfilesPage from './components/ProfilesPage';
 import MythsPage from './components/MythsPage';
@@ -69,6 +70,7 @@ function App() {
           <Route path="/library/crosier-sanctuary" element={<CrosierBookViewer />} />
           <Route path="/library/haskell-cross-shadow" element={<HaskellBookViewer />} />
           <Route path="/library/andreasen-sanctuary" element={<AndreasenBookViewer />} />
+          <Route path="/library/gilbert-messiah" element={<GilbertBookViewer />} />
           <Route path="/cross-shadow" element={<CrossShadowBookViewer />} />
           <Route path="/forums" element={<ForumsPage />} />
           <Route path="/profiles" element={<ProfilesPage />} />
