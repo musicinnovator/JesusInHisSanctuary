@@ -92,7 +92,7 @@ const TimelinePage = () => {
     // Step 7
     {
       step: 7,
-      aaron: "Washes hands & feet",
+      aaron: "Washes hands & feet (each time there is a sacrifice is made)",
       jesus: "He possesed the same body that He had before taking on humanity. Divine stature restored to 16ft.",
       aaronRef: "Exodus 30:18-21",
       jesusRef: "Hebrews 2:5-19; I Corinthians 15:35-53",
