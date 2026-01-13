@@ -94,7 +94,7 @@ const TimelinePage = () => {
       step: 7,
       aaron: "Washes hands & feet (each time there is a sacrifice is made)",
       jesus: "He possesed the same body that He had before taking on humanity. Divine stature restored to 16ft.",
-      aaronRef: "Exodus 30:18-21",
+      aaronRef: "Exodus 30:18-21  Ex:30:18: Thou shalt also make a laver of brass, and his foot also of brass, to wash withal: and thou shalt put it between the tabernacle of the congregation and the altar, and thou shalt put water therein. 19 For Aaron and his sons shall wash their hands and their feet thereat : 20 When they go into the tabernacle of the congregation, they shall wash with water, that they die not; or when they come near to the altar to minister, to burn offering made by fire unto the LORD: 21: So they shall wash their hands and their feet, that they die not: and it shall be a statute for ever to them, even to him and to his seed throughout their generations.  ",
       jesusRef: "Hebrews 2:5-19; I Corinthians 15:35-53",
       description: "Renewed purity in type; assertion of restored divine stature as He had in Heaven."
     },
