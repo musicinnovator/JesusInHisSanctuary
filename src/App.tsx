@@ -12,6 +12,7 @@ import ComparePage from './components/ComparePage';
 import EnhancedCompareView from './components/EnhancedCompareView';
 import ScriptureNavigator from './components/ScriptureNavigator';
 import SymbolismPage from './components/SymbolismPage';
+import SymbolismExplorer from './components/SymbolismExplorer';
 import TimelinePage from './components/TimelinePage';
 import HeavenlyPortal from './components/HeavenlyPortal';
 import JudgmentModule from './components/JudgmentModule';
@@ -62,7 +63,8 @@ function App() {
           <Route path="/compare" element={<EnhancedCompareView />} />
           <Route path="/compare-classic" element={<ComparePage />} />
           <Route path="/scripture" element={<ScriptureNavigator />} />
-          <Route path="/symbolism" element={<SymbolismPage />} />
+          <Route path="/symbolism" element={<SymbolismExplorer />} />
+          <Route path="/symbolism-classic" element={<SymbolismPage />} />
           <Route path="/timeline" element={<TimelinePage />} />
           <Route path="/heavenly" element={<HeavenlyPortal />} />
           <Route path="/judgment" element={<JudgmentModule />} />
