@@ -1,3 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* Academic Color System */
+    --sanctuary-navy: #1C2A39;
+    --sanctuary-gold: #8C6B3C;
+    --sanctuary-gold-light: #BFA76A;
+    --sanctuary-background: #F7F7F5;
+    --sanctuary-surface: #FFFFFF;
+    --text-primary: #222222;
+    --text-secondary: #4A4A4A;
+    --text-tertiary: #6B6B6B;
+    --divider: #E5E5E5;
+
+    /* Functional Colors */
+    --success: #2D5A3D;
+    --warning: #8C6B3C;
+    --error: #8B3A3A;
+    --info: #2A4A5C;
+
+    /* Typography Scale */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+
+    /* Spacing System (8px grid) */
+    --space-0: 0;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 16px;
+    --space-4: 24px;
+    --space-5: 32px;
+    --space-6: 48px;
+    --space-7: 64px;
+    --space-8: 80px;
+    --space-9: 96px;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text-primary);
+    background-color: var(--sanctuary-background);
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', 'Palatino', 'Georgia', serif;
+    color: var(--sanctuary-navy);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: var(--text-5xl);
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: var(--text-4xl);
+    font-weight: 600;
+  }
+
+  h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--text-2xl);
+    font-weight: 700;
+  }
+
+  h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--text-xl);
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  /* Academic Button Styles */
+  .btn-primary {
+    @apply bg-sanctuary-gold text-white border-none px-8 py-3 font-body font-semibold text-base rounded transition-all duration-200;
+  }
+
+  .btn-primary:hover {
+    @apply bg-sanctuary-gold-light transform -translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent text-sanctuary-gold border-2 border-sanctuary-gold px-8 py-3 font-body font-semibold text-base rounded transition-all duration-200;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-sanctuary-gold text-white;
+  }
+
+  /* Academic Card Style */
+  .card-academic {
+    @apply bg-white border border-divider rounded p-8 transition-all duration-200;
+  }
+
+  .card-academic:hover {
+    @apply border-sanctuary-gold shadow-lg;
+  }
+
+  /* Scripture Block */
+  .scripture-block {
+    @apply bg-sanctuary-background border-l-4 border-sanctuary-gold p-6 my-8;
+  }
+
+  .scripture-block p {
+    @apply font-scripture text-lg leading-relaxed text-text-primary;
+  }
+
+  .scripture-reference {
+    @apply font-body font-semibold text-sm text-sanctuary-gold mb-3;
+  }
+
+  /* Container */
+  .container-academic {
+    @apply max-w-container-xl mx-auto px-4 tablet:px-8 desktop:px-16;
+  }
+
+  /* Section Spacing */
+  .section-spacing {
+    @apply py-16 tablet:py-20 desktop:py-24;
+  }
+}

@@ -195,10 +195,10 @@ const HomePage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-sanctuary-linen">
+    <div className="min-h-screen bg-sanctuary-background">
       <DonationBanner />
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-sanctuary-blue-dark via-sanctuary-purple to-sanctuary-purple-dark text-white">
+      <section className="bg-sanctuary-navy text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center mb-16">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
