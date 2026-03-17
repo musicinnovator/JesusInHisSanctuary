@@ -1,62 +1,40 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Hop as Home, Search, Book, BookOpen, GitBranch, Languages, Box, GraduationCap, Grid2x2 as Grid, List, X } from 'lucide-react';
+import { Hop as Home, Search, Book, BookOpen, GitBranch, Languages, Box, GraduationCap, Grid2x2 as Grid, List, X, ListFilter as Filter, Tag } from 'lucide-react';
 import DonationBanner from './DonationBanner';
 import { LibraryResourcesPanel } from './symbolism/LibraryResourcesPanel';
 import { TypologyPanel } from './symbolism/TypologyPanel';
 import { LinguisticPanel } from './symbolism/LinguisticPanel';
 import { Model3DPanel } from './symbolism/Model3DPanel';
 import { LearningPanel } from './symbolism/LearningPanel';
+import { useSymbols, useSymbol, useSDACommentary, useSymbolCategories, useRelatedSymbols, type SymbolFilters } from '../hooks/useSymbolismBase';
 
-type ViewTab = 'library' | 'typology' | 'linguistic' | '3d' | 'learning' | 'overview';
+type ViewTab = 'library' | 'typology' | 'linguistic' | '3d' | 'learning' | 'overview' | 'commentary';
 
 const SymbolismExplorer = () => {
   const [activeTab, setActiveTab] = useState<ViewTab>('overview');
   const [selectedSymbolId, setSelectedSymbolId] = useState<string>('');
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [showFilters, setShowFilters] = useState(false);
+  const [filters, setFilters] = useState<SymbolFilters>({});
 
-  // Sample symbols - in real app, these would come from the database
-  const sampleSymbols = [
-    {
-      id: '1',
-      name: 'Ark of the Covenant',
-      category: 'furniture',
-      location: 'Most Holy Place',
-      shortDescription: 'Sacred chest containing the tablets of the law',
-      image: '/images/ark.jpg',
-    },
-    {
-      id: '2',
-      name: 'Altar of Burnt Offering',
-      category: 'furniture',
-      location: 'Outer Court',
-      shortDescription: 'Bronze altar where sacrifices were offered',
-      image: '/images/altar.jpg',
-    },
-    {
-      id: '3',
-      name: 'Golden Lampstand',
-      category: 'furniture',
-      location: 'Holy Place',
-      shortDescription: 'Seven-branched menorah providing light',
-      image: '/images/lampstand.jpg',
-    },
-  ];
+  // Fetch data from database
+  const { symbols, loading: symbolsLoading } = useSymbols({ ...filters, search: searchQuery });
+  const { symbol: selectedSymbol, loading: symbolLoading } = useSymbol(selectedSymbolId);
+  const { commentary, loading: commentaryLoading } = useSDACommentary(selectedSymbolId);
+  const { categories } = useSymbolCategories();
+  const { relatedSymbols } = useRelatedSymbols(selectedSymbolId);
 
   const tabs = [
     { id: 'overview', label: 'Overview', icon: Book },
+    { id: 'commentary', label: 'SDA Commentary', icon: BookOpen },
     { id: 'library', label: 'Library', icon: BookOpen },
     { id: 'typology', label: 'Type & Antitype', icon: GitBranch },
     { id: 'linguistic', label: 'Word Studies', icon: Languages },
     { id: '3d', label: '3D Models', icon: Box },
     { id: 'learning', label: 'Learning', icon: GraduationCap },
   ];
-
-  const filteredSymbols = sampleSymbols.filter((symbol) =>
-    symbol.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    symbol.shortDescription.toLowerCase().includes(searchQuery.toLowerCase())
-  );
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -128,30 +106,94 @@ const SymbolismExplorer = () => {
                 )}
               </div>
 
-              <div className="space-y-2 max-h-[600px] overflow-y-auto">
-                {filteredSymbols.map((symbol) => (
-                  <button
-                    key={symbol.id}
-                    onClick={() => setSelectedSymbolId(symbol.id)}
-                    className={`w-full text-left p-3 rounded-lg transition-all ${
-                      selectedSymbolId === symbol.id
-                        ? 'bg-amber-50 border-2 border-amber-500 shadow-md'
-                        : 'bg-gray-50 border border-gray-200 hover:bg-gray-100'
-                    }`}
-                  >
-                    <div className="font-medium text-gray-900">{symbol.name}</div>
-                    <div className="text-xs text-gray-500 mt-1">{symbol.location}</div>
-                    {viewMode === 'list' && (
-                      <div className="text-xs text-gray-600 mt-2">{symbol.shortDescription}</div>
-                    )}
-                  </button>
-                ))}
-              </div>
+              {/* Filters */}
+              <button
+                onClick={() => setShowFilters(!showFilters)}
+                className="w-full mb-3 flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg"
+              >
+                <Filter className="w-4 h-4" />
+                {showFilters ? 'Hide Filters' : 'Show Filters'}
+              </button>
 
-              {filteredSymbols.length === 0 && (
-                <div className="text-center py-8 text-gray-500">
-                  <p>No symbols found</p>
+              {showFilters && (
+                <div className="mb-4 p-4 bg-gray-50 border border-gray-200 rounded-lg space-y-3">
+                  <div>
+                    <label className="block text-xs font-medium text-gray-700 mb-1">Category</label>
+                    <select
+                      value={filters.category || ''}
+                      onChange={(e) => setFilters({ ...filters, category: e.target.value as any })}
+                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500"
+                    >
+                      <option value="">All Categories</option>
+                      <option value="furniture">Furniture</option>
+                      <option value="materials">Materials</option>
+                      <option value="colors">Colors</option>
+                      <option value="rituals">Rituals</option>
+                      <option value="garments">Garments</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-gray-700 mb-1">Location</label>
+                    <select
+                      value={filters.sanctuary_location || ''}
+                      onChange={(e) => setFilters({ ...filters, sanctuary_location: e.target.value as any })}
+                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500"
+                    >
+                      <option value="">All Locations</option>
+                      <option value="outer_court">Outer Court</option>
+                      <option value="holy_place">Holy Place</option>
+                      <option value="most_holy_place">Most Holy Place</option>
+                    </select>
+                  </div>
+                  <button
+                    onClick={() => setFilters({})}
+                    className="w-full text-xs text-gray-600 hover:text-gray-900"
+                  >
+                    Clear Filters
+                  </button>
                 </div>
+              )}
+
+              {symbolsLoading ? (
+                <div className="flex items-center justify-center py-8">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-amber-600"></div>
+                </div>
+              ) : (
+                <>
+                  <div className="space-y-2 max-h-[600px] overflow-y-auto">
+                    {symbols.map((symbol) => (
+                      <button
+                        key={symbol.id}
+                        onClick={() => setSelectedSymbolId(symbol.id)}
+                        className={`w-full text-left p-3 rounded-lg transition-all ${
+                          selectedSymbolId === symbol.id
+                            ? 'bg-amber-50 border-2 border-amber-500 shadow-md'
+                            : 'bg-gray-50 border border-gray-200 hover:bg-gray-100'
+                        }`}
+                      >
+                        <div className="flex items-start justify-between">
+                          <div className="flex-1">
+                            <div className="font-medium text-gray-900">{symbol.name}</div>
+                            <div className="text-xs text-gray-500 mt-1">{symbol.sanctuary_location?.replace('_', ' ') || 'General'}</div>
+                            {viewMode === 'list' && (
+                              <div className="text-xs text-gray-600 mt-2 line-clamp-2">{symbol.short_description}</div>
+                            )}
+                          </div>
+                          {symbol.tags.length > 0 && (
+                            <Tag className="w-3 h-3 text-amber-600 flex-shrink-0 ml-2" />
+                          )}
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+
+                  {symbols.length === 0 && (
+                    <div className="text-center py-8 text-gray-500">
+                      <p>No symbols found</p>
+                      <p className="text-sm mt-1">Try adjusting your filters</p>
+                    </div>
+                  )}
+                </>
               )}
             </div>
           </div>
@@ -217,26 +259,70 @@ const SymbolismExplorer = () => {
             ) : (
               <>
                 {/* Symbol Header */}
-                <div className="bg-white rounded-lg p-6 shadow-lg">
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                        {sampleSymbols.find((s) => s.id === selectedSymbolId)?.name}
-                      </h2>
-                      <div className="flex items-center gap-4 text-sm text-gray-600">
-                        <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full font-medium">
-                          {sampleSymbols.find((s) => s.id === selectedSymbolId)?.category}
-                        </span>
-                        <span>
-                          {sampleSymbols.find((s) => s.id === selectedSymbolId)?.location}
-                        </span>
+                {symbolLoading ? (
+                  <div className="bg-white rounded-lg p-12 shadow-lg flex items-center justify-center">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-amber-600"></div>
+                  </div>
+                ) : selectedSymbol ? (
+                  <div className="bg-white rounded-lg p-6 shadow-lg">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex-1">
+                        <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                          {selectedSymbol.name}
+                        </h2>
+                        <div className="flex flex-wrap items-center gap-2 mb-3">
+                          <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full font-medium text-sm">
+                            {selectedSymbol.category}
+                          </span>
+                          {selectedSymbol.sanctuary_location && (
+                            <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full font-medium text-sm">
+                              {selectedSymbol.sanctuary_location.replace('_', ' ')}
+                            </span>
+                          )}
+                          {selectedSymbol.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                        <p className="text-gray-700 mb-4">{selectedSymbol.short_description}</p>
+
+                        {selectedSymbol.primary_scripture_references.length > 0 && (
+                          <div className="flex flex-wrap gap-2">
+                            {selectedSymbol.primary_scripture_references.map((ref) => (
+                              <span
+                                key={ref}
+                                className="px-2 py-1 bg-amber-50 text-amber-700 rounded text-sm font-medium"
+                              >
+                                {ref}
+                              </span>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     </div>
+
+                    {relatedSymbols.length > 0 && (
+                      <div className="mt-4 pt-4 border-t border-gray-200">
+                        <h4 className="text-sm font-semibold text-gray-700 mb-2">Related Symbols</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {relatedSymbols.map((rel) => (
+                            <button
+                              key={rel.id}
+                              onClick={() => setSelectedSymbolId(rel.id)}
+                              className="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded text-sm transition-colors"
+                            >
+                              {rel.name}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
-                  <p className="text-gray-700">
-                    {sampleSymbols.find((s) => s.id === selectedSymbolId)?.shortDescription}
-                  </p>
-                </div>
+                ) : null}
 
                 {/* Tab Navigation */}
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -264,36 +350,144 @@ const SymbolismExplorer = () => {
 
                   {/* Tab Content */}
                   <div className="p-6">
-                    {activeTab === 'overview' && (
+                    {activeTab === 'overview' && selectedSymbol && (
                       <div className="space-y-6">
-                        <div className="prose max-w-none">
-                          <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                            Symbol Overview
-                          </h3>
-                          <p className="text-gray-700 mb-4">
-                            This symbol has rich theological significance across multiple dimensions.
-                            Explore the tabs above to dive deep into library resources, typological
-                            connections, linguistic analysis, 3D models, and interactive learning.
-                          </p>
-                          <div className="grid md:grid-cols-2 gap-4 mt-6">
+                        {selectedSymbol.detailed_description && (
+                          <div className="prose max-w-none">
+                            <h3 className="text-xl font-semibold text-gray-900 mb-4">Detailed Description</h3>
+                            <p className="text-gray-700">{selectedSymbol.detailed_description}</p>
+                          </div>
+                        )}
+
+                        <div className="grid md:grid-cols-2 gap-6">
+                          {selectedSymbol.symbolic_meaning && (
                             <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
-                              <h4 className="font-semibold text-blue-900 mb-2">
-                                Biblical Foundation
-                              </h4>
-                              <p className="text-sm text-gray-700">
-                                Rooted in Scripture with extensive Old and New Testament references
-                              </p>
+                              <h4 className="font-semibold text-blue-900 mb-2">Symbolic Meaning</h4>
+                              <p className="text-sm text-gray-700">{selectedSymbol.symbolic_meaning}</p>
                             </div>
+                          )}
+
+                          {selectedSymbol.christological_type && (
                             <div className="p-4 bg-green-50 rounded-lg border border-green-200">
-                              <h4 className="font-semibold text-green-900 mb-2">
-                                Christological Type
-                              </h4>
-                              <p className="text-sm text-gray-700">
-                                Points forward to Christ and His ministry in the heavenly sanctuary
-                              </p>
+                              <h4 className="font-semibold text-green-900 mb-2">Christological Type</h4>
+                              <p className="text-sm text-gray-700">{selectedSymbol.christological_type}</p>
+                            </div>
+                          )}
+
+                          {selectedSymbol.theological_significance && (
+                            <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+                              <h4 className="font-semibold text-purple-900 mb-2">Theological Significance</h4>
+                              <p className="text-sm text-gray-700">{selectedSymbol.theological_significance}</p>
+                            </div>
+                          )}
+
+                          {selectedSymbol.practical_application && (
+                            <div className="p-4 bg-amber-50 rounded-lg border border-amber-200">
+                              <h4 className="font-semibold text-amber-900 mb-2">Practical Application</h4>
+                              <p className="text-sm text-gray-700">{selectedSymbol.practical_application}</p>
+                            </div>
+                          )}
+                        </div>
+
+                        {(selectedSymbol.hebrew_term || selectedSymbol.greek_term) && (
+                          <div className="p-6 bg-gray-50 rounded-lg border border-gray-200">
+                            <h4 className="font-semibold text-gray-900 mb-4">Original Language Terms</h4>
+                            <div className="grid md:grid-cols-2 gap-4">
+                              {selectedSymbol.hebrew_term && (
+                                <div>
+                                  <span className="text-sm text-gray-500">Hebrew</span>
+                                  <div className="text-2xl font-bold text-gray-900 mb-1">{selectedSymbol.hebrew_term}</div>
+                                  {selectedSymbol.hebrew_transliteration && (
+                                    <div className="text-sm text-gray-600">{selectedSymbol.hebrew_transliteration}</div>
+                                  )}
+                                </div>
+                              )}
+                              {selectedSymbol.greek_term && (
+                                <div>
+                                  <span className="text-sm text-gray-500">Greek</span>
+                                  <div className="text-2xl font-bold text-gray-900 mb-1">{selectedSymbol.greek_term}</div>
+                                  {selectedSymbol.greek_transliteration && (
+                                    <div className="text-sm text-gray-600">{selectedSymbol.greek_transliteration}</div>
+                                  )}
+                                </div>
+                              )}
                             </div>
                           </div>
-                        </div>
+                        )}
+
+                        {selectedSymbol.historical_context && (
+                          <div className="p-6 bg-blue-50 rounded-lg border border-blue-200">
+                            <h4 className="font-semibold text-blue-900 mb-3">Historical Context</h4>
+                            <p className="text-gray-700">{selectedSymbol.historical_context}</p>
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    {activeTab === 'commentary' && (
+                      <div className="space-y-6">
+                        <h3 className="text-2xl font-bold text-gray-900">Seventh-day Adventist Commentary</h3>
+
+                        {commentaryLoading ? (
+                          <div className="flex items-center justify-center py-12">
+                            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-amber-600"></div>
+                          </div>
+                        ) : commentary.length > 0 ? (
+                          <div className="space-y-4">
+                            {commentary.map((item) => (
+                              <div key={item.id} className="bg-white border border-gray-200 rounded-lg p-6">
+                                <div className="flex items-start justify-between mb-3">
+                                  <div>
+                                    <h4 className="font-semibold text-gray-900 text-lg">{item.author}</h4>
+                                    {item.book_title && (
+                                      <p className="text-sm text-gray-600">
+                                        {item.book_title}
+                                        {item.publication_year && ` (${item.publication_year})`}
+                                      </p>
+                                    )}
+                                  </div>
+                                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
+                                    {item.source_type.replace('_', ' ')}
+                                  </span>
+                                </div>
+
+                                <blockquote className="border-l-4 border-amber-500 pl-4 italic text-gray-700 mb-4">
+                                  {item.quote_text}
+                                </blockquote>
+
+                                {item.page_reference && (
+                                  <p className="text-sm text-gray-500 mb-2">Page: {item.page_reference}</p>
+                                )}
+
+                                {item.context && (
+                                  <div className="mb-3">
+                                    <h5 className="text-sm font-semibold text-gray-700 mb-1">Context</h5>
+                                    <p className="text-sm text-gray-600">{item.context}</p>
+                                  </div>
+                                )}
+
+                                {item.theological_emphasis && (
+                                  <div className="mb-3">
+                                    <h5 className="text-sm font-semibold text-gray-700 mb-1">Theological Emphasis</h5>
+                                    <p className="text-sm text-gray-600">{item.theological_emphasis}</p>
+                                  </div>
+                                )}
+
+                                {item.application_notes && (
+                                  <div className="p-3 bg-amber-50 rounded">
+                                    <h5 className="text-sm font-semibold text-amber-900 mb-1">Application</h5>
+                                    <p className="text-sm text-gray-700">{item.application_notes}</p>
+                                  </div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <div className="text-center py-12 text-gray-500">
+                            <BookOpen className="w-12 h-12 mx-auto mb-3 text-gray-400" />
+                            <p>No SDA commentary available for this symbol yet.</p>
+                          </div>
+                        )}
                       </div>
                     )}
 
