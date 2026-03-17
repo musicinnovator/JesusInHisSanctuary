@@ -1,23 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import {
-  ArrowLeft,
-  Book,
-  Sparkles,
-  ChevronRight,
-  Scale,
-  Crown,
-  Heart,
-  Shield,
-  Coins,
-  Moon,
-  BookOpen,
-  CheckCircle,
-  XCircle,
-  Loader2
-} from 'lucide-react';
+import { ArrowLeft, Book, Sparkles, ChevronRight, Scale, Crown, Heart, Shield, Coins, Moon, BookOpen, CircleCheck as CheckCircle, Circle as XCircle, Loader as Loader2 } from 'lucide-react';
 import { useColorBySlug } from '../hooks/useSacredColors';
+import { useColorEnhancements } from '../hooks/useColorEnhancements';
 import type { ColorSymbolism, ColorQuizQuestion } from '../types/sacredColors';
+import SymbolicMeaningAccordion from './colors/SymbolicMeaningAccordion';
+import ScriptureViewer from './colors/ScriptureViewer';
 
 const iconMap: Record<string, React.FC<{ className?: string }>> = {
   Scale,
@@ -32,6 +20,7 @@ const iconMap: Record<string, React.FC<{ className?: string }>> = {
 export default function ColorDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const { colorData, loading, error } = useColorBySlug(slug);
+  const { symbolicMeanings, scriptureReferences, loading: enhancementsLoading } = useColorEnhancements(slug || '');
   const [activeTab, setActiveTab] = useState<'overview' | 'symbolism' | 'applications' | 'quiz'>('overview');
   const [selectedTradition, setSelectedTradition] = useState<'jewish' | 'christian' | 'adventist'>('adventist');
 
@@ -119,7 +108,13 @@ export default function ColorDetailPage() {
 
           <div className="p-8 md:p-12">
             {activeTab === 'overview' && (
-              <OverviewTab color={color} symbolism={symbolism} applications={applications} />
+              <OverviewTab
+                color={color}
+                symbolism={symbolism}
+                applications={applications}
+                symbolicMeanings={symbolicMeanings}
+                scriptureReferences={scriptureReferences}
+              />
             )}
             {activeTab === 'symbolism' && (
               <SymbolismTab
@@ -160,7 +155,15 @@ function TabButton({ active, onClick, label }: TabButtonProps) {
   );
 }
 
-function OverviewTab({ color, symbolism, applications }: any) {
+interface OverviewTabProps {
+  color: any;
+  symbolism: any;
+  applications: any;
+  symbolicMeanings: any[];
+  scriptureReferences: any[];
+}
+
+function OverviewTab({ color, symbolism, applications, symbolicMeanings, scriptureReferences }: OverviewTabProps) {
   return (
     <div className="space-y-12">
       <div>
@@ -177,6 +180,20 @@ function OverviewTab({ color, symbolism, applications }: any) {
         <h2 className="text-3xl font-bold text-stone-900 mb-4">Sanctuary Usage</h2>
         <p className="text-lg text-stone-700 leading-relaxed">{color.sanctuary_usage}</p>
       </div>
+
+      {symbolicMeanings.length > 0 && (
+        <div>
+          <h2 className="text-3xl font-bold text-stone-900 mb-6">Symbolic Representations</h2>
+          <SymbolicMeaningAccordion meanings={symbolicMeanings} />
+        </div>
+      )}
+
+      {scriptureReferences.length > 0 && (
+        <div>
+          <h2 className="text-3xl font-bold text-stone-900 mb-6">Interactive Scripture References</h2>
+          <ScriptureViewer references={scriptureReferences} colorName={color.color_name} />
+        </div>
+      )}
 
       <div className="grid md:grid-cols-2 gap-8">
         <div className="bg-stone-50 rounded-xl p-6">
