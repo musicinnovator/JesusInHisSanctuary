@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Hop as Home, Search, Book, BookOpen, GitBranch, Languages, Box, GraduationCap, Grid2x2 as Grid, List, X, ListFilter as Filter, Tag } from 'lucide-react';
+import { Hop as Home, Search, Grid2x2 as Grid, List, X, ListFilter as Filter, Tag } from 'lucide-react';
 import DonationBanner from './DonationBanner';
 import { LibraryResourcesPanel } from './symbolism/LibraryResourcesPanel';
 import { TypologyPanel } from './symbolism/TypologyPanel';
@@ -27,13 +27,13 @@ const SymbolismExplorer = () => {
   const { relatedSymbols } = useRelatedSymbols(selectedSymbolId);
 
   const tabs = [
-    { id: 'overview', label: 'Overview', icon: Book },
-    { id: 'commentary', label: 'SDA Commentary', icon: BookOpen },
-    { id: 'library', label: 'Library', icon: BookOpen },
-    { id: 'typology', label: 'Type & Antitype', icon: GitBranch },
-    { id: 'linguistic', label: 'Word Studies', icon: Languages },
-    { id: '3d', label: '3D Models', icon: Box },
-    { id: 'learning', label: 'Learning', icon: GraduationCap },
+    { id: 'overview', label: 'Overview' },
+    { id: 'commentary', label: 'SDA Commentary' },
+    { id: 'library', label: 'Library Resources' },
+    { id: 'typology', label: 'Type & Antitype' },
+    { id: 'linguistic', label: 'Linguistic Analysis' },
+    { id: '3d', label: '3D Visualization' },
+    { id: 'learning', label: 'Learning Paths' },
   ];
 
   return (
@@ -41,21 +41,21 @@ const SymbolismExplorer = () => {
       <DonationBanner />
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-amber-600 to-amber-700 text-white py-6 shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-4">
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex items-center justify-between mb-3">
             <Link
               to="/"
-              className="flex items-center gap-2 text-amber-100 hover:text-white transition-colors"
+              className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors text-sm"
             >
-              <Home className="w-5 h-5" />
-              <span>Back to Home</span>
+              <Home className="w-4 h-4" />
+              <span>Return to Home</span>
             </Link>
           </div>
 
-          <h1 className="text-4xl font-bold mb-2">Symbolism Explorer</h1>
-          <p className="text-amber-100 text-lg">
-            Comprehensive sanctuary symbolism with library resources, typology, linguistics, 3D models, and interactive learning
+          <h1 className="text-3xl font-semibold text-gray-900 mb-2">Sanctuary Symbolism Explorer</h1>
+          <p className="text-gray-600">
+            Comprehensive biblical and theological research tool for sanctuary symbols, typology, and prophetic interpretation
           </p>
         </div>
       </div>
@@ -64,25 +64,25 @@ const SymbolismExplorer = () => {
         <div className="grid lg:grid-cols-4 gap-8">
           {/* Sidebar - Symbol Browser */}
           <div className="lg:col-span-1 space-y-6">
-            <div className="bg-white rounded-lg p-6 shadow-lg sticky top-4">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-gray-900">Symbols</h3>
+            <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm sticky top-4">
+              <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-200">
+                <h3 className="text-base font-semibold text-gray-900">Symbol Database</h3>
                 <div className="flex gap-1">
                   <button
                     onClick={() => setViewMode('grid')}
-                    className={`p-2 rounded ${
-                      viewMode === 'grid' ? 'bg-amber-100 text-amber-700' : 'text-gray-400'
+                    className={`p-1.5 rounded ${
+                      viewMode === 'grid' ? 'bg-gray-200 text-gray-700' : 'text-gray-400 hover:text-gray-600'
                     }`}
                   >
-                    <Grid className="w-4 h-4" />
+                    <Grid className="w-3.5 h-3.5" />
                   </button>
                   <button
                     onClick={() => setViewMode('list')}
-                    className={`p-2 rounded ${
-                      viewMode === 'list' ? 'bg-amber-100 text-amber-700' : 'text-gray-400'
+                    className={`p-1.5 rounded ${
+                      viewMode === 'list' ? 'bg-gray-200 text-gray-700' : 'text-gray-400 hover:text-gray-600'
                     }`}
                   >
-                    <List className="w-4 h-4" />
+                    <List className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>
@@ -109,9 +109,9 @@ const SymbolismExplorer = () => {
               {/* Filters */}
               <button
                 onClick={() => setShowFilters(!showFilters)}
-                className="w-full mb-3 flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg"
+                className="w-full mb-3 flex items-center justify-center gap-2 px-3 py-2 text-xs font-medium text-gray-600 bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded"
               >
-                <Filter className="w-4 h-4" />
+                <Filter className="w-3.5 h-3.5" />
                 {showFilters ? 'Hide Filters' : 'Show Filters'}
               </button>
 
@@ -201,57 +201,73 @@ const SymbolismExplorer = () => {
           {/* Main Content */}
           <div className="lg:col-span-3 space-y-6">
             {!selectedSymbolId ? (
-              <div className="bg-white rounded-lg p-12 shadow-lg text-center">
-                <Book className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                  Welcome to the Symbolism Explorer
-                </h2>
-                <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                  Select a sanctuary symbol from the sidebar to explore its rich theological meaning,
-                  library resources, typological connections, linguistic analysis, 3D models, and
-                  interactive learning features.
-                </p>
-                <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto text-left">
-                  <div className="p-4 bg-blue-50 rounded-lg">
-                    <BookOpen className="w-8 h-8 text-blue-600 mb-2" />
-                    <h3 className="font-semibold text-gray-900 mb-1">Library</h3>
-                    <p className="text-sm text-gray-600">
-                      Access books, articles, and scholarly resources
-                    </p>
+              <div className="bg-white rounded-lg border border-gray-200 shadow-sm">
+                <div className="border-b border-gray-200 bg-gray-50 px-6 py-4">
+                  <h2 className="text-xl font-semibold text-gray-900">
+                    Sanctuary Symbolism Database
+                  </h2>
+                  <p className="text-sm text-gray-600 mt-1">
+                    Comprehensive theological analysis and biblical scholarship
+                  </p>
+                </div>
+                <div className="p-6">
+                  <div className="mb-6">
+                    <h3 className="text-base font-semibold text-gray-900 mb-3">Research Tools Available</h3>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3 text-sm">
+                        <div className="w-1 h-1 bg-gray-400 rounded-full mt-2"></div>
+                        <div>
+                          <span className="font-medium text-gray-900">Symbol Overview:</span>
+                          <span className="text-gray-600 ml-1">Detailed descriptions, Hebrew/Greek terms, and scriptural foundations</span>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3 text-sm">
+                        <div className="w-1 h-1 bg-gray-400 rounded-full mt-2"></div>
+                        <div>
+                          <span className="font-medium text-gray-900">SDA Commentary:</span>
+                          <span className="text-gray-600 ml-1">Ellen G. White, historic pioneers, and modern scholars</span>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3 text-sm">
+                        <div className="w-1 h-1 bg-gray-400 rounded-full mt-2"></div>
+                        <div>
+                          <span className="font-medium text-gray-900">Library Resources:</span>
+                          <span className="text-gray-600 ml-1">Books, articles, and academic papers with citations</span>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3 text-sm">
+                        <div className="w-1 h-1 bg-gray-400 rounded-full mt-2"></div>
+                        <div>
+                          <span className="font-medium text-gray-900">Typological Analysis:</span>
+                          <span className="text-gray-600 ml-1">Type and antitype relationships with prophetic fulfillment</span>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3 text-sm">
+                        <div className="w-1 h-1 bg-gray-400 rounded-full mt-2"></div>
+                        <div>
+                          <span className="font-medium text-gray-900">Linguistic Studies:</span>
+                          <span className="text-gray-600 ml-1">Hebrew and Greek word analysis with etymology</span>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3 text-sm">
+                        <div className="w-1 h-1 bg-gray-400 rounded-full mt-2"></div>
+                        <div>
+                          <span className="font-medium text-gray-900">3D Visualization:</span>
+                          <span className="text-gray-600 ml-1">Interactive models with spatial context</span>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3 text-sm">
+                        <div className="w-1 h-1 bg-gray-400 rounded-full mt-2"></div>
+                        <div>
+                          <span className="font-medium text-gray-900">Learning Paths:</span>
+                          <span className="text-gray-600 ml-1">Structured study sequences and progress tracking</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="p-4 bg-green-50 rounded-lg">
-                    <GitBranch className="w-8 h-8 text-green-600 mb-2" />
-                    <h3 className="font-semibold text-gray-900 mb-1">Typology</h3>
+                  <div className="border-t border-gray-200 pt-4">
                     <p className="text-sm text-gray-600">
-                      Discover type and antitype relationships
-                    </p>
-                  </div>
-                  <div className="p-4 bg-purple-50 rounded-lg">
-                    <Languages className="w-8 h-8 text-purple-600 mb-2" />
-                    <h3 className="font-semibold text-gray-900 mb-1">Linguistics</h3>
-                    <p className="text-sm text-gray-600">
-                      Study Hebrew and Greek word meanings
-                    </p>
-                  </div>
-                  <div className="p-4 bg-amber-50 rounded-lg">
-                    <Box className="w-8 h-8 text-amber-600 mb-2" />
-                    <h3 className="font-semibold text-gray-900 mb-1">3D Models</h3>
-                    <p className="text-sm text-gray-600">
-                      Explore interactive 3D visualizations
-                    </p>
-                  </div>
-                  <div className="p-4 bg-red-50 rounded-lg">
-                    <GraduationCap className="w-8 h-8 text-red-600 mb-2" />
-                    <h3 className="font-semibold text-gray-900 mb-1">Learning</h3>
-                    <p className="text-sm text-gray-600">
-                      Follow guided paths and take quizzes
-                    </p>
-                  </div>
-                  <div className="p-4 bg-gray-100 rounded-lg">
-                    <Book className="w-8 h-8 text-gray-600 mb-2" />
-                    <h3 className="font-semibold text-gray-900 mb-1">Overview</h3>
-                    <p className="text-sm text-gray-600">
-                      See comprehensive symbol information
+                      Select a symbol from the sidebar to begin your research.
                     </p>
                   </div>
                 </div>
@@ -264,87 +280,94 @@ const SymbolismExplorer = () => {
                     <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-amber-600"></div>
                   </div>
                 ) : selectedSymbol ? (
-                  <div className="bg-white rounded-lg p-6 shadow-lg">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex-1">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                          {selectedSymbol.name}
-                        </h2>
-                        <div className="flex flex-wrap items-center gap-2 mb-3">
-                          <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full font-medium text-sm">
-                            {selectedSymbol.category}
-                          </span>
-                          {selectedSymbol.sanctuary_location && (
-                            <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full font-medium text-sm">
-                              {selectedSymbol.sanctuary_location.replace('_', ' ')}
-                            </span>
-                          )}
-                          {selectedSymbol.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs"
-                            >
-                              {tag}
-                            </span>
-                          ))}
+                  <div className="bg-white rounded-lg border border-gray-200 shadow-sm">
+                    <div className="border-b border-gray-200 bg-gray-50 px-6 py-4">
+                      <h2 className="text-2xl font-semibold text-gray-900 mb-2">
+                        {selectedSymbol.name}
+                      </h2>
+                      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+                        <div className="text-gray-600">
+                          <span className="font-medium">Category:</span> {selectedSymbol.category}
                         </div>
-                        <p className="text-gray-700 mb-4">{selectedSymbol.short_description}</p>
+                        {selectedSymbol.sanctuary_location && (
+                          <div className="text-gray-600">
+                            <span className="font-medium">Location:</span> {selectedSymbol.sanctuary_location.replace('_', ' ')}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    <div className="px-6 py-4">
+                      <p className="text-gray-700 leading-relaxed mb-4">{selectedSymbol.short_description}</p>
 
-                        {selectedSymbol.primary_scripture_references.length > 0 && (
+                      {selectedSymbol.primary_scripture_references.length > 0 && (
+                        <div className="mb-4">
+                          <h4 className="text-sm font-semibold text-gray-900 mb-2">Primary Scripture References:</h4>
                           <div className="flex flex-wrap gap-2">
                             {selectedSymbol.primary_scripture_references.map((ref) => (
                               <span
                                 key={ref}
-                                className="px-2 py-1 bg-amber-50 text-amber-700 rounded text-sm font-medium"
+                                className="px-2 py-1 bg-gray-100 text-gray-700 border border-gray-300 text-sm"
                               >
                                 {ref}
                               </span>
                             ))}
                           </div>
-                        )}
-                      </div>
-                    </div>
-
-                    {relatedSymbols.length > 0 && (
-                      <div className="mt-4 pt-4 border-t border-gray-200">
-                        <h4 className="text-sm font-semibold text-gray-700 mb-2">Related Symbols</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {relatedSymbols.map((rel) => (
-                            <button
-                              key={rel.id}
-                              onClick={() => setSelectedSymbolId(rel.id)}
-                              className="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded text-sm transition-colors"
-                            >
-                              {rel.name}
-                            </button>
-                          ))}
                         </div>
-                      </div>
-                    )}
+                      )}
+
+                      {selectedSymbol.tags.length > 0 && (
+                        <div className="mb-4">
+                          <h4 className="text-sm font-semibold text-gray-900 mb-2">Tags:</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {selectedSymbol.tags.map((tag) => (
+                              <span
+                                key={tag}
+                                className="px-2 py-1 bg-white text-gray-600 border border-gray-300 text-xs"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {relatedSymbols.length > 0 && (
+                        <div className="pt-4 border-t border-gray-200">
+                          <h4 className="text-sm font-semibold text-gray-900 mb-2">Related Symbols:</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {relatedSymbols.map((rel) => (
+                              <button
+                                key={rel.id}
+                                onClick={() => setSelectedSymbolId(rel.id)}
+                                className="px-3 py-1.5 bg-white text-gray-700 border border-gray-300 hover:border-gray-400 hover:bg-gray-50 text-sm transition-colors"
+                              >
+                                {rel.name}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 ) : null}
 
                 {/* Tab Navigation */}
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                  <div className="border-b border-gray-200 overflow-x-auto">
-                    <nav className="flex">
-                      {tabs.map((tab) => {
-                        const Icon = tab.icon;
-                        return (
-                          <button
-                            key={tab.id}
-                            onClick={() => setActiveTab(tab.id as ViewTab)}
-                            className={`flex items-center gap-2 px-6 py-4 font-medium border-b-2 transition-colors whitespace-nowrap ${
-                              activeTab === tab.id
-                                ? 'border-amber-600 text-amber-600 bg-amber-50'
-                                : 'border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50'
-                            }`}
-                          >
-                            <Icon className="w-5 h-5" />
-                            {tab.label}
-                          </button>
-                        );
-                      })}
+                <div className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
+                  <div className="border-b border-gray-200 bg-gray-50">
+                    <nav className="flex overflow-x-auto">
+                      {tabs.map((tab) => (
+                        <button
+                          key={tab.id}
+                          onClick={() => setActiveTab(tab.id as ViewTab)}
+                          className={`px-6 py-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
+                            activeTab === tab.id
+                              ? 'border-gray-900 text-gray-900 bg-white'
+                              : 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300'
+                          }`}
+                        >
+                          {tab.label}
+                        </button>
+                      ))}
                     </nav>
                   </div>
 
@@ -353,61 +376,61 @@ const SymbolismExplorer = () => {
                     {activeTab === 'overview' && selectedSymbol && (
                       <div className="space-y-6">
                         {selectedSymbol.detailed_description && (
-                          <div className="prose max-w-none">
-                            <h3 className="text-xl font-semibold text-gray-900 mb-4">Detailed Description</h3>
-                            <p className="text-gray-700">{selectedSymbol.detailed_description}</p>
+                          <div>
+                            <h3 className="text-lg font-semibold text-gray-900 mb-3">Detailed Description</h3>
+                            <p className="text-gray-700 leading-relaxed">{selectedSymbol.detailed_description}</p>
                           </div>
                         )}
 
-                        <div className="grid md:grid-cols-2 gap-6">
+                        <div className="space-y-4">
                           {selectedSymbol.symbolic_meaning && (
-                            <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
-                              <h4 className="font-semibold text-blue-900 mb-2">Symbolic Meaning</h4>
-                              <p className="text-sm text-gray-700">{selectedSymbol.symbolic_meaning}</p>
+                            <div className="border-l-2 border-gray-300 pl-4">
+                              <h4 className="font-semibold text-gray-900 mb-2">Symbolic Meaning</h4>
+                              <p className="text-sm text-gray-700 leading-relaxed">{selectedSymbol.symbolic_meaning}</p>
                             </div>
                           )}
 
                           {selectedSymbol.christological_type && (
-                            <div className="p-4 bg-green-50 rounded-lg border border-green-200">
-                              <h4 className="font-semibold text-green-900 mb-2">Christological Type</h4>
-                              <p className="text-sm text-gray-700">{selectedSymbol.christological_type}</p>
+                            <div className="border-l-2 border-gray-300 pl-4">
+                              <h4 className="font-semibold text-gray-900 mb-2">Christological Type</h4>
+                              <p className="text-sm text-gray-700 leading-relaxed">{selectedSymbol.christological_type}</p>
                             </div>
                           )}
 
                           {selectedSymbol.theological_significance && (
-                            <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
-                              <h4 className="font-semibold text-purple-900 mb-2">Theological Significance</h4>
-                              <p className="text-sm text-gray-700">{selectedSymbol.theological_significance}</p>
+                            <div className="border-l-2 border-gray-300 pl-4">
+                              <h4 className="font-semibold text-gray-900 mb-2">Theological Significance</h4>
+                              <p className="text-sm text-gray-700 leading-relaxed">{selectedSymbol.theological_significance}</p>
                             </div>
                           )}
 
                           {selectedSymbol.practical_application && (
-                            <div className="p-4 bg-amber-50 rounded-lg border border-amber-200">
-                              <h4 className="font-semibold text-amber-900 mb-2">Practical Application</h4>
-                              <p className="text-sm text-gray-700">{selectedSymbol.practical_application}</p>
+                            <div className="border-l-2 border-gray-300 pl-4">
+                              <h4 className="font-semibold text-gray-900 mb-2">Practical Application</h4>
+                              <p className="text-sm text-gray-700 leading-relaxed">{selectedSymbol.practical_application}</p>
                             </div>
                           )}
                         </div>
 
                         {(selectedSymbol.hebrew_term || selectedSymbol.greek_term) && (
-                          <div className="p-6 bg-gray-50 rounded-lg border border-gray-200">
+                          <div className="border-t border-gray-200 pt-6">
                             <h4 className="font-semibold text-gray-900 mb-4">Original Language Terms</h4>
-                            <div className="grid md:grid-cols-2 gap-4">
+                            <div className="grid md:grid-cols-2 gap-6">
                               {selectedSymbol.hebrew_term && (
-                                <div>
-                                  <span className="text-sm text-gray-500">Hebrew</span>
-                                  <div className="text-2xl font-bold text-gray-900 mb-1">{selectedSymbol.hebrew_term}</div>
+                                <div className="space-y-2">
+                                  <div className="text-xs font-medium text-gray-500 uppercase tracking-wide">Hebrew</div>
+                                  <div className="text-2xl text-gray-900">{selectedSymbol.hebrew_term}</div>
                                   {selectedSymbol.hebrew_transliteration && (
-                                    <div className="text-sm text-gray-600">{selectedSymbol.hebrew_transliteration}</div>
+                                    <div className="text-sm text-gray-600 italic">{selectedSymbol.hebrew_transliteration}</div>
                                   )}
                                 </div>
                               )}
                               {selectedSymbol.greek_term && (
-                                <div>
-                                  <span className="text-sm text-gray-500">Greek</span>
-                                  <div className="text-2xl font-bold text-gray-900 mb-1">{selectedSymbol.greek_term}</div>
+                                <div className="space-y-2">
+                                  <div className="text-xs font-medium text-gray-500 uppercase tracking-wide">Greek</div>
+                                  <div className="text-2xl text-gray-900">{selectedSymbol.greek_term}</div>
                                   {selectedSymbol.greek_transliteration && (
-                                    <div className="text-sm text-gray-600">{selectedSymbol.greek_transliteration}</div>
+                                    <div className="text-sm text-gray-600 italic">{selectedSymbol.greek_transliteration}</div>
                                   )}
                                 </div>
                               )}
@@ -416,9 +439,9 @@ const SymbolismExplorer = () => {
                         )}
 
                         {selectedSymbol.historical_context && (
-                          <div className="p-6 bg-blue-50 rounded-lg border border-blue-200">
-                            <h4 className="font-semibold text-blue-900 mb-3">Historical Context</h4>
-                            <p className="text-gray-700">{selectedSymbol.historical_context}</p>
+                          <div className="border-t border-gray-200 pt-6">
+                            <h4 className="font-semibold text-gray-900 mb-3">Historical Context</h4>
+                            <p className="text-gray-700 leading-relaxed">{selectedSymbol.historical_context}</p>
                           </div>
                         )}
                       </div>
@@ -426,56 +449,54 @@ const SymbolismExplorer = () => {
 
                     {activeTab === 'commentary' && (
                       <div className="space-y-6">
-                        <h3 className="text-2xl font-bold text-gray-900">Seventh-day Adventist Commentary</h3>
+                        <div className="border-b border-gray-200 pb-3">
+                          <h3 className="text-lg font-semibold text-gray-900">Seventh-day Adventist Commentary</h3>
+                          <p className="text-sm text-gray-600 mt-1">Selected writings from Adventist scholars and pioneers</p>
+                        </div>
 
                         {commentaryLoading ? (
                           <div className="flex items-center justify-center py-12">
-                            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-amber-600"></div>
+                            <div className="text-sm text-gray-500">Loading commentary...</div>
                           </div>
                         ) : commentary.length > 0 ? (
-                          <div className="space-y-4">
+                          <div className="space-y-6">
                             {commentary.map((item) => (
-                              <div key={item.id} className="bg-white border border-gray-200 rounded-lg p-6">
-                                <div className="flex items-start justify-between mb-3">
-                                  <div>
-                                    <h4 className="font-semibold text-gray-900 text-lg">{item.author}</h4>
-                                    {item.book_title && (
-                                      <p className="text-sm text-gray-600">
-                                        {item.book_title}
-                                        {item.publication_year && ` (${item.publication_year})`}
-                                      </p>
-                                    )}
+                              <div key={item.id} className="border-l-2 border-gray-300 pl-6">
+                                <div className="mb-3">
+                                  <h4 className="font-semibold text-gray-900">{item.author}</h4>
+                                  {item.book_title && (
+                                    <p className="text-sm text-gray-600">
+                                      <span className="italic">{item.book_title}</span>
+                                      {item.publication_year && ` (${item.publication_year})`}
+                                      {item.page_reference && `, p. ${item.page_reference}`}
+                                    </p>
+                                  )}
+                                  <div className="text-xs text-gray-500 mt-1">
+                                    Source: {item.source_type.replace('_', ' ')}
                                   </div>
-                                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
-                                    {item.source_type.replace('_', ' ')}
-                                  </span>
                                 </div>
 
-                                <blockquote className="border-l-4 border-amber-500 pl-4 italic text-gray-700 mb-4">
-                                  {item.quote_text}
+                                <blockquote className="text-gray-700 mb-4 leading-relaxed">
+                                  "{item.quote_text}"
                                 </blockquote>
-
-                                {item.page_reference && (
-                                  <p className="text-sm text-gray-500 mb-2">Page: {item.page_reference}</p>
-                                )}
 
                                 {item.context && (
                                   <div className="mb-3">
-                                    <h5 className="text-sm font-semibold text-gray-700 mb-1">Context</h5>
+                                    <h5 className="text-xs font-semibold text-gray-700 uppercase tracking-wide mb-1">Context</h5>
                                     <p className="text-sm text-gray-600">{item.context}</p>
                                   </div>
                                 )}
 
                                 {item.theological_emphasis && (
                                   <div className="mb-3">
-                                    <h5 className="text-sm font-semibold text-gray-700 mb-1">Theological Emphasis</h5>
+                                    <h5 className="text-xs font-semibold text-gray-700 uppercase tracking-wide mb-1">Theological Emphasis</h5>
                                     <p className="text-sm text-gray-600">{item.theological_emphasis}</p>
                                   </div>
                                 )}
 
                                 {item.application_notes && (
-                                  <div className="p-3 bg-amber-50 rounded">
-                                    <h5 className="text-sm font-semibold text-amber-900 mb-1">Application</h5>
+                                  <div className="bg-gray-50 border border-gray-200 p-3 mt-3">
+                                    <h5 className="text-xs font-semibold text-gray-700 uppercase tracking-wide mb-1">Application</h5>
                                     <p className="text-sm text-gray-700">{item.application_notes}</p>
                                   </div>
                                 )}
@@ -483,9 +504,9 @@ const SymbolismExplorer = () => {
                             ))}
                           </div>
                         ) : (
-                          <div className="text-center py-12 text-gray-500">
-                            <BookOpen className="w-12 h-12 mx-auto mb-3 text-gray-400" />
-                            <p>No SDA commentary available for this symbol yet.</p>
+                          <div className="text-center py-12">
+                            <p className="text-gray-500">No SDA commentary available for this symbol yet.</p>
+                            <p className="text-sm text-gray-400 mt-2">Commentary will be added as content is curated.</p>
                           </div>
                         )}
                       </div>
