@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Book } from 'lucide-react';
 import DonationBanner from '../DonationBanner';
 import ColorNavigation from './ColorNavigation';
+import SymbolicMeaningAccordion from './SymbolicMeaningAccordion';
+import ScriptureViewer from './ScriptureViewer';
+import { useColorEnhancements } from '../../hooks/useColorEnhancements';
+import { supabase } from '../../lib/supabase';
 
 const BluePage = () => {
+  const [colorId, setColorId] = useState<string | undefined>();
+  const { meanings, scriptures, loading } = useColorEnhancements(colorId);
+  const [selectedScripture, setSelectedScripture] = useState<any>(null);
+
+  useEffect(() => {
+    async function fetchColorId() {
+      const { data } = await supabase
+        .from('sacred_colors')
+        .select('id')
+        .eq('slug', 'blue')
+        .maybeSingle();
+      if (data) setColorId(data.id);
+    }
+    fetchColorId();
+  }, []);
   return (
     <div className="min-h-screen bg-sanctuary-linen">
       <DonationBanner />
@@ -122,6 +141,51 @@ const BluePage = () => {
                 </div>
               </div>
             </div>
+
+            {/* NEW: Symbolic Meanings - Expandable Accordions */}
+            {meanings.length > 0 && (
+              <div className="mt-8">
+                <h2 className="text-3xl font-bold text-blue-800 mb-6">Symbolic Representations</h2>
+                <p className="text-gray-700 mb-4">
+                  Click on each meaning below to explore detailed SDA theological perspectives, Ellen G. White insights, and practical applications.
+                </p>
+                <SymbolicMeaningAccordion
+                  meanings={meanings}
+                  colorName="Blue"
+                  accentColor="#2563EB"
+                />
+              </div>
+            )}
+
+            {/* NEW: Interactive Scripture References */}
+            {scriptures.length > 0 && (
+              <div className="mt-8">
+                <h2 className="text-3xl font-bold text-blue-800 mb-6">Interactive Scripture References</h2>
+                <p className="text-gray-700 mb-4">
+                  Click any scripture reference to view the full text with multiple translations, context, and theological notes.
+                </p>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {scriptures.map(scripture => (
+                    <button
+                      key={scripture.id}
+                      onClick={() => setSelectedScripture(scripture)}
+                      className="bg-blue-50 rounded-lg p-4 border-2 border-blue-200 hover:border-blue-400 hover:shadow-md transition-all text-left"
+                    >
+                      <h3 className="font-bold text-blue-800 mb-2">
+                        {scripture.book} {scripture.chapter}:{scripture.verse_start}
+                        {scripture.verse_end && `-${scripture.verse_end}`}
+                      </h3>
+                      <p className="text-sm text-gray-600 line-clamp-2">
+                        {scripture.text_content}
+                      </p>
+                      <span className="text-xs text-blue-600 font-medium mt-2 inline-block">
+                        Click to read more →
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* The Divine Commands to Remember */}
             <div className="mt-8 bg-blue-50 rounded-lg p-8 border-2 border-blue-300">
@@ -370,7 +434,7 @@ const BluePage = () => {
                 <div className="bg-blue-900 rounded p-5 mt-4">
                   <p className="text-blue-100 leading-relaxed">
                     <strong>Note:</strong> There is a connection between a wound's cleansing and its color (blueish tint) and
-                    when a person is being cleansed from sin by remembering God's Holy Law. The more of God's Law is remembered,
+                    when a person is being cleansed from sin by remembering God's Holy Law. The more of God\'s Law is remembered,
                     the more the person is cleansed from sin. The more that sin is removed out of the person's life (cleansed).
                   </p>
                 </div>
@@ -415,6 +479,15 @@ const BluePage = () => {
         currentColor="Blue"
         nextColor={{ name: "Dark", path: "/colors/dark" }}
       />
+
+      {/* Scripture Viewer Modal */}
+      {selectedScripture && (
+        <ScriptureViewer
+          scripture={selectedScripture}
+          onClose={() => setSelectedScripture(null)}
+          accentColor="#2563EB"
+        />
+      )}
     </div>
   );
 };
