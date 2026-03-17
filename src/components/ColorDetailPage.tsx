@@ -20,7 +20,7 @@ const iconMap: Record<string, React.FC<{ className?: string }>> = {
 export default function ColorDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const { colorData, loading, error } = useColorBySlug(slug);
-  const { symbolicMeanings, scriptureReferences, loading: enhancementsLoading } = useColorEnhancements(slug || '');
+  const { meanings: symbolicMeanings, scriptures: scriptureReferences } = useColorEnhancements(colorData?.color?.id);
   const [activeTab, setActiveTab] = useState<'overview' | 'symbolism' | 'applications' | 'quiz'>('overview');
   const [selectedTradition, setSelectedTradition] = useState<'jewish' | 'christian' | 'adventist'>('adventist');
 
@@ -184,14 +184,18 @@ function OverviewTab({ color, symbolism, applications, symbolicMeanings, scriptu
       {symbolicMeanings.length > 0 && (
         <div>
           <h2 className="text-3xl font-bold text-stone-900 mb-6">Symbolic Representations</h2>
-          <SymbolicMeaningAccordion meanings={symbolicMeanings} />
+          <SymbolicMeaningAccordion meanings={symbolicMeanings} colorName={color.color_name} />
         </div>
       )}
 
       {scriptureReferences.length > 0 && (
         <div>
           <h2 className="text-3xl font-bold text-stone-900 mb-6">Interactive Scripture References</h2>
-          <ScriptureViewer references={scriptureReferences} colorName={color.color_name} />
+          <ScriptureReferenceGrid
+            references={scriptureReferences}
+            colorName={color.color_name}
+            accentColor={color.color_hex}
+          />
         </div>
       )}
 
@@ -543,6 +547,60 @@ function QuizTab({ questions, colorName }: { questions: ColorQuizQuestion[]; col
         </div>
       )}
     </div>
+  );
+}
+
+interface ScriptureReferenceGridProps {
+  references: any[];
+  colorName: string;
+  accentColor: string;
+}
+
+function ScriptureReferenceGrid({ references, colorName, accentColor }: ScriptureReferenceGridProps) {
+  const [selectedScripture, setSelectedScripture] = useState<any | null>(null);
+
+  const getReference = (ref: any) => {
+    const verseRef = ref.verse_end
+      ? `${ref.verse_start}-${ref.verse_end}`
+      : `${ref.verse_start}`;
+    return `${ref.book} ${ref.chapter}:${verseRef}`;
+  };
+
+  return (
+    <>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {references.map((ref) => (
+          <button
+            key={ref.id}
+            onClick={() => setSelectedScripture(ref)}
+            className="bg-white border-2 border-stone-200 hover:border-amber-500 rounded-lg p-4 text-left transition-all hover:shadow-lg group"
+          >
+            <div className="flex items-start justify-between mb-2">
+              <h3 className="font-semibold text-stone-900 group-hover:text-amber-600 transition-colors">
+                {getReference(ref)}
+              </h3>
+              <BookOpen className="w-5 h-5 text-stone-400 group-hover:text-amber-600 transition-colors" />
+            </div>
+            <p className="text-sm text-stone-600 line-clamp-2">
+              {ref.text_content.substring(0, 100)}...
+            </p>
+            {ref.is_primary_reference && (
+              <span className="inline-block mt-2 px-2 py-1 bg-amber-100 text-amber-700 text-xs font-medium rounded">
+                Primary Reference
+              </span>
+            )}
+          </button>
+        ))}
+      </div>
+
+      {selectedScripture && (
+        <ScriptureViewer
+          scripture={selectedScripture}
+          onClose={() => setSelectedScripture(null)}
+          accentColor={accentColor}
+        />
+      )}
+    </>
   );
 }
 
