@@ -140,17 +140,15 @@ async function seedCompleteSymbolismSystem() {
   }
 }
 
-// Run if called directly
-if (require.main === module) {
-  seedCompleteSymbolismSystem()
-    .then(() => {
-      console.log('\n🎉 Seeding complete!');
-      process.exit(0);
-    })
-    .catch((error) => {
-      console.error('\n💥 Seeding failed:', error);
-      process.exit(1);
-    });
-}
+// Run the seeding function
+seedCompleteSymbolismSystem()
+  .then(() => {
+    console.log('\n🎉 Seeding complete!');
+    process.exit(0);
+  })
+  .catch((error) => {
+    console.error('\n💥 Seeding failed:', error);
+    process.exit(1);
+  });
 
 export { seedCompleteSymbolismSystem };
