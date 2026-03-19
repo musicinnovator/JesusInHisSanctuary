@@ -133,4 +133,180 @@
   .section-spacing {
     @apply py-16 tablet:py-20 desktop:py-24;
   }
+
+  /* Professional Academic Design System Enhancement Layer */
+  /* Sharp, Professional Borders - Replace rounded corners */
+  .border-academic {
+    @apply border border-stone-300;
+    border-radius: 2px;
+  }
+
+  .border-academic-heavy {
+    @apply border-2 border-stone-400;
+    border-radius: 2px;
+  }
+
+  /* Classical Card Frames */
+  .card-frame {
+    @apply bg-white border-2 border-stone-300 p-6;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+
+  .card-frame:hover {
+    border-color: #8C6B3C;
+    box-shadow: 0 2px 6px rgba(140, 107, 60, 0.15);
+  }
+
+  /* Badge Styles - Sharp Rectangles */
+  .badge-professional {
+    @apply inline-block px-3 py-1 border border-stone-400 bg-white text-xs font-semibold uppercase tracking-wide;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  /* Classical Dividers */
+  .divider-ornamental {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #8C6B3C, transparent);
+    margin: 2rem 0;
+  }
+
+  .divider-heavy {
+    height: 2px;
+    background-color: #8C6B3C;
+    margin: 2rem 0;
+  }
+
+  /* Number Badges - Classical Style */
+  .number-badge {
+    @apply inline-flex items-center justify-center border-2 border-stone-400 bg-white text-sanctuary-navy font-bold;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 2px;
+  }
+
+  /* Feature Cards - Book Page Style */
+  .feature-card {
+    @apply bg-white border-2 border-stone-300 p-6;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+  }
+
+  .feature-card:hover {
+    border-color: #8C6B3C;
+    box-shadow: 0 4px 12px rgba(140, 107, 60, 0.12);
+    transform: translateY(-2px);
+  }
+
+  /* Classical Color Swatches - Square with Border */
+  .color-swatch {
+    @apply border-2 border-stone-400;
+    border-radius: 2px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Scholarly Quote Block */
+  .quote-scholarly {
+    @apply border-l-4 border-sanctuary-gold bg-amber-50/30 p-6;
+    border-radius: 2px;
+  }
+
+  /* Section Headers with Underline */
+  .section-header {
+    @apply border-b-2 border-sanctuary-gold pb-3 mb-6;
+  }
+
+  /* Navigation Links - Text-Based */
+  .nav-classical {
+    @apply relative inline-block font-semibold text-sanctuary-navy;
+    transition: color 0.2s ease;
+  }
+
+  .nav-classical::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #8C6B3C;
+    transition: width 0.3s ease;
+  }
+
+  .nav-classical:hover::after {
+    width: 100%;
+  }
+
+  .nav-classical:hover {
+    color: #8C6B3C;
+  }
+
+  /* Icon Replacement - Text-Based Labels */
+  .label-icon-replacement {
+    @apply inline-flex items-center justify-center px-4 py-2 border border-stone-400 bg-stone-50 font-semibold text-xs uppercase tracking-wider;
+    border-radius: 2px;
+  }
+
+  /* Button - Professional Style */
+  .btn-professional {
+    @apply inline-flex items-center px-6 py-3 border-2 border-sanctuary-gold bg-white text-sanctuary-gold font-semibold uppercase tracking-wide text-sm;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+  }
+
+  .btn-professional:hover {
+    @apply bg-sanctuary-gold text-white;
+  }
+
+  .btn-professional-primary {
+    @apply inline-flex items-center px-6 py-3 border-2 border-sanctuary-gold bg-sanctuary-gold text-white font-semibold uppercase tracking-wide text-sm;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+  }
+
+  .btn-professional-primary:hover {
+    @apply bg-sanctuary-gold-light border-sanctuary-gold-light;
+  }
+
+  /* Hero Background - Muted, Professional */
+  .hero-professional {
+    background: linear-gradient(135deg, #1C2A39 0%, #2A3F54 100%);
+  }
+
+  /* Stats Counter - Classical */
+  .stat-classical {
+    @apply border-2 border-stone-300 bg-white p-6 text-center;
+    border-radius: 2px;
+  }
+
+  /* Historical Pattern Backgrounds */
+  .pattern-damascene {
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(140, 107, 60, 0.02) 10px,
+      rgba(140, 107, 60, 0.02) 20px
+    );
+  }
+
+  .pattern-linen {
+    background-image:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+      linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
+
+@layer utilities {
+  /* Typography Classes */
+  .font-cinzel {
+    font-family: 'Cinzel', 'Palatino', 'Georgia', serif;
+  }
+
+  .font-crimson {
+    font-family: 'Crimson Text', 'Georgia', serif;
+  }
 }

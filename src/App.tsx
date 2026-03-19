@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './components/HomePage';
+import ProfessionalHomePage from './components/ProfessionalHomePage';
 import ColorsPage from './components/ColorsPage';
 import SacredColorsLanding from './components/SacredColorsLanding';
+import ProfessionalColorOverview from './components/colors/ProfessionalColorOverview';
 import ColorDetailPage from './components/ColorDetailPage';
 import SanctuaryViewer from './components/SanctuaryViewer';
 import EnhancedSanctuaryViewer from './components/EnhancedSanctuaryViewer';
@@ -46,7 +48,9 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/professional" element={<ProfessionalHomePage />} />
           <Route path="/colors" element={<SacredColorsLanding />} />
+          <Route path="/colors-professional" element={<ProfessionalColorOverview />} />
           <Route path="/colors/:slug" element={<ColorDetailPage />} />
           <Route path="/colors-classic" element={<ColorsPage />} />
           <Route path="/colors-classic/blue" element={<BluePage />} />
